@@ -1,5 +1,17 @@
 'use strict'
 
+let awesomeStack = []
+
 export default class Stack {
-  // your code here
+  constructor() {
+    this.commissary = []
+  }
+
+  push( item ) {
+    this.commissary.push( item )
+  }
+
+  length() {
+    return this.commissary.length
+  }
 }

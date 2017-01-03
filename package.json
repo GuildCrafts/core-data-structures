@@ -2,7 +2,7 @@
   "name": "core-data-structures",
   "description": "Tests and implementations for common data structures.",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-env": "^1.1.4",

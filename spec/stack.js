@@ -13,10 +13,10 @@ describe('Stack', () => {
 
   context('push()', () => {
     it('pushes an element to the top of the stack.', () => {
-      const myStack = new Stack()
+      const awesomeStack = new Stack()
 
-      expect(() => myStack.push('foo'))
-        .to.alter(() => myStack.length(), { from: 0, to: 1 })
+      expect(() => awesomeStack.push('foo'))
+        .to.alter(() => awesomeStack.length(), { from: 0, to: 1 })
     })
   })
 })
