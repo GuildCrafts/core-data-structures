@@ -27,16 +27,26 @@ describe('Stack', () => {
       expect(() => stack.push('foo'))
         .to.alter(() => stack.peek(), {from: 'bob', to: 'foo'})
     })
-
   })
+
   context('pop()', () => {
-    it('pushes an element to the top of the stack.', () => {
+    it('takes an element from the top of the stack.', () => {
+      const stack = new Stack()
+      stack.push('bob')
+      stack.push('alice')
+
+      expect(() => stack.pop())
+        .to.alter(() => stack.length(), { from: 2, to: 1 })
+    })
+    
+    it('returns null if stack is empty', () => {
       const stack = new Stack()
 
-      expect(() => stack.push('foo'))
-        .to.alter(() => stack.length(), { from: 0, to: 1 })
+      expect(stack.pop())
+        .to.be.null
     })
   })
+
   context('peek()', () => {
     it('pushes an element to the top of the stack.', () => {
       const stack = new Stack()

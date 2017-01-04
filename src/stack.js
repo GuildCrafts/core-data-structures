@@ -3,7 +3,7 @@
 export default class Stack {
   constructor(){
     this.size = 0
-    this.value = [ ]
+    this.value = []
   }
 
   push(element){
@@ -12,7 +12,12 @@ export default class Stack {
   }
 
   pop(){
-    return this.value.pop()
+    if(this.size > 0){
+      const poppedItem = this.value.shift()
+      this.size--
+      return poppedItem
+    }
+    else {return null}
   }
 
   peek(){
