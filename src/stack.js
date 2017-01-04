@@ -2,9 +2,9 @@
 
 
 export default class Stack {
-  constructor() {
-    this.top = 0
-    this.elements = []
+  constructor(initialValues=[]) {
+    this.elements = initialValues
+    this.top = initialValues.length
   }
 
   // this.push = find length of array and make sure the length = +1 after function runs
@@ -15,21 +15,22 @@ export default class Stack {
 
   // this.pop = find length of array and make sure length = -1 and it was taken off of the beginning
   pop() {
-    this.elements.shift()
+    const value = this.elements.shift()
     this.top--
+    return value
   }
 
   length() {
     return this.top
   }
 
+  peek() {
+    //console.log('peeked?' );
+    return this.elements[0]
 
-  //
-  //
-  // this.peek = return stackArray([0])
-  //
-  // this.isEmpty = stackArray() === null ? true : false
-  //
-  // this.length = return stackArray().size
+  }
 
+  isEmpty() {
+    return this.top === 0 ? true : false
+  }
 }
