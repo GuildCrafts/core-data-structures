@@ -27,7 +27,6 @@ describe('Stack', () => {
       expect(() => aStack[0]
         .to.equal('foo'))
     })
-
   })
 
   context('pop()', () => {
