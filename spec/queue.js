@@ -90,8 +90,5 @@ describe('Queue', () => {
         .to.equal(1)
     })
   })
-
-
-// queue.isEmpty()      // returns true if the queue is empty or false if not.
-// queue.length()       // returns the number of elements in the queue
+  
 })

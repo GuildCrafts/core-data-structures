@@ -11,46 +11,98 @@ describe('pQueue', () => {
     expect(pQueue).to.be.a('function')
   })
 
+  context( 'topPriority()', () => {
+    it( 'is the priority of the top element in the queue', () => {
+      const queue = new pQueue()
+
+      queue.enqueue( 'hi', 100 )
+
+      expect( queue.topPriority() ).to.equal( 100 )
+    })
+  })
+
+  context ('isEmpty()', () => {
+    it('shows the current priority queue is empty.', () => {
+      const aQueue = new pQueue()
+      expect(aQueue.isEmpty())
+        .to.equal(true)
+    })
+    it('returns false if the current priority queue is occupied.', () => {
+      const aQueue = new pQueue([{'fewh' : 0}])
+      expect(aQueue.isEmpty())
+        .to.equal(false)
+    })
+  })
+
+  context ('length()', () => {
+    it('shows the length of the priority Queue.', () => {
+      const aQueue = new pQueue()
+      aQueue.enqueue({'ber': 15})
+      expect(aQueue.length())
+        .to.equal(1)
+    })
+  })
+
+// adds an element with priority (number) to the back of the queue
   context('enqueue()', () => {
-    it('adds an element to the back of the pQueue.', () => {
+    it('adds an element with priority (number) the back of the queue.', () => {
       const aQueue = new pQueue()
 
       expect(() => aQueue.enqueue('foo'))
         .to.alter(() => aQueue.length(), { from: 0, to: 1 })
     })
-    it('pushes an element to the front of the pQueue when a new item is added.', () => {
+
+    it('when a new item is added without a priority designated, it is assigned a default value of 0.', () => {
+      const queue = new pQueue()
+
+      queue.enqueue( 'hi' )
+
+      expect( queue.topPriority() ).to.equal( 0 )
+
+    })
+
+    it('adds element into pQueue based on the element priority', () => {
       const aQueue = new pQueue()
 
-      aQueue.enqueue('bar')
-      aQueue.enqueue('foo')
+      aQueue.enqueue('foo', 50)
+      aQueue.enqueue('bar', 25)
+      aQueue.enqueue('foobar', 100)
 
-      expect(() => aQueue[0]
-        .to.equal('bar'))
-    })
-  })
+      expect( aQueue.front() ).to.be.equal( 'foobar' )
+      expect( aQueue.back() ).to.be.equal( 'bar' )
 
-  context('dequeue()', () => {
-    it('removes an element from the front of the pQueue.', () => {
-      const aQueue = new pQueue(['foo','bar'])
-      expect(() => aQueue.dequeue())
-        .to.alter(() => aQueue.length(), { from: 2, to: 1 })
-    })
-    it('returns a null value if the pQueue is empty.', () => {
-      const aQueue = new Queue([])
-      expect(() => aQueue.dequeue()
-        .to.equal(null))
     })
   })
 
   context('front()', () => {
-    it('returns the value from the front of the pQueue.', () => {
-      const aQueue = new Queue(['foo','bar'])
-      expect(() => aQueue.front()
-        .to.equal('foo'))
-    })
-    it('returns a null value if the pQueue is empty.', () => {
-      const aQueue = new Queue([])
-      expect(() => aQueue.front()
-        .to.equal(null))
+    it('returns the element with the highest priority', () => {
+      const aQueue = new pQueue()
+      aQueue.enqueue('foo', 50)
+      aQueue.enqueue('bar', 25)
+      aQueue.enqueue('foobar', 100)
+
+      expect( aQueue.front())
+        .to.be.equal( 'foobar' )
     })
   })
+
+  context( 'back()', () => {
+    it( 'returns the lowest priority element in the queue', () => {
+      const queue = new pQueue()
+      queue.enqueue( 'hi', 45)
+      queue.enqueue( 'hello', 15)
+      queue.enqueue( 'hi there', 65)
+
+      expect( queue.back()).to.be.equal( 'hello' )
+    })
+  })
+
+  context('dequeue()', () => {
+    it('removes an element from the front of the queue.', () => {
+      const aQueue = new Queue(['foo','bar'])
+      expect(() => aQueue.dequeue())
+        .to.alter(() => aQueue.length(), { from: 2, to: 1 })
+    })
+  })
+
+})
