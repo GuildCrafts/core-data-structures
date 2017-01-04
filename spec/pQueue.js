@@ -84,24 +84,41 @@ describe('pQueue', () => {
       expect( aQueue.front())
         .to.be.equal( 'foobar' )
     })
+    it('returns a null value if the queue is empty.', () => {
+      const aQueue = new pQueue()
+      expect(() => aQueue.front()
+        .to.equal(null))
+    })
   })
 
   context( 'back()', () => {
     it( 'returns the lowest priority element in the queue', () => {
-      const queue = new pQueue()
-      queue.enqueue( 'hi', 45)
-      queue.enqueue( 'hello', 15)
-      queue.enqueue( 'hi there', 65)
+      const aQueue = new pQueue()
+      aQueue.enqueue( 'hi', 45)
+      aQueue.enqueue( 'hello', 15)
+      aQueue.enqueue( 'hi there', 65)
 
-      expect( queue.back()).to.be.equal( 'hello' )
+      expect( aQueue.back()).to.be.equal( 'hello' )
+    })
+    it('returns a null value if the queue is empty.', () => {
+      const aQueue = new pQueue()
+      expect(() => aQueue.back()
+        .to.equal(null))
     })
   })
 
   context('dequeue()', () => {
     it('removes an element from the front of the queue.', () => {
-      const aQueue = new Queue(['foo','bar'])
+      const aQueue = new pQueue()
+      aQueue.enqueue( 'hello', 15)
+      aQueue.enqueue( 'hi there', 65)
       expect(() => aQueue.dequeue())
         .to.alter(() => aQueue.length(), { from: 2, to: 1 })
+    })
+    it('returns a null value if the queue is empty.', () => {
+      const aQueue = new pQueue()
+      expect(() => aQueue.dequeue()
+        .to.equal(null))
     })
   })
 
