@@ -8,38 +8,21 @@ export default class Stack {
   }
 
   push( data ) {
-    console.log( this.top, data )
-    this.element[ this.top++ ] = data
-    return this.element
+    this.top++
+    this.element[ this.top ] = data
   }
 
   pop() {
-    if( this.top === 0 ){
-      return null
-    }else{
-      this.element.splice( this.element[ this.top ] )
-      return this.element
-    }
+    return this.top > 0 ? this.element.splice(this.top, 1)[0] : null
   }
 
-  length() {
-    return this.top
-  }
+  length() {return this.top}
 
   isEmpty() {
-    if( this.top !== 0 ){
-      return true
-    }else{
-      return false
-    }
+    return this.top === 0 ? true : false
   }
 
   peek() {
-    if( this.top === 0 ){
-      return null
-    }else{
-      return this.element[ this.top ]
-    }
+    return this.top > 0 ? this.element[this.top--] : null
   }
-
 }
