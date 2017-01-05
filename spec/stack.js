@@ -2,7 +2,7 @@
 
 import chai, { expect } from 'chai'
 import chaiChange from 'chai-change'
-import Stack from '../src/stack'\
+import Stack from '../src/stack'
 
 chai.use(chaiChange)
 
