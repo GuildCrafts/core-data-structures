@@ -102,6 +102,7 @@ export default class LinkedList {
 
     locatorNode.link = nodeToInsert
     nodeToInsert.link = nodeThatGoesAfter
+    
     length++
   }
 
