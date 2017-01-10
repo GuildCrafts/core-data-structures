@@ -4,19 +4,21 @@ import Stack from '../src/stack'
 
 chai.use(chaiChange)
 
-describe('Stack', () => {
+describe('Stack', function() {
   'use strict'
 
-  it('exists', () => {
+  it('exists', function() {
     expect(Stack).to.be.a('function')
   })
 
-  context('push()', () => {
-    it('pushes an element to the top of the stack.', () => {
-      const myStack = new Stack()
+  context('push()', function() {
+    it('pushes an element to the top of the stack.', function() {
 
-      expect(() => myStack.push('foo'))
-        .to.alter(() => myStack.length(), { from: 0, to: 1 })
+      const stackOfMoney = new Stack
+
+      expect(function(){ stackOfMoney.push('foo')})
+        .to.alter( this.stackOfMoney.length, { from: 0, to: 1 })
     })
+
   })
 })
