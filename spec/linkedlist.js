@@ -1,32 +1,21 @@
 import chai, { expect } from 'chai'
 import chaiChange from 'chai-change'
-import Stack from '../src/linkedlist'
+import set from '../src/linkedlist'
 
 chai.use(chaiChange)
 
-describe('LinkedList', () => {
+describe('linkedlist', () => {
+  'use strict'
 
-'use strict'
+  it('exists', () => {
+    expect(set).to.be.a('function')
+  })
 
-    it('exists', () => {
-        expect(LinkedList).to.be.a('function')
-
-    })
-
-    describe('insertFirst()', () => {
-        it('Inserts a node (with the provided data) to the head of the list'), () => {
-            const linkedList = new LinkedList()
-            linkedList.insertFirst("someData")
-            expect(LinkedList.size).to.be.equal(1)
-        })
-    })
-
-    describe('getHeadNode()', () => {
-        it('Returns the first node in the list', () => {
-            const linkedList = new LinkedList()
-
-            expect(() => LinkedList.getHeadNode()
-                .to.equal(() => this.head
-        })
-    })
+  describe('insertFirst()', () => {
+    it('Inserts a node with the provided data to the head of the list'), () => {
+      const linkedList = new LinkedList
+      linkedList.insertFirst("someData")
+      expect(linkedList.size).to.be.equal(1)
+    }; //this semicolon set the mocha test to pending? otherwise syntax error?
+  })
 })
