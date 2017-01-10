@@ -52,7 +52,11 @@ describe('Stack', () => {
       const myStack = new Stack()
       let emptyStack = myStack.isEmpty()
       expect(emptyStack).to.deep.equal(true)
+      myStack.push('lemons')
+      let notEmptyStack = myStack.isEmpty()
+      expect(notEmptyStack).to.eql(false)
     })
   })
+
 
 })
