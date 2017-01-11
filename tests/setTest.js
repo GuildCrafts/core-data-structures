@@ -5,7 +5,15 @@ import Set from '../src/set'
 chai.use(chaiChange)
 
 describe('Set', () => {
-  'use strict'
+    // let mySet
+    // let emptySet
+    // beforeEach(() => {
+    //   mySet = new Set()
+    //   emptySet= new Set()
+    //   mySet.add('foo')
+    //   mySet.add(40)
+    //   mySet.add('last')
+    // })
 
   it('exists', () => {
     expect(Set).to.be.a('function')
@@ -18,6 +26,9 @@ describe('Set', () => {
 
       expect(() => mySet.add('foo'))
         .to.alter(() => mySet.size(), { from: 4, to: 5 })
+      console.log(mySet)
+      expect(() => mySet.add('foo'))
+        .to.alter(() => mySet.size(), { from: 5, to: 5 })
     })
   })
 
@@ -47,16 +58,22 @@ describe('Set', () => {
   context('remove()', () => {
     it('removes an element from the set', () => {
       const mySet = new Set([1, 2, 3, 4])
-      expect(mySet.set).to.deep.eql([1, 2, 3, 4])
+      expect(mySet.set).to.eql([1, 2, 3, 4])
       mySet.remove(3)
-      expect(mySet.set).to.deep.eql([1, 2, 4])
+      expect(mySet.set).to.eql([1, 2, 4])
     })
   })
+
   context('forEach()', () => {
     it('takes a callback function and passes it each element of set', () => {
       const mySet = new Set([1, 2, 3, 4])
-      const sumSet = mySet.forEach(elem => console.log(elem +1))
+      const newSet = new Set([])
+      mySet.forEach((elem) => {
+        let x = ++elem
+        newSet.add(x)
+      })
+      expect(newSet.set).to.eql([2, 3, 4, 5])
     })
   })
-  // how to test iterating thru set?
+
 })

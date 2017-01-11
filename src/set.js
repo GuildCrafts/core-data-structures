@@ -6,23 +6,29 @@ export default class Set {
   }
 
   add(data) {
-    this.set[this.set.length] = data
+    if( !this.contains(data) ){
+      this.set[this.set.length] = data
+    }
   }
+
   isEmpty() {
-    return this.set.length === 0 ? true : false
+    return this.set.length === 0
   }
+
   contains(data) {
     if (this.set.indexOf(data) === -1){
       return false
     }
     return true
   }
+
   remove(data) {
     let indexOfData = this.set.indexOf(data)
     if (this.contains(data)) {
       this.set.splice(indexOfData, 1)
     }
   }
+
   forEach(func){
     for (let i of this.set) {
       func(i)
@@ -32,7 +38,6 @@ export default class Set {
   size() {
     return this.set.length
   }
-  // union()
 
 union(otherSet) {
   let unionSet = this.set
@@ -45,9 +50,4 @@ union(otherSet) {
 }
 
 
-
-  // intersect()
-  // difference()
-  // isSublet()
-  // clone()
 }
