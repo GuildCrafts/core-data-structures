@@ -41,7 +41,6 @@ describe('Stack', () => {
       myStack.push('lemons')
       myStack.push('crabs')
       myStack.push('im the top')
-      console.log(myStack);
       let top = myStack.peek()
       expect(top).to.equal('im the top')
     })
