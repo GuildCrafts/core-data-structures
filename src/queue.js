@@ -43,19 +43,11 @@ export default class Queue {
   }
 
   front(){
-    if( this.lengthVal > 0 ){
-      return this.head.data
-    } else {
-      return null
-    }
+    return this.lengthVal > 0 ? this.head.data : null
   }
 
   back(){
-    if( this.lengthVal > 0 ){
-      return this.tail.data
-    } else {
-      return null
-    }
+    return this.lengthVal > 0 ? this.tail.data : null
   }
 
   isEmpty(){
