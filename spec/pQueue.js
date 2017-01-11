@@ -4,7 +4,7 @@ import PQueue from '../src/pQueue'
 
 chai.use(chaiChange)
 
-describe.only('PQueue', () => {
+describe('PQueue', () => {
   'use strict'
 
   it('exists', () => {
