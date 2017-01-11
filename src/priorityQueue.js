@@ -1,25 +1,29 @@
 import Node from './node'
 
 
-export default class Queue {
+export default class PriorityQueue {
 	constructor() {
 		this.front = null
 		this.back = null
 		this.size = 0
 	}
 
-	enqueue(data) {
-		const newNode = new Node(data)
+//insert by priority
+	enqueue(data, priority) {
+		const newNode = new Node(data, priority)
+    const cursor = this.back
 		if(this.size == 0) {
 			this.front = newNode
 			this.back = newNode
+      this.maxPri = priority
 		} else {
 			newNode.next = this.back
 			this.back = newNode
+      if( priority > this.maxPri) { this.maxPri = priority }
 		}
 		this.size++
 		this.toString()
-	}
+}
 
 	length() {
 		return this.size
@@ -42,6 +46,7 @@ export default class Queue {
 		}
 		return returnedData
 	}
+
 
 	getFront() {
 		let frontItem = null
