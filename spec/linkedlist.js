@@ -43,7 +43,29 @@ describe('LinkedList', () => {
 
       aLinkedList.insert('foo')
       aLinkedList.insert('stuff')
-      // console.log('tail two? ---->', aLinkedList)
+      aLinkedList.insert('blah')
+      aLinkedList.insert('foo2')
+      aLinkedList.insert('stuff2')
+
+
+      expect(aLinkedList.tail.data)
+        .to.equal('stuff2')
+    })
+  })
+
+  describe('find()', () => {
+    it('Returns the first node containing the provided data, or -1 if not found', () => {
+      const aLinkedList = new LinkedList()
+
+      expect(() => aLinkedList.find('stuff'))
+        .to.alter(() => aLinkedList.size(), { from: 0, to: 1 })
+    })
+
+    it('Returns the first node containing the provided data, or -1 if not found', () => {
+      const aLinkedList = new LinkedList()
+
+      aLinkedList.insert('foo')
+      aLinkedList.insert('stuff')
       aLinkedList.insert('blah')
       aLinkedList.insert('foo2')
       aLinkedList.insert('stuff2')
@@ -52,9 +74,6 @@ describe('LinkedList', () => {
 
       expect(aLinkedList.tail.data)
         .to.equal('stuff2')
-        console.log('checking shit---->', aLinkedList.tail.data)
-        console.log('tail? ---->', aLinkedList.tail)
-        console.log('head----->', aLinkedList.head)
     })
   })
 

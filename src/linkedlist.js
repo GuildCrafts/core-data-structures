@@ -37,16 +37,6 @@ export default class LinkedList {
   size () {
     return this.count
   }
-  // var that = {}, first, last;
-  //
-  //  that.push = function(value){
-  //     var node = new Node(value);
-  //     if(first == null){
-  //        first = last = node;
-  //     }else{
-  //        last.next = node;
-  //        last = node;
-  //     }
 
   // Inserts a node (with the provided data) to the tail of the list
   insert ( value ) {
@@ -60,12 +50,17 @@ export default class LinkedList {
 
       //set newnode to tail
     } else {
-      this.next = node
+      this.tail.next = node
       this.tail = node
     }
     //set new tail to null
     //this.tail = null
     this.count++
+  }
+
+  find( value ) {
+    
+
   }
 }
 
