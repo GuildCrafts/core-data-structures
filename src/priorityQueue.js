@@ -11,18 +11,24 @@ export default class PriorityQueue {
 //insert by priority
 	enqueue(data, priority) {
 		const newNode = new Node(data, priority)
-    const cursor = this.back
+    let cursor = this.back
 		if(this.size == 0) {
 			this.front = newNode
 			this.back = newNode
-      this.maxPri = priority
 		} else {
-			newNode.next = this.back
-			this.back = newNode
-      if( priority > this.maxPri) { this.maxPri = priority }
+			if(this.front.priority < newNode.priority){
+				this.front.next = newNode
+				this.front = newNode
+			} else if( this.back.priority > newNode.priority ){
+				newNode.next = this.back
+				this.back = newNode
+			} else {
+				while(cursor.next.priority < newNode.priority ) { cursor = cursor.next }
+				newNode.next = cursor.next
+				cursor.next = newNode
+			}
 		}
 		this.size++
-		this.toString()
 }
 
 	length() {
@@ -71,9 +77,9 @@ export default class PriorityQueue {
 	toString() {
 		let queueString = ''
 		for(let node = this.back; node != null; node = node.next){
-			queueString = queueString + `${node.data}-->`
+			queueString = queueString + `${node.data}:${node.priority}-->`
 		}
-		return queueString
+		console.log(queueString)
 	}
 
 }
