@@ -74,19 +74,11 @@ export default class PQueue {
   }
 
   front(){
-    if( this._front == null ){
-      return null
-    } else {
-      return this._front.data
-    }
+    return this._front == null ? null : this._front.data
   }
 
   back(){
-    if( this._back == null ){
-      return null
-    } else {
-      return this._back.data
-    }
+    return this._back == null ? null : this._back.data
   }
 
   isEmpty(){
