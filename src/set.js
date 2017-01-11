@@ -33,6 +33,19 @@ export default class Set {
     return this.set.length
   }
   // union()
+
+union(otherSet) {
+  let unionSet = this.set
+  for(let item of otherSet) {
+    if(!unionSet.contains(item)) {
+      unionSet.append(item)
+    }
+  }
+  return unionSet
+}
+
+
+
   // intersect()
   // difference()
   // isSublet()
