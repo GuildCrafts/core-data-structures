@@ -1,11 +1,11 @@
 export default class Queue {
   constructor () {
-    this.queue = [];
+    this.queue = [ ];
     this.index = 0
   }
 
   enqueue(item) {
-    this.queue[this.index++] = item;
+    this.queue[this.index++] = item
   }
 
   length(){
@@ -13,7 +13,9 @@ export default class Queue {
   }
 
   dequeue(){
+    this.queue[this.index--]
     return this.queue.shift(0)
+
   }
 
   front(){

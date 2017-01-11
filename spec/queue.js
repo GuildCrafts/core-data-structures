@@ -35,13 +35,19 @@ describe('Queue', () => {
 
   context('dequeue()', () => {
     it('reduces the queue by one.', () => {
-// coaching needed, array is not reducing length 
-      expect(() => myQueue.dequeue())
-      .to.alter(() => myQueue.length(), {from: 3, to: 2})
+// coaching needed this test is currently not working
+console.log(myQueue)
+  myQueue.dequeue()
+console.log(myQueue)
+      expect(myQueue.index).to.eql(2)
+myQueue.dequeue()
+console.log(myQueue)
+      expect(myQueue.index).to.eql(1)
     })
     it('returns the first item of the queue.', () => {
       expect(myQueue.dequeue()).to.eql('foo')
-    })
+    console.log(myQueue)
+  })
   })
   context('front()', () => {
     it('returns null if the queue is empty', () => {
