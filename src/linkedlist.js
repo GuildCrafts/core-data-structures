@@ -1,18 +1,73 @@
 'use strict'
 
+class Node {
+
+  constructor( data ) {
+    this.data = data
+    this.next = null
+  }
+
+}
 export default class LinkedList {
 
-  constructor (LinkedList) {
+  constructor () {
       this.head = null
-      this.CountNodes = 0
+      this.tail = null
+      this.count = 0
+
+
   }
-  // linkedList.insertFirst("bananas")  // Inserts a node (with the provided data) to the head of the list
-  insertFirst () {
-      this.head = this.head === null ? LinkedList (null, value) : LinkedList (this.head, value)
-      this.CountNodes++;
+  // Inserts a node (with the provided data) to the head of the list
+  insertFirst ( value ) {
+    //create new node
+    const node = new Node( value )
+    //find if head is defined
+    if ( this.head ) {
+      //set old head to next of new node
+      node.next = this.head
+      //if head is defined, set new node to head
+    } else {
+      //if not defined set current node to head
+      this.tail = node
+    }
+    this.head = node
+    this.count++
+  }
+  // Returns the size of the list (number of nodes)
+  size () {
+    return this.count
+  }
+  // var that = {}, first, last;
+  //
+  //  that.push = function(value){
+  //     var node = new Node(value);
+  //     if(first == null){
+  //        first = last = node;
+  //     }else{
+  //        last.next = node;
+  //        last = node;
+  //     }
+
+  // Inserts a node (with the provided data) to the tail of the list
+  insert ( value ) {
+    //create new node
+    const node = new Node( value )
+    //find if tail is defined
+    if ( this.head === null ) {
+    //set oldtail next to new node
+      this.head = node
+      this.tail = node
+
+      //set newnode to tail
+    } else {
+      this.next = node
+      this.tail = node
+    }
+    //set new tail to null
+    //this.tail = null
+    this.count++
   }
 }
-    // linkedList.insert("bananas")       // Inserts a node (with the provided data) to the tail of the list
 
     // linkedList.insertBefore("bananas", "apples") // Inserts a node (with data "apples") before the first node containing "bananas"
 
@@ -31,7 +86,5 @@ export default class LinkedList {
     // linkedList.find("bananas")         // Returns the first node containing the provided data, or -1 if not found
 
     // linkedList.isEmpty()               // Determines if the list is empty or not
-
-    // linkedList.size()                  // Returns the size of the list (number of nodes)
 
     // linkedList.clear()                 // Clears the list of all nodes/data
