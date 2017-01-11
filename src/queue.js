@@ -19,7 +19,6 @@ export default class Queue {
   }
 
   front(){
-    //ask jrob
     if(this.index === 0) {
      return null
     }

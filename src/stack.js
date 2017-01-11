@@ -1,5 +1,3 @@
-'use strict'
-
 export default class Stack {
   constructor(){
     this.structure = []

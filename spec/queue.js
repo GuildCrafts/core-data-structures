@@ -5,7 +5,6 @@ import Queue from '../src/queue'
 chai.use(chaiChange)
 
 describe('Queue', () => {
-  'use strict'
   let myQueue
   let emptyQueue
   beforeEach(() => {
@@ -35,18 +34,13 @@ describe('Queue', () => {
 
   context('dequeue()', () => {
     it('reduces the queue by one.', () => {
-// coaching needed this test is currently not working
-console.log(myQueue)
   myQueue.dequeue()
-console.log(myQueue)
       expect(myQueue.index).to.eql(2)
 myQueue.dequeue()
-console.log(myQueue)
       expect(myQueue.index).to.eql(1)
     })
     it('returns the first item of the queue.', () => {
       expect(myQueue.dequeue()).to.eql('foo')
-    console.log(myQueue)
   })
   })
   context('front()', () => {
