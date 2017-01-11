@@ -17,6 +17,7 @@ describe('Queue', () => {
 
       bankLine.enqueue('customer one')
       expect(bankLine.length()).to.equal(1)
+      expect(bankLine.tail).to.have.property('data', 'customer one')
     })
   })
 
