@@ -20,6 +20,7 @@ describe('Stack', () => {
         .to.alter( () => {
           return stackOfMoney.lengthVal
         }, { from: 0, to: 1 })
+      expect(stackOfMoney.head).to.have.deep.property('element', 'foo')
     })
   })
 
