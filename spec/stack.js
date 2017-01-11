@@ -18,6 +18,7 @@ describe('Stack', () => {
       expect(() => myStack.push('foo'))
         .to.alter(() => myStack.length(), { from: 0, to: 1 })
     })
+
     context('pop()', () => {
       it('returns and removes the top element in the stack', () => {
         const myStack = new Stack()
@@ -27,6 +28,7 @@ describe('Stack', () => {
           .to.alter(() => myStack.length(), { from: 2, to: 1 })
       })
     })
+
       context('peek()', () => {
         it('shows top element in the stack', () => {
           const myStack = new Stack()
@@ -35,6 +37,7 @@ describe('Stack', () => {
           expect(myStack.peek()).to.eql('potato')
           })
         })
+        
         context('isEmpty()', () => {
           it('returns true if stack is empty or false if not.', () =>{
             const myStack = new Stack()
