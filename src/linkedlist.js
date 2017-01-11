@@ -57,12 +57,32 @@ export default class LinkedList {
     //this.tail = null
     this.count++
   }
-
+  //Returns the first node containing the provided data,
+  // or -1 if not found
   find( value ) {
-    
+    let currentNode = this.head
+    let currentIndex = 0
+    while (currentNode !== this.tail) {
+      if (currentNode.data === value) {
+        return currentIndex
+      } else {
+        currentNode = currentNode.next
+        currentIndex++
+      }
+    }
+    return currentNode.data === value ? currentIndex : -1
+  }
+  // Determines if the list is empty or not
+  isEmpty() {
+    return this.head ? false : true
+  }
 
+  // Returns the first node in the list
+  getHeadNode() {
+    return this.head
   }
 }
+
 
     // linkedList.insertBefore("bananas", "apples") // Inserts a node (with data "apples") before the first node containing "bananas"
 
@@ -78,8 +98,7 @@ export default class LinkedList {
 
     // linkedList.contains("bananas")     // Determines whether or not the list contains the provided data
 
-    // linkedList.find("bananas")         // Returns the first node containing the provided data, or -1 if not found
 
-    // linkedList.isEmpty()               // Determines if the list is empty or not
+
 
     // linkedList.clear()                 // Clears the list of all nodes/data

@@ -4,6 +4,19 @@ import LinkedList from '../src/linkedlist'
 
 chai.use(chaiChange)
 
+const generateTestList = () => {
+  const list = new LinkedList()
+
+  list.insert('foo')
+  list.insert('stuff')
+  list.insert('blah')
+  list.insert('foo2')
+  list.insert('stuff2')
+
+  return list
+}
+
+
 describe('LinkedList', () => {
   'use strict'
 
@@ -32,51 +45,61 @@ describe('LinkedList', () => {
 
   describe('insert()', () => {
     it('Inserts a node (with the provided data) to the tail of the list', () => {
-      const aLinkedList = new LinkedList()
+      const aLinkedList = generateTestList()
 
-      expect(() => aLinkedList.insert('stuff'))
-        .to.alter(() => aLinkedList.size(), { from: 0, to: 1 })
+      expect(() => aLinkedList.insert('junk'))
+        .to.alter(() => aLinkedList.size(), { from: 5, to: 6 })
     })
 
     it('Inserts a node (with the provided data) to the tail of the list', () => {
-      const aLinkedList = new LinkedList()
+      const aLinkedList = generateTestList()
 
-      aLinkedList.insert('foo')
-      aLinkedList.insert('stuff')
-      aLinkedList.insert('blah')
-      aLinkedList.insert('foo2')
-      aLinkedList.insert('stuff2')
-
+      aLinkedList.insert('junk')
 
       expect(aLinkedList.tail.data)
-        .to.equal('stuff2')
+        .to.equal('junk')
     })
   })
 
   describe('find()', () => {
-    it('Returns the first node containing the provided data, or -1 if not found', () => {
-      const aLinkedList = new LinkedList()
+    it('Returns -1 if not found', () => {
+      const aLinkedList = generateTestList()
 
-      expect(() => aLinkedList.find('stuff'))
-        .to.alter(() => aLinkedList.size(), { from: 0, to: 1 })
+      expect(aLinkedList.find('doesntexist'))
+      .to.equal(-1)
     })
 
-    it('Returns the first node containing the provided data, or -1 if not found', () => {
-      const aLinkedList = new LinkedList()
+    it('Returns the first node containing the provided data', () => {
+      const aLinkedList = generateTestList()
 
-      aLinkedList.insert('foo')
-      aLinkedList.insert('stuff')
-      aLinkedList.insert('blah')
-      aLinkedList.insert('foo2')
-      aLinkedList.insert('stuff2')
-
-
-
-      expect(aLinkedList.tail.data)
-        .to.equal('stuff2')
+      expect(aLinkedList.find('stuff'))
+      .to.equal(1)
     })
   })
 
+  describe ('isEmpty()', () => {
+    it('Determines if the list is empty or not', () => {
+      const aLinkedList = new LinkedList()
+
+      expect(aLinkedList.isEmpty())
+        .to.equal(true)
+    })
+
+    it('returns false if the current list is occupied.', () => {
+        const aLinkedList = new LinkedList()
+        aLinkedList.insert('lotta stuff')
+        expect(aLinkedList.isEmpty())
+          .to.equal(false)
+    })
+  })
+
+  describe ('getHeadNode()', () => {
+    it('Returns the first node in the list', () => {
+      const aLinkedList = new LinkedList()
+
+    })
+  })
+})
   // context('peek()', () => {
   //   it('shows the current element at the top of the stack.', () => {
   //     const aLinkedList = new LinkedList(['foo','bar'])
@@ -85,19 +108,7 @@ describe('LinkedList', () => {
   //   })
   // })
   //
-  // context ('isEmpty()', () => {
-  //   it('shows the current stack is empty.', () => {
-  //     const aLinkedList = new LinkedList()
-  //     expect(aLinkedList.isEmpty())
-  //       .to.equal(true)
-  //   })
-  //   it('returns false if the current stack is occupied.', () => {
-  //     const aLinkedList = new LinkedList()
-  //     aLinkedList.push('fewh')
-  //     expect(aLinkedList.isEmpty())
-  //       .to.equal(false)
-  //   })
-  // })
+
   //
   //
   // context ('length()', () => {
@@ -108,7 +119,7 @@ describe('LinkedList', () => {
   //       .to.equal(1)
   //   })
   // })
-})
+// })
 
 // describe('linkedlist', () => {
 //   'use strict'
