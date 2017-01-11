@@ -47,10 +47,8 @@ describe('Set', () => {
   context('remove()', () => {
     it('removes an element from the set', () => {
       const mySet = new Set([1, 2, 3, 4])
-      console.log(mySet)
       expect(mySet.set).to.deep.eql([1, 2, 3, 4])
       mySet.remove(3)
-      console.log(mySet)
       expect(mySet.set).to.deep.eql([1, 2, 4])
     })
   })

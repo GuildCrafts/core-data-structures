@@ -26,7 +26,7 @@ export default class Queue {
       }
 
     return frontItem
-  }  
+  }
 
   back() {
     let backItem = null
@@ -35,7 +35,7 @@ export default class Queue {
       }
 
     return backItem
-  }  
+  }
 
 
   isEmpty() {
@@ -43,4 +43,3 @@ export default class Queue {
   }
 
 }
-
