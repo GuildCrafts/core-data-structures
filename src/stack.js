@@ -9,7 +9,7 @@ export default class Stack {
     return this.structure.pop()
   }
   peek(){
-    return this.structure[0]
+    return this.structure[this.structure.length -1]
   }
 
   isEmpty(){

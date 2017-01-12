@@ -28,12 +28,12 @@ describe('Stack', () => {
       const myStack = new Stack()
       myStack.push('potato')
       myStack.push('sock')
-      expect(myStack.peek()).to.eql('potato')
+      expect(myStack.peek()).to.eql('sock')
       })
     })
 
   context('isEmpty()', () => {
-    it('returns true if stack is empty or false if not.', () =>{
+    it('returns true if stack is empty or false if not.', () => {
       const myStack = new Stack()
       expect(myStack.isEmpty()).to.equal(true)
       })

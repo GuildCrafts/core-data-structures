@@ -9,7 +9,7 @@ export default class priorityQueue {
     // adds an element with priority (number) to the back of the queue.
     this.queue[this.index++] = [item, priority];
     this.queue.sort(function(a, b){
-      return a[0] - b[0]
+      return a[1] - b[1]
     })
   }
   front(){

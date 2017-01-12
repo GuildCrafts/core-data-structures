@@ -10,9 +10,9 @@ describe('priorityQueue', () => {
   beforeEach(() => {
     pQueue = new priorityQueue
     emptyQueue = new priorityQueue
-    pQueue.enqueue('pizza', 90)
+    pQueue.enqueue('pizza', 80)
     pQueue.enqueue('bagel', 90)
-    pQueue.enqueue('sock', 100)
+    pQueue.enqueue('sock', 85)
   })
 
 
@@ -25,8 +25,9 @@ describe('priorityQueue', () => {
       const newQueue = new priorityQueue
       newQueue.enqueue('pizza', 90)
       newQueue.enqueue('potato', 100)
+      newQueue.enqueue('something', 95)
     it('adds an element with priority to the back of the queue', () => {
-      expect(newQueue).to.eql({queue: [['pizza', 90], ['potato', 100]], index: 2})
+      expect(newQueue).to.eql({queue: [['pizza', 90], ['something', 95], ['potato', 100]], index: 3})
     })
   })
   context('dequeue()', () => {
@@ -48,7 +49,7 @@ describe('priorityQueue', () => {
       expect(emptyQueue.back()).to.equal(null)
     })
     it('returns the last item of the queue', () => {
-      expect(pQueue.back()).to.equal('sock')
+      expect(pQueue.back()).to.equal('bagel')
     })
   })
   context('isEmpty()', () => {
