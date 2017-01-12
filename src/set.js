@@ -39,15 +39,38 @@ export default class Set {
     return this.set.length
   }
 
-union(otherSet) {
-  let unionSet = this.set
-  for(let item of otherSet) {
-    if(!unionSet.contains(item)) {
-      unionSet.append(item)
+  union(otherSet) {
+    let unionSet = this
+    for(let item of otherSet.set) {
+        unionSet.add(item)
     }
+    return unionSet
   }
-  return unionSet
-}
 
+  intersect(otherSet) {
+    let intersectSet = new Set([])
+    for(let elem1 of this.set){
+      for(let elem2 of otherSet.set){
+        if(elem1=== elem2) {intersectSet.add(elem1)}
+      }
+    }
+    return intersectSet
+  }
 
+  difference(otherSet) {
+    let diffArray = this.set.filter(function(elem) {
+      return otherSet.set.indexOf(elem) == -1;
+    })
+    let differenceSet = new Set(diffArray)
+
+    return differenceSet
+  }
+
+  isSubset(otherSet) {
+    return this.set.every(elem => otherSet.set.indexOf(elem) > -1)
+  }
+
+  clone() {
+    return this
+  }
 }

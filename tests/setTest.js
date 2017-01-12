@@ -76,4 +76,52 @@ describe('Set', () => {
     })
   })
 
+  context('union()', () => {
+    it('unions the set with another set and returns the resulting set.', () => {
+      const mySet = new Set([1, 2, 3, 4])
+      const newSet = new Set([3, 4, 5, 6, 7])
+      const unionSet = mySet.union(newSet)
+      expect(unionSet.set).to.eql([1, 2, 3, 4, 5, 6, 7])
+    })
+  })
+
+  context('intersect()', () => {
+    it('intersects the set with another set and returns the resulting set.', () => {
+    const mySet = new Set([1, 2, 3, 4])
+    const newSet = new Set([3, 4, 5, 6, 7])
+    const intersectSet = mySet.intersect(newSet)
+    expect(intersectSet.set).to.eql([3, 4])
+    })
+  })
+
+  context('difference()', () => {
+    it('returns a set that contains the elements found in the set but not in otherSet.', () => {
+      const mySet = new Set([1, 2, 3, 4])
+      const newSet = new Set([3, 4, 5, 6, 7])
+      let differenceSet = mySet.difference(newSet)
+      expect(differenceSet.set).to.eql([1,2])
+      differenceSet = newSet.difference(mySet)
+      expect(differenceSet.set).to.eql([5,6,7])
+    })
+  })
+
+  context('isSubset()', () => {
+    it('returns true if the set is a subset of otherSet or false if not.', () => {
+      const mySet = new Set([3, 4])
+      const newSet = new Set([3, 4, 5, 6, 7])
+      let isSubset = mySet.isSubset(newSet)
+      expect(isSubset).to.equal(true)
+      isSubset = newSet.isSubset(mySet)
+      expect(isSubset).to.equal(false)
+    })
+  })
+
+  context('clone()', () => {
+    it('returns a clone of a set.', () => {
+      const mySet = new Set([3, 4])
+      const newSet = mySet.clone()
+      expect(mySet.set).to.equal(newSet.set)
+    })
+  })
+
 })
