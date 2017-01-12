@@ -22,9 +22,29 @@ export default class Set {
     return this.set.indexOf(element) === -1 ? false : true
   }
 
-  // remove(element){
-  //   if (this.set.indexOf(element) != -1) {
-  //      this.set.pop(element)
-  //    }
-  // }
+  remove(element){
+    if (this.set.indexOf(element) != -1) {
+       this.set.splice(this.set.indexOf(element), 1)
+       this.index--
+     }
+  }
+
+  forEach(fn) {
+    for (let i = 0; i < this.set.length; i++) {
+     fn(this.set[i])
+    }
+  }
+
+  size() {
+    return this.index
+  }
+
+  // union(set2) {
+  //   let resultSet = new Set
+  //   let loop = function(this.set.add()){}
+  //   resultSet.forEach(.add(this.set))
+  //   resultSet.add(set2.set)
+  //
+  //   return resultSet
+  //   }
 }
