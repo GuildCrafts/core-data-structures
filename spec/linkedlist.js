@@ -2,7 +2,7 @@ import {expect} from 'chai'
 import chaiChange from 'chai-change'
 import LinkedList from '../src/linkedList'
 
-describe.only('linkedList()', () => {
+describe('linkedList()', () => {
   it('it should insert into a linked list', () => {
     const newList = new LinkedList()
 

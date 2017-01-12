@@ -28,7 +28,7 @@ describe('Stack', () => {
       const myStack = new Stack()
       myStack.push('potato')
       myStack.push('sock')
-      expect(myStack.peek()).to.eql('potato')
+      expect(myStack.peek()).to.eql('sock')
       })
     })
 
