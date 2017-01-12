@@ -42,13 +42,25 @@ describe('LinkedList', () => {
 
 
   context('insertBefore()', () => {
-    it('Inserts a node (with data "apples") before the first node containing "bananas"', () => {
+    it('Inserts a node with data before the first node containing target data', () => {
       const myLinkedList = new LinkedList()
 
-      myLinkedList.insert("bananas")
-      myLinkedList.insertBefore("bananas", "apples")
+      myLinkedList.insert('bananas')
+      myLinkedList.insertBefore('bananas', 'apples')
       myLinkedList.toString()
       expect(myLinkedList.find('apples').next.data).to.equal('bananas')
+    })
+  })
+
+  context('insertAfter()', () => {
+    it('Inserts a node with data after the first node containing target data', () => {
+      const myLinkedList = new LinkedList()
+      myLinkedList.insert('farts')
+      myLinkedList.insertAfter('farts', 'balls')
+      myLinkedList.toString()
+      expect(myLinkedList.find('farts').next.data).to.equal('balls')
+      myLinkedList.insert('lemons')
+      expect(myLinkedList.find('balls').next.data).to.equal('lemons')
     })
   })
 
