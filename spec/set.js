@@ -20,7 +20,7 @@ describe('Set', () => {
   context('add()', () => {
     it('adds an element to the set', () => {
      expect(() => { mySet.add(56).to.alter(() =>
-       mySet.set.indexOf(1), {from: -1, to: 3})
+       mySet.indexOf(1), {from: -1, to: 3})
      })
     })
     it('should not repeat elements in the set', () => {
@@ -47,7 +47,47 @@ describe('Set', () => {
       expect(mySet.contains('OVER 9000')).to.equal(false)
     })
   })
+//why do we not need to call mySet.set? look into tis further
+  context('remove()', () => {
+    it('removes an element if it exists', () => {
+      // console.log(mySet.indexOf(40)) why does this break it?
+      // console.log('mySet.set----->',mySet.set.indexOf(40)) and why does this does not
+      expect(() => {mySet.remove(40).to.alter(() =>
+      mySet.indexOf(40), {from: 1, to: -1})
+      })
+    })
+  })
 
+  context('forEach()', () => {
+     it('takes a callback function and passes it each element of set', () => {
+       const mySet = new Set([1, 2, 3, 4])
+       const newSet = new Set([])
+       mySet.forEach((elem) => {
+        //  console.log('Begingig elem---->', elem);
+         let x = ++elem
+        //  console.log('Modified elem---->', elem);
+        //  console.log('Begingig x---->', x);
+         newSet.add(x)
+       })
+      //  console.log(mySet)
+      //  console.log(newSet)
+     })
+   })
 
+  context('size()' ,() => {
+    it('returns the number of elements in the set' , () => {
+      expect(mySet.size()).to.equal(3)
+    })
+  })
+
+  // context('Union()' , () => {
+  //   it('should unite two sets', () => {
+  //     const set2 = new Set ()
+  //     set2.set = [1,2,3,40,77]
+  //     console.log(mySet);
+  //     console.log(set2)
+  //     console.log(mySet.union(set2))
+  //   })
+  // })
 
 })
