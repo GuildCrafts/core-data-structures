@@ -27,17 +27,28 @@ describe('LinkedList', () => {
     })
   })
 
+  context('find()', () => {
+    it('Returns the first node containing the provided data, or -1 if not found', () => {
+      const myLinkedList = new LinkedList()
+
+      myLinkedList.insert('sunshine')
+      myLinkedList.insert('rain')
+      myLinkedList.toString()
+      expect(myLinkedList.find('sunshine').data).to.equal('sunshine')
+      console.log(myLinkedList.find())
+      expect(myLinkedList.find('pain')).to.equal(-1)
+    })
+  })
+
 
   context('insertBefore()', () => {
     it('Inserts a node (with data "apples") before the first node containing "bananas"', () => {
       const myLinkedList = new LinkedList()
 
-      myLinkedList.insert("apples")
+      myLinkedList.insert("bananas")
       myLinkedList.insertBefore("bananas", "apples")
       myLinkedList.toString()
-      expect(myLinkedList.find('bananas').next).to.deep.equal({
-        data: "apples", next: null
-      })
+      expect(myLinkedList.find('apples').next.data).to.equal('bananas')
     })
   })
 
