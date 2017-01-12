@@ -116,12 +116,33 @@ export default class LinkedList {
   }
   // Removes the tail node from the list
   remove() {
-
+    if (this.count === 1) {
+      this.clear()
+    } else {
+      let currentNode = this.getHeadNode()
+      while (currentNode.next.next) {
+        currentNode = currentNode.next
+      }
+      currentNode.next = null
+      this.tail = currentNode
+    }
+  }
+  // Removes the head node from the list
+  removeFirst() {
+    if (this.count === 1) {
+      this.clear()
+    } else {
+      this.head = this.getHeadNode().next
+    }
+  }
+  // Clears the list of all nodes/data
+  clear() {
+    this.head = null
+    this.tail = null
+    this.count = 0
+  }
+  // Determines whether or not the list contains the provided data
+  contains(data) {
+    return this.find(data) !== -1 ? true : false
   }
 }
-
-    // linkedList.removeFirst()           // Removes the head node from the list
-
-    // linkedList.contains("bananas")     // Determines whether or not the list contains the provided data
-
-    // linkedList.clear()                 // Clears the list of all nodes/data

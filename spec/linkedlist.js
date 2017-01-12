@@ -64,14 +64,14 @@ describe('LinkedList', () => {
       const aLinkedList = generateTestList()
 
       expect(aLinkedList.find('doesntexist'))
-      .to.equal(-1)
+        .to.equal(-1)
     })
 
     it('Returns the first node containing the provided data', () => {
       const aLinkedList = generateTestList()
 
       expect(aLinkedList.find('middle').data)
-      .to.equal('middle')
+        .to.equal('middle')
     })
   })
 
@@ -141,48 +141,55 @@ describe('LinkedList', () => {
 
   describe('remove()', () => {
     it('Removes the tail node from the list', () => {
+      const aLinkedList = generateTestList()
+      aLinkedList.remove()
+      expect(aLinkedList.tail.data)
+        .to.equal('middle')
+    })
+  })
 
+  describe('removeFirst', () => {
+    it('removes the head node from the list', () => {
+      const aLinkedList = generateTestList()
+      aLinkedList.removeFirst()
+      expect(aLinkedList.head.data)
+        .to.equal('middle')
+    })
+  })
+
+  describe('clear()', () => {
+    it('clears the head of the linked list', () => {
+      const aLinkedList = generateTestList()
+      aLinkedList.clear()
+      expect(aLinkedList.head)
+        .to.equal(null)
+    })
+
+    it('clears the tail of the linked list', () => {
+      const aLinkedList = generateTestList()
+      aLinkedList.clear()
+      expect(aLinkedList.tail)
+        .to.equal(null)
+    })
+
+    it('clears the count of the linked list', () => {
+      const aLinkedList = generateTestList()
+      aLinkedList.clear()
+      expect(aLinkedList.count)
+        .to.equal(0)
+    })
+  })
+
+  describe('contains()', () => {
+    it('returns true if the list contains the provided data', () => {
+      const aLinkedList = generateTestList()
+      expect(aLinkedList.contains('middle'))
+        .to.equal(true)
+    })
+    it('returns false if the list does not contain the provided data', () => {
+      const aLinkedList = generateTestList()
+      expect(aLinkedList.contains('WompWomp'))
+        .to.equal(false)
     })
   })
 })
-  // context('peek()', () => {
-  //   it('shows the current element at the top of the stack.', () => {
-  //     const aLinkedList = new LinkedList(['foo','bar'])
-  //     expect(aLinkedList.peek())
-  //       .to.equal('foo')
-  //   })
-  // })
-  //
-
-  //
-  //
-  // context ('length()', () => {
-  //   it('shows the length of the stack.', () => {
-  //     const aLinkedList = new LinkedList()
-  //     aLinkedList.push('ber')
-  //     expect(aLinkedList.length())
-  //       .to.equal(1)
-  //   })
-  // })
-// })
-
-// describe('linkedlist', () => {
-//   'use strict'
-//
-//   it('exists', () => {
-//     expect(LinkedList).to.be.a('function')
-//   })
-//
-//     it('Inserts a node with the provided data to the head of the list'), () => {
-//       const linkedList = new LinkedList()
-//       linkedList.insertFirst("someData2")
-//       .to.alter(() => linkedList.size(), { from: 1, to: 2 })
-//     })
-//   })
-//   describe('size()', () => {
-//     it('returns the size of the list', () => {
-//         const linkedList = new LinkedList()
-//         linkedList.insertFirst("hello")
-//         expect(linkedList.size()).to.eql(1)
-//     })
-//   })
