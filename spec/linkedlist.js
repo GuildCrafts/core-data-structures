@@ -7,11 +7,9 @@ chai.use(chaiChange)
 const generateTestList = () => {
   const list = new LinkedList()
 
-  list.insert('foo')
-  list.insert('stuff')
-  list.insert('blah')
-  list.insert('foo2')
-  list.insert('stuff2')
+  list.insert('first')
+  list.insert('middle')
+  list.insert('last')
 
   return list
 }
@@ -48,7 +46,7 @@ describe('LinkedList', () => {
       const aLinkedList = generateTestList()
 
       expect(() => aLinkedList.insert('junk'))
-        .to.alter(() => aLinkedList.size(), { from: 5, to: 6 })
+        .to.alter(() => aLinkedList.size(), { from: 3, to: 4 })
     })
 
     it('Inserts a node (with the provided data) to the tail of the list', () => {
@@ -72,8 +70,8 @@ describe('LinkedList', () => {
     it('Returns the first node containing the provided data', () => {
       const aLinkedList = generateTestList()
 
-      expect(aLinkedList.find('stuff'))
-      .to.equal(1)
+      expect(aLinkedList.find('middle').data)
+      .to.equal('middle')
     })
   })
 
@@ -95,7 +93,54 @@ describe('LinkedList', () => {
 
   describe ('getHeadNode()', () => {
     it('Returns the first node in the list', () => {
-      const aLinkedList = new LinkedList()
+      const aLinkedList = generateTestList()
+      expect(aLinkedList.head.data)
+        .to.equal('first')
+    })
+  })
+
+  describe ('getTailNode()', () => {
+    it('Returns the first node in the list', () => {
+      const aLinkedList = generateTestList()
+      expect(aLinkedList.tail.data)
+        .to.equal('last')
+    })
+  })
+
+  describe('insertBefore()', () => {
+    it('inserts a new head if instructed to insert before head element', () => {
+      const aLinkedList = generateTestList()
+      aLinkedList.insertBefore('first', 'newHead')
+      expect(aLinkedList.head.data)
+        .to.equal('newHead')
+    })
+
+    it('inserts a new element before the first instance of a matching element', () => {
+      const aLinkedList = generateTestList()
+      aLinkedList.insertBefore('middle', 'newSecond')
+      expect(aLinkedList.head.next.data)
+        .to.equal('newSecond')
+    })
+  })
+
+  describe('insertAfter()', () => {
+    it('inserts a new tail if instructed to insert after tail element', () => {
+      const aLinkedList = generateTestList()
+      aLinkedList.insertAfter('last', 'newTail')
+      expect(aLinkedList.tail.data)
+        .to.equal('newTail')
+    })
+
+    it('inserts a new element after the first instance of a matching element', () => {
+      const aLinkedList = generateTestList()
+      aLinkedList.insertAfter('first', 'newSecond')
+      expect(aLinkedList.head.next.data)
+        .to.equal('newSecond')
+    })
+  })
+
+  describe('remove()', () => {
+    it('Removes the tail node from the list', () => {
 
     })
   })
@@ -128,13 +173,6 @@ describe('LinkedList', () => {
 //     expect(LinkedList).to.be.a('function')
 //   })
 //
-//   describe('insertFirst()', () => {
-//     it('Inserts a node with the provided data to the head of the list'), () => {
-//       const linkedList = new LinkedList()
-//       linkedList.insertFirst("someData")
-//       .to.alter(() => linkedList.size(), { from: 0, to: 1 })
-//     })
-//   })
 //     it('Inserts a node with the provided data to the head of the list'), () => {
 //       const linkedList = new LinkedList()
 //       linkedList.insertFirst("someData2")

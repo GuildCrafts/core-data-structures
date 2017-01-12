@@ -48,7 +48,7 @@ export default class LinkedList {
       this.head = node
       this.tail = node
 
-      //set newnode to tail
+    //set newnode to tail
     } else {
       this.tail.next = node
       this.tail = node
@@ -61,16 +61,14 @@ export default class LinkedList {
   // or -1 if not found
   find( value ) {
     let currentNode = this.head
-    let currentIndex = 0
     while (currentNode !== this.tail) {
       if (currentNode.data === value) {
-        return currentIndex
+        return currentNode
       } else {
         currentNode = currentNode.next
-        currentIndex++
       }
     }
-    return currentNode.data === value ? currentIndex : -1
+    return currentNode.data === value ? currentNode : -1
   }
   // Determines if the list is empty or not
   isEmpty() {
@@ -81,24 +79,49 @@ export default class LinkedList {
   getHeadNode() {
     return this.head
   }
+
+  // Returns the last node in the list
+  getTailNode() {
+    return this.tail
+  }
+
+  // Inserts a node containing data
+  // before the first node matching the target value
+  insertBefore(target, data) {
+    const node = new Node(data)
+    node.next = this.find(target)
+
+    if (node.next === this.getHeadNode()) {
+      this.head = node
+    } else {
+      let currentNode = this.getHeadNode()
+      while (currentNode.next !== node.next) {
+        currentNode = currentNode.next
+      }
+      currentNode.next = node
+    }
+    this.count++
+  }
+
+  // Inserts a node containing data
+  // after the first node matching the target value
+  insertAfter(target, data) {
+    const node = new Node(data)
+    if (this.find(target) === this.getTailNode()) {
+      this.tail = node
+    }
+    node.next = this.find(target).next
+    this.find(target).next = node
+    this.count++
+  }
+  // Removes the tail node from the list
+  remove() {
+
+  }
 }
-
-
-    // linkedList.insertBefore("bananas", "apples") // Inserts a node (with data "apples") before the first node containing "bananas"
-
-    // linkedList.insertAfter("apples", "bananas")  // Inserts a node (with data "bananas") after the first node containing "apples"
-
-    // linkedList.remove()                // Removes the tail node from the list
 
     // linkedList.removeFirst()           // Removes the head node from the list
 
-    // linkedList.getHeadNode()           // Returns the first node in the list
-
-    // linkedList.getTailNode()           // Returns the last node in the list
-
     // linkedList.contains("bananas")     // Determines whether or not the list contains the provided data
-
-
-
 
     // linkedList.clear()                 // Clears the list of all nodes/data
