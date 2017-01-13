@@ -5,8 +5,6 @@ import Stack from '../src/stack'
 chai.use(chaiChange)
 
 describe('Stack', () => {
-  'use strict'
-
   it('exists', () => {
     expect(Stack).to.be.a('function')
   })

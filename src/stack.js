@@ -1,5 +1,3 @@
-'use strict'
-
 export default class Stack {
   constructor() {
     this._store = []
@@ -14,13 +12,11 @@ export default class Stack {
   }
 
   peek() {
-    const length = this.length()
-
-    if (length === 0) {
+    if (this.isEmpty()) {
       return null
     }
 
-    return this._store[length - 1]
+    return this._store[this.length() - 1]
   }
 
   isEmpty() {
