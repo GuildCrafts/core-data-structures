@@ -13,6 +13,6 @@
   },
   "scripts": {
     "build": "babel src -d lib",
-    "test": "mocha --compilers js:babel-register ./tests/linkedListTest.js"
+    "test": "mocha --compilers js:babel-register ./tests/doublyLinkedListTest.js"
   }
 }
