@@ -2,7 +2,7 @@ import {expect} from 'chai'
 import chaiChange from 'chai-change'
 import LinkedList from '../src/linkedList'
 
-describe.only('linkedList()', () => {
+describe('linkedList()', () => {
   let newList
   let emptyList
   beforeEach(() => {
@@ -71,7 +71,7 @@ describe.only('linkedList()', () => {
     })
   })
   context('insertBefore', () => {
-    it('should insert a new node after the specified node' , () => {
+    it('should insert a new node before the specified node' , () => {
       expect(newList.insertBefore('new-element', 'brand-new-element').next.data).to.equal('new-element')
     })
     it('should make a new next property of the previous node' , () => {

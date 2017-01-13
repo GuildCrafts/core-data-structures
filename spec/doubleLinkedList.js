@@ -1,58 +1,159 @@
 import {expect} from 'chai'
 import chaiChange from 'chai-change'
-import doublyLinkedList from '../src/doubleLinkedList'
+import doubleLinkedList from '../src/doubleLinkedList'
 
-// describe('doublyLinkedList()', () => {
-//   context('Insert()', () => {
-//     it('it should insert into a newly doubly linked list', () => {
-//       const newList = new  doublyLinkedList()
-//
-//       expect(newList.insert('element')).to.deep.equal({
-//         data: 'element', next: null, prev: null
-//       })
-//     })
-//     it('it should insert into a exisiting doubly linked list', () => {
-//       const newList = new  doublyLinkedList()
-//       newList.insert('element')
-//       console.log (newList)
-//       newList.insert('new-element')
-//       console.log (newList)
-//
-//       expect(newList.insert('new-element2')).to.deep.equal(newList.head.data)
-//
-//
-//     })
-//   })
+describe('doubleLinkedList()', () => {
+  let newList
+  let emptyList
+  beforeEach(() => {
+    newList = new doubleLinkedList()
+    emptyList = new doubleLinkedList()
+    newList.insert('element')
+    newList.insert('new-element')
+    newList.insert('another-new-element')
+  })
 
-  // it('it should insert into a doubly linked list', () => {
-  //   const newList = new doublyLinkedList()
-  //
-  //   newList.insert('element')
-  //   newList.insert('new-element')
-  //
-  //   expect(newList.getHeadNode()).to.deep.equal({
-  //     data: 'element', before: null, next: {data: 'new-element', before: , next: null}
-  //   })
-  // })
+  context('Insert()', () => {
+    it('it should insert into a new double linked list', () => {
+      expect(emptyList.insert('element')).to.deep.equal({
+        data: 'element', next: null, prev: null
+      })
+    })
+    it('it should insert into a exisiting double linked list', () => {
+      expect(newList.insert('new-element2').data).to.deep.equal(newList.tail.data)
+    })
+    it('should link node going backward' , () => {
+      newList.insert('new-element2')
+      expect(newList.tail.prev).to.deep.equal('another-new-element')
+    })
+    it('should link node going forward' , () => {
+      newList.insert('new-element2')
+      expect(newList.find('another-new-element').next.data).to.deep.equal('new-element2')
+    })
+  })
 
-  // it('check the size of the linked list', () => {
-  //   const newList = new LinkedList()
-  //
-  //   expect(newList.size()).to.deep.equal(0)
-  //
-  //   newList.insert('element')
-  //   newList.insert('new-element')
-  //
-  //   expect(newList.size()).to.deep.equal(2)
-  // })
-  //
-  // it('returns the last node', () => {
-  //   const newList = new LinkedList()
-  //
-  //   newList.insert('element')
-  //   newList.insert('new-element')
-  //   newList.insert('another-new-element')
-  //
-  //   expect(newList.getTailNode()).to.deep.equal({data: 'another-new-element', next: null})
-  //   })
-  // })
+  context('find()', () => {
+    it('should return a given element in the list', () => {
+      expect(newList.find('new-element').data).to.equal('new-element')
+    })
+    it('should ONLY return the first instance of the element in the list', () => {
+      newList.insert('another-new-element')
+      expect(newList.find('another-new-element').prev).to.equal('new-element')
+    })
+    it('should return -1 if the element is not in the list', () => {
+      expect(newList.find('Over 9000!!!!')).to.equal(-1)
+    })
+  })
+
+  context('getHeadNode', () => {
+    it('returns the head node', () => {
+      expect(newList.getHeadNode().data).to.deep.equal('element')
+    })
+  })
+  context('getTailNode', () => {
+    it('returns the tail node', () => {
+      expect(newList.getTailNode().data).to.deep.equal('another-new-element')
+    })
+  })
+  context('contains', () => {
+    it('determines whether or not the list contains the provided data', () => {
+      expect(newList.contains('another-new-element')).to.equal(true)
+    })
+    it('returns false if the list does not contain the target', () => {
+      expect(newList.contains('Over 9000!!!!')).to.equal(false)
+    })
+  })
+  context('insertFirst', () => {
+    it('should replace the current head' , () => {
+      expect(newList.insertFirst('newHead')).to.equal(newList.head)
+    })
+    it('should add the old head as the next node to the current node' , () => {
+      expect(newList.insertFirst('newHead').next.data).to.equal('element')
+    })
+    it('should add the old head as the next node to the current node' , () => {
+      newList.insertFirst('newHead')
+      expect(newList.find('element').prev).to.equal('newHead')
+    })
+  })
+  context('insertBefore', () => {
+    it('should insert a new node before the specified node' , () => {
+      expect(newList.insertBefore('new-element', 'brand-new-element').next.data).to.equal('new-element')
+    })
+    it('the target node has a new prev property' , () => {
+      expect(newList.insertBefore('new-element', 'brand-new-element').next.data).to.equal('new-element')
+    })
+
+    it('added Node has the appropriate next property' , () => {
+      newList.insertBefore('new-element', 'brand-new-element')
+      expect(newList.find('element').next.data).to.equal('brand-new-element')
+    })
+    it('added Node has the appropriate prev property ', () => {
+      newList.insertBefore('new-element', 'brand-new-element')
+      expect(newList.find('brand-new-element').prev.data).to.equal('element')
+    })
+  })
+  context('insertAfter', () => {
+    it('should insert a new node after the specified node' , () => {
+     expect(newList.insertAfter('new-element', 'brand-new-element').next.data).to.equal('another-new-element')
+    })
+    it('previous node has a new next property', () => {
+      newList.insertAfter('new-element', 'brand-new-element')
+      expect(newList.find('new-element').next.data).to.equal('brand-new-element')
+    })
+    it('added Node has the appropriate next property' , () => {
+      newList.insertAfter('new-element', 'brand-new-element')
+      expect(newList.find('brand-new-element').next.data).to.equal('another-new-element')
+    })
+    it('added Node has the appropriate prev property ', () => {
+      newList.insertAfter('new-element', 'brand-new-element')
+      expect(newList.find('brand-new-element').prev.data).to.equal('new-element')
+    })
+  })
+  context('remove', () => {
+    it('should remove the tail node from the list', () => {
+      newList.remove()
+    expect(newList.tail.data).to.equal('new-element')
+    })
+    it('tail node should have a next property of null', () => {
+      newList.remove()
+    expect(newList.tail.next).to.equal(null)
+    })
+  })
+  context('removeFirst', () => {
+    it('should remove the tail node from the list', () => {
+      newList.removeFirst()
+      expect(newList.head.data).to.equal('new-element')
+    })
+    it('head node should have a prev property of null', () => {
+      newList.removeFirst()
+    expect(newList.head.prev).to.equal(null)
+    })
+  })
+  context('isEmpty', () => {
+    it('should return true if the list is empty', () => {
+      expect(emptyList.isEmpty()).to.equal(true)
+    })
+    it('should return false if the list has elements in it', () => {
+      expect(newList.isEmpty()).to.equal(false)
+    })
+  })
+  context('size()', () => {
+    it('should return the size of the list', () => {
+      expect(newList.size()).to.equal(3)
+    })
+  })
+  context('clear()', () => {
+    it('should remove all elements from the list', () => {
+      newList.clear()
+      expect(newList.index).to.equal(0)
+    })
+    it('should remove the head element from the list', () => {
+      newList.clear()
+      expect(newList.head).to.equal(null)
+    })
+    it('should remove the tail element from the list', () => {
+      newList.clear()
+      expect(newList.tail).to.equal(null)
+    })
+  })
+})

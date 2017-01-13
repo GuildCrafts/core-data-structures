@@ -6,7 +6,7 @@ class Node {
   }
 }
 
-export default class doublyLinkedList {
+export default class doubleLinkedList {
   constructor() {
     this.head = null
     this.tail = null
@@ -15,9 +15,9 @@ export default class doublyLinkedList {
 
   insert(data) {
     const node = new Node(data)
-    let currentNode = this.tail
-    let previousNode = null
-    let nextData
+    let currentNode = this.head
+    let previousNodeData = null
+
 
     if(!currentNode){
       this.head = node
@@ -27,37 +27,112 @@ export default class doublyLinkedList {
     }
 
     while(currentNode.next) {
-      previousNodeData = currentNode.prev.data
-      currentNode = currentNode.next
-      currentNode.prev = previousNodeData
-
-
-
-
+        currentNode = currentNode.next
     }
-
-
-
-    //
-    // while(currentNode.next && currentNode.prev) {
-    //   // console.log( '1st previous node ->' + previousNode + '1st currentNode->' + currentNode)
-    //   previousNode = currentNode
-    //   nextData = currentNode.next.data
-    //   console.log(currentNode.next.data)
-    //
-    //     // console.log( '2nd previous node ->' + previousNode  + '2nd currentNode->' + currentNode)
-    //   currentNode = currentNode.next
-    //     // console.log( '3rd previous node ->' + previousNode  + '3rd currentNode->' + currentNode)
-    //   currentNode.before = previousNode.data
-    //     // console.log( '4th previous node ->' + previousNode  + '4th currentNode->' + currentNode)
-    //     previousNode.next = currentNode.data
-    //
-    // }
-
     currentNode.next = node
-    // console.log(currentNode);
+    node.prev = currentNode.data
+    this.tail = node
+
     this.index++
     return node
 
+  }
+
+  find(target) {
+    let currentNode = this.head
+    while (currentNode !== this.tail) {
+      if( currentNode.data === target) {
+        return currentNode
+      } else {
+        currentNode = currentNode.next
+      }
+    }
+    return currentNode.data === target ? currentNode : -1
+  }
+
+  getHeadNode() {
+    return this.head
+  }
+
+  getTailNode() {
+    return this.tail
+  }
+
+  contains(target){
+    let currentNode = this.head
+    while (currentNode !== this.tail) {
+      if( currentNode.data === target) {
+        return true
+      } else {
+        currentNode = currentNode.next
+      }
+    }
+    return currentNode.data === target ? true : false
+  }
+
+  insertFirst(data){
+    const node = new Node(data)
+    if (!this.head) {
+      this.head = node
+      this.tail = node
+      this.index++
+      return node
+    }
+    node.next = this.head
+    this.head.prev = node.data
+    this.head = node
+    this.index++
+    return node
+  }
+  insertBefore(location, data){
+    const node = new Node(data)
+    let currentNode = this.head
+    while(currentNode.next.data !== location){
+      currentNode = currentNode.next
+    }
+    let nextNode = currentNode.next
+    currentNode.next = node
+    node.next = nextNode
+    node.prev = currentNode
+    return node
+  }
+  insertAfter(location, data){
+    const node = new Node(data)
+    let currentNode = this.head
+    while(currentNode.data !== location){
+      currentNode = currentNode.next
+    }
+    let nextNode = currentNode.next
+    currentNode.next = node
+    node.next = nextNode
+    node.prev = currentNode
+    return node
+  }
+
+  remove(){
+    let currentNode = this.head
+    while(currentNode.next.next !== null){
+    currentNode = currentNode.next
+    }
+    this.tail = currentNode
+    currentNode.next = null
+    this.index--
+  }
+
+  removeFirst(){
+    this.head = this.head.next
+    this.head.prev = null
+    this.index--
+  }
+  isEmpty(){
+    return this.index === 0
+  }
+  size(){
+    return this.index
+  }
+  clear(){
+    this.head = null
+    this.tail = null
+    this.index = 0
   }
 }
