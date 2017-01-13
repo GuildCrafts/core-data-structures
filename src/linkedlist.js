@@ -11,6 +11,7 @@ class Node {
 export default class linkedList {
   constructor(){
     this.head = null
+    this.tail = null
     this.index = 0
   }
 
@@ -20,6 +21,7 @@ export default class linkedList {
 
     if (!currentNode) {
       this.head = node
+      this.tail = node
       this.index++
       return node
     }
@@ -29,6 +31,7 @@ export default class linkedList {
     }
 
     currentNode.next = node
+    this.tail = node
 
     this.index++
     return node
@@ -39,7 +42,7 @@ export default class linkedList {
   }
 
   getTailNode() {
-    let currentNode = this.head
+    let currentNode = this.tail
 
     while(currentNode.next){
       currentNode = currentNode.next
@@ -50,4 +53,55 @@ export default class linkedList {
   size() {
     return this.index
   }
+  contains(target){
+    let currentNode = this.head
+    while (currentNode !== this.tail) {
+      if( currentNode.data === target) {
+        return true
+      } else {
+        currentNode = currentNode.next
+      }
+    }
+    return currentNode.data === target ? true : false
+  }
+  find(target){
+    let currentNode = this.head
+    while (currentNode !== this.tail) {
+      if( currentNode.data === target) {
+        return currentNode
+      } else {
+        currentNode = currentNode.next
+      }
+    }
+    return currentNode.data === target ? currentNode : -1
+  }
+
+  insertFirst(data){
+    const node = new Node(data)
+    if (!this.head) {
+      this.head = node
+      this.tail = node
+      this.index++
+      return node
+    }
+    node.next = this.head
+    this.head = node
+    this.index++
+    return node
+  }
+
+//   insertBefore(data){
+//     const node = new Node(data)
+//     if (!this.head) {
+//       this.head = node
+//       this.tail = node
+//       this.index++
+//       return node
+//     }
+//     while()
+//     node.next = this.head
+//     this.head = node
+//     this.index++
+//     return node
+//   }
 }
