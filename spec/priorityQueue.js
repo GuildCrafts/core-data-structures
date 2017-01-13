@@ -26,6 +26,7 @@ describe('priorityQueue', () => {
       newQueue.enqueue('pizza', 90)
       newQueue.enqueue('potato', 100)
       newQueue.enqueue('something', 95)
+
     it('adds an element with priority to the back of the queue', () => {
       expect(newQueue).to.eql({queue: [['pizza', 90], ['something', 95], ['potato', 100]], index: 3})
     })
