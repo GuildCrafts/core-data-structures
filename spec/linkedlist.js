@@ -61,4 +61,29 @@ describe.only('linkedList()', () => {
       expect(newList.insertFirst('newHead').next.data).to.equal('element')
     })
   })
+  context('insertAfter', () => {
+    it('should insert a new node after the specified node' , () => {
+      expect(newList.insertAfter('new-element', 'brand-new-element').next.data).to.equal('another-new-element')
+    })
+    it('should make a new next property of the previous node' , () => {
+      newList.insertAfter('new-element', 'brand-new-element')
+      expect(newList.find('new-element').next.data).to.equal('brand-new-element')
+    })
+  })
+  context('insertBefore', () => {
+    it('should insert a new node after the specified node' , () => {
+      expect(newList.insertBefore('new-element', 'brand-new-element').next.data).to.equal('new-element')
+    })
+    it('should make a new next property of the previous node' , () => {
+      newList.insertBefore('new-element', 'brand-new-element')
+      expect(newList.find('element').next.data).to.equal('brand-new-element')
+    })
+  })
+
+  context('remove', () => {
+    it('should remove the tail node from the list', () => {
+      newList.remove()
+    expect(newList.tail.data).to.equal('new-element')
+    })
+  })
 })

@@ -90,18 +90,36 @@ export default class linkedList {
     return node
   }
 
-//   insertBefore(data){
-//     const node = new Node(data)
-//     if (!this.head) {
-//       this.head = node
-//       this.tail = node
-//       this.index++
-//       return node
-//     }
-//     while()
-//     node.next = this.head
-//     this.head = node
-//     this.index++
-//     return node
-//   }
+  insertAfter(location, data){
+    const node = new Node(data)
+    let currentNode = this.head
+    while(currentNode.data !== location){
+      currentNode = currentNode.next
+    }
+    let nextNode = currentNode.next
+    currentNode.next = node
+    node.next = nextNode
+    return node
+  }
+
+  insertBefore(location, data){
+    const node = new Node(data)
+    let currentNode = this.head
+    while(currentNode.next.data !== location){
+      currentNode = currentNode.next
+    }
+    let nextNode = currentNode.next
+    currentNode.next = node
+    node.next = nextNode
+    return node
+  }
+  remove(){
+    let currentNode = this.head
+    while(currentNode.next.next !== null){
+    currentNode = currentNode.next
+    }
+    this.tail = currentNode
+    currentNode.next = null
+    this.index--
+  }
 }

@@ -2,27 +2,27 @@ import {expect} from 'chai'
 import chaiChange from 'chai-change'
 import doublyLinkedList from '../src/doubleLinkedList'
 
-describe('doublyLinkedList()', () => {
-  context('Insert()', () => {
-    it('it should insert into a newly doubly linked list', () => {
-      const newList = new  doublyLinkedList()
-
-      expect(newList.insert('element')).to.deep.equal({
-        data: 'element', next: null, prev: null
-      })
-    })
-    it('it should insert into a exisiting doubly linked list', () => {
-      const newList = new  doublyLinkedList()
-      newList.insert('element')
-      console.log (newList)
-      newList.insert('new-element')
-      console.log (newList)
-
-      expect(newList.insert('new-element2')).to.deep.equal(newList.head.data)
-
-
-    })
-  })
+// describe('doublyLinkedList()', () => {
+//   context('Insert()', () => {
+//     it('it should insert into a newly doubly linked list', () => {
+//       const newList = new  doublyLinkedList()
+//
+//       expect(newList.insert('element')).to.deep.equal({
+//         data: 'element', next: null, prev: null
+//       })
+//     })
+//     it('it should insert into a exisiting doubly linked list', () => {
+//       const newList = new  doublyLinkedList()
+//       newList.insert('element')
+//       console.log (newList)
+//       newList.insert('new-element')
+//       console.log (newList)
+//
+//       expect(newList.insert('new-element2')).to.deep.equal(newList.head.data)
+//
+//
+//     })
+//   })
 
   // it('it should insert into a doubly linked list', () => {
   //   const newList = new doublyLinkedList()
@@ -55,4 +55,4 @@ describe('doublyLinkedList()', () => {
   //
   //   expect(newList.getTailNode()).to.deep.equal({data: 'another-new-element', next: null})
   //   })
-  })
+  // })
