@@ -24,7 +24,7 @@ describe('LinkedList', () => {
 
   describe('insertFirst', () => {
 
-    it('Inserts a node with the provided data to the head of the list', () => {
+    it('increments the size when adding a node', () => {
       const aLinkedList = new LinkedList()
 
       expect(() => aLinkedList.insertFirst('foo'))
@@ -69,9 +69,10 @@ describe('LinkedList', () => {
 
     it('Returns the first node containing the provided data', () => {
       const aLinkedList = generateTestList()
+      aLinkedList.insert('middle')
 
-      expect(aLinkedList.find('middle').data)
-        .to.equal('middle')
+      expect(aLinkedList.find('middle').next.data)
+        .to.equal('last')
     })
   })
 

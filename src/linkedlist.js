@@ -40,35 +40,25 @@ export default class LinkedList {
 
   // Inserts a node (with the provided data) to the tail of the list
   insert ( value ) {
-    //create new node
     const node = new Node( value )
-    //find if tail is defined
-    if ( this.head === null ) {
-    //set oldtail next to new node
-      this.head = node
-      this.tail = node
 
-    //set newnode to tail
-    } else {
-      this.tail.next = node
-      this.tail = node
-    }
-    //set new tail to null
-    //this.tail = null
+    this.head === null ? this.head = node : this.tail.next = node
+
+    this.tail = node
     this.count++
   }
   //Returns the first node containing the provided data,
   // or -1 if not found
   find( value ) {
     let currentNode = this.head
-    while (currentNode !== this.tail) {
+    while (currentNode) {
       if (currentNode.data === value) {
         return currentNode
       } else {
         currentNode = currentNode.next
       }
     }
-    return currentNode.data === value ? currentNode : -1
+    return -1
   }
   // Determines if the list is empty or not
   isEmpty() {
@@ -143,6 +133,6 @@ export default class LinkedList {
   }
   // Determines whether or not the list contains the provided data
   contains(data) {
-    return this.find(data) !== -1 ? true : false
+    return this.find(data) !== -1
   }
 }
