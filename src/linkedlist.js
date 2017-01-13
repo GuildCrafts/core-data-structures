@@ -122,4 +122,21 @@ export default class linkedList {
     currentNode.next = null
     this.index--
   }
+
+  removeFirst(){
+    this.head = this.head.next
+    this.index--
+  }
+
+  isEmpty(){
+    return this.index === 0
+  }
+  size(){
+    return this.index
+  }
+  clear(){
+    this.head = null
+    this.tail = null
+    this.index = 0
+  }
 }

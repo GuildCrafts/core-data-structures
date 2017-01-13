@@ -86,4 +86,39 @@ describe.only('linkedList()', () => {
     expect(newList.tail.data).to.equal('new-element')
     })
   })
+
+  context('removeFirst', () => {
+    it('should remove the tail node from the list', () => {
+      newList.removeFirst()
+      expect(newList.head.data).to.equal('new-element')
+    })
+  })
+
+  context('isEmpty', () => {
+    it('should return true if the list is empty', () => {
+      expect(emptyList.isEmpty()).to.equal(true)
+    })
+    it('should return false if the list has elements in it', () => {
+      expect(newList.isEmpty()).to.equal(false)
+    })
+  })
+  context('size()', () => {
+    it('should return the size of the list', () => {
+      expect(newList.size()).to.equal(3)
+    })
+  })
+  context('clear()', () => {
+    it('should remove all elements from the list', () => {
+      newList.clear()
+      expect(newList.index).to.equal(0)
+    })
+    it('should remove the head element from the list', () => {
+      newList.clear()
+      expect(newList.head).to.equal(null)
+    })
+    it('should remove the tail element from the list', () => {
+      newList.clear()
+      expect(newList.tail).to.equal(null)
+    })
+  })
 })
