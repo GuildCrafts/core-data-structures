@@ -13,8 +13,11 @@ describe('linkedList()', () => {
     newList.insert('another-new-element')
   })
   it('it should insert into a linked list', () => {
-    expect(newList.insert('element')).to.deep.equal({
-      data: 'element', next: null
+    emptyList.insert('element')
+    expect(emptyList).to.deep.equal({
+      head :{data: 'element', next: null},
+      tail: {data: 'element', next: null},
+      index: 1
     })
   })
 
@@ -55,15 +58,18 @@ describe('linkedList()', () => {
 
   context('insertFirst', () => {
     it('should replace the current head' , () => {
-      expect(newList.insertFirst('newHead')).to.equal(newList.head)
+      newList.insertFirst('newHead')
+      expect(newList.head.data).to.equal('newHead')
     })
     it('should add the old head as the next node to the current node' , () => {
-      expect(newList.insertFirst('newHead').next.data).to.equal('element')
+      newList.insertFirst('newHead')
+      expect(newList.head.next.data).to.equal('element')
     })
   })
   context('insertAfter', () => {
     it('should insert a new node after the specified node' , () => {
-      expect(newList.insertAfter('new-element', 'brand-new-element').next.data).to.equal('another-new-element')
+      newList.insertAfter('new-element', 'brand-new-element')
+      expect(newList.find('brand-new-element').next.data).to.equal('another-new-element')
     })
     it('should make a new next property of the previous node' , () => {
       newList.insertAfter('new-element', 'brand-new-element')
@@ -72,7 +78,8 @@ describe('linkedList()', () => {
   })
   context('insertBefore', () => {
     it('should insert a new node before the specified node' , () => {
-      expect(newList.insertBefore('new-element', 'brand-new-element').next.data).to.equal('new-element')
+      newList.insertBefore('new-element', 'brand-new-element')
+      expect(newList.find('brand-new-element').next.data).to.equal('new-element')
     })
     it('should make a new next property of the previous node' , () => {
       newList.insertBefore('new-element', 'brand-new-element')

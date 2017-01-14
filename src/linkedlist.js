@@ -23,7 +23,7 @@ export default class linkedList {
       this.head = node
       this.tail = node
       this.index++
-      return node
+      return
     }
 
     while (currentNode.next) {
@@ -34,7 +34,6 @@ export default class linkedList {
     this.tail = node
 
     this.index++
-    return node
   }
 
   getHeadNode() {
@@ -42,12 +41,7 @@ export default class linkedList {
   }
 
   getTailNode() {
-    let currentNode = this.tail
-
-    while(currentNode.next){
-      currentNode = currentNode.next
-    }
-    return currentNode
+    return this.tail
   }
 
   size() {
@@ -82,12 +76,10 @@ export default class linkedList {
       this.head = node
       this.tail = node
       this.index++
-      return node
     }
     node.next = this.head
     this.head = node
     this.index++
-    return node
   }
 
   insertAfter(location, data){
@@ -99,7 +91,6 @@ export default class linkedList {
     let nextNode = currentNode.next
     currentNode.next = node
     node.next = nextNode
-    return node
   }
 
   insertBefore(location, data){
@@ -111,7 +102,6 @@ export default class linkedList {
     let nextNode = currentNode.next
     currentNode.next = node
     node.next = nextNode
-    return node
   }
   remove(){
     let currentNode = this.head
