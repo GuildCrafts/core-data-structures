@@ -16,26 +16,21 @@ export default class doubleLinkedList {
   insert(data) {
     const node = new Node(data)
     let currentNode = this.head
-    let previousNodeData = null
-
 
     if(!currentNode){
       this.head = node
       this.tail = node
       this.index++
-      return node
+      return
     }
 
     while(currentNode.next) {
-        currentNode = currentNode.next
+      currentNode = currentNode.next
     }
     currentNode.next = node
-    node.prev = currentNode.data
+    node.prev = currentNode
     this.tail = node
-
     this.index++
-    return node
-
   }
 
   find(target) {
@@ -76,13 +71,11 @@ export default class doubleLinkedList {
       this.head = node
       this.tail = node
       this.index++
-      return node
     }
     node.next = this.head
     this.head.prev = node.data
     this.head = node
     this.index++
-    return node
   }
   insertBefore(location, data){
     const node = new Node(data)
@@ -94,19 +87,19 @@ export default class doubleLinkedList {
     currentNode.next = node
     node.next = nextNode
     node.prev = currentNode
-    return node
   }
+
   insertAfter(location, data){
     const node = new Node(data)
     let currentNode = this.head
     while(currentNode.data !== location){
       currentNode = currentNode.next
     }
+    currentNode.next.prev = node
     let nextNode = currentNode.next
     currentNode.next = node
     node.next = nextNode
     node.prev = currentNode
-    return node
   }
 
   remove(){

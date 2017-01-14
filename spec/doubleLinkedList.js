@@ -15,16 +15,20 @@ describe('doubleLinkedList()', () => {
 
   context('Insert()', () => {
     it('it should insert into a new double linked list', () => {
-      expect(emptyList.insert('element')).to.deep.equal({
-        data: 'element', next: null, prev: null
+      emptyList.insert('element')
+      expect(emptyList).to.deep.equal({
+        head :{data: 'element', next: null, prev: null},
+        tail: {data: 'element', next: null, prev: null},
+        index: 1
       })
     })
     it('it should insert into a exisiting double linked list', () => {
-      expect(newList.insert('new-element2').data).to.deep.equal(newList.tail.data)
+      newList.insert('new-element2')
+      expect(newList.tail.data).to.deep.equal('new-element2')
     })
     it('should link node going backward' , () => {
       newList.insert('new-element2')
-      expect(newList.tail.prev).to.deep.equal('another-new-element')
+      expect(newList.tail.prev.data).to.deep.equal('another-new-element')
     })
     it('should link node going forward' , () => {
       newList.insert('new-element2')
@@ -38,7 +42,7 @@ describe('doubleLinkedList()', () => {
     })
     it('should ONLY return the first instance of the element in the list', () => {
       newList.insert('another-new-element')
-      expect(newList.find('another-new-element').prev).to.equal('new-element')
+      expect(newList.find('another-new-element').prev.data).to.equal('new-element')
     })
     it('should return -1 if the element is not in the list', () => {
       expect(newList.find('Over 9000!!!!')).to.equal(-1)
@@ -65,10 +69,12 @@ describe('doubleLinkedList()', () => {
   })
   context('insertFirst', () => {
     it('should replace the current head' , () => {
-      expect(newList.insertFirst('newHead')).to.equal(newList.head)
+      newList.insertFirst('newHead')
+      expect(newList.find('newHead').data).to.equal('newHead')
     })
     it('should add the old head as the next node to the current node' , () => {
-      expect(newList.insertFirst('newHead').next.data).to.equal('element')
+      newList.insertFirst('newHead')
+      expect(newList.find('newHead').next.data).to.equal('element')
     })
     it('should add the old head as the next node to the current node' , () => {
       newList.insertFirst('newHead')
@@ -77,10 +83,12 @@ describe('doubleLinkedList()', () => {
   })
   context('insertBefore', () => {
     it('should insert a new node before the specified node' , () => {
-      expect(newList.insertBefore('new-element', 'brand-new-element').next.data).to.equal('new-element')
+      newList.insertBefore('new-element', 'brand-new-element')
+      expect(newList.find('brand-new-element').next.data).to.equal('new-element')
     })
     it('the target node has a new prev property' , () => {
-      expect(newList.insertBefore('new-element', 'brand-new-element').next.data).to.equal('new-element')
+      newList.insertBefore('new-element', 'brand-new-element')
+      expect(newList.find('brand-new-element').next.data).to.equal('new-element')
     })
 
     it('added Node has the appropriate next property' , () => {
@@ -94,7 +102,8 @@ describe('doubleLinkedList()', () => {
   })
   context('insertAfter', () => {
     it('should insert a new node after the specified node' , () => {
-     expect(newList.insertAfter('new-element', 'brand-new-element').next.data).to.equal('another-new-element')
+      newList.insertAfter('new-element', 'brand-new-element')
+     expect(newList.find('another-new-element').prev.data).to.equal('brand-new-element')
     })
     it('previous node has a new next property', () => {
       newList.insertAfter('new-element', 'brand-new-element')
