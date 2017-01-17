@@ -251,6 +251,10 @@ Pick a _different_ programming language from JavaScript (e.g. Ruby, Swift, Pytho
 
 ---
 
+###Tutorials Used
+
+- A re-introduction to JavaScript (JS tutorial) from MDN
+
 <!-- LICENSE -->
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
