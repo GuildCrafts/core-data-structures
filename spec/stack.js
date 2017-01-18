@@ -11,12 +11,12 @@ describe('Stack', () => {
     expect(Stack).to.be.a('function')
   })
 
-  context('add()', () => {
+  context('push()', () => {
     it('pushes an element to the top of the stack.', () => {
       const myStack = new Stack()
 
       expect(() => myStack.add('foo'))
-        .to.alter(() => myStack.add(), { from: 0, to: 1 })
+        .to.alter(() => myStack.size(), { from: 0, to: 1 })
     })
   })
 })
