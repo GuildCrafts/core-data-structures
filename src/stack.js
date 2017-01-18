@@ -7,7 +7,6 @@ export default class Stack {
 
   push(value) {
     this.elements[this.elements.length] = value
-
   }
 
   pop() {

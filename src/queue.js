@@ -7,7 +7,6 @@ export default class Queue {
 
   enqueue(value) {
     this.elements[this.elements.length] = value
-    this.last++
   }
 
   dequeue() {
