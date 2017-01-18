@@ -12,12 +12,16 @@ describe('Stack', () => {
     expect(Stack).to.be.a('function')
   })
 
-  context('add()', () => {
+  context('push()', () => {
     it('pushes an element to the top of the stack.', () => {
-      const myStack = new Stack()
+      const myStack = new Array()
 
-      expect(() => myStack.add('foo'))
-        .to.alter(() => myStack.add(), { from: 0, to: 1 })
+      let stack = myStack.push('foo')
+      stack = myStack.push('bar')
+      let stackLength = myStack.length
+
+      expect(stackLength).to.equal(2)
     })
+
   })
 })
