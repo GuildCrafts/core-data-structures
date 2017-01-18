@@ -7,32 +7,31 @@ export default class Stack {
   // to push data
   // stack.push(a)
   // stack.push(b)
-  constructor(size, arr){
-    this.size = 0
+  constructor(){
     this.arr = []
   }
 
-    add(element) {
-      this.arr.push(element)
-    }
+  add(element) {
+    this.arr.push(element)
+  }
 
-    remove(element){
-      this.arr.pop(element)
-    }
+  remove(){
+    this.arr.pop(element)
+  }
 
-    peek(arr) {
-      if(this.arr.length > 0){
-        return this.arr[length-1];
-      } else {
-        return null;
-      }
+  peek() {
+    if(this.arr.length > 0){
+      return this.arr[length-1];
+    } else {
+      return null;
     }
+  }
 
-  isEmpty(arr){
+  isEmpty(){
     return this.arr.length > 0
   }
 
-  size(arr){
+  size(){
     return this.arr.length
   }
 
