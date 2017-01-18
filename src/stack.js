@@ -1,33 +1,11 @@
-// class Node {
-// 	constructor(data, next, prev) {
-// 		this.data = data
-// 		this.next = next
-// 		this.prev = prev
-// 	}
-// }
+'use strict'
 
-class Stack {
-	constructor() {
-		this.arr = []
-		this.top = 0
-	}
-	push(element) {
-		this.arr[this.top++] = element
-	}
-	length() {
-		
-	}
+export default class Stack {
+  constructor(){
+    this.arr = []
+  }
+
+  add(element) {
+    return this.arr.push(element)
+  }
 }
-
-// const stack = new Stack()
-// stack.push("foo")
-// console.log(stack)
-
-export default Stack
-
-
-// 'use strict'
-// export default class Stack {
-//   // your code here
-
-// }

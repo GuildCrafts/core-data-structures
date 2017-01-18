@@ -4,6 +4,7 @@ import Stack from '../src/stack'
 
 chai.use(chaiChange)
 
+
 describe('Stack', () => {
   'use strict'
 
@@ -11,12 +12,12 @@ describe('Stack', () => {
     expect(Stack).to.be.a('function')
   })
 
-  context('push()', () => {
+  context('add()', () => {
     it('pushes an element to the top of the stack.', () => {
       const myStack = new Stack()
 
-      expect(() => myStack.push('foo'))
-        .to.alter(() => myStack.length(), { from: 0, to: 1 })
+      expect(() => myStack.add('foo'))
+        .to.alter(() => myStack.add(), { from: 0, to: 1 })
     })
   })
 })
