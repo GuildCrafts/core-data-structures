@@ -3,53 +3,50 @@
 export default class Queue {
   constructor(initialValues=[]) {
     this.elements = initialValues
-    this.first = initialValues[0]
-    this.last = initialValues.length
   }
-    enqueue(value){
-      this.elements[this.last] = value
-      this.last++
+
+  enqueue(value) {
+    this.elements[this.elements.length] = value
+    this.last++
+  }
+
+  dequeue() {
+    if(this.elements.length === 0 ){
+      return null
+    }
+    let result = this.elements.slice(0, 1)
+    this.elements.splice(0,1)
+    return result
+  }
+
+  front() {
+    if(this.elements.length){
+      return this.elements[0]
     }
 
-    dequeue(){
-      if(this.elements.length === 0 ){
-        return null
-      }
-      let result = this.elements.slice(0, 1)
-      this.elements.splice(0,1)
-      return result
-    }
+    return null
+  }
 
-    front(){
-      if(this.elements.length === 0){
-        return null
-      } else {
-        return this.elements[0]
-      }
+  back() {
+    if(this.elements.length){
+      return this.elements.slice(-1)[0]
     }
+    return null
+  }
 
-    back(){
-      if(this.elements.length === 0){
-        return null
-      } else {
-        return this.elements[this.last - 1]
-      }
+  isEmpty() {
+    if (this.elements.length){
+      return false
     }
+    return true
+  }
 
-    isEmpty(){
-      if (this.elements.length === 0 ){
-        return true
-      } else {
-        return false
-      }
+  length() {
+    let count = 0
+    for (let key in this.elements) {
+        count++
     }
-
-    length(){
-      let count = 0
-      for (var key in this.elements) {
-          count++
-      }
-      return count
-    }
+    return count
+  }
 
 }

@@ -6,12 +6,12 @@ export default class Stack {
     this.top = initialValues.length
   }
 
-    push(value){
+    push(value) {
       this.elements[this.top] = value
       this.top++
     }
 
-    pop(){
+    pop() {
       if(this.top === 0){
         return null
       }
@@ -22,14 +22,14 @@ export default class Stack {
 
     }
 
-    peek(){
+    peek() {
       if (this.top === 0){
         return null
       }
       return this.elements[this.top -1]
     }
 
-    isEmpty(){
+    isEmpty() {
       if (this.top === 0 ){
         return true
       } else {
@@ -37,7 +37,7 @@ export default class Stack {
       }
     }
 
-    length(){
+    length() {
       let count = 0
       for (var key in this.elements) {
           count++
