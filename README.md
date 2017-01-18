@@ -254,6 +254,8 @@ Pick a _different_ programming language from JavaScript (e.g. Ruby, Swift, Pytho
 ###Tutorials Used
 
 - A re-introduction to JavaScript (JS tutorial) from MDN
+- [Hash Tables Video from Paul Programming on YouTube](https://www.youtube.com/watch?v=MfhjkfocRR0)
+- [Hash Tables Video from CS50](https://www.youtube.com/watch?v=h2d9b_nEzoA)
 
 <!-- LICENSE -->
 
