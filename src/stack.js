@@ -15,7 +15,9 @@ export default class Stack {
 
     peek() {
       this.arr.length > 0 ? this.arr[this.arrlength-1]: null
+
     }
+  }
 
   isEmpty(){
     return this.arr.length > 0
