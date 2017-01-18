@@ -7,7 +7,7 @@ chai.use(chaiChange)
 describe('Stack', () => {
   'use strict'
 
-  it('exists', () => {
+   it('exists', () => {
     expect(Stack).to.be.a('function')
   })
 
@@ -30,9 +30,6 @@ describe('Stack', () => {
       myStack.push('cereal')
       myStack.push('almond milk')
       myStack.push('bananas')
-      // console.log(myStack)
-      // console.log(myStack.pop())
-      // console.log(myStack)
 
       expect(() => myStack.pop())
         .to.alter(() => myStack.elements.length, { from: 3, to: 2 })
@@ -44,9 +41,6 @@ describe('Stack', () => {
       myStack.push('cereal')
       myStack.push('almond milk')
       myStack.push('bananas')
-      // console.log(myStack)
-      // console.log(myStack.pop())
-      // console.log(myStack)
 
       expect(() => myStack.pop())
         .to.not.be.undefined
@@ -57,9 +51,6 @@ describe('Stack', () => {
       myStack.push('cereal')
       myStack.push('almond milk')
       myStack.push('bananas')
-      // console.log(myStack)
-      // console.log(myStack.pop())
-      // console.log(myStack)
 
       expect(myStack.pop())
         .to.eql(['bananas'])
@@ -79,17 +70,14 @@ describe('Stack', () => {
      myStack.push('cereal')
      myStack.push('almond milk')
      myStack.push('bananas')
-     // console.log(myStack)
-     // console.log(myStack.pop())
-     // console.log(myStack)
 
      expect(myStack.peek())
-       .to.eql(['bananas'])
+       .to.eql('bananas')
        expect(emptyStack.peek())
          .to.be.null
    })
  })
- describe('peek()', () => {
+ describe('isEmpty()', () => {
    it('returns true if the stack is empty or false if not.', () => {
      const myStack = new Stack()
      const emptyStack = new Stack()
@@ -97,9 +85,6 @@ describe('Stack', () => {
      myStack.push('cereal')
      myStack.push('almond milk')
      myStack.push('bananas')
-     // console.log(myStack)
-    //  console.log(emptyStack)
-     // console.log(myStack)
 
      expect(myStack.isEmpty())
        .to.be.false
@@ -107,4 +92,20 @@ describe('Stack', () => {
          .to.be.true
     })
   })
+
+  describe('length()', () => {
+    it('returns the number of elements in the stack.', () => {
+      const myStack = new Stack()
+      const emptyStack = new Stack()
+
+      myStack.push('cereal')
+      myStack.push('almond milk')
+      myStack.push('bananas')
+
+      expect(myStack.length())
+        .to.eql(3)
+        expect(emptyStack.length())
+          .to.eql(0)
+     })
+   })
 })
