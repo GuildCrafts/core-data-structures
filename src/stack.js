@@ -1,5 +1,11 @@
 'use strict'
 
 export default class Stack {
-  // your code here
+  constructor(){
+    this.arr = []
+  }
+
+  add(element) {
+    return this.arr.push(element)
+  }
 }
