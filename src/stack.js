@@ -2,6 +2,11 @@
 
 export default class Stack {
 
+	constructor() {
+		this.arr = []
+		this.top = 0
+	}
+
   push(element) {
     return this.arr.push(element)
   }
@@ -10,9 +15,21 @@ export default class Stack {
   	return this.arr.pop()
   }
 
-  length() {
-  	return this.arr.length()
+  peek() {
+  	return this.top > 0 ? this.arr[this.top-1] : null
   }
+
+  isEmpty() {
+  	return this.top === 0
+  }
+
+  length() {
+  	return this.top
+  }
+
+  // length() {
+  // 	return this.arr.length()
+  // }
 }
 
 // class Stack {
