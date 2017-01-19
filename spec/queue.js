@@ -10,6 +10,7 @@ describe('Queue', () => {
 
   it('exists', () => {
     expect(Queue).to.be.a('function')
+
   })
 
   context('enqueue()', () => {
@@ -20,6 +21,7 @@ describe('Queue', () => {
       let queueLength = anQueue.length
 
       expect(queueLength).to.equal(1)
+
     })
   })
 
@@ -31,37 +33,38 @@ describe('Queue', () => {
       let queueLength = anQueue.length
 
       expect(queueLength).to.equal(0)
+
     })
   })
 
-  // context('front()', () => {
-  //   it('returns the front element in queue.', () => {
-  //     const anQueue = new Queue()
+  context('front()', () => {
+    it('returns the front element in queue.', () => {
+      const anQueue = new Queue()
 
-  //     let queue = anQueue.push('foo')
+      let queue = anQueue.enqueue('foo')
 
+      expect(anQueue.front()).to.eql('foo')
 
-  //     expect(queueLength).to.equal(1)
-  //   })
-  // })
+    })
+  })
 
-  // context('enqueue()', () => {
-  //   it('adds an element to the back of the queue.', () => {
-  //     const anQueue = new Array()
+  context('back()', () => {
+    it('returns the back element in the queue.', () => {
+      const anQueue = new Queue()
 
-  //     let queue = anQueue.push('foo')
-  //     let queueLength = anQueue.length
+      let queue = anQueue.enqueue('foo')
+      anQueue.enqueue('bar')
 
-  //     expect(queueLength).to.equal(1)
-  //   })
-  // })
+      expect(anQueue.back()).to.eql('bar')
+    })
+  })
 
   context('isEmpty()', () => {
     it('returns true if the stack is empty.', () => {
       const anQueue = new Queue()
 
       expect(anQueue.isEmpty()).to.eql(true)
-      anQueue.push('foo')
+      anQueue.enqueue('foo')
 
     })
   })
@@ -77,6 +80,7 @@ describe('Queue', () => {
       let queueLength = anQueue.length
 
       expect(queueLength).to.equal(3)
+
     })
   })
 })

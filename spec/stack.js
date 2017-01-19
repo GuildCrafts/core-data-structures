@@ -69,6 +69,7 @@ describe('Stack', () => {
 
 
       expect(stackLength).to.equal(3)
+      
     })
   })
 })

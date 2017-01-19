@@ -14,13 +14,13 @@ export default class Queue {
     return this.arr.pop()
   }
 
-  // front() {
-  //   return this.arr[0]
-  // }
+  front() {
+    return this.arr[0]
+  }
 
-   // back() {
-  //   return this.arr[0]
-  // }
+   back() {
+    return this.arr[this.arr.length-1]
+  }
 
   isEmpty() {
     return this.head === 0
