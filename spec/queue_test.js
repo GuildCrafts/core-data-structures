@@ -14,6 +14,7 @@ describe('Queue', () => {
   describe('enqueue()', () => {
     it('adds an element to the back of the queue.', () => {
       const queue = new Queue()
+      
       expect(() => queue.enqueue('foo'))
         .to.alter(() => queue.elements.length, { from: 0, to: 1 })
       expect(() => queue.enqueue('bar'))

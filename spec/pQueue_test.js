@@ -59,7 +59,7 @@ describe('Priority Queue', () => {
     })
   })
 
-  describe.only('dequeue()', () => {
+  describe('dequeue()', () => {
     it('returns and removes the front element (highest priority) in the queue or null if the queue is empty.', () => {
       const pQueue = new PriorityQueue()
       const emptyPQueue = new PriorityQueue()
@@ -68,11 +68,45 @@ describe('Priority Queue', () => {
       pQueue.enqueue('almond milk', 300)
       pQueue.enqueue('blueberries', 400)
       pQueue.enqueue('bananas', 200)
+      pQueue.enqueue('spoon', 500)
 
       expect(pQueue.dequeue())
-        .to.deep.equal(['blueberries', 400])
+        .to.deep.equal(['spoon', 500])
       expect(() => pQueue.dequeue())
-        .to.alter(() => pQueue.elements.length, { from: 3, to: 2})
+        .to.alter(() => pQueue.elements.length, { from: 4, to: 3})
     })
   })
+
+  describe('isEmpty()', () => {
+    it('returns true if the queue is empty or false if not.', () => {
+      const pQueue = new PriorityQueue()
+      const emptyPQueue = new PriorityQueue()
+
+      pQueue.enqueue('cereal')
+      pQueue.enqueue('almond milk')
+      pQueue.enqueue('bananas')
+
+      expect(pQueue.isEmpty())
+        .to.be.false
+      expect(emptyPQueue.isEmpty())
+        .to.be.true
+    })
+  })
+
+  describe('length()', () => {
+    it('returns the number of elements in the queue', () => {
+      const pQueue = new PriorityQueue()
+      const emptyPQueue = new PriorityQueue()
+
+      pQueue.enqueue('cereal')
+      pQueue.enqueue('almond milk')
+      pQueue.enqueue('bananas')
+
+      expect(pQueue.length())
+        .to.equal(3)
+      expect(emptyPQueue.length())
+        .to.equal(0)
+    })
+  })
+
 })
