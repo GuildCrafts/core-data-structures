@@ -51,10 +51,11 @@ export default class Set {
 
   union(secondSet) {
     let unioned = this.elements
-    for (var elem of secondSet)
+    for (var elem of secondSet.elements)
       if (unioned.indexOf(elem) === -1) {
         unioned[unioned.length] = elem
       }
     return unioned
   }
+
 }

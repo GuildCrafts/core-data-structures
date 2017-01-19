@@ -89,9 +89,10 @@ describe('Set', () => {
     it('unions the set with another set and returns the resulting set.', () => {
       const set = new Set(['A', 'B', 'C'])
       const otherSet = new Set(['B', 'C', 'D'])
+      console.log(set.union(otherSet))
 
       expect(set.union(otherSet))
-        .to.equal(['A', 'B', 'C', 'D'])
+        .to.deep.equal(['A', 'B', 'C', 'D'])
     })
   })
 })
