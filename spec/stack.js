@@ -3,7 +3,7 @@ import chaiChange from 'chai-change'
 import Stack from '../src/stack'
 
 chai.use(chaiChange)
-
+  let stack 
 
 describe('Stack', () => {
   'use strict'
@@ -23,5 +23,16 @@ describe('Stack', () => {
       expect(stackLength).to.equal(2)
     })
 
+  })
+
+  context('pop()', () => {
+    it('removes the top element from the stack.', () => {
+      const myStack = new Array()
+
+      let stack = myStack.pop('foo')
+      let stackLength = myStack.length
+
+      expect(stackLength).to.equal(0)
+    })
   })
 })
