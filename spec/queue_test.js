@@ -19,7 +19,7 @@ describe('Queue', () => {
       expect(() => queue.enqueue('bar'))
         .to.alter(() => queue.elements.length, { from: 1, to: 2 })
       expect(queue.elements[queue.elements.length - 1])
-        .to.eql('bar')
+        .to.equal('bar')
 
     })
   })
@@ -34,12 +34,12 @@ describe('Queue', () => {
 
       expect(() => queue.dequeue())
         .to.alter(() => queue.elements.length, { from: 3, to: 2 })
-        expect(() => queue.dequeue())
-          .to.alter(() => queue.elements.length, { from: 2, to: 1 })
-          expect(() => queue.dequeue())
-            .to.alter(() => queue.elements.length, { from: 1, to: 0 })
-            expect(queue.dequeue())
-              .to.be.null
+      expect(() => queue.dequeue())
+        .to.alter(() => queue.elements.length, { from: 2, to: 1 })
+      expect(() => queue.dequeue())
+        .to.alter(() => queue.elements.length, { from: 1, to: 0 })
+      expect(queue.dequeue())
+        .to.be.null
       })
   })
 
@@ -53,7 +53,7 @@ describe('Queue', () => {
       queue.enqueue('bananas')
 
       expect(queue.front())
-        .to.eql('cereal')
+        .to.equal('cereal')
       expect(emptyQueue.front())
         .to.be.null
     })
@@ -69,7 +69,7 @@ describe('Queue', () => {
       queue.enqueue('bananas')
 
       expect(queue.back())
-        .to.eql('bananas')
+        .to.equal('bananas')
       expect(emptyQueue.back())
         .to.be.null
     })
@@ -86,8 +86,8 @@ describe('Queue', () => {
 
       expect(queue.isEmpty())
         .to.be.false
-        expect(emptyQueue.isEmpty())
-          .to.be.true
+      expect(emptyQueue.isEmpty())
+        .to.be.true
     })
   })
 
@@ -101,9 +101,9 @@ describe('Queue', () => {
       queue.enqueue('bananas')
 
       expect(queue.length())
-        .to.eql(3)
-        expect(emptyQueue.length())
-          .to.eql(0)
+        .to.equal(3)
+      expect(emptyQueue.length())
+        .to.equal(0)
     })
   })
 
