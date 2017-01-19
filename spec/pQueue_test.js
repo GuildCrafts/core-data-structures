@@ -71,8 +71,8 @@ describe('Priority Queue', () => {
 
       expect(pQueue.dequeue())
         .to.deep.equal(['blueberries', 400])
-      expect(pQueue.dequeue())
-        .to.alter(() => pQueue.elements.length, { from: 4, to: 3})
+      expect(() => pQueue.dequeue())
+        .to.alter(() => pQueue.elements.length, { from: 3, to: 2})
     })
   })
 })

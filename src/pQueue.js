@@ -37,14 +37,20 @@ export default class PriorityQueue {
 
   dequeue() {
     if (this.elements.length){
+    //   for(i=0; i < this.elements.length; i++){
+    //
+    //   }
+    // }
       let highest = this.elements[0]
+
       for(let pair of this.elements) {
         if (pair[1] > highest[1]) {
           highest = pair
-          highest.splice()
         }
       }
-      return highest.slice()
+      const popped = highest.slice()
+      this.elements.splice(this.elements.indexOf(highest),1)
+      return popped
     }
     return null
   }
