@@ -3,7 +3,7 @@ import chaiChange from 'chai-change'
 import Stack from '../src/stack'
 
 chai.use(chaiChange)
-  let stack 
+  let stack
 
 describe('Stack', () => {
   'use strict'
@@ -41,9 +41,6 @@ describe('Stack', () => {
       const myStack = new Stack()
 
       expect(myStack.peek()).to.eql(null)
-      // myStack.push('foo')
-      // expect(myStack.peek()).to.eql('foo')
-
     })
   })
 
@@ -69,7 +66,7 @@ describe('Stack', () => {
 
 
       expect(stackLength).to.equal(3)
-      
+
     })
   })
 })
