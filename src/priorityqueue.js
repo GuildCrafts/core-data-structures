@@ -12,16 +12,20 @@ export default class priorityQueue {
     })
     return sorted
   }
+  front(){
+    return this.queue > 0 ? this.queue[0]: null;
+    return this.queue[0] !== undefined ? this.queue[0] : null
+  })
+  dequeue(name, priority) {
+    this.arr.pop( {name, priority} )
+    let sorted = this.arr.sort(function (a, b) {
+      return parseFloat(b.priority) - parseFloat(a.priority)
+    })
+    return sorted
+  }
 
 }
 
-
-
-
-//   enqueue(element) {
-//     return this.arr.push(element)
-//   }
-//
 //   dequeue() {
 //     return this.arr.pop()
 //   }
