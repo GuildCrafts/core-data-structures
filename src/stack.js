@@ -13,4 +13,7 @@ export default class Stack {
     return this.storage.length
   }
 
+  pop(){
+    return this.storage.pop()
+  }
 }

@@ -19,4 +19,18 @@ describe('Stack', () => {
         .to.alter(() => myStack.length(), { from: 0, to: 1 })
     })
   })
+
+  context('pop()' , () => {
+    it('removes top element from the stack.', () => {
+      const myStack = new Stack()
+      myStack.push('foo')
+      expect(() => myStack.pop())
+        .to.alter(() => myStack.length(), { from: 1, to: 0 })
+    })
+    it('returns the top element from the stack.', () => {
+      const myStack = new Stack()
+      myStack.push('foo')
+      expect(() => myStack.pop().to.equal('foo'))   
+    })
+  })
 })
