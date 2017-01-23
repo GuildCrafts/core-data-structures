@@ -14,6 +14,26 @@ export default class Stack {
   }
 
   pop(){
-    return this.storage.pop()
+    if(this.storage.length === 0) {
+      return null
+    } else {
+      return this.storage.pop()
+    }
+  }
+
+  peek() {
+    if(this.storage.length === 0) {
+      return null
+    } else {
+      return this.storage[this.storage.length-1] 
+    }
+  }
+
+  isEmpty() {
+    if(this.storage.length === 0) {
+      return true
+    } else {
+      return false 
+    }
   }
 }
