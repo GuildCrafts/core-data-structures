@@ -1,5 +1,16 @@
 'use strict'
 
 export default class Stack {
-  // your code here
+  constructor(){
+    this.storage = []
+  }
+
+  push(element){
+    return this.storage.push(element)
+  }
+
+  length(){
+    return this.storage.length
+  }
+
 }
