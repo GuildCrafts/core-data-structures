@@ -91,4 +91,18 @@ describe('Queue', () => {
         .to.alter(() => myQueue.length(), {from: 1, to: 1})
     })
   })
+
+  context('isEmpty()', () => {
+    it('returns true if the queue is empty', () =>{
+      const myQueue = new Queue()
+
+      expect(() => myQueue.isEmpty().to.equal(true))
+    })
+    it('returns false if the queue is not empty', () =>{
+      const myQueue = new Queue()
+      myQueue.enqueue('foo')
+
+      expect(() => myQueue.isEmpty().to.equal(false))
+    })
+  })
 })

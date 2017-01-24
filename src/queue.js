@@ -30,10 +30,19 @@ export default class Queue {
   }
 
   back() {
-    if(this.storage.length === 0) { 
+    if(this.storage.length === 0) {
       return null
     } else {
       return this.storage[0]
+    }
+  }
+
+  isEmpty(){
+    if(this.storage.length === 0){
+      return true
+    }
+    else{
+      return false
     }
   }
 
