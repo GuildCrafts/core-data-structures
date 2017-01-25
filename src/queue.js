@@ -43,6 +43,7 @@ export default class Queue {
   }
 
   dequeue() {
+    if ( this.isEmpty() ) { return null }
     const oldFront = this._front
     --this._length
     let newFront = this._back

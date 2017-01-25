@@ -15,7 +15,7 @@ export default class Stack {
   }
 
   peek() {
-    return this._topIndex === 0 ? null : this._elements[ this._topIndex + 1 ]
+    return this._topIndex === 0 ? null : this._elements[ this._topIndex - 1 ]
   }
 
   isEmpty() {
@@ -24,8 +24,8 @@ export default class Stack {
 
   pop() {
     if ( this.isEmpty() ) { return null }
-    const result = this._elements[ this._topIndex + 1 ]
-    delete this._elements[ this._topIndex-- + 1 ]
+    const result = this._elements[ this._topIndex - 1 ]
+    delete this._elements[ this._topIndex-- - 1 ]
     return result
   }
 }
