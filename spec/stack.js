@@ -24,14 +24,16 @@ describe('Stack', () => {
     it('removes top element from the stack.', () => {
       const myStack = new Stack()
       myStack.push('foo')
+      myStack.push('bar')
+      myStack.push('bay')
       expect(() => myStack.pop())
-        .to.alter(() => myStack.length(), { from: 1, to: 0 })
+        .to.alter(() => myStack.length(), { from: 3, to: 2 })
     })
 
     it('returns the top element from the stack.', () => {
       const myStack = new Stack()
       myStack.push('foo')
-      expect(() => myStack.pop().to.equal('foo'))   
+      expect(() => myStack.pop().to.equal('foo'))
     })
 
     it('returns null if stack is empty.', () => {
