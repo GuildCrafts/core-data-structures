@@ -4,7 +4,7 @@ import Queue from '../src/queue'
 
 chai.use(chaiChange)
 
-describe.only('Queue', () => {
+describe('Queue', () => {
   'use strict'
 
   it('exists', () => {
@@ -17,15 +17,51 @@ describe.only('Queue', () => {
       myQueue.enqueue( 'foo' )
       myQueue.enqueue( 'bar' )
 
-      expect( myQueue.back() ).to.eql( 'bar' )
+      expect( myQueue.back() ).to.deep.equal( 'bar' )
     })
+
     it('increments the length', ()=> {
       const myQueue = new Queue()
       myQueue.enqueue( 'foo' )
       myQueue.enqueue( 'bar' )
-      expect( myQueue.length() ).to.eql( 2 )
+      expect( myQueue.length() ).to.deep.equal( 2 )
     })
   })
+
+  context('front()', () => {
+    it('returns item at the front of the queue', () => {
+      const myQueue = new Queue()
+      myQueue.enqueue( 'a' )
+      myQueue.enqueue( 'b' )
+      myQueue.enqueue( 'c' )
+      myQueue.enqueue( 'd' )
+
+      expect( myQueue.front() ).to.deep.equal( 'a' )
+    })
+
+    it('returns null if called on an empty queue', ()=> {
+      const myQueue = new Queue()
+      expect( myQueue.front() ).to.be.null
+    })
+  })
+
+  context('back()', () => {
+    it('returns item at the back of the queue', () => {
+      const myQueue = new Queue()
+      myQueue.enqueue( 'a' )
+      myQueue.enqueue( 'b' )
+      myQueue.enqueue( 'c' )
+      myQueue.enqueue( 'd' )
+
+      expect( myQueue.back() ).to.deep.equal( 'd' )
+    })
+
+    it('returns null if called on an empty queue', ()=> {
+      const myQueue = new Queue()
+      expect( myQueue.back() ).to.be.null
+    })
+  })
+
   context('dequeue()', () => {
     it('returns and removes the front element', () => {
       const myQueue = new Queue()
@@ -34,15 +70,16 @@ describe.only('Queue', () => {
       myQueue.enqueue( 'c' )
       myQueue.enqueue( 'd' )
 
-      expect( myQueue.dequeue() ).to.eql( 'a' )
-      expect( myQueue.front() ).to.not.eql( 'a' )
+      expect( myQueue.dequeue() ).to.deep.equal( 'a' )
+      expect( myQueue.front() ).to.not.deep.equal( 'a' )
     })
+
     it('if queue is empty, returns null', () => {
       const myQueue = new Queue()
       myQueue.enqueue( 'foo' )
       myQueue.enqueue( 'bar' )
 
-      expect( myQueue.back() ).to.eql( 'bar' )
+      expect( myQueue.back() ).to.deep.equal( 'bar' )
     })
   })
   context('isEmpty()', () => {
@@ -50,6 +87,7 @@ describe.only('Queue', () => {
       const myQueue = new Queue()
       expect( myQueue.isEmpty() ).to.be.true
     })
+
     it('returns false if the queue contains items', () => {
       const myQueue = new Queue()
       myQueue.enqueue( 'foo' )

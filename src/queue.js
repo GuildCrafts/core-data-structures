@@ -21,31 +21,32 @@ export default class Queue {
   }
 
   back() {
-    return this._back._data
+    if ( this._back ) { return this._back._data }
+    else { return null }
   }
 
   front() {
-    return this._front._data
+    if ( this._front ) { return this._front._data }
+    else { return null }
   }
 
   enqueue( data ) {
-    let newNode = new Node( data )
-    let oldBack = this._back
+    const newNode = new Node( data )
     if ( this._length === 0 ) {
       this._front = newNode
-      this._back = newNode
     } else {
-      this._back = newNode
+      const oldBack = this._back
       newNode._next = oldBack
     }
+    this._back = newNode
     ++this._length
   }
 
   dequeue() {
-    let oldFront = this._front
+    const oldFront = this._front
     --this._length
     let newFront = this._back
-    for ( let i = 1; i < ( this._length ); ++i) {
+    for ( const i = 1; i < this._length; ++i) {
       newFront = newFront._next
     }
     newFront._next = null
