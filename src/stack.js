@@ -2,30 +2,30 @@
 
 export default class Stack {
   constructor(){
-    this._storage = []
-    this._topIndex = -1
+    this._elements = []
+    this._topIndex = 0
   }
 
   length() {
-    return this._topIndex + 1
+    return this._topIndex
   }
 
   push(data) {
-    this._storage[ ++this._topIndex ] = data
+    this._elements[ this._topIndex++ ] = data
   }
 
   peek() {
-    return this._topIndex === -1 ? null : this._storage[ this._topIndex ]
+    return this._topIndex === 0 ? null : this._elements[ this._topIndex + 1 ]
   }
 
   isEmpty() {
-    return this._topIndex === -1
+    return this._topIndex === 0
   }
 
   pop() {
-    if ( this._topIndex === -1 ) { return null }
-    let result = this._storage[ this._topIndex ]
-    delete this._storage[ this._topIndex-- ]
+    if ( this.isEmpty() ) { return null }
+    const result = this._elements[ this._topIndex + 1 ]
+    delete this._elements[ this._topIndex-- + 1 ]
     return result
   }
 }
