@@ -76,10 +76,9 @@ describe('Queue', () => {
 
     it('if queue is empty, returns null', () => {
       const myQueue = new Queue()
-      myQueue.enqueue( 'foo' )
-      myQueue.enqueue( 'bar' )
 
-      expect( myQueue.back() ).to.deep.equal( 'bar' )
+      expect( myQueue.isEmpty() ).to.be.true
+      expect( myQueue.dequeue() ).to.be.null
     })
   })
   context('isEmpty()', () => {
