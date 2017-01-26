@@ -1,37 +1,85 @@
 'use strict'
 
+class Node {
+  constructor ( value, next ){
+    this.value = value
+    this.next = next
+  }
+}
+
 export default class Queue {
   constructor() {
-    this.arr = []
+    this._back = null
+    this._length = 0
   }
 
-  // adds an element to the back of the queue.
-  enqueue (element) {
-    return this.arr
+  enqueue (c) {
+    let ourNewNode = new Node ( c, this._back )
+    this._back = ourNewNode
+ // this._back = ( c, ( b, ( a, null) ))
   }
 
-  // returns and removes the front element in the queue or null for empty queue.
   dequeue () {
+    let current = this._back
+    let prev = null
+    if (current === null) return null
+    while ( current.next !== null ) {
+      prev = current
+      current = current.next
 
+// current = ( c, ( b, ( a, null ) ))
+// current.next = ( b, ( a, null ) )
+
+// current = ( b, ( a, null ) )
+// current.next = ( a, null )
+
+// current = ( a, null )
+// current.next = null
+    }
+    if (prev){ // prev = ( a, null ) // This will only run if the queue has 2 or more
+      prev.next = null  // prev.next = null
+    }
+     else { // This will ONLY run if the queue has only a single person
+      this._back = null
+    }
+    return current.value // prev = ( a )
   }
 
-  // returns the front element in queue or null if the queue is empty.
   front () {
-
+    let current = this._back
+    // current = ( c, ( b, ( a, null ) ))
+    if ( current === null ) return null
+    while ( current.next !== null ) {
+      current = current.next
+    }
+    return current.value
   }
 
-  // returns the back element in the queue or null if the queue is empty.
   back () {
-
+    let current = this._back
+    // current = ( c, ( b, ( a, null ) ))
+    if ( current === null ) return null
+    return current.value
   }
 
-  // returns true if the queue is empty or false if not.
   isEmpty () {
-
+    let current = this._back
+    // current = ( c, ( b, ( a, null ) ))
+    if ( current === null ) {
+      return true
+    }
+    return false
   }
 
-  // returns the number of elements in the queue
   length () {
-
+    let current = this._back
+    let count = 1
+    if (current === null) return 0
+    while ( current.next !== null ) {
+      count = count + 1
+      current = current.next
+    }
+      return count
   }
+
 }
