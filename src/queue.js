@@ -16,7 +16,6 @@ export default class Queue {
   enqueue (c) {
     let ourNewNode = new Node ( c, this._back )
     this._back = ourNewNode
- // this._back = ( c, ( b, ( a, null) ))
   }
 
   dequeue () {
@@ -26,28 +25,18 @@ export default class Queue {
     while ( current.next !== null ) {
       prev = current
       current = current.next
-
-// current = ( c, ( b, ( a, null ) ))
-// current.next = ( b, ( a, null ) )
-
-// current = ( b, ( a, null ) )
-// current.next = ( a, null )
-
-// current = ( a, null )
-// current.next = null
     }
-    if (prev){ // prev = ( a, null ) // This will only run if the queue has 2 or more
-      prev.next = null  // prev.next = null
+    if (prev) {
+      prev.next = null
     }
-     else { // This will ONLY run if the queue has only a single person
+     else {
       this._back = null
     }
-    return current.value // prev = ( a )
+    return current.value
   }
 
   front () {
     let current = this._back
-    // current = ( c, ( b, ( a, null ) ))
     if ( current === null ) return null
     while ( current.next !== null ) {
       current = current.next
@@ -57,14 +46,12 @@ export default class Queue {
 
   back () {
     let current = this._back
-    // current = ( c, ( b, ( a, null ) ))
     if ( current === null ) return null
     return current.value
   }
 
   isEmpty () {
     let current = this._back
-    // current = ( c, ( b, ( a, null ) ))
     if ( current === null ) {
       return true
     }

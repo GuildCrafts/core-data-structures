@@ -72,7 +72,7 @@ describe('Queue', () => {
   })
 
   context('length()', () => {
-    it.only('returns length of queue',
+    it('returns length of queue',
     () => {
       let myQueue = new Queue()
       expect(myQueue.length() ).to.eql(0)
@@ -84,7 +84,6 @@ describe('Queue', () => {
       myQueue = new Queue()
       myQueue.enqueue('a')
       myQueue.enqueue('b')
-      console.log('myQueue', myQueue)
       expect( myQueue.length() ).to.eql(2)
 
       myQueue = new Queue()
