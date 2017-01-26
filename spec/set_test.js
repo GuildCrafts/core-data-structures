@@ -85,14 +85,76 @@ describe('Set', () => {
     })
   })
 
-  describe.only('union()', () => {
+  describe('union()', () => {
     it('unions the set with another set and returns the resulting set.', () => {
       const set = new Set(['A', 'B', 'C'])
       const otherSet = new Set(['B', 'C', 'D'])
-      console.log(set.union(otherSet))
 
       expect(set.union(otherSet))
         .to.deep.equal(['A', 'B', 'C', 'D'])
     })
   })
+
+  describe('intersect()', () => {
+    it('intersects the set with another set and returns the resulting set.', () => {
+      const set = new Set(['A', 'B', 'C'])
+      const otherSet = new Set(['B', 'C', 'D'])
+
+      expect(set.intersect(otherSet))
+        .to.deep.equal(['B', 'C'])
+    })
+  })
+
+  describe('difference()', () => {
+    it('returns a set that contains the elements found in the set but not in otherSet.', () => {
+      const set = new Set(['A', 'A', 'B', 'C'])
+      const otherSet = new Set(['B', 'C', 'D'])
+
+      expect(set.difference(otherSet))
+        .to.deep.equal(['A', 'D'])
+    })
+  })
+
+  describe('isSubset()', () => {
+    it('returns true if the set is a subset of otherSet or false if not.', () => {
+      const set = new Set(['A', 'B', 'C'])
+      const otherSet = new Set(['B', 'C'])
+
+      expect(set.isSubset(otherSet))
+        .to.be.true
+    })
+    it('returns false', () => {
+      const set = new Set(['A', 'B', 'C'])
+      const otherSet = new Set(['B', 'C', 'D'])
+
+      expect(set.isSubset(otherSet))
+        .to.be.false
+    })
+
+    it('returns true', () => {
+      const set = new Set(['A', 'B', 'C'])
+      const otherSet = new Set(['A', 'C'])
+
+      expect(set.isSubset(otherSet))
+        .to.be.true
+    })
+
+    it('returns false', () => {
+      const set = new Set(['A', 'B', 'C'])
+      const otherSet = new Set(['A', 'C','F'])
+
+      expect(set.isSubset(otherSet))
+        .to.be.false
+    })
+  })
+
+  describe('clone()', () => {
+    it('returns a cloned set.', () => {
+      const set = new Set(['A', 'B', 'C'])
+
+      expect(set.clone())
+        .to.deep.equal(['A', 'B', 'C'])
+    })
+  })
+
 })
