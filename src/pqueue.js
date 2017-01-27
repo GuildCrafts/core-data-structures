@@ -1,16 +1,6 @@
-// 'use strict'
-//
-// class Node {
-//   constructor ( value, priority ){
-//     this.arr = []
-//     this.value = value
-//     this.priority = priority
-//   }
-// }
-
 export default class PriorityQueue {
   constructor(value) {
-    this.arr = value || []
+    this.arr = []
     this.index = 0
   }
 
