@@ -212,7 +212,7 @@ _List of specifications (specs) for the completed goal. These are declarative se
 
 **This is a core goal. The specifications are non-negotiable. To complete this goal, you must complete all specs listed below.**
 
-- [ ] Artifact produced is a fork of the [core-data-structures][core-data-structures] repo.
+- [x] Artifact produced is a fork of the [core-data-structures][core-data-structures] repo.
 - [ ] Can run all tests with `npm test`.
 - [ ] All tests are passing.
 - [ ] For each data structure identified above, there exists:
@@ -223,7 +223,7 @@ _List of specifications (specs) for the completed goal. These are declarative se
 
 _Do not remove these specs - they are required for all goals_.
 
-- [ ] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
+- [x] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
 
 ## Quality Rubric
 
