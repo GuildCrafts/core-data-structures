@@ -11,6 +11,19 @@ describe('Stack', () => {
     expect(Stack).to.be.a('function')
   })
 
+  context('length()', () => {
+    it('returns zero elements when the stack is empty.', () => {
+      const myStack = new Stack()
+      expect(myStack.length()).to.be.equal(0)
+    })
+
+    it('returns the number of elements in the stack', () => {
+      const myStack = new Stack()
+      myStack.collector[0] = 1
+      expect(myStack.length()).to.be.equal(1)
+    })
+  })
+
   context('push()', () => {
     it('pushes an element to the top of the stack.', () => {
       const myStack = new Stack()
