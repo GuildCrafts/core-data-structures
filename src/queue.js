@@ -37,11 +37,11 @@ export default class Queue {
     this.head.previous = null
     this.size -= 1
     return node.data
-    }
+  }
 
   front = () => this.size === 0 ? null : this.head.data
 
-  back = () => this.size ===0 ? null : this.tail.data
+  back = () => this.size === 0 ? null : this.tail.data
 
   isEmpty = () => this.size === 0
 

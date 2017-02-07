@@ -23,6 +23,7 @@ describe('Stack', () => {
   context('pop()', () => {
     it('returns and removes the top element in a stack or null if stack is empty', () => {
       const myStack = new Stack()
+
       myStack.push('popcorn')
       expect(() => myStack.pop())
         .to.alter(() => myStack.length(), { from: 1, to: 0 })
@@ -41,12 +42,14 @@ describe('Stack', () => {
   context('isEmpty()', () => {
     it('returns true if the stack is empty or false if not', () => {
       const myStack = new Stack()
+
       expect(myStack.isEmpty() ).to.equal(true)
     })
   })
   context('length()', () => {
     it('returns the number of elements in the stack', () => {
       const myStack = new Stack()
+      
       expect(myStack.length()).to.equal(0)})
   })
 })

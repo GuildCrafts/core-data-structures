@@ -59,6 +59,7 @@ describe('Queue', () => {
   context('back()', () => {
     it('returns back element of a populated queue.', () => {
       const myQueue = new Queue()
+
       myQueue.enqueue('foo')
       myQueue.enqueue('bar')
       expect( myQueue.back() ).to.equal('bar')
@@ -68,6 +69,7 @@ describe('Queue', () => {
   context('back()', () => {
     it('returns null on an empty queue', () => {
       const myQueue = new Queue()
+
       expect( myQueue.back() ).to.equal(null)
     })
   })
@@ -83,6 +85,7 @@ describe('Queue', () => {
   context('isEmpty()', () => {
     it('returns false on a populated queue', () => {
       const myQueue = new Queue()
+
       myQueue.enqueue('foo')
       myQueue.enqueue('bar')
       expect( myQueue.isEmpty() ).to.equal(false)
@@ -92,6 +95,7 @@ describe('Queue', () => {
   context('length()', () => {
     it('returns the number of elements in the queue', () => {
       const myQueue = new Queue()
+      
       myQueue.enqueue('foo')
       myQueue.enqueue('bar')
       expect( myQueue.length() ).to.equal(2)

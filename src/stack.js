@@ -11,14 +11,14 @@ export default class Stack {
   }
 
   pop = () => {
-    if (this.size == 0) return null
+    if (this.size === 0) return null
     else {
       this.size -= 1
       this.elements.pop()
     }
   }
 
-  peek = () => this.size == 0 ? null : this.elements[this.size - 1 ]
+  peek = () => this.size === 0 ? null : this.elements[this.size - 1 ]
 
   isEmpty = () => this.size === 0
 
