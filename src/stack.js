@@ -3,6 +3,7 @@
 export default class Stack {
   constructor(){
     this.collector = []
+    this.length()
   }
 
   length = () => {
@@ -15,10 +16,22 @@ export default class Stack {
     else {
       while (this.collector[indexValue] !== undefined) {
         counter ++
-        indexValue++
+        indexValue ++
       }
+
       return counter
     }
+  }
+
+  push = (element) => {
+
+    if(this.collector[0] === undefined) {
+      this.collector[0] = element
+    }
+    else
+      this.collector[this.length()] = element
+
+    return this.length()
   }
 
 }

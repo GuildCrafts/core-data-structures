@@ -27,9 +27,17 @@ describe('Stack', () => {
   context('push()', () => {
     it('pushes an element to the top of the stack.', () => {
       const myStack = new Stack()
-
       expect(() => myStack.push('foo'))
         .to.alter(() => myStack.length(), { from: 0, to: 1 })
+    })
+
+    it('pushes two elements to the tail of the stack.', () => {
+      const myStack = new Stack()
+      expect(() => {
+        myStack.push(['soccer', 'baseball'])
+        myStack.push(['bar','foo'])
+      })
+        .to.alter(() => myStack.length(), { from: 0, to: 2 } )
     })
   })
 })
