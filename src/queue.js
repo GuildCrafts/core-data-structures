@@ -1,23 +1,21 @@
 export class Node {
   constructor(value) {
     this.data = value
-    this.previous = null
     this.next = null
   }
 }
 
 export default class Queue {
   constructor() {
-    this.length = 0
+    this.size = 0
     this.head = null
     this.tail = null
   }
 
-  enqueue(value) {
+  enqueue = (value) => {
     const node = new Node(value)
-      if (this.length) {
+      if (this.size) {
         this.tail.next = node
-        node.previous = this.tail
         this.tail = node
       }
       else {
@@ -25,17 +23,25 @@ export default class Queue {
         this.tail = node
       }
 
-      this.length += 1
-
+      this.size += 1
       return node
   }
 
-  dequeue() {
-    
+  dequeue = () => {
+    if (this.isEmpty()) return null
+    const node = this.head
+    this.head = node.next
+    node.next = null
+    this.size -= 1
+    return node.data
   }
 
-  length() {
-    return this.length
-  }
+  front = () => this.isEmpty() ? null : this.head.data
+
+  back = () => this.isEmpty() ? null : this.tail.data
+
+  isEmpty = () => this.size === 0
+
+  length = () => this.size
 
 }
