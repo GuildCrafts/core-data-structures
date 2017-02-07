@@ -44,4 +44,9 @@ describe('Stack', () => {
       expect(myStack.isEmpty() ).to.equal(true)
     })
   })
+  context('length()', () => {
+    it('returns the number of elements in the stack', () => {
+      const myStack = new Stack()
+      expect(myStack.length()).to.equal(0)})
+  })
 })
