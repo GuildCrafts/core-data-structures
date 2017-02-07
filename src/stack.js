@@ -4,39 +4,23 @@ export default class Stack {
     this.elements = []
   }
 
-  push = (elementToAdd)  => {
+  push = (elementToAdd) => {
     this.elementToAdd = elementToAdd
     this.size += 1
     this.elements.push(elementToAdd)
   }
 
   pop = () => {
-    if (this.size == 0) {
-      return null
-    }
+    if (this.size == 0) return null
     else {
       this.size -= 1
       this.elements.pop()
     }
   }
 
-  peek = () => {
-    if (this.size == 0) {
-      return null
-    }
-    else {
-      return this.elements[this.size - 1 ]
-    }
-  }
+  peek = () => this.size == 0 ? null : this.elements[this.size - 1 ]
 
-  isEmpty = () => {
-    if (this.size == 0){
-      return true
-    }
-    return false
-  }
+  isEmpty = () => this.size === 0
 
-  length = () => {
-    return this.size
-  }
+  length = () => this.size
 }
