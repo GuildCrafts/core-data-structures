@@ -44,30 +44,27 @@ describe('Stack', () => {
   context('pop()', () => {
     it('returns null if the stack is empty', () =>{
       const myStack = new Stack()
-      expect( myStack.pop()).to.be.equal(null)
+      expect(myStack.pop()).to.be.equal(null)
     })
 
     it('removes the top element in the stack', () => {
       const myStack = new Stack()
       myStack.push('foo')
-      expect(() =>{
-        myStack.pop()
-      })
+      expect(() => myStack.pop())
         .to.alter(() => myStack.length(), { from: 1, to: 0 } )
     })
 
     it('returns the value of the removed element', () => {
       const myStack = new Stack()
       myStack.push('foo')
-      expect(
-        myStack.pop()).to.be.equal('foo')
+      expect(myStack.pop()).to.be.equal('foo')
     })
   })
 
   context('peek', () => {
     it('returns null if the stack is empty', () => {
       const myStack = new Stack()
-      expect( myStack.peek()).to.be.equal(null)
+      expect(myStack.peek()).to.be.equal(null)
     })
 
     it('returns the top element in the stack', () => {

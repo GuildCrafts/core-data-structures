@@ -3,7 +3,6 @@
 export default class Stack {
   constructor(){
     this.collector = []
-    //this.length()
   }
 
   length = () => {
@@ -24,18 +23,19 @@ export default class Stack {
   }
 
   push = (element) => {
-
-    if(this.collector[0] === undefined) this.collector[0] = element
+    if(this.collector[0] === undefined) {
+      return this.collector[0] = element
+    }
     else this.collector[this.length()] = element
 
     return this.length()
   }
 
   pop = () => {
-    // removes the top element from the collector
-    // returns the removed former top element
-    if(this.length() === 0) { return null
-    } else {
+    if(this.length() === 0) {
+      return null
+    }
+    else {
       let removed = this.collector[this.length()-1]
       this.collector.length = this.collector.length-1
       return removed
@@ -47,9 +47,17 @@ export default class Stack {
     else {
       let topElement = this.collector[this.length()-1]
     }
+
     return topElement
   }
 
-  isEmpty = () => this.length() === 0 ? true : false
+  isEmpty = () => {
+    if (this.length() === 0) {
+      return true
+    }
+    else {
+      return false
+    }
+  } 
 
 }
