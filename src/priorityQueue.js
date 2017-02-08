@@ -1,49 +1,59 @@
-export class Node {
+export class Element {
   constructor(value, priorityInt) {
     this.data = value
-    this.previous = null
-    this.next = null
     this.priority = priorityInt
   }
 }
 
-export default class Queue {
+export default class PriorityQueue {
   constructor() {
+    this.elements = []
     this.size = 0
-    this.head = null
-    this.tail = null
   }
 
   enqueue(value, priorityInt) {
-    const node = new Node(value, priorityInt)
-      if (this.size) {
-        this.tail.next = node
-        node.previous = this.tail
-        this.tail = node
-      }
-      else {
-        this.head = node
-        this.tail = node
-      }
-
-      this.size += 1
-      return node
+    const element = new Element(value, priorityInt)
+    this.elements.push(element)
+    this.size += 1
   }
 
-  // dequeue() {
-  //   if (this.size === 0) return null
-  //   const node = this.head
-  //   this.head = node.next
-  //   node.next = null
-  //   this.head.previous = null
-  //   this.size -= 1
-  //   return node.data
-  // }
-  //
-  // front = () => this.size === 0 ? null : this.head.data
-  //
-  // back = () => this.size === 0 ? null : this.tail.data
-  //
+  front = () => {
+    if(this.size === 0) return null
+
+    let priority = this.elements[0].priority
+    let element = this.elements[0]
+
+    for(let j = 1; j < this.size; j++){
+      if(this.elements[j].priority < priority){
+        priority = this.elements[j].priority
+        element = this.elements[j]
+      }
+    }
+    return element.data
+  }
+
+  back = () => {
+    if(this.size === 0) return null
+
+    let priority = this.elements[0].priority
+    let element = this.elements[0]
+
+    for(let j = 1; j < this.size; j++){
+      if(this.elements[j].priority > priority){
+        priority = this.elements[j].priority
+        element = this.elements[j]
+      }
+    }
+    return element.data
+  }
+
+  dequeue() {
+    if (this.size === 0) return null
+    let element = this.elements.front()
+    this.elements.pop(element)
+    return element
+  }
+
   // isEmpty = () => this.size === 0
   //
    length = () => this.size
