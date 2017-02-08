@@ -17,7 +17,7 @@ class LinkedList {
   constructor(){
     this.head = null
     this.size = 0
-  } // increment this size and return it for size()
+  }
 
   getHeadNode = () => {
     if( !this.head ){
@@ -31,12 +31,12 @@ class LinkedList {
   insertFirst = (value) => {
     let node = new Node(value)
     let currentHead = this.head
-    //if empty - this.head to value and this.next to null
     if(!currentHead){
-      console.log('no head', !currentHead);
+      this.size ++
       return this.head = node
     }
     else{
+      th
       return 'this is wrong'
     }
     //if not empty - set this.head to value and this.next to previous head

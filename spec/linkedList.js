@@ -29,6 +29,7 @@ describe.only('LinkedList', () => {
     })
 
     it('returns the first node', () => {
+      linkedList.insertFirst('bananas')
       expect(linkedList.getHeadNode())
         .to.be.eql( { valueOfNode: 'bananas', next: null })
     })
@@ -36,16 +37,8 @@ describe.only('LinkedList', () => {
 
   context('insertFirst()', () => {
     it('adds a node to the head of the LinkedList', () => {
-      console.log('this is pre insertFirst ', linkedList)
       expect(() => linkedList.insertFirst('bananas') )
-        .to.alter(()=> {
-          console.log('this is post insertFirst ', linkedList.getHeadNode());
-          linkedList.getHeadNode(),
-            {
-              from: null,
-              to: { valueOfNode: 'bananas', next: null }
-            }
-        })
+        .to.alter(() => linkedList.size, { from: 0, to: 1 } )
     })
   })
 
