@@ -70,16 +70,15 @@ describe('Stack', () => {
     it('returns the top element in the stack', () => {
       const myStack = new Stack()
       myStack.push('foo')
-      expect(() => {
-        myStack.peek().to.be.equal('foo')
-      })
+      myStack.push('toot')
+      expect(() => { myStack.peek().to.be.equal('foo') })
     })
   })
 
   context('isEmpty', () => {
     it('returns true if the stack is empty', () => {
       const myStack = new Stack()
-      expect( myStack.isEmpty()).to.be.equal(true)
+      expect(myStack.isEmpty()).to.be.equal(true)
     })
 
     it('returns false if the stack is not empty', () => {
