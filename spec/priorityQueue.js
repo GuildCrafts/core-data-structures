@@ -20,86 +20,44 @@ describe('PriorityQueue', () => {
     })
   })
 
-  // context('dequeue()', () => {
-  //   it('returns and removes the front element in the queue or null if the queue is empty.', () => {
-  //     const myQueue = new Queue()
-  //
-  //     myQueue.enqueue('foo')
-  //     myQueue.enqueue('bar')
-  //     expect( myQueue.dequeue() ).to.equal('foo')
-  //   })
-  // })
-  //
-  // context('dequeue()', () => {
-  //   it('returns null on an empty queue.', () => {
-  //     const myQueue = new Queue()
-  //
-  //     expect( myQueue.dequeue() ).to.equal(null)
-  //   })
-  // })
-  //
-  // context('front()', () => {
-  //   it('returns the front element in a populated queue.', () => {
-  //     const myQueue = new Queue()
-  //
-  //     myQueue.enqueue('foo')
-  //     myQueue.enqueue('bar')
-  //     expect( myQueue.front() ).to.equal('foo')
-  //   })
-  // })
-  //
-  // context('front()', () => {
-  //   it('returns null on an empty queue.', () => {
-  //     const myQueue = new Queue()
-  //
-  //     expect( myQueue.front() ).to.equal(null)
-  //   })
-  // })
-  //
-  // context('back()', () => {
-  //   it('returns back element of a populated queue.', () => {
-  //     const myQueue = new Queue()
-  //
-  //     myQueue.enqueue('foo')
-  //     myQueue.enqueue('bar')
-  //     expect( myQueue.back() ).to.equal('bar')
-  //   })
-  // })
-  //
-  // context('back()', () => {
-  //   it('returns null on an empty queue', () => {
-  //     const myQueue = new Queue()
-  //
-  //     expect( myQueue.back() ).to.equal(null)
-  //   })
-  // })
-  //
-  // context('isEmpty()', () => {
-  //   it('returns true on a empty queue', () => {
-  //     const myQueue = new Queue()
-  //
-  //     expect( myQueue.isEmpty() ).to.equal(true)
-  //   })
-  // })
-  //
-  // context('isEmpty()', () => {
-  //   it('returns false on a populated queue', () => {
-  //     const myQueue = new Queue()
-  //
-  //     myQueue.enqueue('foo')
-  //     myQueue.enqueue('bar')
-  //     expect( myQueue.isEmpty() ).to.equal(false)
-  //   })
-  // })
-  //
-  // context('length()', () => {
-  //   it('returns the number of elements in the queue', () => {
-  //     const myQueue = new Queue()
-  //
-  //     myQueue.enqueue('foo')
-  //     myQueue.enqueue('bar')
-  //     expect( myQueue.length() ).to.equal(2)
-  //   })
-  // })
+  context('front()', () => {
+
+    context('when the priority queue is not empty', () => {
+      it('returns the front element (highest priority) in the queue.', () => {
+        const myPQueue = new PriorityQueue()
+
+        myPQueue.enqueue('foo', 2)
+        myPQueue.enqueue('bar', 1)
+        expect( myPQueue.front() ).to.equal('bar')
+      })
+    })
+
+    context('when the priority queue is empty', () => {
+      it('returns null', () => {
+        const myPQueue = new PriorityQueue()
+        expect( myPQueue.front() ).to.equal(null)
+      })
+    })
+  })
+
+  context('back()', () => {
+
+    context('when the priority queue is not empty', () => {
+      it('returns the back element (lowest priority) in the queue.', () => {
+        const myPQueue = new PriorityQueue()
+
+        myPQueue.enqueue('foo', 2)
+        myPQueue.enqueue('bar', 1)
+        expect( myPQueue.back() ).to.equal('foo')
+      })
+    })
+
+    context('when the priority queue is empty', () => {
+      it('returns null', () => {
+        const myPQueue = new PriorityQueue()
+        expect( myPQueue.back() ).to.equal(null)
+      })
+    })
+  })
 
 })
