@@ -111,10 +111,29 @@ class LinkedList {
     while(currentNode.valueOfNode !== targetNode) {
       previousNode = currentNode
       currentNode = currentNode.next
+
     }
     this.size ++
     previousNode.next = node
     node.next =  currentNode
+  }
+
+  insertAfter = (targetNode, newNode) => {
+    let previousNode = this.head
+    let currentNode = this.head
+    let node = new Node(newNode)
+
+    if(this.head.next === null) {
+      this.head.next = node
+    }
+    while(previousNode.valueOfNode !== targetNode) {
+      previousNode = currentNode
+      currentNode = currentNode.next
+    }
+    this.size ++
+    previousNode.next = node
+    node.next = currentNode
+
   }
 
 }

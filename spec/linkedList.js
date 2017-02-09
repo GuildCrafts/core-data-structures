@@ -119,12 +119,33 @@ describe('LinkedList', () => {
 
     it('insert new node before found node', () => {
       linkedList.insert('apricots')
+      linkedList.insert('dates')
       linkedList.insert('cantalope')
       linkedList.insertBefore('cantalope', 'blueberry')
-      expect(linkedList.find('apricots'))
-        .to.be.eql({valueOfNode:'apricots', next: {valueOfNode: 'blueberry', next: {valueOfNode: 'cantalope', next: null} }
+      expect(linkedList.find('dates'))
+        .to.be.eql({valueOfNode:'dates', next: {valueOfNode: 'blueberry', next: {valueOfNode: 'cantalope', next: null} }
         })
     })
   })
 
+  context('insertAfter()', () => {
+    it('inserts a new node into linkedList', () => {
+      linkedList.insert('bananas')
+      expect(() => linkedList.insertAfter('bananas', 'apples') )
+        .to.alter(() => linkedList.size, { from: 1, to: 2} )
+    })
+
+    it('insert new node after found node', () => {
+      linkedList.insert('apricots')
+      linkedList.insert('cantalope')
+      linkedList.insert('dates')
+      linkedList.insert('elderberry')
+      linkedList.insertAfter('dates', 'blueberry')
+      expect(linkedList.find('dates'))
+        .to.be.eql({valueOfNode:'dates', next: {valueOfNode: 'blueberry', next: {valueOfNode: 'elderberry', next: null} }
+        })
+    })
+  })
+
+  
 })
