@@ -56,19 +56,17 @@ class LinkedList {
 
   contains = (value) => {
     let currentNode = this.head
-    console.log('this is the current node ', currentNode)
-    while( currentNode.next !== null) {
-      console.log('loop');
-        if(currentNode.valueOfNode === value) {
-          console.log(currentNode.valueOfNode);
-          return true
-          break
-        }
-        else {
+
+    while( currentNode.valueOfNode !== value) {
+      if(currentNode.next === null) {
+        return false
+      }
+      else {
         currentNode = currentNode.next
-        }
+      }
     }
-    return false
+    
+    return true
   }
 
 }

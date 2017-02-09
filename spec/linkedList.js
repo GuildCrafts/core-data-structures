@@ -69,14 +69,14 @@ describe('LinkedList', () => {
     })
   })
 
-  context('contains()', () => {
+  context.only('contains()', () => {
     it('returns true if the list has the value', () => {
-      linkedList.insertFirst('bananas')
       linkedList.insertFirst('bana')
       linkedList.insertFirst('banas')
-      console.log('this is the final list ', linkedList)
+      linkedList.insertFirst('bananas')
       expect(linkedList.contains('bananas')).to.be.equal(true)
     })
+
     it('returns false if the list does not have the value', () => {
       linkedList.insertFirst('green apples')
       expect(linkedList.contains('bananas')).to.be.equal(false)
