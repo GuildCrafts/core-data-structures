@@ -1,40 +1,99 @@
-const set = new Set(['A', 'B', 'C'])
-const otherSet = new Set(['B', 'C', 'E'])
-
-// export class Node {
-//   constructor(value) {
-//     this.data = value
-//     this.next = null
-//   }
-// }
-//
-// export default class set {
-//   constructor() {
-//     this.size = 0
-//   }
-
-//set.add('D')             // adds an element to the set.
-let value = 0
-let set = [value]
-let set = new Set([value])
-
-add(value) {
-  let set = [value]
-  for (i = 0; i < value.size; i++) {
-    value[i++]
-    return set
+export default class Set {
+  constructor() {
+    this.length = 0
+    this.elements = []
   }
 
-    const set = new Set
-    this.size += 1
+  add = (value) => {
+    if(!this.contains(value)){
+      this.elements.push(value)
+      this.length += 1
+    }
+  }
+
+  isEmpty = () => this.length === 0
+
+  contains = (value) => {
+    for (let i = 0; i < this.length; i++) {
+      if (this.elements[i] === value) {
+        return true
+      }
+    }
+    return false
+  }
+
+  remove = (value) => {
+    if(this.contains(value)){
+      let removeIndex = 0
+      for(let i = 0; i < this.length; i++){
+        if(this.elements[i] === value){
+          removeIndex = i
+        }
+      }
+      this.elements.splice(removeIndex, 1)
+      this.length -= 1
+    }
+  }
+
+  forEach = passedInFunction => {
+    const setSize = new Number(this.length)
+    for (let i = 0; i < setSize; i++) {
+      passedInFunction(this.elements[i])
+    }
+  }
+
+  size = () => this.length
+
+  union = (otherSet) => {
+    let newSet = new Set()
+    newSet = this
+    for(let i = 0; i < otherSet.length; i++) {
+      if(!newSet.contains(otherSet.elements[i])) {
+        newSet.add(otherSet.elements[i])
+      }
+    }
+    return newSet
+  }
+
+  intersect = (otherSet) => {
+    let newSet = new Set()
+    newSet = this
+    for(let i = 0; i < this.length; i++) {
+      if(!newSet.contains(otherSet.elements[i])) {
+        newSet.remove(otherSet.elements[i])
+      }
+    }
+    return newSet
+  }
+
+  difference = (otherSet) => {
+    let newSet = new Set()
+
+    for(let i = 0; i < this.length; i++) {
+      if(!otherSet.contains(this.elements[i])) {
+        newSet.add(this.elements[i])
+        }
+      }
+    return newSet
+  }
+
+  isSubset = (otherSet) => {
+    let count = 0
+    for(let i = 0; i < this.size(); i++){
+      if(otherSet.contains(this.elements[i])){
+        count += 1
+      }
+    }
+    if(count === this.size()){
+      return true
+    }
+    return false
+  }
+
+
+  clone = () => {
+       let newSet = new Set()
+       newSet = this
+       return newSet
+    }
 }
-set.isEmpty()            // returns true if the set is empty or false if not.
-set.contains('B')        // returns true the set contains the element or false if not.
-set.remove('C')          // removes an element (if it exists) from the set.
-set.forEach(elem => console.log(elem))  // takes a callback function and passes it each element in sequence.
-set.size()               // returns the number of elements in the set.
-set.union(otherSet)      // unions the set with another set and returns the resulting set.
-set.intersect(otherSet)  // intersects the set with another set and returns the resulting set.
-set.difference(otherSet) // returns a set that contains the elements found in the set but not in otherSet.
-set.isSubset(otherSet)   // returns true if the set is a subset of otherSet or false if not.
-set.clone()              // returns a cloned set.
