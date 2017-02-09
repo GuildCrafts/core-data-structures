@@ -14,17 +14,17 @@ export default class Queue {
 
   enqueue = (value) => {
     const node = new Node(value)
-      if (this.size) {
-        this.tail.next = node
-        this.tail = node
-      }
-      else {
-        this.head = node
-        this.tail = node
-      }
+    if (this.size !== 0) {
+      this.tail.next = node
+      this.tail = node
+    }
+    else {
+      this.head = node
+      this.tail = node
+    }
 
-      this.size += 1
-      return node
+    this.size += 1
+    return node
   }
 
   dequeue = () => {

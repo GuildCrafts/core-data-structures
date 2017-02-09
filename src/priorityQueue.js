@@ -11,9 +11,8 @@ export default class PriorityQueue {
     this.size = 0
   }
 
-  enqueue(value, priorityInt) {
-    const element = new Element(value, priorityInt)
-    this.elements.push(element)
+  enqueue = (value, priority) => {
+    this.elements.push(new Element(value, priority))
     this.size += 1
   }
 
@@ -47,15 +46,26 @@ export default class PriorityQueue {
     return element.data
   }
 
-  dequeue() {
+  dequeue = () => {
     if (this.size === 0) return null
-    let element = this.elements.front()
-    this.elements.pop(element)
-    return element
+    let data = this.front()
+    let element = this.elements[0]
+    let index = 0
+
+    for(let i = 0; i < this.size; i++) {
+      if(this.elements[i].data === data) {
+        index = i
+        element = this.elements[i]
+      }
+    }
+
+    this.elements.splice(index, 1)
+    this.size -= 1
+    return data
   }
 
-  // isEmpty = () => this.size === 0
-  //
-   length = () => this.size
+  isEmpty = () => this.size === 0
+
+  length = () => this.size
 
 }
