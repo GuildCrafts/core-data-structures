@@ -110,7 +110,7 @@ describe('LinkedList', () => {
     })
   })
 
-  context.only('insertBefore()', () => {
+  context('insertBefore()', () => {
     it('inserts a new node into linkedList', () => {
       linkedList.insert('bananas')
       expect(() => linkedList.insertBefore('bananas', 'apples') )
@@ -119,22 +119,11 @@ describe('LinkedList', () => {
 
     it('insert new node before found node', () => {
       linkedList.insert('apricots')
-      linkedList.insertBefore('cantalope', 'blueberry')
       linkedList.insert('cantalope')
-      expect( linkedList.find('apricots') )
-        .to.be.eql(
-        {
-          valueOfNode:'apricots',
-          next: {
-            valueOfNode: 'blueberry',
-            next: {
-              valueOfNode: 'cantalope',
-              next: null
-            }
-          }
+      linkedList.insertBefore('cantalope', 'blueberry')
+      expect(linkedList.find('apricots'))
+        .to.be.eql({valueOfNode:'apricots', next: {valueOfNode: 'blueberry', next: {valueOfNode: 'cantalope', next: null} }
         })
-
-
     })
   })
 

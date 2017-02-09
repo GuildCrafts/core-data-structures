@@ -99,26 +99,22 @@ class LinkedList {
   }
 
   insertBefore = (targetNode, newNode) => {
-    let previousNode
+    let previousNode = this.head
     let currentNode = this.head
     let node = new Node(newNode)
-    let counter = 0
 
-    // if(currentNode.next === null) {
-    //   console.log('inside if');
-    //   return `Sorry, ${targetNode} is not here`
-    // }
-    while(currentNode.next !== targetNode) {
-      counter++
-      console.log('=======Loop Count ======', counter);
-      previousNode = currentNode
-      console.log('this is the PREVIOUS NODE', previousNode)
-      currentNode = currentNode.next
-      console.log('our current node' , currentNode)
-      console.log('this is the NEXT NODE ', currentNode.next)
+    if(currentNode.next === null) {
+      this.head = node
+      node.next = currentNode
     }
+
+    while(currentNode.valueOfNode !== targetNode) {
+      previousNode = currentNode
+      currentNode = currentNode.next
+    }
+    this.size ++
     previousNode.next = node
-    node.next =  targetNode
+    node.next =  currentNode
   }
 
 }
