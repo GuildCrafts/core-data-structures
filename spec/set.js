@@ -12,13 +12,24 @@ describe('Set', () => {
   })
 
   context('add()', () => {
-    it('adds element to set if the element doesn\'t already exist in the set', () => {
-      const mySet = new Set()
+    context('when the element is not already in the set', () => {
+      it('adds element to set', () => {
+        const mySet = new Set()
 
-      expect(() => mySet.add('foo'))
-        .to.alter(() => mySet.size(), {from: 0, to: 1 })
-      expect(mySet.contains('foo')).to.equal(true)
+        expect(() => mySet.add('foo'))
+          .to.alter(() => mySet.size(), {from: 0, to: 1 })
+        expect(mySet.contains('foo')).to.equal(true)
+      })
     })
+    context('when the element is already in the set', () => {
+      it('throws error', () => {
+        const mySet = new Set()
+
+        mySet.add('foo')
+        expect(() => mySet.add('foo')).to.throw(Error)
+      })
+    })
+
   })
 
   context('isEmpty()', () => {
@@ -173,10 +184,11 @@ context('isSubset()', () => {
 context('clone()', () => {
   it('returns a cloned set.', () => {
     const mySet = new Set()
+    const clonedSet = mySet.clone()
 
     mySet.add('anything')
-    expect(mySet.clone().size()).to.equal(1)
-    expect(mySet.clone().contains('anything')).to.equal(true)
+    expect(clonedSet.size()).to.equal(1)
+    expect(clonedSet.contains('anything')).to.equal(true)
     })
   })
 })

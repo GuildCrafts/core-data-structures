@@ -14,7 +14,7 @@ export default class Stack {
     if (this.isEmpty()) return null
     else {
       this.size -= 1
-      this.elements.pop()
+      return this.elements.pop()
     }
   }
 

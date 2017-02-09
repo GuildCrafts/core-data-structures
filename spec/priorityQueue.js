@@ -18,8 +18,6 @@ describe('PriorityQueue', () => {
       myPQueue.enqueue('bar', 10)
       expect(() => myPQueue.enqueue('foo', 100))
         .to.alter(() => myPQueue.length(), { from: 1, to: 2 })
-     // expect(() => myPQueue.enqueue('red')).to.include('red')
-
     })
   })
 

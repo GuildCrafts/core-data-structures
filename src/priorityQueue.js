@@ -49,24 +49,24 @@ export default class PriorityQueue {
 
   dequeue() {
     if (this.size === 0) return null
-    let dequeueData = this.front()
-    let dequeueElement = this.elements[0]
-    let dequeueIndex = 0
+    let data = this.front()
+    let element = this.elements[0]
+    let index = 0
 
     for(let i = 0; i < this.size; i++) {
-      if(this.elements[i].data === dequeueData) {
-        dequeueIndex = i
-        dequeueElement = this.elements[i]
+      if(this.elements[i].data === data) {
+        index = i
+        element = this.elements[i]
       }
     }
 
-    this.elements.splice(dequeueIndex, 1)
+    this.elements.splice(index, 1)
     this.size -= 1
-    return dequeueData
+    return data
   }
 
   isEmpty = () => this.size === 0
-  
+
   length = () => this.size
 
 }
