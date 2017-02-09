@@ -56,7 +56,7 @@ describe('LinkedList', () => {
     })
   })
 
-  context.only('insert()', () => {
+  context('insert()', () => {
     it('adds a node to the tail of the empty LinkedList', () => {
       expect(() => linkedList.insert('bananas') )
         .to.alter(() => linkedList.size, { from: 0, to: 1 } )
@@ -107,6 +107,34 @@ describe('LinkedList', () => {
     it('returns -1 if the value is not found', () => {
       linkedList.insertFirst('green apples')
       expect(linkedList.find('bananas')).to.be.equal(-1)
+    })
+  })
+
+  context.only('insertBefore()', () => {
+    it('inserts a new node into linkedList', () => {
+      linkedList.insert('bananas')
+      expect(() => linkedList.insertBefore('bananas', 'apples') )
+        .to.alter(() => linkedList.size, { from: 1, to: 2} )
+    })
+
+    it('insert new node before found node', () => {
+      linkedList.insert('apricots')
+      linkedList.insertBefore('cantalope', 'blueberry')
+      linkedList.insert('cantalope')
+      expect( linkedList.find('apricots') )
+        .to.be.eql(
+        {
+          valueOfNode:'apricots',
+          next: {
+            valueOfNode: 'blueberry',
+            next: {
+              valueOfNode: 'cantalope',
+              next: null
+            }
+          }
+        })
+
+
     })
   })
 
