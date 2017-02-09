@@ -9,6 +9,9 @@ export default class Set {
       this.elements.push(value)
       this.length += 1
     }
+    else{
+      throw Error ('element is already in the set')
+    }
   }
 
   isEmpty = () => this.length === 0
@@ -36,7 +39,7 @@ export default class Set {
   }
 
   forEach = passedInFunction => {
-    const setSize = new Number(this.length)
+    const setSize = this.length
     for (let i = 0; i < setSize; i++) {
       passedInFunction(this.elements[i])
     }
@@ -46,7 +49,9 @@ export default class Set {
 
   union = (otherSet) => {
     let newSet = new Set()
-    newSet = this
+    for(let i = 0; i < this.length; i++){
+      newSet.add(this.elements[i])
+    }
     for(let i = 0; i < otherSet.length; i++) {
       if(!newSet.contains(otherSet.elements[i])) {
         newSet.add(otherSet.elements[i])
@@ -57,7 +62,9 @@ export default class Set {
 
   intersect = (otherSet) => {
     let newSet = new Set()
-    newSet = this
+    for(let i = 0; i < this.length; i++){
+      newSet.add(this.elements[i])
+    }
     for(let i = 0; i < this.length; i++) {
       if(!newSet.contains(otherSet.elements[i])) {
         newSet.remove(otherSet.elements[i])
@@ -84,10 +91,7 @@ export default class Set {
         count += 1
       }
     }
-    if(count === this.size()){
-      return true
-    }
-    return false
+    return count === this.size()
   }
 
 
