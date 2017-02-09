@@ -48,28 +48,39 @@ describe('LinkedList', () => {
         .to.alter(() => linkedList.size, { from: 0, to: 1 } )
     })
 
-    it.only('adds a node to the front of the linkedList and updates head ', () => {
+    it('adds a node to the front of the linkedList and updates head ', () => {
       linkedList.insertFirst('bananas')
       linkedList.insertFirst('pineapple')
-      console.log('final linkedList', linkedList);
       expect(linkedList.getHeadNode())
-        .to.be.eql( { valueOfNode: 'pineapple', next: 'bananas'})
+        .to.be.eql( { valueOfNode: 'pineapple', next: {valueOfNode: 'bananas', next: null}})
     })
   })
 
-  // context('getTailNode()', () => {
-  //   it('returns null if no nodes exist', () => {
-  //     expect(linkedList.getTailNode()).to.be.equal(null)
-  //   })
-  //
-  //   it('returns the final node of LinkedList', () => {
-  //     linkedList.insertFirst('bananas')
-  //     linkedList.insertFirst('green apples')
-  //     linkedList.insertFirst('crab apples')
-  //     console.log('the list', linkedList);
-  //     expect(linkedList.getTailNode()).to.be.eql( { valueOfNode: 'crab apples', next: null })
-  //   })
-  // })
+  context('getTailNode()', () => {
+    it('returns null if no nodes exist', () => {
+      expect(linkedList.getTailNode()).to.be.equal(null)
+    })
 
+    it('returns the final node of LinkedList', () => {
+      linkedList.insertFirst('bananas')
+      linkedList.insertFirst('green apples')
+      linkedList.insertFirst('crab apples')
+      expect(linkedList.getTailNode()).to.be.eql( { valueOfNode: 'bananas', next: null })
+    })
+  })
+
+  context('contains()', () => {
+    it('returns true if the list has the value', () => {
+      linkedList.insertFirst('bananas')
+      linkedList.insertFirst('bana')
+      linkedList.insertFirst('banas')
+      console.log('this is the final list ', linkedList)
+      expect(linkedList.contains('bananas')).to.be.equal(true)
+    })
+    it('returns false if the list does not have the value', () => {
+      linkedList.insertFirst('green apples')
+      expect(linkedList.contains('bananas')).to.be.equal(false)
+    })
+  })
 
 })
