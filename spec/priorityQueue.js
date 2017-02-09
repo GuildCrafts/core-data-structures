@@ -45,7 +45,7 @@ describe('PriorityQueue', () => {
   context('back()', () => {
 
     context('when the priority queue is not empty', () => {
-      it('returns the back element (lowest priority) in the queue.', () => {
+      it('returns the back element (lowest priority) in the queue', () => {
         const myPQueue = new PriorityQueue()
 
         myPQueue.enqueue('foo', 2)
@@ -64,7 +64,7 @@ describe('PriorityQueue', () => {
   })
 
     context('dequeue()', () => {
-      context('when the priority queue is not empty.', () => {
+      context('when the priority queue is not empty', () => {
         it('returns and removes the front element (highest priority) in the queue', () =>{
           const myPQueue = new PriorityQueue()
 
@@ -74,7 +74,7 @@ describe('PriorityQueue', () => {
         })
       })
 
-      context('when the priority queue is not empty.', () => {
+      context('when the priority queue is not empty', () => {
         it('changes the size from 2 to 1', () => {
           const myPQueue = new PriorityQueue()
 
@@ -102,6 +102,7 @@ describe('PriorityQueue', () => {
           expect(myPQueue.isEmpty()).to.equal(false)
         })
       })
+      
       context('when the priority queue is empty.', () => {
         it('returns true', () => {
           const myPQueue = new PriorityQueue()
