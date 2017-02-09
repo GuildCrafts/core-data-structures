@@ -21,35 +21,75 @@ describe('Stack', () => {
   })
 
   context('pop()', () => {
-    it('returns and removes the top element in a stack or null if stack is empty', () => {
-      const myStack = new Stack()
+    context('when the stack is not empty', () => {
+      it('removes the top element in a stack', () => {
+        const myStack = new Stack()
 
-      myStack.push('popcorn')
-      expect(() => myStack.pop())
-        .to.alter(() => myStack.length(), { from: 1, to: 0 })
+        myStack.push('popcorn')
+        expect(() => myStack.pop())
+          .to.alter(() => myStack.length(), { from: 1, to: 0 })
+      })
+      it('returns the top element in a stack', () => {
+        const myStack = new Stack()
+
+        myStack.push('popcorn')
+        expect(myStack.pop())
+          .to.equal('popcorn')
+      })
+    })
+    context('when the stack is empty', () => {
+      it('returns null', () => {
+        const myStack = new Stack()
+
+        expect(myStack.pop())
+          .to.equal(null)
+      })
     })
   })
 
   context('peek()', () => {
-  it('returns the top element in the stack or null if the stack is empty', () => {
-    const myStack = new Stack()
+    context('when the stack is not empty', () => {
+      it('returns the top element in the stack', () => {
+        const myStack = new Stack()
 
-    myStack.push('food')
-    expect( myStack.peek() ).to.equal('food')
-  })
+        myStack.push('food')
+        expect( myStack.peek() ).to.equal('food')
+      })
+    })
+
+    context('when the stack is empty', () => {
+      it('returns null', () => {
+        const myStack = new Stack()
+
+        expect( myStack.peek() ).to.equal(null)
+      })
+    })
+
   })
 
   context('isEmpty()', () => {
-    it('returns true if the stack is empty or false if not', () => {
-      const myStack = new Stack()
+    context('when the stack is not empty', () => {
+      it('returns false', () => {
+        const myStack = new Stack()
 
-      expect(myStack.isEmpty() ).to.equal(true)
+        myStack.push('food')
+        expect(myStack.isEmpty() ).to.equal(false)
+      })
+    })
+    context('when the stack is empty', () => {
+      it('returns true', () => {
+        const myStack = new Stack()
+
+        expect(myStack.isEmpty() ).to.equal(true)
+      })
     })
   })
+
+
   context('length()', () => {
     it('returns the number of elements in the stack', () => {
       const myStack = new Stack()
-      
+
       expect(myStack.length()).to.equal(0)})
   })
 })

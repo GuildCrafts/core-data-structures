@@ -17,6 +17,7 @@ describe('PriorityQueue', () => {
 
       expect(() => myPQueue.enqueue('foo', 100))
         .to.alter(() => myPQueue.length(), { from: 0, to: 1 })
+        expect(myPQueue.front()).to.equal('foo')
     })
   })
 
