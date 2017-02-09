@@ -56,8 +56,7 @@ class LinkedList {
 
   contains = (value) => {
     let currentNode = this.head
-
-    while( currentNode.valueOfNode !== value) {
+    while(currentNode.valueOfNode !== value) {
       if(currentNode.next === null) {
         return false
       }
@@ -65,8 +64,19 @@ class LinkedList {
         currentNode = currentNode.next
       }
     }
-    
     return true
+  }
+
+  find = (value) => {
+    let currentNode = this.head
+    while (currentNode.valueOfNode !== value) {
+      if(currentNode.next === null) {
+        return -1
+      } else {
+        currentNode = currentNode.next
+      }
+    }
+    return currentNode
   }
 
 }

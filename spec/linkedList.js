@@ -69,7 +69,7 @@ describe('LinkedList', () => {
     })
   })
 
-  context.only('contains()', () => {
+  context('contains()', () => {
     it('returns true if the list has the value', () => {
       linkedList.insertFirst('bana')
       linkedList.insertFirst('banas')
@@ -80,6 +80,20 @@ describe('LinkedList', () => {
     it('returns false if the list does not have the value', () => {
       linkedList.insertFirst('green apples')
       expect(linkedList.contains('bananas')).to.be.equal(false)
+    })
+  })
+
+  context.only('finds()', () => {
+    it('returns the first node containing the data', () => {
+      linkedList.insertFirst('apple')
+      linkedList.insertFirst('bananas')
+      linkedList.insertFirst('cucumber')
+      expect(linkedList.find('bananas')).to.be.eql( { valueOfNode: 'bananas', next: { valueOfNode: 'apple', next: null } } )
+    })
+
+    it('returns -1 if the value is not found', () => {
+      linkedList.insertFirst('green apples')
+      expect(linkedList.find('bananas')).to.be.equal(-1)
     })
   })
 
