@@ -39,6 +39,25 @@ class LinkedList {
     }
   }
 
+  insert = (value) => {
+    let node = new Node(value)
+    let currentNode = this.head
+
+    if(!currentNode){
+      this.size ++
+      this.head = node
+      return this.head
+    }
+    else {
+      while( currentNode.next !== null ) {
+        currentNode  = currentNode.next
+      }
+      this.size ++
+      currentNode.next = node
+    }
+  }
+
+
   getTailNode = () => {
     let currentNode = this.head
 

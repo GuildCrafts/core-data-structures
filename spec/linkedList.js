@@ -56,6 +56,19 @@ describe('LinkedList', () => {
     })
   })
 
+  context.only('insert()', () => {
+    it('adds a node to the tail of the empty LinkedList', () => {
+      expect(() => linkedList.insert('bananas') )
+        .to.alter(() => linkedList.size, { from: 0, to: 1 } )
+    })
+     it('adds a node to the end of the linkedList and updates prior end node next value', () => {
+       linkedList.insert('pineapple')
+       linkedList.insert('pickle')
+       expect(linkedList.getTailNode())
+         .to.be.eql( { valueOfNode: 'pickle', next: null } )
+     })
+  })
+
   context('getTailNode()', () => {
     it('returns null if no nodes exist', () => {
       expect(linkedList.getTailNode()).to.be.equal(null)
@@ -83,7 +96,7 @@ describe('LinkedList', () => {
     })
   })
 
-  context.only('finds()', () => {
+  context('finds()', () => {
     it('returns the first node containing the data', () => {
       linkedList.insertFirst('apple')
       linkedList.insertFirst('bananas')
