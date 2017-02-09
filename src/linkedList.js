@@ -30,18 +30,49 @@ class LinkedList {
 
   insertFirst = (value) => {
     let node = new Node(value)
-    let currentHead = this.head
-    if(!currentHead){
+    let initialHead = this.head
+
+    // let end = initialHead
+
+    if(!initialHead){
       this.size ++
-      return this.head = node
+      console.log('count inside if', this.size)
+      this.head = node
+      // let initialNodeNext = this.head.next
+      // console.log('initialNodeNext', initialNodeNext);
+      return this.head
     }
-    else{
-      th
-      return 'this is wrong'
+    else {
+      node.next = initialHead
+      console.log('next of new Node', node.next);
+      this.size ++
+      console.log('count after second insert', this.size);
+      console.log('new head of linkedList', this.head);
+      console.log('tail')
+      return git 
     }
-    //if not empty - set this.head to value and this.next to previous head
   }
+
+  // getTailNode = () => {
+  //   let currentNodeNext = this.node.valueOfNode
+  //   if( !this.head) {
+  //     return null
+  //   }
+  //   else {
+  //     // while( currentNodeNext !== null ) {
+  //     //
+  //     // }
+  //   }
+  // }
+  //
+  // insertFirst('bananas')
+  // debugger;
+  // insertFirst('green apples')
+  // insertFirst('crab apples')
+
 }
+
+
 
 module.exports = {
   Node,

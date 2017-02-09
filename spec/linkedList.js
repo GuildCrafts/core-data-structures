@@ -7,8 +7,15 @@ chai.use(chaiChange)
 
 
 
-describe.only('LinkedList', () => {
+describe('LinkedList', () => {
   'use strict'
+
+  // context('Node', () => {
+  //   it('returns the value of the node', () => {
+  //     const node = new Node()
+  //     expect(node.valueOfNode).
+  //   })
+  // })
 
   let linkedList
   beforeEach('invokes a new LinkedList before each test', () => {
@@ -36,11 +43,33 @@ describe.only('LinkedList', () => {
   })
 
   context('insertFirst()', () => {
-    it('adds a node to the head of the LinkedList', () => {
+    it('adds a node to the head of the empty LinkedList', () => {
       expect(() => linkedList.insertFirst('bananas') )
         .to.alter(() => linkedList.size, { from: 0, to: 1 } )
     })
+
+    it.only('adds a node to the front of the linkedList and updates head ', () => {
+      linkedList.insertFirst('bananas')
+      linkedList.insertFirst('pineapple')
+      console.log('final linkedList', linkedList);
+      expect(linkedList.getHeadNode())
+        .to.be.eql( { valueOfNode: 'pineapple', next: 'bananas'})
+    })
   })
+
+  // context('getTailNode()', () => {
+  //   it('returns null if no nodes exist', () => {
+  //     expect(linkedList.getTailNode()).to.be.equal(null)
+  //   })
+  //
+  //   it('returns the final node of LinkedList', () => {
+  //     linkedList.insertFirst('bananas')
+  //     linkedList.insertFirst('green apples')
+  //     linkedList.insertFirst('crab apples')
+  //     console.log('the list', linkedList);
+  //     expect(linkedList.getTailNode()).to.be.eql( { valueOfNode: 'crab apples', next: null })
+  //   })
+  // })
 
 
 })
