@@ -15,9 +15,9 @@ describe('PriorityQueue', () => {
     it('adds an element to the back of the queue.', () => {
       const myPQueue = new PriorityQueue()
 
+      myPQueue.enqueue('bar', 10)
       expect(() => myPQueue.enqueue('foo', 100))
-        .to.alter(() => myPQueue.length(), { from: 0, to: 1 })
-        expect(myPQueue.front()).to.equal('foo')
+        .to.alter(() => myPQueue.length(), { from: 1, to: 2 })
     })
   })
 

@@ -64,8 +64,8 @@ describe('Stack', () => {
         expect( myStack.peek() ).to.equal(null)
       })
     })
-
   })
+
 
   context('isEmpty()', () => {
     context('when the stack is not empty', () => {
@@ -85,11 +85,11 @@ describe('Stack', () => {
     })
   })
 
-
   context('length()', () => {
     it('returns the number of elements in the stack', () => {
       const myStack = new Stack()
 
-      expect(myStack.length()).to.equal(0)})
+      expect(myStack.length()).to.equal(0)
+    })
   })
 })
