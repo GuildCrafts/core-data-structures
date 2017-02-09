@@ -13,12 +13,22 @@ export default class LinkedList {
   }
 
   getHeadNode = () => {
-    return this.head.data
+    let node = this.head.data
+    return node
   }
 
+  // getHeadNode = () => {
+  //   return this.head.data
+  // }
+
   getTailNode = () => {
-    return this.tail.data
+    let node = this.tail.data
+    return node
   }
+
+  // getTailNode = () => {
+  //   return this.tail.data
+  // }
 
   contains = (value) => {
     if (this.isEmpty()) return null
@@ -70,15 +80,9 @@ export default class LinkedList {
     if (this.isEmpty()) return null
     let currentNode = this.head
     while(currentNode.next != null){
-      console.log('while loop***************************')
-      console.log("currentNode.next.data:", currentNode.next.data)
       if(currentNode.next.data  === beforeNode){
-        console.log("we have reached the if statement**********")
         const node = new Node(newNode)
-        console.log("currentNode.next:", currentNode.next)
         node.next = currentNode.next
-        console.log("node.next:", node.next)
-        console.log("node:", node)
         currentNode.next = node
         this.length +=1
         return

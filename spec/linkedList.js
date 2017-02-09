@@ -27,7 +27,8 @@ describe('LinkedList', () => {
 
         myLList.insert('foo')
         myLList.insert('bar')
-        expect(myLList.getTailNode()).to.equal('bar')
+        myLList.insert('coo')
+        expect(myLList.getTailNode()).to.equal('coo')
     })
   })
 
@@ -101,7 +102,8 @@ describe('LinkedList', () => {
         myLList.insert('foo')
         myLList.insertBefore('foo','apples')
         console.log("myLList", myLList)
-        //expect(myLList.getHeadNode()).to.equal('apples')
+        expect(myLList.getHeadNode()).to.equal('bananas')
+        console.log('the head node', myLList.getHeadNode())
     })
   })
 
