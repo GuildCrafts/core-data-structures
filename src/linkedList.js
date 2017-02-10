@@ -3,7 +3,15 @@
 class Node{
   constructor(valueOfNode){
     this.valueOfNode = valueOfNode
-    this.next = null
+    this.nextNode = null
+  }
+
+  data = () => {
+    return this.valueOfNode
+  }
+
+  next = () => {
+    return this.nextNode
   }
 }
 
@@ -32,7 +40,7 @@ class LinkedList {
       return this.head
     }
     else {
-      node.next = initialHead
+      node.nextNode= initialHead
       this.count ++
       this.head = node
       return node
@@ -49,11 +57,11 @@ class LinkedList {
       return this.head
     }
     else {
-      while( currentNode.next !== null ) {
-        currentNode  = currentNode.next
+      while( currentNode.nextNode !== null ) {
+        currentNode = currentNode.nextNode
       }
       this.count ++
-      currentNode.next = node
+      currentNode.nextNode = node
     }
   }
 
@@ -64,8 +72,8 @@ class LinkedList {
       return null
     }
     else {
-      while( currentNode.next !== null ) {
-        currentNode = currentNode.next
+      while( currentNode.nextNode !== null ) {
+        currentNode = currentNode.nextNode
 
        }
       return currentNode
@@ -75,11 +83,11 @@ class LinkedList {
   contains = (value) => {
     let currentNode = this.head
     while(currentNode.valueOfNode !== value) {
-      if(currentNode.next === null) {
+      if(currentNode.nextNode === null) {
         return false
       }
       else {
-        currentNode = currentNode.next
+        currentNode = currentNode.nextNode
       }
     }
     return true
@@ -88,10 +96,10 @@ class LinkedList {
   find = (value) => {
     let currentNode = this.head
     while (currentNode.valueOfNode !== value) {
-      if(currentNode.next === null) {
+      if(currentNode.nextNode === null) {
         return -1
       } else {
-        currentNode = currentNode.next
+        currentNode = currentNode.nextNode
       }
     }
     return currentNode
@@ -102,19 +110,19 @@ class LinkedList {
     let currentNode = this.head
     let node = new Node(newNode)
 
-    if(currentNode.next === null) {
+    if(currentNode.nextNode === null) {
       this.head = node
-      node.next = currentNode
+      node.nextNode = currentNode
     }
 
     while(currentNode.valueOfNode !== targetNode) {
       previousNode = currentNode
-      currentNode = currentNode.next
+      currentNode = currentNode.nextNode
 
     }
     this.count ++
-    previousNode.next = node
-    node.next =  currentNode
+    previousNode.nextNode = node
+    node.nextNode =  currentNode
   }
 
   insertAfter = (targetNode, newNode) => {
@@ -122,48 +130,46 @@ class LinkedList {
     let currentNode = this.head
     let node = new Node(newNode)
 
-    if(this.head.next === null) {
-      this.head.next = node
+    if(this.head.nextNode === null) {
+      this.head.nextNode = node
     }
     while(previousNode.valueOfNode !== targetNode) {
       previousNode = currentNode
-      currentNode = currentNode.next
+      currentNode = currentNode.nextNode
     }
     this.count ++
-    previousNode.next = node
-    node.next = currentNode
+    previousNode.nextNode = node
+    node.nextNode = currentNode
   }
 
   remove = () => {
-    //go to the end of the linkedList
-    //set previousNode.next to null
     let previousNode = this.head
     let currentNode = this.head
 
-    if(this.head.next === null) {
+    if(this.head.nextNode === null) {
       this.head = null
       this.count --
     }
-    while(currentNode.next !== null){
+    while(currentNode.nextNode !== null){
       previousNode = currentNode
-      currentNode = currentNode.next
+      currentNode = currentNode.nextNode
     }
     this.count --
-    previousNode.next = null
+    previousNode.nextNode = null
 
   }
 
   removeFirst = () => {
     let currentNode = this.head
 
-    if(this.head.next === null ) {
+    if(this.head.nextNode === null ) {
       this.head = null
       this.count --
     }
     else {
       this.count --
-      this.head = currentNode.next
-      currentNode.next = null
+      this.head = currentNode.nextNode
+      currentNode.nextNode = null
     }
   }
 
@@ -179,10 +185,10 @@ class LinkedList {
   size = () => {
     let currentNode = this.head
     if(this.head === null ) return 0
-    else if(this.head.next === null) return 1
+    else if(this.head.nextNode === null) return 1
     else {
-      while(currentNode.next !== null){
-        currentNode = currentNode.next
+      while(currentNode.nextNode !== null){
+        currentNode = currentNode.nextNode
         this.count ++
       }
     }

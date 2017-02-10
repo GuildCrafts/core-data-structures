@@ -4,18 +4,8 @@ import {LinkedList, Node} from '../src/linkedList.js'
 
 chai.use(chaiChange)
 
-
-
-
 describe('LinkedList', () => {
   'use strict'
-
-  // context('Node', () => {
-  //   it('returns the value of the node', () => {
-  //     const node = new Node()
-  //     expect(node.valueOfNode).
-  //   })
-  // })
 
   let linkedList
   beforeEach('invokes a new LinkedList before each test', () => {
@@ -123,7 +113,7 @@ describe('LinkedList', () => {
       linkedList.insert('cantalope')
       linkedList.insertBefore('cantalope', 'blueberry')
       expect(linkedList.find('dates'))
-        .to.be.eql({valueOfNode:'dates', next: {valueOfNode: 'blueberry', next: {valueOfNode: 'cantalope', next: null} }
+        .to.be.eql({valueOfNode:'dates', next: { valueOfNode: 'blueberry', next: {valueOfNode: 'cantalope', next: null} }
         })
     })
   })
@@ -209,6 +199,19 @@ describe('LinkedList', () => {
     })
   })
 
-  
+  context('data()', () => {
+    it('returns the value of the node', () => {
+      linkedList.insert('blood orange')
+      let node = linkedList.find('blood orange')
+      expect(node.data()).to.be.equal('blood orange')
+    })
+  })
 
+  context('next()', () => {
+    it('returns the next Node of a specific node ', () => {
+      linkedList.insert('orange')
+      let node = linkedList.find('orange')
+      expect(node.next()).to.be.equal(null)
+    })
+  })
 })
