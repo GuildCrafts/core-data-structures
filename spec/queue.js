@@ -1,6 +1,7 @@
 import chai, { expect } from 'chai'
 import chaiChange from 'chai-change'
 import Queue from '../src/queue'
+import Node from '../src/node'
 
 chai.use(chaiChange)
 
@@ -28,7 +29,7 @@ describe('Queue', () => {
 
         myQueue.enqueue('foo')
         myQueue.enqueue('bar')
-        expect( myQueue.dequeue() ).to.equal('foo')
+        expect(myQueue.dequeue()).to.be.an.instanceof(Node)
       })
     })
 
@@ -36,7 +37,7 @@ describe('Queue', () => {
       it('returns null', () => {
         const myQueue = new Queue()
 
-        expect( myQueue.dequeue() ).to.equal(null)
+        expect(myQueue.dequeue()).to.equal(null)
       })
     })
   })
@@ -49,7 +50,7 @@ describe('Queue', () => {
 
         myQueue.enqueue('foo')
         myQueue.enqueue('bar')
-        expect( myQueue.front() ).to.equal('foo')
+        expect(myQueue.front()).to.be.an.instanceof(Node)
       })
     })
 
@@ -57,7 +58,7 @@ describe('Queue', () => {
       it('returns null', () => {
         const myQueue = new Queue()
 
-        expect( myQueue.front() ).to.equal(null)
+        expect(myQueue.front()).to.equal(null)
       })
     })
   })
@@ -70,7 +71,7 @@ describe('Queue', () => {
 
         myQueue.enqueue('foo')
         myQueue.enqueue('bar')
-        expect( myQueue.back() ).to.equal('bar')
+        expect(myQueue.back()).to.be.an.instanceof(Node)
       })
     })
 
@@ -78,7 +79,7 @@ describe('Queue', () => {
       it('returns null', () => {
         const myQueue = new Queue()
 
-        expect( myQueue.back() ).to.equal(null)
+        expect(myQueue.back()).to.equal(null)
       })
     })
   })

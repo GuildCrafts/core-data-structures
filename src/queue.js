@@ -1,9 +1,4 @@
-export class Node {
-  constructor(value) {
-    this.data = value
-    this.next = null
-  }
-}
+import Node from './node'
 
 export default class Queue {
   constructor() {
@@ -15,7 +10,7 @@ export default class Queue {
   enqueue = (value) => {
     const node = new Node(value)
     if (this.size !== 0) {
-      this.tail.next = node
+      this.tail._next = node
       this.tail = node
     }
     else {
@@ -30,15 +25,15 @@ export default class Queue {
   dequeue = () => {
     if (this.isEmpty()) return null
     const node = this.head
-    this.head = node.next
-    node.next = null
+    this.head = node._next
+    node._next = null
     this.size -= 1
-    return node.data
+    return node
   }
 
-  front = () => this.isEmpty() ? null : this.head.data
+  front = () => this.isEmpty() ? null : this.head
 
-  back = () => this.isEmpty() ? null : this.tail.data
+  back = () => this.isEmpty() ? null : this.tail
 
   isEmpty = () => this.size === 0
 

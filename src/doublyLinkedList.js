@@ -1,6 +1,6 @@
 import Node from './node'
 
-export default class LinkedList {
+export default class DoublyLinkedList {
   constructor() {
     this.length = 0
     this.head = null
@@ -47,9 +47,11 @@ export default class LinkedList {
     const node = new Node(value)
     if (this.isEmpty()) {
       this.head = node
+      this.head._prev = null
       this.tail = node
     }
     else {
+      node._prev = this.tail
       this.tail._next = node
       this.tail = node
     }
@@ -58,6 +60,7 @@ export default class LinkedList {
 
   insertFirst = (value) => {
     const node = new Node(value)
+    node._prev = null
     node._next = this.head
     this.head = node
     this.length += 1
@@ -67,9 +70,11 @@ export default class LinkedList {
     if (this.isEmpty()) return null
     let currentNode = this.head
     while(currentNode._next != null){
-      if(currentNode._next._value  === beforeNode){
+      if(currentNode._next._value === beforeNode){
         const node = new Node(newNode)
-        node._next = currentNode._next
+        node._prev = currentNode
+        currentNode.next._prev = node
+        node._next = beforeNode
         currentNode._next = node
         this.length +=1
         return
@@ -85,6 +90,8 @@ export default class LinkedList {
     while(currentNode._next != null){
       if(currentNode._value  === afterNode){
         const node = new Node(newNode)
+        node._prev = currentNode
+        currentNode._next._prev = node
         node._next = currentNode._next
         currentNode._next = node
         this.length +=1
@@ -100,6 +107,7 @@ export default class LinkedList {
     let currentNode = this.head
     while(currentNode != null){
       if(currentNode._next === this.tail){
+        this.tail._prev = null
         this.tail = currentNode
         currentNode._next = null
         this.length -= 1
@@ -113,6 +121,7 @@ export default class LinkedList {
       if (this.isEmpty()) return null
       const node = this.head
       this.head = node._next
+      this.head._prev = null
       node._next = null
       this.length -= 1
     }
