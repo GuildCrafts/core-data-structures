@@ -45,7 +45,7 @@ describe('LinkedList', () => {
   context('insertFirst()', () => {
     it('adds a node to the head of the empty LinkedList', () => {
       expect(() => linkedList.insertFirst('bananas') )
-        .to.alter(() => linkedList.size, { from: 0, to: 1 } )
+        .to.alter(() => linkedList.count, { from: 0, to: 1 } )
     })
 
     it('adds a node to the front of the linkedList and updates head ', () => {
@@ -59,7 +59,7 @@ describe('LinkedList', () => {
   context('insert()', () => {
     it('adds a node to the tail of the empty LinkedList', () => {
       expect(() => linkedList.insert('bananas') )
-        .to.alter(() => linkedList.size, { from: 0, to: 1 } )
+        .to.alter(() => linkedList.count, { from: 0, to: 1 } )
     })
      it('adds a node to the end of the linkedList and updates prior end node next value', () => {
        linkedList.insert('pineapple')
@@ -114,7 +114,7 @@ describe('LinkedList', () => {
     it('inserts a new node into linkedList', () => {
       linkedList.insert('bananas')
       expect(() => linkedList.insertBefore('bananas', 'apples') )
-        .to.alter(() => linkedList.size, { from: 1, to: 2} )
+        .to.alter(() => linkedList.count, { from: 1, to: 2} )
     })
 
     it('insert new node before found node', () => {
@@ -132,7 +132,7 @@ describe('LinkedList', () => {
     it('inserts a new node into linkedList', () => {
       linkedList.insert('bananas')
       expect(() => linkedList.insertAfter('bananas', 'apples') )
-        .to.alter(() => linkedList.size, { from: 1, to: 2} )
+        .to.alter(() => linkedList.count, { from: 1, to: 2} )
     })
 
     it('insert new node after found node', () => {
@@ -147,5 +147,68 @@ describe('LinkedList', () => {
     })
   })
 
+  context('remove()', () => {
+    it('remove the only node in the linkedList' , () => {
+      linkedList.insert('grapefruit')
+      linkedList.remove()
+      expect(linkedList.head).to.be.equal(null)
+    })
+
+    it('removes the last node in the linkedList' , () => {
+      linkedList.insert('figs')
+      linkedList.insert('grapes')
+      linkedList.insert('guava')
+      linkedList.remove()
+      expect(linkedList.find('grapes') )
+        .to.be.eql({valueOfNode: 'grapes', next: null} )
+      expect(() => linkedList.remove() )
+        .to.alter( () => linkedList.count, { from: 2, to: 1} )
+      })
+    })
+
+  context('removeFirst()', () => {
+    it('remove the only node in the linkedList' , () => {
+      linkedList.insert('grapefruit')
+      linkedList.removeFirst()
+      expect(linkedList.head).to.be.equal(null)
+    })
+
+    it('removes the first node in the linkedList' , () => {
+      linkedList.insert('plums')
+      linkedList.insert('raspberry')
+      linkedList.removeFirst()
+      expect(linkedList.find('raspberry') )
+        .to.be.eql({valueOfNode: 'raspberry' , next: null} )
+    })
+  })
+
+  context('isEmpty()', () => {
+    it('returns true if the linkedList is empty', () => {
+      expect(linkedList.isEmpty()).to.be.equal(true)
+    })
+    it('returns false if the linkedList is not empty', () => {
+      linkedList.insert('kiwi')
+      expect(linkedList.isEmpty()).to.be.equal(false)
+    })
+  })
+
+  context('size()', () => {
+    it('returns the size of the linkedList', () => {
+      linkedList.insert('figs')
+      expect(linkedList.size()).to.be.equal(1)
+    })
+  })
+
+  context('clear()', () => {
+    it('clears the list of all nodes/data', () => {
+      linkedList.insert('lemon')
+      linkedList.insert('lime')
+      linkedList.insert('mango')
+      linkedList.clear()
+      expect(linkedList.size()).to.be.equal(0)
+    })
+  })
+
   
+
 })

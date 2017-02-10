@@ -10,7 +10,7 @@ class Node{
 class LinkedList {
   constructor(){
     this.head = null
-    this.size = 0
+    this.count = 0
   }
 
   getHeadNode = () => {
@@ -27,13 +27,13 @@ class LinkedList {
     let initialHead = this.head
 
     if(!initialHead){
-      this.size ++
+      this.count ++
       this.head = node
       return this.head
     }
     else {
       node.next = initialHead
-      this.size ++
+      this.count ++
       this.head = node
       return node
     }
@@ -44,7 +44,7 @@ class LinkedList {
     let currentNode = this.head
 
     if(!currentNode){
-      this.size ++
+      this.count ++
       this.head = node
       return this.head
     }
@@ -52,11 +52,10 @@ class LinkedList {
       while( currentNode.next !== null ) {
         currentNode  = currentNode.next
       }
-      this.size ++
+      this.count ++
       currentNode.next = node
     }
   }
-
 
   getTailNode = () => {
     let currentNode = this.head
@@ -113,7 +112,7 @@ class LinkedList {
       currentNode = currentNode.next
 
     }
-    this.size ++
+    this.count ++
     previousNode.next = node
     node.next =  currentNode
   }
@@ -130,10 +129,68 @@ class LinkedList {
       previousNode = currentNode
       currentNode = currentNode.next
     }
-    this.size ++
+    this.count ++
     previousNode.next = node
     node.next = currentNode
+  }
 
+  remove = () => {
+    //go to the end of the linkedList
+    //set previousNode.next to null
+    let previousNode = this.head
+    let currentNode = this.head
+
+    if(this.head.next === null) {
+      this.head = null
+      this.count --
+    }
+    while(currentNode.next !== null){
+      previousNode = currentNode
+      currentNode = currentNode.next
+    }
+    this.count --
+    previousNode.next = null
+
+  }
+
+  removeFirst = () => {
+    let currentNode = this.head
+
+    if(this.head.next === null ) {
+      this.head = null
+      this.count --
+    }
+    else {
+      this.count --
+      this.head = currentNode.next
+      currentNode.next = null
+    }
+  }
+
+  isEmpty = () => {
+    if(this.head === null) {
+      return true
+    }
+    else {
+      return false
+    }
+  }
+
+  size = () => {
+    let currentNode = this.head
+    if(this.head === null ) return 0
+    else if(this.head.next === null) return 1
+    else {
+      while(currentNode.next !== null){
+        currentNode = currentNode.next
+        this.count ++
+      }
+    }
+    return this.count
+  }
+
+  clear = () => {
+    return this.head = null
   }
 
 }
