@@ -27,8 +27,8 @@ describe('LinkedList', () => {
 
     it('returns the first node', () => {
       linkedList.insertFirst('bananas')
-      expect(linkedList.getHeadNode())
-        .to.be.eql( { valueOfNode: 'bananas', next: null })
+      expect(linkedList.getHeadNode().data())
+        .to.be.eql('bananas')
     })
   })
 
@@ -40,9 +40,10 @@ describe('LinkedList', () => {
 
     it('adds a node to the front of the linkedList and updates head ', () => {
       linkedList.insertFirst('bananas')
+      console.log('THIS IS BANANAS' , linkedList.insertFirst('bananas'))
       linkedList.insertFirst('pineapple')
-      expect(linkedList.getHeadNode())
-        .to.be.eql( { valueOfNode: 'pineapple', next: {valueOfNode: 'bananas', next: null}})
+      expect(linkedList.getHeadNode().data())
+        .to.be.eql('pineapple')
     })
   })
 
@@ -54,8 +55,8 @@ describe('LinkedList', () => {
      it('adds a node to the end of the linkedList and updates prior end node next value', () => {
        linkedList.insert('pineapple')
        linkedList.insert('pickle')
-       expect(linkedList.getTailNode())
-         .to.be.eql( { valueOfNode: 'pickle', next: null } )
+       expect(linkedList.getTailNode().data())
+         .to.be.eql('pickle')
      })
   })
 
@@ -68,7 +69,7 @@ describe('LinkedList', () => {
       linkedList.insertFirst('bananas')
       linkedList.insertFirst('green apples')
       linkedList.insertFirst('crab apples')
-      expect(linkedList.getTailNode()).to.be.eql( { valueOfNode: 'bananas', next: null })
+      expect(linkedList.getTailNode().data()).to.be.eql('bananas')
     })
   })
 
@@ -91,7 +92,7 @@ describe('LinkedList', () => {
       linkedList.insertFirst('apple')
       linkedList.insertFirst('bananas')
       linkedList.insertFirst('cucumber')
-      expect(linkedList.find('bananas')).to.be.eql( { valueOfNode: 'bananas', next: { valueOfNode: 'apple', next: null } } )
+      expect(linkedList.find('bananas').data()).to.be.eql('bananas')
     })
 
     it('returns -1 if the value is not found', () => {
@@ -112,9 +113,8 @@ describe('LinkedList', () => {
       linkedList.insert('dates')
       linkedList.insert('cantalope')
       linkedList.insertBefore('cantalope', 'blueberry')
-      expect(linkedList.find('dates'))
-        .to.be.eql({valueOfNode:'dates', next: { valueOfNode: 'blueberry', next: {valueOfNode: 'cantalope', next: null} }
-        })
+      expect(linkedList.find('dates').data())
+        .to.be.eql('dates')
     })
   })
 
@@ -131,9 +131,8 @@ describe('LinkedList', () => {
       linkedList.insert('dates')
       linkedList.insert('elderberry')
       linkedList.insertAfter('dates', 'blueberry')
-      expect(linkedList.find('dates'))
-        .to.be.eql({valueOfNode:'dates', next: {valueOfNode: 'blueberry', next: {valueOfNode: 'elderberry', next: null} }
-        })
+      expect(linkedList.find('dates').data())
+        .to.be.eql('dates')
     })
   })
 
@@ -149,8 +148,8 @@ describe('LinkedList', () => {
       linkedList.insert('grapes')
       linkedList.insert('guava')
       linkedList.remove()
-      expect(linkedList.find('grapes') )
-        .to.be.eql({valueOfNode: 'grapes', next: null} )
+      expect(linkedList.find('grapes').data())
+        .to.be.eql('grapes')
       expect(() => linkedList.remove() )
         .to.alter( () => linkedList.count, { from: 2, to: 1} )
       })
@@ -167,8 +166,8 @@ describe('LinkedList', () => {
       linkedList.insert('plums')
       linkedList.insert('raspberry')
       linkedList.removeFirst()
-      expect(linkedList.find('raspberry') )
-        .to.be.eql({valueOfNode: 'raspberry' , next: null} )
+      expect(linkedList.find('raspberry').data() )
+        .to.be.eql('raspberry')
     })
   })
 
