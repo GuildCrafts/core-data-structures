@@ -6,7 +6,7 @@ Base repository for the [Core Data Structures](https://github.com/GuildCrafts/we
 
 # Learning Contract for Goal: Core Data Structures
 
-[Description](#description) | [Basic Data Structures](#basic-data-structures) | [Advanced Data Structures](#advanced-data-structures) | [Context](#context) | [Specifications](#specifications) | [Quality Rubric](#quality-rubric)
+[Description](#description) | [Basic Data Structures](#basic-data-structures) | [Context](#context) | [Specifications](#specifications) | [Quality Rubric](#quality-rubric)
 
 ## Description
 
