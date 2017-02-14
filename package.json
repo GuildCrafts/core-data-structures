@@ -12,7 +12,25 @@
     "mocha": "2.0.1"
   },
   "scripts": {
+    "linter": "linter",
     "build": "babel src -d lib",
-    "test": "mocha --compilers js:babel-register ./spec/*.js"
-  }
+    "test": "mocha --compilers js:babel-register ./spec/stack.js"
+  },
+  "dependencies": {
+    "chai": "^1.8.1",
+    "jslint": "^0.10.3",
+    "linter": "0.0.7",
+    "mocha": "^2.0.1"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kousagi1012/core-data-structures.git"
+  },
+  "author": "Brian, Greg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kousagi1012/core-data-structures/issues"
+  },
+  "homepage": "https://github.com/kousagi1012/core-data-structures#readme"
 }
