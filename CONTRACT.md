@@ -2,6 +2,9 @@
 
 [Description](#description) | [Basic Data Structures](#basic-data-structures) | [Advanced Data Structures](#advanced-data-structures) | [Context](#context) | [Specifications](#specifications) | [Quality Rubric](#quality-rubric)
 
+## Team: perplexed-hoopoe
+## Project: 156 - Core Data Structures [Basic]
+
 ## Description
 
 Write tests and implementations for common data structures.
