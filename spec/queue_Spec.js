@@ -14,9 +14,24 @@ describe('Queue', () => {
       const queue = new Queue()
       expect(() => queue.enqueue('foo'))
         .to.alter(() => queue.length(), {from:0 , to: 1})
-
       console.log('queue', queue)
-
     })
   })
+
+  context('dequeue()', () => {
+    it('returns and removes the front element in the queue or null if the queue is empty.', () => {
+      const queue = new Queue()
+      expect(() => queue.dequeue())
+      .to.alter(() => queue.length(), {from:1 , to: 0})
+      console.log('queue2', queue)
+    })
+  })
+
+
+
+
+
+
+
+
 })

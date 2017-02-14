@@ -11,7 +11,7 @@ export default class Queue {
   }
 
   dequeue() {
-    return this.dataStore.shift()
+    return this.dataStore[this.newIndex--] 
   }
 
   length() {
