@@ -26,6 +26,7 @@ describe('Stack', () => {
       myStack.push('foo')
       expect(() => myStack.pop())
       .to.alter(() => myStack.length(), {from: 1, to: 0})
+
       console.log('popp', myStack)
     })
   })
