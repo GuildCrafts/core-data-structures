@@ -6,7 +6,7 @@
 
 Write tests and implementations for common data structures.
 
-Fork the this repository and use the fork as your project artifact.
+Fork this repository and use the fork as your project artifact.
 
 Use the list below as a reference for each data structure's interface.
 
@@ -193,7 +193,7 @@ diGraph.count()                       // returns the number of vertices in the g
 
 ### Sources
 
-Most of the below was shamelessly borrowed from Wikipedia and these libraries:
+Most of the above was shamelessly borrowed from Wikipedia and these libraries:
 
 - [datastructures-js](https://github.com/eyas-ranjous/datastructures-js)
 - [singly-linked-list](https://www.npmjs.com/package/singly-linked-list)
@@ -204,7 +204,7 @@ If you spend most of your time programming in high-level languages, you may not 
 
 The nice thing is, most data structures are **actually quite simple** when you get down to it. They have straight-forward, relatively small interfaces.
 
-In a larger sense, being more familiar with data structures is helpful for you ability to think about data more abstractly, and to design better software.
+In a larger sense, being more familiar with data structures is helpful for your ability to think about data more abstractly, and to design better software.
 
 ## Specifications
 
