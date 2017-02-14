@@ -2,26 +2,32 @@
 
 export default class Queue {
   constructor() {
-    this.list = []
-    this.end = null
+    this._list = []
+    this._backElementPosition = 0
   }
-  enqueue(element) {
-    this.end = element
-    this.list.push(element)
+  enqueue( element ) {
+    this._list[ this._backElementPosition++ ] = element
   }
   dequeue() {
-    return this.list.shift() || null
+    let list = this.front()
+    this._list = this._list.reduce( ( memo, element, index ) => {
+      if ( this._list[ index + 1 ] !== undefined ) {
+        memo[ index ] = this._list[ index + 1 ]
+      }
+      return memo
+    }, [] )
+    return list
   }
   front() {
-    return this.list[0] || null
+    return this._list[ this.length() - this._backElementPosition ] || null
   }
   back() {
-    return this.end
+    return this._list[ this._backElementPosition - 1 ] || null
   }
   isEmpty() {
-    return this.list.length === 0
+    return this.length() === 0
   }
   length() {
-    return this.list.length
+    return this._list.length
   }
 }
