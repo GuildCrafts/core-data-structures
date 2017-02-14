@@ -16,6 +16,8 @@ describe('Stack', () => {
       const myStack = new Stack()
       expect(() => myStack.push('foo'))
         .to.alter(() => myStack.length(), { from: 0, to: 1 })
+      expect(() => myStack.push('goo'))
+      .to.alter(() => myStack.length(), {from:1, to: 2 })
         console.log('myStack', myStack);
     })
   })
@@ -30,20 +32,22 @@ describe('Stack', () => {
     })
   })
 
-  context('peek', () => {
-    it('returns the top element in the stack or null if the stack is empty.', () => {
+  describe('peek', () => {
+    it('returns the top element in the stack.', () => {
       const myStack = new Stack()
-      expect(myStack.peek()).to.be.null
       myStack.push('foo')
       expect(myStack.peek()).to.equal('foo')
-      console.log("peek", myStack)
+    })
+    it('null if the stack is empty.', () => {
+      const myStack = new Stack()
+      expect(myStack.peek()).to.be.null
     })
   })
 
-  context('isEmpty', () => {
+  describe('isEmpty', () => {
     it('returns true if the stack is empty or false if not.', () => {
       const myStack = new Stack()
-      expect(myStack.isEmpty())
+      expect(myStack.isEmpty()).to.be.true
       console.log("elloo", myStack)
     })
   })
