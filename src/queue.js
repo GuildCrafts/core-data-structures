@@ -1,22 +1,34 @@
-export default class Stack {
+export default class Queue {
   constructor() {
     this._store = []
   }
 
-  push(element) {
-    return this._store.push(element)
+  enqueue(element) {
+    return this._store.unshift(element)
   }
 
-  pop() {
+  dequeue() {
+    if (this.isEmpty()) {
+      return null
+    }
+
     return this._store.pop()
   }
 
-  peek() {
+  front() {
     if (this.isEmpty()) {
       return null
     }
 
     return this._store[this.length() - 1]
+  }
+
+  back() {
+    if (this.isEmpty()) {
+      return null
+    }
+
+    return this._store[0]
   }
 
   isEmpty() {
