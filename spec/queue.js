@@ -25,7 +25,7 @@ describe.only('Queue', () => {
       const myQueue = new Queue()
       myQueue.enqueue('foo')
       myQueue.enqueue('bar')
-      expect(myQueue.dequeue()).to.eql(['foo'])
+      expect(myQueue.dequeue()).to.deep.eql('foo')
     })
   })
 
@@ -52,8 +52,13 @@ describe.only('Queue', () => {
       const myQueue = new Queue()
       expect(myQueue.isEmpty()).to.eql(true)
     })
+    it('returns false if the Queue has elements', () => {
+      const myQueue = new Queue()
+      myQueue.enqueue('foo')
+      expect(myQueue.isEmpty()).to.eql(false)
+    })
   })
-  
+
   context('length()', () => {
     it('returns the size of the Queue', () => {
       const myQueue = new Queue()
