@@ -10,7 +10,12 @@ export default class Stack {
   }
 
   pop() {
-    return this.storage[this.size--]
+    if(this.storage.length > 0) {
+      this.size--
+      return this.storage.splice(this.size, 1)
+    } else if(this.storage.length === 0) {
+      return null
+    }
   }
 
   peek() {

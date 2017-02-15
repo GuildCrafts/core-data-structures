@@ -1,23 +1,22 @@
 export default class Queue {
   constructor() {
     this.dataStore = []
-    this.oldIndex = 1
-    this.newIndex = 1
+    this.newIndex = 0
 
   }
 
   enqueue(element) {
-    this.newIndex++
-    return this.dataStore[this.newIndex] = element
+    this.dataStore[this.newIndex++] = element
   }
 
   dequeue() {
     this.newIndex--
-    return this.dataStore.shift()
+    return this.dataStore.shift() || null
+
   }
 
   front() {
-    return this.dataStore[0] || null
+    return this.dataStore[0]
   }
 
   back() {
@@ -25,7 +24,7 @@ export default class Queue {
   }
 
   empty() {
-    if(this.dataStore.length == 0) {
+    if(this.dataStore.length === 0) {
       return true
     } else {
       return false
@@ -33,7 +32,7 @@ export default class Queue {
   }
 
   length() {
-  return this.newIndex - this.oldIndex
+  return this.newIndex
   }
 
 }

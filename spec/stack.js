@@ -16,18 +16,28 @@ describe('Stack', () => {
       const myStack = new Stack()
       expect(() => myStack.push('foo'))
         .to.alter(() => myStack.length(), { from: 0, to: 1 })
-        console.log('myStack', myStack);
     })
   })
 
-  context('pop()', () => {
-    it('returns and removes the top element in the stack or null if the stack is empty.', () => {
+  describe('pop()', () => {
+    it('returns and removes the top element in the stack.', () => {
       const myStack = new Stack()
       myStack.push('foo')
       expect(() => myStack.pop())
       .to.alter(() => myStack.length(), {from: 1, to: 0})
+    })
+    it('returns null if the stack is empty.', () => {
+      const myStack = new Stack()
+      expect(myStack.pop()).to.be.null
+    })
 
-      console.log('popp', myStack)
+    it('removes the top element in the stack', () => {
+      const myStack = new Stack()
+      myStack.push('boo')
+      myStack.push('goo')
+      myStack.push('who')
+      myStack.pop()
+      expect(myStack.storage).to.deep.equal(['boo', 'goo'])
     })
   })
 
@@ -37,15 +47,13 @@ describe('Stack', () => {
       expect(myStack.peek()).to.be.null
       myStack.push('foo')
       expect(myStack.peek()).to.equal('foo')
-      console.log("peek", myStack)
     })
   })
 
   context('isEmpty', () => {
     it('returns true if the stack is empty or false if not.', () => {
       const myStack = new Stack()
-      expect(myStack.isEmpty())
-      console.log("elloo", myStack)
+      expect(myStack.isEmpty()).to.be.true
     })
   })
 })

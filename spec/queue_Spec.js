@@ -20,20 +20,27 @@ describe('Queue', () => {
   })
 
   describe.only('dequeue()', () => {
-    it('returns and removes the front element in the queue or null if the queue is empty.', () => {
+    it('removes the front element in the queue.', () => {
       const queue = new Queue()
+      queue.enqueue('goo')
+      queue.enqueue('boo')
       queue.enqueue('foo')
-      expect(() => queue.dequeue())
-      .to.alter(() => queue.length(), {from: 1 , to: 0})
+
+      expect(queue.dequeue()).to.equal('goo')
+    })
+
+    it('returns null if the queue is empty', () => {
+      const queue = new Queue()
+
+      expect(queue.dequeue()).to.be.null
     })
   })
 
   describe('front()', () => {
-    it('returns the front element in queue or null if the queue is empty.', () => {
+    it('returns and removes the front element in queue or null if the queue is empty.', () => {
       const queue = new Queue()
       queue.enqueue('foo')
       expect(queue.front()).to.equal('foo')
-      console.log('front', queue.front())
     })
   })
 
