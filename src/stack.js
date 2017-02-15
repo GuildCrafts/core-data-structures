@@ -10,12 +10,14 @@ export default class Stack {
   }
 
   pop() {
-    return this.arr[--this.total-1]
+     this.arr[--this.total-1]
+     return this.arr.slice(1)
 
   }
 
   peek() {
     return this.arr[this.total-1];
+
   }
 
   length() {
@@ -24,5 +26,6 @@ export default class Stack {
 
   clear() {
     this.total = 0;
+    // set this array to a new empty array
   }
 }

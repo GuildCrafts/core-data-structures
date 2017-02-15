@@ -32,9 +32,7 @@ describe.only('Stack', () => {
       const myStack = new Stack()
       myStack.push('foo')
       myStack.push('boo')
-
-      expect(() => myStack.pop())
-        .to.alter(() => myStack.length(), { from: 2, to: 1 })
+      expect(() => myStack.pop().to.equal('boo'));
     })
   })
 
