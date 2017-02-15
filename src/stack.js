@@ -15,6 +15,7 @@ export default class Stack {
     return this.dataStore[this.top-1]
   }
 
+
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
