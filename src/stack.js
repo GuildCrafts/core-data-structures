@@ -14,6 +14,12 @@ export default class Stack {
   peek() {
     return this.dataStore[this.top-1]
   }
+  isEmpty() {
+    return this.dataStore.length <= 0
+  }
+  length() {
+    return this.top
+  }
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
