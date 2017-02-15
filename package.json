@@ -13,6 +13,7 @@
   },
   "scripts": {
     "build": "babel src -d lib",
+    "btest": "babel src -d lib && mocha --compilers js:babel-register ./spec/*.js",
     "test": "mocha --compilers js:babel-register ./spec/*.js"
   }
 }
