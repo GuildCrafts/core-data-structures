@@ -14,8 +14,6 @@ export default class Stack {
   peek() {
     return this.dataStore[this.top-1]
   }
-
-
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
