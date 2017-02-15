@@ -4,7 +4,7 @@ import LinkedList from '../src/linkedList'
 
 chai.use(chaiChange)
 
-describe.only('LinkedList', () => {
+describe('LinkedList', () => {
   'use strict'
 
   it('exists', () => {
