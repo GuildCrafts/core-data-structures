@@ -12,20 +12,21 @@ export default class Stack {
   pop() {
      this.arr[--this.total-1]
      return this.arr.slice(1)
-
   }
 
   peek() {
     return this.arr[this.total-1];
-
   }
 
   length() {
     return this.total;
   }
 
-  clear() {
-    this.total = 0;
-    // set this array to a new empty array
+  isEmpty() {
+    if(this.total > 0) {
+    return true
+  } else{
+    return false
+    }
   }
 }

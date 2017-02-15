@@ -53,11 +53,11 @@ describe.only('Stack', () => {
     })
   })
 
- context('clear()', () => {
-   it('returns an empty array.', () => {
+ context('isEmpty()', () => {
+   it('show whether a stack is empty or not .', () => {
    const myStack = new Stack()
    myStack.push('foo')
-    expect (() => myStack.length(), {from: 1, to: 0})
+  expect (() => myStack.isEmpty().to.equal('false'));
   })
  })
 })
