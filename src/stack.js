@@ -2,7 +2,7 @@
 export default class Stack {
 
   constructor() {
-    this.dataStore = []
+    this.dataStore = [] 
     this.top = 0
   }
   push(element) {
