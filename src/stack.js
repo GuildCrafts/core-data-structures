@@ -1,7 +1,7 @@
 'use strict'
 
 class Node {
-  constructor( data, link=null ) {
+  constructor( data, link ) {
     this.data = data
     this.link = link
   }
@@ -39,4 +39,5 @@ export default class Stack {
   length() {
     return this.size
   }
+
 }
