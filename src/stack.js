@@ -2,27 +2,27 @@
 
 export default class Stack {
   constructor() {
-    this.dataStore = [];
-    this.top = 0;
+    this.arr = [];
+    this.total = 0;
 }
   push(element) {
-    this.dataStore = element
-    this.top++
+    this.arr[this.total++] = element
   }
 
   pop() {
-    this.dataStore[this.top-1];
+    return this.arr[--this.total-1]
+
   }
 
   peek() {
-    return this.dataStore[this.top-1];
+    return this.arr[this.total-1];
   }
 
   length() {
-    return this.top;
+    return this.total;
   }
 
   clear() {
-    this.top = 0;
+    this.total = 0;
   }
 }
