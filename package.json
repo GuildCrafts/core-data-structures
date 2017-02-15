@@ -4,15 +4,21 @@
   "private": false,
   "version": "0.0.0",
   "devDependencies": {
+    "babel": "^6.23.0",
     "babel-cli": "^6.18.0",
     "babel-preset-env": "^1.1.4",
     "babel-register": "^6.18.0",
-    "chai": "~1.8.0",
+    "chai": "^1.8.1",
     "chai-change": "^2.1.2",
-    "mocha": "2.0.1"
+    "isparta": "^4.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^2.0.1"
   },
   "scripts": {
     "build": "babel src -d lib",
     "test": "mocha --compilers js:babel-register ./spec/*.js"
+  },
+  "dependencies": {
+    "linkedlist": "^1.0.1"
   }
 }
