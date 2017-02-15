@@ -16,7 +16,7 @@ describe('Stack', () => {
       const myStack = new Stack()
 
       expect(() => myStack.push('foo'))
-        .to.alter(() => myStack.length(), { from: 0, to: 1 })
+        .to.alter(() => myStack.top, { from: 0, to: 1 })
     })
   })
 })
