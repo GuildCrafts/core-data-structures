@@ -1,45 +1,96 @@
+function Node(data, weight) {
+  this.data = data
+  this.weight = weight
+  this.next = null
+}
+
 export default class PriorityQueue {
   constructor() {
     this.size = 0
-    this.obj = {}
+    this.head = null
   }
 
 
 
-//pQueue.enqueue("pizza", 100) // adds an element with priority (number) to the back of the queue.
-  enqueue(name, value) {
-    this.size += 1
-    Object.defineProperty(this.obj, name, {
-      value: value,
-      writable: true,
-      enumerable: true,
-      configurable: true
-    })
-    return this.obj = this.obj
+  enqueue(data, weight) {
+    var node = new Node(data, weight)
+    var currentNode = this.head
+    if (!currentNode) {
+      this.head = node
+      return this.size += 1
+    } else if (!currentNode.next){
+      if (currentNode.weight >= this.weight){
+        node.next = currentNode
+        return this.size += 1
+      } else {
+        currentNode.next = node
+        return this.size += 1
+      }
+    } else {
+      while (currentNode){
+        if (currentNode.next.weight >= this.weight){
+          node.next = currentNode.next
+          currentNode.next = node
+          return this.size += 1
+        }
+      }
+    }
   }
 
-//pQueue.dequeue()             // returns and removes the front element (highest priority) in the queue or null if the queue is empty.
-  dequeue() {
-
+  dequeue(data, weight) {
+    var node = new Node(data, weight)
+    var currentNode = this.head
+    if (!currentNode) {
+      return null
+    } else {
+      while (currentNode) {
+        if (currentNode.next === null){
+          node = currentNode
+          this.size -= 1
+          return node
+        } else {
+          currentNode = currentNode.next
+        }
+      }
+    }
   }
 
-//pQueue.front()               // returns the front element (highest priority) in the queue or null if the queue is empty.
-  front() {
-
+  front(data, weight) {
+    var node = new Node(data, weight)
+    var currentNode = this.head
+    if (!currentNode) {
+      return null
+    } else {
+      while (currentNode) {
+        if (currentNode.next === null){
+          node = currentNode
+          return node
+        } else {
+          currentNode = currentNode.next
+        }
+      }
+    }
   }
 
-//pQueue.back()                // returns the back element (lowest priority) in the queue or null if the queue is empty.
-  back() {
-
+  back(data, weight) {
+    var node = new Node(data, weight)
+    var currentNode = this.head
+    if (!currentNode) {
+      return null
+    } else {
+      node = currentNode
+      return node
+    }
   }
 
-//pQueue.isEmpty()             // returns true if the queue is empty or false if not.
   isEmpty() {
     return this.size === 0
   }
 
-//pQueue.length()              // returns the number of elements in the queue.
   length() {
+    if (this.size === 0){
+      return null
+    }
     return this.size
   }
 

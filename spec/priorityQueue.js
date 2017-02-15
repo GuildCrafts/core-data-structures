@@ -4,46 +4,47 @@ import PriorityQueue from '../src/priorityQueue'
 
 chai.use(chaiChange)
 
-describe('PriorityQueue', () => {
+describe.only('PriorityQueue', () => {
   'use strict'
 
   it('exists', () => {
     expect(PriorityQueue).to.be.a('function')
   })
 
-  context.only('enqueue()', () => {
+  context('enqueue()', () => {
     it('Adds a new entry to the back of the queue', () => {
       const myPriorityQueue = new PriorityQueue()
-      myPriorityQueue.enqueue('foo', 1)
-      myPriorityQueue.enqueue('bar', 2)
-      expect(myPriorityQueue.obj).to.deep.equal({foo: 1, bar:2})
+      myPriorityQueue.enqueue('Azazel', 1)
+      myPriorityQueue.enqueue('Beelzebub', 2)
+      expect(myPriorityQueue.head.data).to.deep.equal("Azazel")
+      expect(myPriorityQueue.head.next.data).to.deep.equal("Beelzebub")
     })
   })
 
   context('dequeue()', () => {
     it('adds an element to the back of the queue', () => {
-      const myPriorityQueue = new Queue()
-      myPriorityQueue.enqueue('foo', 1)
-      myPriorityQueue.enqueue('bar', 2)
-      expect(myPriorityQueue.dequeue()).to.eql(['foo'])
+      const myPriorityQueue = new PriorityQueue()
+      myPriorityQueue.enqueue('Azazel', 1)
+      myPriorityQueue.enqueue('Beelzebub', 2)
+      expect(myPriorityQueue.dequeue()).to.deep.eql({data: "Beelzebub", weight: 2, next: null})
     })
   })
 
   context('front()', () => {
     it('returns the top element of the queue', () => {
       const myPriorityQueue = new PriorityQueue()
-      myPriorityQueue.enqueue('foo')
-      myPriorityQueue.enqueue('bar')
-      expect(myPriorityQueue.front()).to.eql('foo')
+      myPriorityQueue.enqueue('Azazel', 1)
+      myPriorityQueue.enqueue('Beelzebub', 2)
+      expect(myPriorityQueue.front()).to.eql({data: "Beelzebub", weight: 2, next: null})
     })
   })
 
   context('back()', () => {
     it('returns the bottom element of the queue', () => {
       const myPriorityQueue = new PriorityQueue()
-      myPriorityQueue.enqueue('foo')
-      myPriorityQueue.enqueue('bar')
-      expect(myPriorityQueue.back()).to.eql('bar')
+      myPriorityQueue.enqueue('Azazel', 1)
+      myPriorityQueue.enqueue('Beelzebub', 2)
+      expect(myPriorityQueue.back().data).to.eql("Azazel")
     })
   })
 
