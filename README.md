@@ -1,6 +1,6 @@
 # Core Data Structures
 
-Tests and implementations for common data structures.
+Tests and implementations for common data structures. See the full list in the [data-structures.md](data-structures.md) file.
 
 [Description](#description) | [Basic Data Structures](#basic-data-structures) [Context](#context) | [Specifications](#specifications) | [Quality Rubric](#quality-rubric)
 
