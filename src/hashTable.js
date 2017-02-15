@@ -1,42 +1,72 @@
 'use strict'
 
+import LinkedList from 'linkedlist'
+
 export default class HashTable {
   //check
   constructor(){
     this.tablesize = 5831
     this.table = []
-    for (let i = 0; i < this.tablesize; i++){
-      this.table.push([])
+    for (let bucket = 0; bucket < this.tablesize; bucket++){
+      this.table[bucket] = new LinkedList()
     }
   }
 
   put(key, value){
-    let index = (this.hash(key) % 5831)
-    console.log('index', index)
-    this.table[index].push(value)
-    console.log('this.table[index]', this.table[index])
+    let index = (this.hash(key) % this.tablesize)
+    this.table[index].push({ key , value })
   }
 
   get(key){
-    let index = this.hash(key)
-    return this.table[index].find(key)
+    let index = (this.hash(key) % this.tablesize)
+    let bucket = this.table[index]
+    let currentKey = bucket.current.key
+    if( currentKey === key) {return bucket.current.value}
+    while(currentKey !== key){
+      currentKey = currentKey.next
+    }
   }
 
   contains(key){
-    let index = this.hash(key)
-    this.table[index].find(key)
+    let index = this.hash(key) % this.tablesize
+    let bucket = this.table[index]
+    let currentKey = bucket.current.key
+    if( currentKey === key) {return true}
+    while(currentKey !== key){
+      currentKey = currentKey.next
+    }
+    return false
   }
 
   iterate(callback){
-    this.table.forEach(array => {
-      array.forEach(callback)
+    let result = []
+    this.table.forEach(bucket => {
+      if(bucket.length === 0){
+        return
+      }else{
+        let current = bucket.current
+        while(current.next !== undefined){
+          result.push(callback(bucket.current.key, bucket.current.value))
+          current = current.next
+        }
+        result.push(callback(bucket.current.key, bucket.current.value))
+      }
     })
+    return result
+
   }
 
+
+
+
   remove(key){
-    let index = this.hash(key)
-    let deeperIndex = this.table[index].indexOf(key)
-    this.table[index].splice(deeperIndex, 1)
+    let index = this.hash(key) % this.tablesize
+    let bucket = this.table[index]
+    let currentKey = bucket.current.key
+    if( currentKey === key) {bucket.removeCurrent() }
+    while(currentKey !== key){
+      currentKey = currentKey.next
+    }
   }
 
   size(){

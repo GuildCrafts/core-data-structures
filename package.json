@@ -17,5 +17,8 @@
   "scripts": {
     "build": "babel src -d lib",
     "test": "mocha --compilers js:babel-register ./spec/*.js"
+  },
+  "dependencies": {
+    "linkedlist": "^1.0.1"
   }
 }

@@ -21,22 +21,22 @@ describe('HashTable', () => {
 
   context('get()', () => {
     it('returns the data associated with key.', () => {
-      expect(() => myHashTable.get("name"))
-        .to.be(["Zanzibar"])
+      expect(myHashTable.get("name"))
+        .to.equal("Zanzibar")
     })
   })
 
   context('contains()', () => {
     it('returns true if the hash table contains the key.', () => {
-      expect(() => myHashTable.contains("name"))
-        .to.be(true)
+      expect(myHashTable.contains("name"))
+        .to.equal(true)
     })
   })
 
   context('iterate()', () => {
     it('takes a callback function and passes it each key and value in sequence.', () => {
-      expect(() => myHashTable.iterate((k, v) => `${k}: ${v}`))
-        .to.be('name: Zanzibar')
+      expect(myHashTable.iterate((k, v) => `${k}: ${v}`)
+        .to.equal(['name: Zanzibar'])
     })
   })
 
@@ -49,15 +49,16 @@ describe('HashTable', () => {
 
   context('size()', () => {
     it('returns the number of key-value pairs in the hash table.', () => {
-      expect(() => myHashTable.size())
-        .to.be(0)
+      expect(myHashTable.size())
+        .to.equal(0)
     })
   })
 
   context('CLASS METHOD: hash()', () => {
     it('generates a hash for the given key', () => {
-      expect(() => myHashTable.contains("name"))
-        .to.be(true)
+      myHashTable.put('name', 'Little Bobby Hutton')
+      expect(myHashTable.contains("name"))
+        .to.equal(true)
     })
   })
 
