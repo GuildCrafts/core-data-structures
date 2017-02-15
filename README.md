@@ -13,7 +13,7 @@ Use the list below as a reference for each data structure's interface
 - [ ] Artifact produced is a fork of the [core-data-structures][core-data-structures] repo.
 - [ ] Can run all tests with `npm test`.
 - [ ] All tests are passing.
-- [ ] For each data structure identified above, there exists:
+- [ ] For each data structure identified below, there exists:
   - [ ] a test file with unit tests for each method and property.
   - [ ] an implementation file with a correct implementation of the data structure.
 
