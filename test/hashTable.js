@@ -35,8 +35,8 @@ describe('HashTable', () => {
 
   context('iterate()', () => {
     it('takes a callback function and passes it each key and value in sequence.', () => {
-      expect(myHashTable.iterate((k, v) => `${k}: ${v}`)
-        .to.equal(['name: Zanzibar'])
+      expect(myHashTable.iterate((k, v) => `${k}: ${v}`))
+        .to.eql(['name: Zanzibar'])
     })
   })
 
