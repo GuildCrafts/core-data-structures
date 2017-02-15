@@ -16,7 +16,25 @@ describe('Stack', () => {
       const myStack = new Stack()
 
       expect(() => myStack.push('foo'))
-        .to.alter(() => myStack.length(), { from: 0, to: 1 })
+        .to.alter(() => myStack.top, { from: 0, to: 1 })
+    })
+  })
+
+  context('pop()', () => {
+    it('pops an element from the top of the stack.', () => {
+      const myStack = new Stack()
+      myStack.push('foo')
+      expect(() => myStack.pop())
+        .to.alter(() => myStack.top, { from: 1, to: 0 })
+    })
+  })
+
+  context('peek()', () => {
+    it('returns the top element of the stack (without deleting it).', () => {
+      const myStack = new Stack()
+
+      expect(myStack.peek())
+        .to.eql(undefined)
     })
   })
 })
