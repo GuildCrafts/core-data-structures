@@ -3,26 +3,25 @@ export default class Queue {
     this.dataStore = []
     this.oldIndex = 1
     this.newIndex = 1
-    this.size = 0
-  }
 
-  push(element) {
-    this.storage[this.size++] = element
   }
-
 
   enqueue(element) {
     this.newIndex++
     return this.dataStore[this.newIndex] = element
   }
 
-  dequeue(element) {
+  dequeue() {
     this.newIndex--
-    return this.dataStore[this.newIndex] = element
+    return this.dataStore.shift()
   }
 
   front() {
     return this.dataStore[0] || null
+  }
+
+  back() {
+    return this.dataStore[this.dataStore.length -1] || null
   }
 
   empty() {

@@ -16,26 +16,33 @@ describe('Queue', () => {
       queue.enqueue('boo')
       queue.enqueue('ooo')
       expect(queue.length()).to.eql(3)
-      console.log('queue', queue)
     })
   })
 
-  describe('dequeue()', () => {
+  describe.only('dequeue()', () => {
     it('returns and removes the front element in the queue or null if the queue is empty.', () => {
       const queue = new Queue()
+      queue.enqueue('foo')
       expect(() => queue.dequeue())
       .to.alter(() => queue.length(), {from: 1 , to: 0})
-      console.log('queue2', queue.dequeue())
     })
   })
 
   describe('front()', () => {
     it('returns the front element in queue or null if the queue is empty.', () => {
       const queue = new Queue()
-      expect(queue.front()).to.be.null
-      queue.push('foo')
-      expect(queue.front()).to.eql('foo')
+      queue.enqueue('foo')
+      expect(queue.front()).to.equal('foo')
       console.log('front', queue.front())
+    })
+  })
+
+  describe('back()', () => {
+    it('returns the back element in the queue or null if the queue is empty.', () => {
+      const queue = new Queue()
+      expect(queue.back()).to.be.null
+      queue.enqueue('foo')
+      expect(queue.back()).to.equal('foo')
     })
   })
 
@@ -45,9 +52,5 @@ describe('Queue', () => {
       expect(queue.empty()).to.be.true
     })
   })
-
-
-
-
 
 })
