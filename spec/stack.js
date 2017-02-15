@@ -55,9 +55,9 @@ describe.only('Stack', () => {
 
  context('isEmpty()', () => {
    it('show whether a stack is empty or not .', () => {
-   const myStack = new Stack()
-   myStack.push('foo')
-  expect (() => myStack.isEmpty().to.equal('false'));
+    const myStack = new Stack()
+    myStack.push('foo')
+    expect (() => myStack.isEmpty().to.equal('false'));
   })
  })
 })
