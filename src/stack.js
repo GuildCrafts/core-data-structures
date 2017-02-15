@@ -5,7 +5,7 @@ export default class Stack {
       this.stack = [];
     }
     push(value) {
-      this.stack.push(value);
+      this.stack.push('foo');
     }
     pop() {
       return this.stack.pop();
