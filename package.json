@@ -14,5 +14,8 @@
   "scripts": {
     "build": "babel src -d lib",
     "test": "mocha --compilers js:babel-register ./spec/*.js"
+  },
+  "dependencies": {
+    "sinon": "^1.17.7"
   }
 }
