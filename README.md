@@ -8,8 +8,16 @@ Base repository for the [Core Data Structures](https://github.com/GuildCrafts/we
 
 Install: ~ npm i
 
+Build: ~ npm run build
+
 Test: ~npm test
 
-## Usage and Examples
+## Details
 
-_...and this_
+- [x] Main goal: Complete all the basic data structures in 3 days with tests for each function of each structure.
+  - [x] stack
+  - [x] queue  
+  - [x] priority queue
+  - [x] set  
+  - [x] linked-list
+  - [x] doubly-linked-list
