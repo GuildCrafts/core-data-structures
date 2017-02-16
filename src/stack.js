@@ -10,7 +10,6 @@ export default class Stack {
   }
 
   pop() {
-     this.arr[--this.total-1]
      return this.arr.slice(1)
   }
 
