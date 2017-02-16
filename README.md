@@ -15,20 +15,18 @@ Test: ~npm test
 ## Details
 
 - [x] Main goal: Complete all the basic data structures in 3 days with tests for each function of each structure.
-  - [x] stack
-    - [x] all tests pass
+  - [x] All methods are completed
+    - [x] stack
+    - [x] queue
+    - [x] priority queue
+    - [x] set  
+    - [x] linked-list    
+    - [x] doubly-linked-list
 
-  - [x] queue
-    - [x] all tests pass
-
-  - [x] priority queue
-    - [x] all tests pass
-
-  - [x] set  
-    - [x] all tests pass
-
-  - [x] linked-list
-    - [x] all tests pass
-    
-  - [x] doubly-linked-list
-    - [x] all tests pass
+  - [x] all tests pass
+    - [x] stack
+    - [x] queue
+    - [x] priority queue
+    - [x] set  
+    - [x] linked-list    
+    - [x] doubly-linked-list
