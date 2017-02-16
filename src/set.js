@@ -75,14 +75,26 @@ export default class Set {
     return results
   }
 
-//set.isSubset(otherSet)   // returns true if the set is a subset of otherSet or false if not.
-  // isSubset(arr) {
-  //   const array = this.elements
-  //   const secondArray = arr.elements
-  //   array.indexOf(secondArray) === -1
-  //     ? true
-  //     : false
-  // }
+  isSubset(otherSet) {
+    const arr = this.elements
+    if(typeof otherSet === String || Number) {
+      for (var i = 0; i<otherSet.length; i++){
+        if (arr[i] = otherSet) {
+          return true
+        } else {
+          return false
+        }
+      }
+    } else if (otherSet.isArray()){
+      for (var j = 0; j<otherSet.length; j++){
+        if (arr[j] === otherSet){
+          return true
+        } else {
+          return false
+        }
+      }
+    }
+  }
 
   clone() {
     const sett = new Set()

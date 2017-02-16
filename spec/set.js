@@ -128,19 +128,17 @@ describe('Set', () => {
     })
   })
 
-  // context.only('isSubset()', () => {
-  //   it('returns true if input is a subset of the set', () => {
-  //     const mySet = new Set()
-  //     const myOtherSet = new Set()
-  //     mySet.length = 6
-  //     mySet.elements = [[1,2,3],[4,5,6]]
-  //     console.log('--->', mySet.elements[1])
-  //     myOtherSet.length = 3
-  //     myOtherSet.elements = [4,5,6]
-  //     console.log('--->', myOtherSet.elements)
-  //     expect(mySet.isSubset(myOtherSet)).to.deep.equal(true)
-  //   })
-  // })
+  context('isSubset()', () => {
+    it('returns true if input is a subset of the set', () => {
+      const mySet = new Set()
+      const myOtherSet = new Set()
+      mySet.length = 6
+      mySet.elements = [[1,2,3],[4,5,6]]
+      myOtherSet.length = 3
+      myOtherSet.elements = [4,5,6]
+      expect(mySet.isSubset(myOtherSet)).to.deep.equal(true)
+    })
+  })
 
 
   context('clone()', () => {
