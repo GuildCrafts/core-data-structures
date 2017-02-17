@@ -14,21 +14,22 @@ describe('Set', () => {
       const mySet = new Set()
       mySet.add('Azazel')
       mySet.add('Beelzebub')
-      expect(mySet.length).to.deep.eql(2)
-      expect(mySet.elements).to.deep.eql(['Azazel', 'Beelzebub'])
+      mySet.add([1,2,3])
+      expect(mySet.length).to.deep.eql(3)
+      expect(mySet.elements).to.deep.eql(['Azazel', 'Beelzebub', [1,2,3]])
     })
-    it('returns 0 if the stack is empty', () => {
+    it('Returns 0 if the stack is empty', () => {
       const mySet = new Set()
       expect(mySet.length).to.eql(0)
     })
   })
 
   context('isEmpty()', () => {
-    it('returns true if the set is empty', () => {
+    it('Returns true if the set is empty', () => {
       const mySet = new Set()
       expect(mySet.isEmpty()).to.eql(true)
     })
-    it('returns false if the stack is not empty', () => {
+    it('Returns false if the stack is not empty', () => {
       const mySet = new Set()
       mySet.add('Azazel')
       expect(mySet.isEmpty()).to.eql(false)
@@ -36,11 +37,11 @@ describe('Set', () => {
   })
 
   context('size()', () => {
-    it('returns 0 if the set is empty', () => {
+    it('Returns 0 if the set is empty', () => {
       const mySet = new Set()
       expect(mySet.size()).to.deep.eql(0)
     })
-    it('returns the size of a set', () => {
+    it('Returns the size of a set', () => {
       const mySet = new Set()
       mySet.add('Azazel')
       expect(mySet.size()).to.deep.eql(1)
@@ -48,12 +49,12 @@ describe('Set', () => {
   })
 
   context('contains()', () => {
-    it('returns true if the set includes the searchTerm', () => {
+    it('Returns true if the set includes the searchTerm', () => {
       const mySet = new Set()
       mySet.add('Azazel')
       expect(mySet.contains('Azazel')).to.deep.eql(true)
     })
-    it('returns flase if the set does not include the searchTerm', () => {
+    it('Returns flase if the set does not include the searchTerm', () => {
       const mySet = new Set()
       mySet.add('Azazel')
       expect(mySet.contains('Dantalion')).to.deep.eql(false)
@@ -71,6 +72,16 @@ describe('Set', () => {
     it('returns null if set is empty', () => {
       const mySet = new Set()
       expect(mySet.remove('Beelzebub')).to.deep.eql(null)
+    })
+    it('Reduces the length of the set by 1 with each remove()', () => {
+      const mySet = new Set()
+      mySet.add('Azazel')
+      mySet.add('Beelzebub')
+      expect(mySet.size()).to.deep.eql(2)
+      mySet.remove('Beelzebub')
+      expect(mySet.size()).to.deep.eql(1)
+      mySet.remove('Azazel')
+      expect(mySet.size()).to.deep.eql(0)
     })
   })
 
@@ -132,11 +143,21 @@ describe('Set', () => {
     it('returns true if input is a subset of the set', () => {
       const mySet = new Set()
       const myOtherSet = new Set()
+      mySet.add(4)
+      mySet.add(5)
+      mySet.add(6)
+      myOtherSet.add(4)
+      myOtherSet.add(5)
+      expect(mySet.isSubset(myOtherSet)).to.deep.equal(true)
+    })
+    it('returns false if input is not a subset of the set', () => {
+      const mySet = new Set()
+      const myOtherSet = new Set()
       mySet.length = 6
       mySet.elements = [[1,2,3],[4,5,6]]
       myOtherSet.length = 3
-      myOtherSet.elements = [4,5,6]
-      expect(mySet.isSubset(myOtherSet)).to.deep.equal(true)
+      myOtherSet.elements = [7,36,"Demogorgon"]
+      expect(mySet.isSubset(myOtherSet)).to.deep.equal(false)
     })
   })
 

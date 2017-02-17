@@ -5,7 +5,6 @@ export default class Queue {
   }
 
   enqueue(elementToAdd) {
-    this.elementToAdd = elementToAdd
     this.size += 1
     this.elements = [ ...this.elements, ...[elementToAdd] ]
     return this.elements

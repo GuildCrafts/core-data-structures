@@ -12,24 +12,24 @@ describe('Stack', () => {
   })
 
   context('length()', () => {
-    it('returns the size of the stack', () => {
+    it('Returns the size of the stack.', () => {
       const myStack = new Stack()
       myStack.push('foo')
       myStack.push('bar')
       expect(myStack.length()).to.eql(2)
     })
-    it('returns 0 if the stack is empty', () => {
+    it('Returns 0 if the stack is empty.', () => {
       const myStack = new Stack()
       expect(myStack.length()).to.eql(0)
     })
   })
 
   context('isEmpty()', () => {
-    it('returns true if the stack is empty', () => {
+    it('Returns true if the stack is empty.', () => {
       const myStack = new Stack()
       expect(myStack.isEmpty()).to.eql(true)
     })
-    it('returns false if the stack is not empty', () => {
+    it('Returns false if the stack is not empty.', () => {
       const myStack = new Stack()
       myStack.push('foo')
       expect(myStack.isEmpty()).to.eql(false)
@@ -37,25 +37,37 @@ describe('Stack', () => {
   })
 
   context('push()', () => {
-    it('pushes an element to the top of the stack.', () => {
+    it('Pushes an element to the top of the stack.', () => {
+      const myStack = new Stack()
+      myStack.push('foo')
+      myStack.push('bar')
+      expect(myStack.peek()).to.equal('bar')
+    })
+    it('Increases the Stack size by 1 with each push.', () => {
       const myStack = new Stack()
       myStack.push('foo')
       myStack.push('bar')
       expect(myStack.length()).to.deep.eql(2)
-      expect(myStack.peek()).to.equal('bar')
     })
   })
 
   context('pop()', () => {
-    it('pops the top element out of the stack', () => {
+    it('Pops the top element out of the stack', () => {
+      const myStack = new Stack()
+      myStack.push('foo')
+      myStack.push('bar')
+      expect(myStack.pop()).to.eql(['bar'])
+    })
+    it('Decreases the Stack size by 1 with each pop()', () => {
       const myStack = new Stack()
       myStack.push('foo')
       myStack.push('bar')
       expect(myStack.length()).to.eql(2)
-      expect(myStack.pop()).to.eql(['bar'])
+      myStack.pop()
       expect(myStack.length()).to.eql(1)
     })
   })
+
 
   context('peek()', () => {
     it('peeks the top element of the stack', () => {
@@ -64,6 +76,10 @@ describe('Stack', () => {
       myStack.push('bar')
       expect(myStack.peek()).to.eql('bar')
     })
+    it('Returns null if the Stack is empty', () => {
+      const myStack = new Stack()
+      expect(myStack.peek()).to.eql(null)
+    })
   })
-
+    
 })
