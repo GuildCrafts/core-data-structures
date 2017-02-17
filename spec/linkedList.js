@@ -85,6 +85,10 @@ describe('LinkedList', () => {
       myLinkedList.insert("Beelzebub")
       expect(myLinkedList.getTailNode()).to.eql({data: "Beelzebub", next: null})
     })
+    it('returns null if list is empty', () => {
+      const myLinkedList = new LinkedList()
+      expect(myLinkedList.getTailNode()).to.eql(null)
+    })
   })
 
   context('contains()', () => {
@@ -138,8 +142,7 @@ describe('LinkedList', () => {
   })
 
   context('insertAfter()', () => {
-    it('Inserts new node at begining of list, which links to original' +
-      'head node', () => {
+    it('Inserts new node after the provided search term', () => {
       const myLinkedList = new LinkedList()
       myLinkedList.insert("Azazel")
       myLinkedList.insert("Choronzon")
@@ -156,8 +159,7 @@ describe('LinkedList', () => {
   })
 
   context('insertBefore()', () => {
-    it('Inserts new node at begining of list, which links to original' +
-      'head node', () => {
+    it('Inserts new node after the provided searchterm', () => {
       const myLinkedList = new LinkedList()
       myLinkedList.insert("Azazel")
       myLinkedList.insert("Choronzon")
@@ -194,6 +196,10 @@ describe('LinkedList', () => {
       expect(myLinkedList.getHeadNode()).to.deep.equal({data: "Beelzebub",
         next: {data: "Choronzon", next: null}})
     })
+    it('returns null if list is empty', () => {
+      const myLinkedList = new LinkedList()
+      expect(myLinkedList.removeFirst()).to.eql(null)
+    })
   })
 
   context('remove()', () => {
@@ -207,6 +213,10 @@ describe('LinkedList', () => {
       myLinkedList.remove()
       expect(myLinkedList.size()).to.deep.equal(2)
       expect(myLinkedList.getTailNode()).to.deep.equal({data: "Beelzebub", next: null})
+    })
+    it('returns null if list is empty', () => {
+      const myLinkedList = new LinkedList()
+      expect(myLinkedList.remove()).to.eql(null)
     })
   })
 

@@ -84,6 +84,10 @@ describe('DoublyLinkedList', () => {
       myDoublyLinkedList.insert("Beelzebub")
       expect(myDoublyLinkedList.getTailNode().data).to.eql("Beelzebub")
     })
+    it('returns null if list is empty', () => {
+      const myDoublyLinkedList = new DoublyLinkedList()
+      expect(myDoublyLinkedList.getTailNode()).to.eql(null)
+    })
   })
 
   context('contains()', () => {
@@ -137,8 +141,7 @@ describe('DoublyLinkedList', () => {
   })
 
   context('insertAfter()', () => {
-    it('Inserts new node at begining of list, which links to original' +
-      'head node', () => {
+    it('Inserts new node after the provided searchTerm', () => {
       const myDoublyLinkedList = new DoublyLinkedList()
       myDoublyLinkedList.insert("Azazel")
       myDoublyLinkedList.insert("Choronzon")
@@ -155,8 +158,7 @@ describe('DoublyLinkedList', () => {
   })
 
   context('insertBefore()', () => {
-    it('Inserts new node before specified item of the list, which links to' +
-      'original head node', () => {
+    it('Inserts new node before specified searchTerm', () => {
       const myDoublyLinkedList = new DoublyLinkedList()
       myDoublyLinkedList.insert("Azazel")
       myDoublyLinkedList.insert("Choronzon")
@@ -195,6 +197,10 @@ describe('DoublyLinkedList', () => {
       expect(myDoublyLinkedList.getHeadNode().previous).to.deep.equal(null)
       expect(myDoublyLinkedList.getHeadNode().next.data).to.deep.equal("Choronzon")
     })
+    it('returns null if list is empty', () => {
+      const myDoublyLinkedList = new DoublyLinkedList()
+      expect(myDoublyLinkedList.removeFirst()).to.eql(null)
+    })
   })
 
   context('remove()', () => {
@@ -210,6 +216,10 @@ describe('DoublyLinkedList', () => {
       expect(myDoublyLinkedList.getTailNode().data).to.deep.equal("Beelzebub")
       expect(myDoublyLinkedList.getTailNode().next).to.deep.equal(null)
       expect(myDoublyLinkedList.getTailNode().previous.data).to.deep.equal("Azazel")
+    })
+    it('returns null if list is empty', () => {
+      const myDoublyLinkedList = new DoublyLinkedList()
+      expect(myDoublyLinkedList.remove()).to.eql(null)
     })
   })
 

@@ -153,7 +153,7 @@ export default class LinkedList {
   remove() {
     var node = new Node()
     var currentNode = this.head
-    if (!currentNode.next || !currentNode){
+    if (!currentNode || !currentNode.next){
       return null
     } else if (!currentNode.next.next){
       currentNode.next = null
