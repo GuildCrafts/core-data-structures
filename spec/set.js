@@ -4,7 +4,7 @@ import Set from '../src/set'
 
 chai.use( chaiChange )
 
-describe.only( 'Set', () => {
+describe( 'Set', () => {
   'use strict'
 
   it( 'exists' , () => {
@@ -80,21 +80,36 @@ describe.only( 'Set', () => {
 
   describe.only( 'Takes two sets as arguments', () => {
 
-    const setA = new Set([ 'A', 'B', 'C', 1, 2, 3, true ])
-    const setB = new Set([ 'C', 'E', 'G', 2, 1, 7, 'dog', false, true ])
+    const setA = new Set([ 1, 2, 3, 5 ])
+    const setB = new Set([ 2, 4, 5 ])
+    const setC = new Set([ 2, 5 ])
 
-      context( 'union( set1, set2 )', () => {
-        it( 'and returns a new set with the shared values of the originals.', () => {
-
+      context( 'setA.union( setB )', () => {
+        it( 'returns a new set with the combined values of the originals.', () => {
+          expect( setA.union( setB ) ).to.eql([ 1, 2, 3, 4, 5 ])
         })
       })
 
-      context( 'intersect()', () => {
-        it( 'Takes two' )
+      context( 'setA.intersect( setB )', () => {
+        it( 'returns a new set with the shared values of the originals.', () => {
+          expect( setA.intersect( setB ) ).to.eql([ 2, 5 ])
+        })
       })
 
-      context( 'difference()', () => {})
+      context( 'setA.difference( setB )', () => {
+        it( 'returns a new set with values contained in setA but not setB.', () => {
+          expect( setA.difference( setB ) ).to.eql([ 1, 3 ])
+          expect( setB.difference( setA ) ).to.eql([ 4 ])
+        })
+      })
 
-      context( 'isSubset()', () => {})
+      context( 'setB.isSubset( setA )', () => {
+        it( 'returns true if setB is only has values found in setA.', () => {
+          expect( setC.isSubset( setA ) ).to.be.true
+        })
+        it( 'returns false if setB contains values not found in setA.', () =>{
+          expect( setB.isSubset( setA ) ).to.be.false
+        })
+      })
   })
 })
