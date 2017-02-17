@@ -10,8 +10,6 @@ export default class PriorityQueue {
     this.head = null
   }
 
-
-
   enqueue(data, weight) {
     var node = new Node(data, weight)
     var currentNode = this.head
@@ -19,16 +17,17 @@ export default class PriorityQueue {
       this.head = node
       return this.size += 1
     } else if (!currentNode.next){
-      if (currentNode.weight >= this.weight){
+      if (currentNode.weight >= node.weight){
         node.next = currentNode
+        this.head = node
         return this.size += 1
       } else {
         currentNode.next = node
         return this.size += 1
       }
     } else {
-      while (currentNode){
-        if (currentNode.next.weight >= this.weight){
+      while (currentNode.next){
+        if (currentNode.next.weight > this.weight){
           node.next = currentNode.next
           currentNode.next = node
           return this.size += 1
@@ -78,8 +77,7 @@ export default class PriorityQueue {
     if (!currentNode) {
       return null
     } else {
-      node = currentNode
-      return node
+      return currentNode
     }
   }
 
@@ -88,9 +86,6 @@ export default class PriorityQueue {
   }
 
   length() {
-    if (this.size === 0){
-      return null
-    }
     return this.size
   }
 

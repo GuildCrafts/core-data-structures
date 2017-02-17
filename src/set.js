@@ -5,8 +5,10 @@ export default class Set {
   }
 
   add(element) {
+    this.length === 0
+      ? this.elements.push(element)
+      : this.elements[this.length] = element
     this.length += 1
-    this.elements = this.elements.concat(element)
   }
 
   isEmpty() {
@@ -24,6 +26,7 @@ export default class Set {
       return null
     } else if (index >= 0){
       array.splice(index, 1)
+      this.length -= 1
     }
   }
 
@@ -49,9 +52,9 @@ export default class Set {
     return arr
   }
 
-  intersection(arr2) {
-    const arr1 = this.elements
-    const sorted_arr = arr1.concat(arr2).sort()
+  intersection(arr) {
+    const arr2 = this.elements
+    const sorted_arr = arr2.concat(arr).sort()
     const results = []
     for (var i = 0; i < sorted_arr.length - 1; i++) {
         if (sorted_arr[i + 1] == sorted_arr[i]) {
@@ -75,26 +78,11 @@ export default class Set {
     return results
   }
 
-  isSubset(otherSet) {
-    const arr = this.elements
-    if(typeof otherSet === String || Number) {
-      for (var i = 0; i<otherSet.length; i++){
-        if (arr[i] = otherSet) {
-          return true
-        } else {
-          return false
-        }
-      }
-    } else if (otherSet.isArray()){
-      for (var j = 0; j<otherSet.length; j++){
-        if (arr[j] === otherSet){
-          return true
-        } else {
-          return false
-        }
-      }
+  isSubset(secondSet) {
+      return secondSet.elements.every((elements, index, array) => {
+        return this.elements.indexOf(elements) !== -1;
+      })
     }
-  }
 
   clone() {
     const sett = new Set()

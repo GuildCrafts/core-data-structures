@@ -49,7 +49,7 @@ describe('DoublyLinkedList', () => {
     })
     it('returns 0 if there are no nodes in the list', () => {
       const myDoublyLinkedList = new DoublyLinkedList()
-      expect(myDoublyLinkedList.size()).to.eql(null)
+      expect(myDoublyLinkedList.size()).to.eql(0)
     })
   })
 
@@ -71,7 +71,7 @@ describe('DoublyLinkedList', () => {
       myDoublyLinkedList.insert("Azazel")
       expect(myDoublyLinkedList.size()).to.eql(1)
       myDoublyLinkedList.clear()
-      expect(myDoublyLinkedList.size()).to.eql(null)
+      expect(myDoublyLinkedList.size()).to.eql(0)
       expect(myDoublyLinkedList.isEmpty()).to.eql(true)
       expect(myDoublyLinkedList.getHeadNode()).to.eql(null)
     })

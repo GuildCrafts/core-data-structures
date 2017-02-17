@@ -1,5 +1,3 @@
-'use strict'
-
 function Node(data) {
   this.previous = null
   this.data = data
@@ -17,9 +15,6 @@ export default class DoublyLinkedList {
   }
 
   size() {
-    if (this.length === 0){
-      return null
-    }
     return this.length
   }
 
@@ -29,9 +24,7 @@ export default class DoublyLinkedList {
   }
 
   getHeadNode(data) {
-    var node = new Node(data)
-    var currentNode = this.head
-    return currentNode
+    return this.head
   }
 
   removeFirst() {
@@ -62,8 +55,10 @@ export default class DoublyLinkedList {
   remove() {
     var node = new Node()
     var currentNode = this.head
-    if (!currentNode.next || !currentNode){
+    if (!currentNode) {
       return null
+    } else if (!currentNode.next){
+        return currentNode
     } else if (!currentNode.next.next){
       currentNode.next = null
       return this.length -= 1
@@ -188,11 +183,5 @@ export default class DoublyLinkedList {
       }
     }
   }
-
-
-
-
-
-
 
 }

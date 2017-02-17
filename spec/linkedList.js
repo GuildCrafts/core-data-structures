@@ -50,7 +50,7 @@ describe('LinkedList', () => {
     })
     it('returns 0 if there are no nodes in the list', () => {
       const myLinkedList = new LinkedList()
-      expect(myLinkedList.size()).to.eql(null)
+      expect(myLinkedList.size()).to.eql(0)
     })
   })
 
@@ -72,7 +72,7 @@ describe('LinkedList', () => {
       myLinkedList.insert("Azazel")
       expect(myLinkedList.size()).to.eql(1)
       myLinkedList.clear()
-      expect(myLinkedList.size()).to.eql(null)
+      expect(myLinkedList.size()).to.eql(0)
       expect(myLinkedList.isEmpty()).to.eql(true)
       expect(myLinkedList.getHeadNode()).to.eql(null)
     })

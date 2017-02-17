@@ -16,9 +16,6 @@ export default class LinkedList {
   }
 
   size() {
-    if (this.length === 0){
-      return null
-    }
     return this.length
   }
 
@@ -35,20 +32,16 @@ export default class LinkedList {
       this.length += 1
       return node
     }
-
     while (currentNode.next) {
       currentNode = currentNode.next
     }
-
     currentNode.next = node
     this.length += 1
     return node
   }
 
   getHeadNode(data) {
-    var node = new Node(data)
-    var currentNode = this.head
-    return currentNode
+    return this.head
   }
 
   contains(data) {
