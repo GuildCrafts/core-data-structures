@@ -18,9 +18,10 @@ describe('Set', () => {
       expect(mySet.length).to.deep.eql(3)
       expect(mySet.elements).to.deep.eql(['Azazel', 'Beelzebub', [1,2,3]])
     })
-    it('Returns 0 if the stack is empty', () => {
+    it('Increases the stack by 1', () => {
       const mySet = new Set()
-      expect(mySet.length).to.eql(0)
+      mySet.add('Azazel')
+      expect(mySet.length).to.eql(1)
     })
   })
 
