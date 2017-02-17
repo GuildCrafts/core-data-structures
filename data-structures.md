@@ -141,9 +141,9 @@ ht.size()                   // returns the number of key-value pairs in the hash
 HashTable.hash("name")      // generates a hash for the key "name"
 ```
 
-### Binary Search Tree
+### Binary (Search) Tree
 
-Maps keys to values, like a dictionary or a phone book. Or an object in JavaScript...
+A sorted binary tree for fast lookup, addition and removal of items.
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Binary_search_tree) [edited]:
 
@@ -156,7 +156,7 @@ const bst = new BinarySearchTree()
 bst.insert(3)  // inserts a node with the specified value into the tree.
 bst.search(3)  // returns a node object or null if not found.
 bst.remove(3)  // removes an value's node (if exists) from the tree.
-bst.traverse('inOrder', (val) => console.log(val)) // traverse the tree in the defined order (either 'preOrder', 'inOrder', or 'postOrder') and apply function on each node's value.
+bst.traverse((val) => console.log(val)) // traverse the tree using in-order traversal and apply function on each node's value.
 bst.count()    // return the number of nodes in the tree.
 ```
 
