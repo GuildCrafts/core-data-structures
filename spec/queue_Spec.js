@@ -19,7 +19,7 @@ describe('Queue', () => {
     })
   })
 
-  describe.only('dequeue()', () => {
+  describe('dequeue()', () => {
     it('removes the front element in the queue.', () => {
       const queue = new Queue()
       queue.enqueue('goo')
