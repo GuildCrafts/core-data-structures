@@ -190,6 +190,9 @@ Pick a _different_ programming language from JavaScript (e.g. Ruby, Swift, Pytho
 - Every pull request has a description summarizing the changes made. [25 points]
 - Every pull request has been reviewed by at least one other person. [25 points]
 
+**Well written tests**
+- Create clear and well written tests that are specific to testing each data structure
+
 ## Installation and Setup
 
 _Fill this out_
