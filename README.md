@@ -166,10 +166,10 @@ In a larger sense, being more familiar with data structures is helpful for you a
 
 Pick a _different_ programming language from JavaScript (e.g. Ruby, Swift, Python, C, Java...) and write tests & implementations for each.
 
-- [Stretch] Can run all non-JavaScript tests with a single command.
-- [Stretch] For each data structure identified above, there exists:
-  - [Stretch] a test file with unit tests for each method and property _in a language other than JavaScript_.
-  - [Stretch] an implementation file with a correct implementation of the data structure _in a language other than JavaScript_.
+- [ ] Can run all non-JavaScript tests with a single command.
+- [ ] For each data structure identified above, there exists:
+  - [ ] a test file with unit tests for each method and property _in a language other than JavaScript_.
+  - [ ] an implementation file with a correct implementation of the data structure _in a language other than JavaScript_.
 
 ## Quality Rubric
 
@@ -189,6 +189,9 @@ Pick a _different_ programming language from JavaScript (e.g. Ruby, Swift, Pytho
 - All features are added via pull requests. [25 points]
 - Every pull request has a description summarizing the changes made. [25 points]
 - Every pull request has been reviewed by at least one other person. [25 points]
+
+**Well written tests**
+- Create clear and well written tests that are specific to testing each data structure
 
 ## Installation and Setup
 
