@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "babel src -d lib",
-    "test": "mocha --compilers js:babel-register ./spec/*.js"
+    "test": "mocha --compilers js:babel-register --inline-diffs ./spec/*.js"
   },
   "dependencies": {
     "babel-preset-latest": "^6.22.0"
