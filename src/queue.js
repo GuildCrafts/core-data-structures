@@ -2,6 +2,7 @@ export default class Queue {
   constructor() {
     this.arr = [];
     this.total = 0;
+
 }
   enqueue(element) {
     this.arr[this.total++] = element

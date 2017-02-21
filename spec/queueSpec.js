@@ -3,7 +3,7 @@ import chaiChange from 'chai-change'
 import Queue from '../src/queue'
 
 chai.use(chaiChange)
-describe.only('Queue', () => {
+describe('Queue', () => {
   'use strict'
 
   it('exists', () => {
