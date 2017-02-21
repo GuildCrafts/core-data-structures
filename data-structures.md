@@ -21,6 +21,19 @@ stack.isEmpty()   // returns true if the stack is empty or false if not.
 stack.length()    // returns the number of elements in the stack.
 ```
 
+#### Node
+
+To implement a _standard_ stack, use a **node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface to as a reference:
+
+```javascript
+const nodeA = new Node({data: "apple"})
+const nodeB = new Node({data: "banana"})
+
+nodeA.getData()       // returns the data ("apple") of the node
+nodeA.setNext(nodeB)  // changes the reference to the next node and returns the original node
+nodeA.getNext()       // returns the next node, or null if no next node
+```
+
 ### Queue
 
 The classic FIFO (First-In-First-Out) one-dimensional list.
@@ -39,6 +52,8 @@ queue.isEmpty()      // returns true if the queue is empty or false if not.
 queue.length()       // returns the number of elements in the queue
 ```
 
+To implement a _standard_ queue, use the [Node](#node) data structure in your implementation.
+
 ### Priority Queue
 
 Like a queue, but with _priorities_.
@@ -55,6 +70,21 @@ pQueue.back()                // returns the back element (lowest priority) in th
 pQueue.dequeue()             // returns and removes the front element (highest priority) in the queue or null if the queue is empty.
 pQueue.isEmpty()             // returns true if the queue is empty or false if not.
 pQueue.length()              // returns the number of elements in the queue.
+```
+
+#### Priority Node
+
+To implement a _standard_ priority queue, use a **priority node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface to as a reference:
+
+```javascript
+const pizzaNode = new PriorityNode({data: "pizza", priority: 100})
+const saladNode = new PriorityNode({data: "salad", priority: 50})
+
+pizzaNode.getData()           // returns the node's data
+pizzaNode.getPriority()       // returns the node's priority
+pizzaNode.setPriority(200)    // changes the node's priority and returns the node
+pizzaNode.setNext(saladNode)  // changes the reference to the next node and returns the original node
+pizzaNode.getNext()           // returns the next node or null if none
 ```
 
 ### Set
@@ -106,19 +136,23 @@ linkedList.removeFirst()           // Removes the head node from the list
 linkedList.isEmpty()               // Determines if the list is empty or not
 linkedList.size()                  // Returns the size of the list (number of nodes)
 linkedList.clear()                 // Clears the list of all nodes/data
-
-const node = linkedList.find("apple")
-node.data() // Returns the data ("apple") of the node
-node.next() // Returns the next node, or null if no next node
 ```
+
+To implement a _standard_ queue, use the [Node](#node) data structure in your implementation.
 
 ### Doubly-Linked List
 
-The interface for the Doubly-Linked List is the same as the Linked List above, _except_ that the nodes also have a `.prev()` method, pointing to the previous node in the sequence, or null if it is the head of the list.
+The interface for the Doubly-Linked List is the same as the Linked List above, _except_ that they use a double-link node (see below).
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Doubly_linked_list) [edited]:
 
 > A linked data structure that consists of a set of sequentially linked records called nodes. Each node contains two fields, called _links_, that are references to the previous and to the next node in the sequence of nodes.
+
+#### Double Node
+
+To implement a _standard_ doubly-linked list, use a **double node** data structure in your implementation.
+
+This is the same as the [Node](#node) data structure, except that it also has the methods `.getPrevious()` and `setPrevious(<DoubleNode>)`. These methods get and set the previous `DoubleNode` in the list.
 
 ## Advanced Data Structures
 
@@ -158,6 +192,22 @@ bst.search(3)  // returns a node object or null if not found.
 bst.remove(3)  // removes an value's node (if exists) from the tree.
 bst.traverse((val) => console.log(val)) // traverse the tree using in-order traversal and apply function on each node's value.
 bst.count()    // return the number of nodes in the tree.
+```
+
+#### Tree Node
+
+To implement a _standard_ binary search tree, use a **tree node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface to as a reference:
+
+```javascript
+const leastNode = new TreeNode({data: 3})
+const moreNode = new TreeNode({data: 10})
+const midNode = new TreeNode({data: 7, left: leastNode, right: moreNode})
+
+midNode.getData()           // returns the node's data
+midNode.getLeft()           // returns the left node or null if none
+midNode.setLeft(leastNode)  // changes the reference to the left node and returns the original node
+midNode.getRight()          // returns the right node or null if none
+midNode.setRight(moreNode)  // changes the reference to the right node and returns the original node
 ```
 
 ### Directed Graph
