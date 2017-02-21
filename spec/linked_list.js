@@ -4,7 +4,7 @@ import { LinkedList } from '../src/linked_list/'
 
 chai.use( chaiChange )
 
-describe.only( 'Linked List', () => {
+describe( 'Linked List', () => {
   'use strict'
   let myLinkedList
   let emptyLinkedList
