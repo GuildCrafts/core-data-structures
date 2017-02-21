@@ -24,6 +24,7 @@ describe('Stack', () => {
     it('pops an element from the top of the stack.', () => {
       const myStack = new Stack()
       myStack.push('foo')
+
       expect(() => myStack.pop())
         .to.alter(() => myStack.top, { from: 1, to: 0 })
     })
@@ -37,4 +38,27 @@ describe('Stack', () => {
         .to.eql(undefined)
     })
   })
+
+  context('isEmpty()', () => {
+    it('deletes the stack', () => {
+      const myStack = new Stack()
+      myStack.push('foo')
+
+      expect(myStack.isEmpty())
+        .to.eql(false)
+    })
+  })
+
+
+  context('length()', () => {
+    it('returns the length of your Stack', () => {
+      const myStack = new Stack()
+      myStack.push('foo2')
+      myStack.push('foo')
+
+      expect(myStack.length())
+        .to.eql(2)
+    })
+  })
+
 })
