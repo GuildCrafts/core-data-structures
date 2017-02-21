@@ -78,7 +78,7 @@ describe( 'Set', () => {
       })
   })
 
-  describe.only( 'Takes two sets as arguments', () => {
+  describe( 'Takes two sets as arguments', () => {
 
     const setA = new Set([ 1, 2, 3, 5 ])
     const setB = new Set([ 2, 4, 5 ])
