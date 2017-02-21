@@ -6,7 +6,6 @@ class Node {
 
 export default class PQueue {
   constructor( things, stuff) {
-  // make things and stuff a key value pair
   this.front = new Node(things, stuff)
   }
 
