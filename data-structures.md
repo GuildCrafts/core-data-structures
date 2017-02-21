@@ -1,14 +1,6 @@
-# Learning Contract for Goal: Core Data Structures
+# Core Data Structures
 
-[Description](#description) | [Basic Data Structures](#basic-data-structures) | [Advanced Data Structures](#advanced-data-structures) | [Context](#context) | [Specifications](#specifications) | [Quality Rubric](#quality-rubric)
-
-## Description
-
-Write tests and implementations for common data structures.
-
-Fork the this repository and use the fork as your project artifact.
-
-Use the list below as a reference for each data structure's interface.
+[Basic](#basic-data-structures) | [Advanced](#advanced-data-structures)
 
 ## Basic Data Structures
 
@@ -29,6 +21,19 @@ stack.isEmpty()   // returns true if the stack is empty or false if not.
 stack.length()    // returns the number of elements in the stack.
 ```
 
+#### Node
+
+To implement a _standard_ stack, use a **node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface to as a reference:
+
+```javascript
+const nodeA = new Node({data: "apple"})
+const nodeB = new Node({data: "banana"})
+
+nodeA.getData()       // returns the data ("apple") of the node
+nodeA.setNext(nodeB)  // changes the reference to the next node and returns the original node
+nodeA.getNext()       // returns the next node, or null if no next node
+```
+
 ### Queue
 
 The classic FIFO (First-In-First-Out) one-dimensional list.
@@ -47,6 +52,8 @@ queue.isEmpty()      // returns true if the queue is empty or false if not.
 queue.length()       // returns the number of elements in the queue
 ```
 
+To implement a _standard_ queue, use the [Node](#node) data structure in your implementation.
+
 ### Priority Queue
 
 Like a queue, but with _priorities_.
@@ -63,6 +70,21 @@ pQueue.back()                // returns the back element (lowest priority) in th
 pQueue.dequeue()             // returns and removes the front element (highest priority) in the queue or null if the queue is empty.
 pQueue.isEmpty()             // returns true if the queue is empty or false if not.
 pQueue.length()              // returns the number of elements in the queue.
+```
+
+#### Priority Node
+
+To implement a _standard_ priority queue, use a **priority node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface to as a reference:
+
+```javascript
+const pizzaNode = new PriorityNode({data: "pizza", priority: 100})
+const saladNode = new PriorityNode({data: "salad", priority: 50})
+
+pizzaNode.getData()           // returns the node's data
+pizzaNode.getPriority()       // returns the node's priority
+pizzaNode.setPriority(200)    // changes the node's priority and returns the node
+pizzaNode.setNext(saladNode)  // changes the reference to the next node and returns the original node
+pizzaNode.getNext()           // returns the next node or null if none
 ```
 
 ### Set
@@ -114,19 +136,23 @@ linkedList.removeFirst()           // Removes the head node from the list
 linkedList.isEmpty()               // Determines if the list is empty or not
 linkedList.size()                  // Returns the size of the list (number of nodes)
 linkedList.clear()                 // Clears the list of all nodes/data
-
-const node = linkedList.find("apple")
-node.data() // Returns the data ("apple") of the node
-node.next() // Returns the next node, or null if no next node
 ```
+
+To implement a _standard_ queue, use the [Node](#node) data structure in your implementation.
 
 ### Doubly-Linked List
 
-The interface for the Doubly-Linked List is the same as the Linked List above, _except_ that the nodes also have a `.prev()` method, pointing to the previous node in the sequence, or null if it is the head of the list.
+The interface for the Doubly-Linked List is the same as the Linked List above, _except_ that they use a double-link node (see below).
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Doubly_linked_list) [edited]:
 
 > A linked data structure that consists of a set of sequentially linked records called nodes. Each node contains two fields, called _links_, that are references to the previous and to the next node in the sequence of nodes.
+
+#### Double Node
+
+To implement a _standard_ doubly-linked list, use a **double node** data structure in your implementation.
+
+This is the same as the [Node](#node) data structure, except that it also has the methods `.getPrevious()` and `setPrevious(<DoubleNode>)`. These methods get and set the previous `DoubleNode` in the list.
 
 ## Advanced Data Structures
 
@@ -149,9 +175,9 @@ ht.size()                   // returns the number of key-value pairs in the hash
 HashTable.hash("name")      // generates a hash for the key "name"
 ```
 
-### Binary Search Tree
+### Binary (Search) Tree
 
-Maps keys to values, like a dictionary or a phone book. Or an object in JavaScript...
+A sorted binary tree for fast lookup, addition and removal of items.
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Binary_search_tree) [edited]:
 
@@ -164,8 +190,24 @@ const bst = new BinarySearchTree()
 bst.insert(3)  // inserts a node with the specified value into the tree.
 bst.search(3)  // returns a node object or null if not found.
 bst.remove(3)  // removes an value's node (if exists) from the tree.
-bst.traverse('inOrder', (val) => console.log(val)) // traverse the tree in the defined order (either 'preOrder', 'inOrder', or 'postOrder') and apply function on each node's value.
+bst.traverse((val) => console.log(val)) // traverse the tree using in-order traversal and apply function on each node's value.
 bst.count()    // return the number of nodes in the tree.
+```
+
+#### Tree Node
+
+To implement a _standard_ binary search tree, use a **tree node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface to as a reference:
+
+```javascript
+const leastNode = new TreeNode({data: 3})
+const moreNode = new TreeNode({data: 10})
+const midNode = new TreeNode({data: 7, left: leastNode, right: moreNode})
+
+midNode.getData()           // returns the node's data
+midNode.getLeft()           // returns the left node or null if none
+midNode.setLeft(leastNode)  // changes the reference to the left node and returns the original node
+midNode.getRight()          // returns the right node or null if none
+midNode.setRight(moreNode)  // changes the reference to the right node and returns the original node
 ```
 
 ### Directed Graph
@@ -193,59 +235,7 @@ diGraph.count()                       // returns the number of vertices in the g
 
 ### Sources
 
-Most of the below was shamelessly borrowed from Wikipedia and these libraries:
+Most of the above was shamelessly borrowed from Wikipedia and these libraries:
 
 - [datastructures-js](https://github.com/eyas-ranjous/datastructures-js)
 - [singly-linked-list](https://www.npmjs.com/package/singly-linked-list)
-
-## Context
-
-If you spend most of your time programming in high-level languages, you may not realize how often you use data structures or how they are built. Sometimes it's useful to peek under the hood and see how the engine works.
-
-The nice thing is, most data structures are **actually quite simple** when you get down to it. They have straight-forward, relatively small interfaces.
-
-In a larger sense, being more familiar with data structures is helpful for you ability to think about data more abstractly, and to design better software.
-
-## Specifications
-
-- [ ] Artifact produced is a fork of the [core-data-structures][core-data-structures] repo.
-- [ ] Can run all tests with `npm test`.
-- [ ] All tests are passing.
-- [ ] For each data structure identified above, there exists:
-  - [ ] a test file with unit tests for each method and property.
-  - [ ] an implementation file with a correct implementation of the data structure.
-
-### Required
-
-- [ ] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
-
-### Stretch
-
-Pick a _different_ programming language from JavaScript (e.g. Ruby, Swift, Python, C, Java...) and write tests & implementations for each.
-
-- [ ] Can run all non-JavaScript tests with a single command.
-- [ ] For each data structure identified above, there exists:
-  - [ ] a test file with unit tests for each method and property _in a language other than JavaScript_.
-  - [ ] an implementation file with a correct implementation of the data structure _in a language other than JavaScript_.
-
-## Quality Rubric
-
-**Well formatted code**
-- Code uses a linter, which can be invoked with a command (e.g. `npm run lint`). [50 points]
-- Running the linter on all source code files generates no linting errors. [50 points]
-
-**Clear and useful README**
-- Repository includes a README file with installation and setup instructions. [25 points]
-- Repository includes a README file with usage instructions and at least one example use case. [25 points]
-
-**Proper dependency management**
-- There is a command to install dependencies (e.g. `npm install`) and it is specified in the installation and setup instructions of the README. [50 points]
-
-**Good project management**
-- Commit messages are concise and descriptive. [25 points]
-- All features are added via pull requests. [25 points]
-- Every pull request has a description summarizing the changes made. [25 points]
-- Every pull request has been reviewed by at least one other person. [25 points]
-
-[mit-license]: https://opensource.org/licenses/MIT
-[core-data-structures]: https://github.com/GuildCrafts/core-data-structures
