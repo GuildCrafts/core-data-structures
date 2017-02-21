@@ -10,13 +10,17 @@ export default class PriorityQueue {
       number
     }
     return this.dataStore.sort(function(a, b) {
-      return parseFloat(b.number) - parseFloat(a.number)
+      return parseInt(b.number) - parseInt(a.number)
     })
   }
 
   dequeue() {
     this.newIndex--
     return this.dataStore.shift() || null
+  }
+
+  front() {
+    return this.dataStore[0]
   }
 
 

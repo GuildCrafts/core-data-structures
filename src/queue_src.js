@@ -16,7 +16,7 @@ export default class Queue {
   }
 
   front() {
-    return this.dataStore[0]
+    return this.dataStore[0] || null
   }
 
   back() {

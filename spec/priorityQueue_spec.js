@@ -18,7 +18,6 @@ describe('PriorityQueue', () => {
       pQueue.enqueue('soda', 80)
 
       expect(pQueue.dataStore).to.deep.equal([{element: 'pizza', number : 100}, {element: 'soda', number: 80}, {element: 'pie', number: 60}])
-      console.log('dataStore', pQueue.dataStore)
     })
 
     it('increments the length when a new item is added to the queue', () => {
@@ -39,7 +38,6 @@ describe('PriorityQueue', () => {
       pQueue.enqueue('b', 80)
 
       expect(pQueue.dataStore).to.deep.equal([{element: 'a', number: 100}, {element: 'b', number: 80}, {element: 'c', number: 60}])
-      console.log('watru', pQueue.dataStore)
     })
   })
 
