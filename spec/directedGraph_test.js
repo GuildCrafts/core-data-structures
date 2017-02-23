@@ -163,24 +163,3 @@ describe('DirectedGraph', () => {
 
 
 })
-
-
-// myDirectedGraph.graph =
-// {
-//   A:{
-//     B:3
-//     C:1
-//     D:8
-//   }
-//  B:{
-//    C:4
-//  }
-// }
-//
-// {
-//   Name:"a"
-//   Paths:{
-//     B:3
-//     C:1
-//   }
-// }
