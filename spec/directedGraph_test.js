@@ -25,7 +25,7 @@ describe('DirectedGraph', () => {
     it('adds a vertex and checks if the index increased', () => {
       const myDirectedGraph = new DirectedGraph()
       myDirectedGraph.addVertex('a')
-      expect(myDirectedGraph.index).to.eql(1)
+      expect(Object.keys(myDirectedGraph.graph).length).to.eql(1)
     })
 
     it('adds a vertex and checks that that it is there', () => {
@@ -71,12 +71,12 @@ describe('DirectedGraph', () => {
       myDirectedGraph.addDirection('a','b',2)
       myDirectedGraph.addDirection('b','c',2)
       myDirectedGraph.visit('a',(vertex) => (vertex.name = vertex.name.toUpperCase()))
-      expect(myDirectedGraph.hasVertex('a')).to.eql(true)
+      expect(myDirectedGraph['graph']['a']['name']).to.eql('A')
     })
   })
 
   context('findShortestPath()', () => {
-    it('visits all connected vertexes and returns the shortest path', () => {
+    it('finds all paths between two points and returns the shortest path', () => {
       const myDirectedGraph = new DirectedGraph()
       myDirectedGraph.addVertex('a')
       myDirectedGraph.addVertex('b')
@@ -91,11 +91,11 @@ describe('DirectedGraph', () => {
   })
 
   context('findShortestPath()', () => {
-    it('visits all connected vertexes and returns the shortest path', () => {
+    it('finds all paths between two points and returns the shortest path', () => {
       const myDirectedGraph = new DirectedGraph()
       verts.forEach((vertex) => myDirectedGraph.addVertex(vertex))
       paths.forEach((path) => myDirectedGraph.addDirection(path[0],path[1],path[2]))
-      expect(myDirectedGraph.findShortestPath('a','pgit')).to.eql([ 'a', 'f', 'd', 'p' ])
+      expect(myDirectedGraph.findShortestPath('a','p')).to.eql([ 'a', 'f', 'd', 'p' ])
     })
   })
 
@@ -108,4 +108,79 @@ describe('DirectedGraph', () => {
       expect(myDirectedGraph.hasDirection('a','b')).to.eql(false)
     })
   })
+
+  context('findConnected()', () => {
+    it('returns the connected vertexes', () => {
+      const myDirectedGraph = new DirectedGraph()
+      verts.forEach((vertex) => myDirectedGraph.addVertex(vertex))
+      paths.forEach((path) => myDirectedGraph.addDirection(path[0],path[1],path[2]))
+      expect(myDirectedGraph.getConnectedVertices('a').includes('p')).to.eql(true)
+    })
+  })
+
+  context('getSeparatedVertices(v1)', () => {
+    it('returns all verteces not connected by a path to the input', () => {
+      const myDirectedGraph = new DirectedGraph()
+      myDirectedGraph.addVertex('a')
+      myDirectedGraph.addVertex('b')
+      myDirectedGraph.addVertex('c')
+      myDirectedGraph.addVertex('d')
+      myDirectedGraph.addDirection('a','b',2)
+      myDirectedGraph.addDirection('b','c',2)
+      myDirectedGraph.addDirection('c','a',2)
+      expect(myDirectedGraph.getSeparatedVertices('a')).to.eql([ 'd' ])
+    })
+  })
+
+  context('removeVertex(v1)', () => {
+    it('removes an existing vertex and all its directions to and from', () => {
+      const myDirectedGraph = new DirectedGraph()
+      verts.forEach((vertex) => myDirectedGraph.addVertex(vertex))
+      paths.forEach((path) => myDirectedGraph.addDirection(path[0],path[1],path[2]))
+      myDirectedGraph.removeVertex('b')
+      expect(myDirectedGraph.hasVertex('b')).to.eql(false)
+    })
+  })
+
+  context('removeVertex(v1)', () => {
+    it('removes an existing vertex and all its directions to and from', () => {
+      const myDirectedGraph = new DirectedGraph()
+      verts.forEach((vertex) => myDirectedGraph.addVertex(vertex))
+      paths.forEach((path) => myDirectedGraph.addDirection(path[0],path[1],path[2]))
+      myDirectedGraph.removeVertex('b')
+      expect(myDirectedGraph.hasDirection('a','b')).to.eql(false)
+    })
+  })
+
+  context('count()', () => {
+    it('returns the number of vertices in the graph', () => {
+      const myDirectedGraph = new DirectedGraph()
+      verts.forEach((vertex) => myDirectedGraph.addVertex(vertex))
+      paths.forEach((path) => myDirectedGraph.addDirection(path[0],path[1],path[2]))
+      expect(myDirectedGraph.count()).to.eql(16)
+    })
+  })
+
+
 })
+
+
+// myDirectedGraph.graph =
+// {
+//   A:{
+//     B:3
+//     C:1
+//     D:8
+//   }
+//  B:{
+//    C:4
+//  }
+// }
+//
+// {
+//   Name:"a"
+//   Paths:{
+//     B:3
+//     C:1
+//   }
+// }
