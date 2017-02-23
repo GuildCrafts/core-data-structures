@@ -23,7 +23,7 @@ stack.length()    // returns the number of elements in the stack.
 
 #### Node
 
-To implement a _standard_ stack, use a **node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface to as a reference:
+To implement a _standard_ stack, use a **node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface as a reference:
 
 ```javascript
 const nodeA = new Node({data: "apple"})
@@ -74,7 +74,7 @@ pQueue.length()              // returns the number of elements in the queue.
 
 #### Priority Node
 
-To implement a _standard_ priority queue, use a **priority node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface to as a reference:
+To implement a _standard_ priority queue, use a **priority node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface as a reference:
 
 ```javascript
 const pizzaNode = new PriorityNode({data: "pizza", priority: 100})
@@ -142,7 +142,7 @@ To implement a _standard_ queue, use the [Node](#node) data structure in your im
 
 ### Doubly-Linked List
 
-The interface for the Doubly-Linked List is the same as the Linked List above, _except_ that they use a double-link node (see below).
+The interface for the Doubly-Linked List is the same as the Linked List above, _except_ that it uses a double-link node (see below).
 
 From [Wikipedia](https://en.wikipedia.org/wiki/Doubly_linked_list) [edited]:
 
@@ -152,7 +152,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Doubly_linked_list) [edited]:
 
 To implement a _standard_ doubly-linked list, use a **double node** data structure in your implementation.
 
-This is the same as the [Node](#node) data structure, except that it also has the methods `.getPrevious()` and `setPrevious(<DoubleNode>)`. These methods get and set the previous `DoubleNode` in the list.
+This is the same as the [Node](#node) data structure, except that it also has the methods `.getPrevious()` and `.setPrevious(<DoubleNode>)`. These methods get and set the previous `DoubleNode` in the list.
 
 ## Advanced Data Structures
 
@@ -196,7 +196,7 @@ bst.count()    // return the number of nodes in the tree.
 
 #### Tree Node
 
-To implement a _standard_ binary search tree, use a **tree node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface to as a reference:
+To implement a _standard_ binary search tree, use a **tree node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface as a reference:
 
 ```javascript
 const leastNode = new TreeNode({data: 3})
