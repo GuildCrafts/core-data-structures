@@ -4,7 +4,7 @@ import BinarySearchTree from '../src/binarySearchTree'
 
 chai.use(chaiChange)
 
-describe.only('BinarySearchTree', () => {
+describe('BinarySearchTree', () => {
   'use strict'
 
   it('exists', () => {
