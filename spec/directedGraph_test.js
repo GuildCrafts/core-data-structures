@@ -161,5 +161,4 @@ describe('DirectedGraph', () => {
     })
   })
 
-
 })

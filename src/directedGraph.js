@@ -45,7 +45,7 @@ export default class DirectedGraph {
         neighbors.forEach((neighbor) => {
           if(!toCheck[0].path.includes(neighbor)){
             let newPath = toCheck[0].path.concat(neighbor)
-            let newWeight = toCheck[0].weight + this.graph[v1].paths[v2]
+            let newWeight = toCheck[0].weight + this.graph[lastVertex].paths[neighbor]
             toCheck.push({path: newPath, weight: newWeight})
           }
         })
@@ -53,6 +53,7 @@ export default class DirectedGraph {
         toCheck.shift()
       }
     }
+    console.log(connected)
     return this.lowestWeight(connected).path
   }
 
