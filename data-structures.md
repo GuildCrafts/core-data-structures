@@ -123,19 +123,19 @@ Specifically, the following is a _singly-linked_ list (as opposed to the _doubly
 
 ```javascript
 const linkedList = new LinkedList()
-linkedList.getHeadNode()           // Returns the first node in the list
-linkedList.getTailNode()           // Returns the last node in the list
-linkedList.contains("bananas")     // Determines whether or not the list contains the provided data
-linkedList.find("bananas")         // Returns the first node containing the provided data, or -1 if not found
-linkedList.insert("bananas")       // Inserts a node (with the provided data) to the tail of the list
-linkedList.insertFirst("bananas")  // Inserts a node (with the provided data) to the head of the list
+√ linkedList.getHeadNode()           // Returns the first node in the list
+√ linkedList.getTailNode()           // Returns the last node in the list
+√ linkedList.contains("bananas")     // Determines whether or not the list contains the provided data
+√ linkedList.find("bananas")         // Returns the first node containing the provided data, or -1 if not found
+√ linkedList.insert("bananas")       // Inserts a node (with the provided data) to the tail of the list
+√ linkedList.insertFirst("bananas")  // Inserts a node (with the provided data) to the head of the list
 linkedList.insertBefore("bananas", "apples") // Inserts a node (with data "apples") before the first node containing "bananas"
 linkedList.insertAfter("apples", "bananas")  // Inserts a node (with data "bananas") after the first node containing "apples"
-linkedList.remove()                // Removes the tail node from the list
-linkedList.removeFirst()           // Removes the head node from the list
-linkedList.isEmpty()               // Determines if the list is empty or not
-linkedList.size()                  // Returns the size of the list (number of nodes)
-linkedList.clear()                 // Clears the list of all nodes/data
+√ linkedList.remove()                // Removes the tail node from the list
+√ linkedList.removeFirst()           // Removes the head node from the list
+√ linkedList.isEmpty()               // Determines if the list is empty or not
+√ linkedList.size()                  // Returns the size of the list (number of nodes)
+√ linkedList.clear()                 // Clears the list of all nodes/data
 ```
 
 To implement a _standard_ queue, use the [Node](#node) data structure in your implementation.

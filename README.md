@@ -6,8 +6,9 @@ Base repository for the [Core Data Structures](https://github.com/GuildCrafts/we
 
 ## Installation and Setup
 
-_Fill this out_
+Set artifact at #inexpensive_nilgai. Cloned github repository onto local drive. Getting started on project. To run the test, use $ npm test
 
 ## Usage and Examples
 
-_...and this_
+Implemented Stack using a node class with data and next.
+Working on implementing a linked list.
