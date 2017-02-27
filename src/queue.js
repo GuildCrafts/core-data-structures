@@ -21,16 +21,15 @@ Queue.prototype.dequeue = function(element){
   }
 }
 
-Queue.prototype.clearTill = function(number){ //2 ['tom','sam']
+Queue.prototype.clearTill = function(number){
   this.dataStore.splice(0,number)
   for(let i=null; i<number; i++){
     this.size--
   }
-  //this.size == this.size-(number-1)
 }
 
 Queue.prototype.clearAll = function(){
-  /*this.dataStore = */this.dataStore.splice(0, 2)
+  this.dataStore.splice(0, 2)
   this.size = null
 }
 
@@ -59,7 +58,6 @@ console.log('myQ.isEmpty() '+myQ.isEmpty())
 console.log('myQ.front() => '+myQ.front())
 console.log('myQ.back() => '+myQ.back())
 console.log('myQ.length() => '+myQ.length())
-//console.log('myQ.clear() => '+myQ.clear())
 console.log('myQ.clearTill(1) => '+myQ.clearTill(1))
 console.log('myQ.isEmpty() => '+myQ.isEmpty())
 console.log('myQ.size => '+myQ.size)
