@@ -84,7 +84,7 @@ linkedList.prototype.find = function(dataSubstr){
       console.log(dataSubstr+' found')
       return currentNode
     }
-    currentNode = currentNode.next
+    currentNode = currentNode.next // OR currentNode = currentNode
   }
   console.log(dataSubstr+' not found')
   return '-1'
@@ -129,8 +129,8 @@ linkedList.prototype.remove = function(){
   // trickier to write than I thought
   let checkSize = 0
   let currentNode = this.head
-  let sizeMinus1 = this.size - 2
-  while(currentNode && checkSize < sizeMinus1){
+  let sizeMinus2 = this.size - 2
+  while(currentNode && checkSize < sizeMinus2){
     currentNode = currentNode.next
     checkSize++
   }
