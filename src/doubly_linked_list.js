@@ -12,7 +12,9 @@ function  DoubleNode(data) {
   this.prev = null
 }
 
+
 Doubly_linked_list.prototype.insert = function(data) {
+
   let doubleNode = new DoubleNode(data)
 
   if(!this.head){
@@ -26,11 +28,21 @@ Doubly_linked_list.prototype.insert = function(data) {
     currentDoubleNode = currentDoubleNode.next
   }
 
-  this.size++
   currentDoubleNode.next = doubleNode
-  currentDoubleNode = doubleNode.prev
-  return this.tail = doubleNode
+  this.size++
+
+  let prevDoubleNode = this.head
+  let i = 0
+  while(prevDoubleNode && i < this.size-2){
+    prevDoubleNode = prevDoubleNode.next
+    i++
+  }
+
+  doubleNode.prev = prevDoubleNode
+  this.tail = doubleNode
+  return doubleNode.data
 }
+
 
 Doubly_linked_list.prototype.size = function() {
   return this.size
@@ -56,14 +68,28 @@ Doubly_linked_list.prototype.showAll = function(){
 
 
 Doubly_linked_list.prototype.getHeadNode = function(){
+
+  if(!this.head){
+    return '*list is empty*'
+  }
+
   return this.head
 }
 
 Doubly_linked_list.prototype.getTailNode = function(){
+
+  if(!this.head){
+    return '*list is empty*'
+  }
+
   return this.tail
 }
 
 Doubly_linked_list.prototype.contains = function(data) {
+  if(!this.head){
+    return '*list is empty*'
+  }
+
   let currentDoubleNode = this.head
 
   while(currentDoubleNode.next != null){
@@ -76,6 +102,10 @@ Doubly_linked_list.prototype.contains = function(data) {
 }
 
 Doubly_linked_list.prototype.find = function(dataSubstr){
+  if(!this.head){
+    return '*list is empty*'
+  }
+
   let currentDoubleNode = this.head
 
   if(!this.head){
@@ -104,6 +134,11 @@ Doubly_linked_list.prototype.isEmpty = function() {
 }
 
 Doubly_linked_list.prototype.remove = function(data) {
+
+  if(!this.head){
+    return '*list is empty*'
+  }
+
   let checkSize = 0
   let currentNode = this.head
   let sizeMinus1 = this.size - 2
@@ -139,6 +174,9 @@ Doubly_linked_list.prototype.removesFirst = function() {
 }
 
 Doubly_linked_list.prototype.insertBefore = function(zero_based_position, data) {
+  if(!this.head){
+    return '*list is empty*'
+  }
 
   if(isNaN(zero_based_position)){
     return 'enter an integer value for the zero-based index zero_based_position'
@@ -196,8 +234,77 @@ Doubly_linked_list.prototype.insertBefore = function(zero_based_position, data) 
 
 Doubly_linked_list.prototype.getPrevious = function(zero_based_position) {
   // return previous num node from last
+
+  if(!this.head){
+    return '*list is empty*'
+  }
+
   if(isNaN(zero_based_position)){
     return 'enter an integer value for the zero-based index zero_based_position'
+  }
+
+  if(zero_based_position == 0){
+    return null
+  }
+
+
+  let currentNode = this.head
+  let i = 0
+
+  while(currentNode && i < zero_based_position-1){
+    currentNode = currentNode.next
+    i++
+  }
+
+  if(zero_based_position > this.size){
+    const lastIndex = i - 1
+    return "null *last zero based indexed position is "+lastIndex+"*"
+  } else if (zero_based_position === this.size){
+    return "null *last zero based indexed position is "+i+"*"
+  }
+
+  return currentNode.data
+
+}
+
+Doubly_linked_list.prototype.setPrevious = function(zero_based_position, data) {
+  // return previous num node from last
+  if(!this.head){
+    return '*list is empty*'
+  }
+
+  if(isNaN(zero_based_position)){
+    return 'enter an integer value for the zero-based index zero_based_position'
+  }
+
+  if(zero_based_position == 0){
+    return null
+  }
+
+
+  let currentNode = this.head
+  let i = 0
+
+  while(currentNode && i < zero_based_position){
+    currentNode = currentNode.next
+    i++
+  }
+
+  if(zero_based_position > this.size){
+    const lastIndex = i - 1
+    return "null *last zero based indexed position is "+lastIndex+"*"
+  } else if (zero_based_position === this.size){
+    return "null *last zero based indexed position is "+i+"*"
+  }
+
+  currentNode.prev.data = data
+  return 'data has been set'
+}
+
+Doubly_linked_list.prototype.showProps = function(zero_based_position){
+
+  if(isNaN(zero_based_position) || !zero_based_position){
+    return 'please enter a valid integer'
   }
 
   let currentNode = this.head
@@ -207,15 +314,15 @@ Doubly_linked_list.prototype.getPrevious = function(zero_based_position) {
     currentNode = currentNode.next
     i++
   }
-  // return currentNode.data
-  return currentNode.prev
+  console.log("{")
+  console.log(" position: "+i)
+  console.log(" data: "+currentNode.data)
+  console.log(" prev: "+currentNode.prev.data)
+  console.log(" next: "+currentNode.next.data)
+  console.log("}")
 
+  return 'returned'
 }
-
-
-// Doubly_linked_list.prototype.setPrevious = function(zero_based_position) {
-  // set the previous node to some numbered node
-//}
 
 
 
@@ -235,7 +342,24 @@ console.log('myDLL.insertBefore(3,"moonlight") => '+myDLL.insertBefore(3,"moonli
 console.log('myDLL.showAll() => '+myDLL.showAll())
 console.log('myDLL.size => '+myDLL.size)
 console.log('myDLL.tail.data => '+myDLL.tail.data)
+console.log('myDLL.tail.prev.data => '+myDLL.tail.prev.data)
+console.log('myDLL.insert("ronin") => '+myDLL.insert("ronin"))
+console.log('myDLL.showAll() => '+myDLL.showAll())
+console.log('myDLL.tail.prev.data => '+myDLL.tail.prev.data)
 console.log('myDLL.getPrevious(0) => '+myDLL.getPrevious(0))
+console.log('myDLL.getPrevious(1) => '+myDLL.getPrevious(1))
+console.log('myDLL.getPrevious(2) => '+myDLL.getPrevious(2))
+console.log('myDLL.getPrevious(5) => '+myDLL.getPrevious(5))
+console.log('myDLL.getPrevious(6) => '+myDLL.getPrevious(6))
+console.log('myDLL.getPrevious(7) => '+myDLL.getPrevious(7))
+console.log('myDLL.setPrevious(4, "setParty") => '+myDLL.setPrevious(4, "setParty"))
+console.log('myDLL.setPrevious(5, "setParty") => '+myDLL.setPrevious(5, "setParty"))
+console.log('myDLL.tail.prev.data => '+myDLL.tail.prev.data)
+console.log('myDLL.showAll() => '+myDLL.showAll())
+console.log('myDLL.showProps() => '+myDLL.showProps())
+console.log('myDLL.showProps(2) => '+myDLL.showProps(2))
+console.log('myDLL.showProps(3) => '+myDLL.showProps(3))
 
-// console.log('myDLL.clear() => '+myDLL.clear())
-// console.log('myDLL.showAll() => '+myDLL.showAll())
+console.log('myDLL.clear() => '+myDLL.clear())
+console.log('myDLL.showAll() => '+myDLL.showAll())
+console.log('myDLL.setPrevious(5, "done") => '+myDLL.setPrevious(5, "done"))
