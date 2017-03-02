@@ -2,10 +2,16 @@
 
 Tests and implementations for common data structures. See the full list in the [data-structures.md](data-structures.md) file.
 
-## Installation and Setup
+## Installation, Setup and Testing
 
-_Fill this out_
+To get started, after cloning down the project unto your machine, you'll need to install all the dependencies by running the following command.
 
-## Usage and Examples
+```
+npm install
+```
 
-_...and this_
+To run all unit test cases at once navigate to your main project directory and do the following.
+
+```
+$ npm test
+```
