@@ -23,7 +23,7 @@ export default class Stack {
   returnStackedElement(indexPos){
     for(let i = this.top; i < indexPos ; --i){
       console.log('popped element on index '+this.top)
-      let this.top = i
+      this.top = i
     }
     return this.dataStore[this.top]
   }
