@@ -1,6 +1,14 @@
 # Core Data Structures
 
-Tests and implementations for common data structures. See the full list in the [data-structures.md](data-structures.md) file.
+Tests and implementations for common data structures.
+
+* Stack
+* Set
+* Queue
+* Priority Queue
+* Linked List
+* Doubly Linked List
+
 
 ## Installation, Setup and Testing
 
