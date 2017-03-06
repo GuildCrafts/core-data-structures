@@ -35,25 +35,16 @@ In a larger sense, being more familiar with data structures is helpful for you a
 
 ## Specifications
 
-- [ ] Artifact produced is a fork of the [core-data-structures][core-data-structures] repo.
-- [ ] Can run all tests with `npm test`.
-- [ ] All tests are passing.
-- [ ] For each data structure identified above, there exists:
-  - [ ] a test file with unit tests for each method and property.
-  - [ ] an implementation file with a correct implementation of the data structure.
+- [X] Artifact produced is a fork of the [core-data-structures][core-data-structures] repo.
+- [X] Can run all tests with `npm test`.
+- [X] All tests are passing.
+- [X] For each data structure identified above, there exists:
+  - [X] a test file with unit tests for each method and property.
+  - [X] an implementation file with a correct implementation of the data structure.
 
 ### Required
 
-- [ ] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
-
-### Stretch
-
-Pick a _different_ programming language from JavaScript (e.g. Ruby, Swift, Python, C, Java...) and write tests & implementations for each.
-
-- [ ] Can run all non-JavaScript tests with a single command.
-- [ ] For each data structure identified above, there exists:
-  - [ ] a test file with unit tests for each method and property _in a language other than JavaScript_.
-  - [ ] an implementation file with a correct implementation of the data structure _in a language other than JavaScript_.
+- [X] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
 
 ## Quality Rubric
 
