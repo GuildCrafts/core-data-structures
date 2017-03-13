@@ -1,3 +1,7 @@
+Team name #irritating-dabchick
+Jorge Lopez and Rai Lee
+https://github.com/GuildCrafts/core-data-structures
+
 # Core Data Structures
 
 Tests and implementations for common data structures. See the full list in the [data-structures.md](data-structures.md) file.
