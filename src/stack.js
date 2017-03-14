@@ -2,40 +2,28 @@
 
 export default class Stack {
   // your code here
-  constructor(data){
+  constructor( data ) {
     this.stack = new Array();
   }
 
-  push(data) {
+  push( data ) {
     this.stack.push(data);
-
   }
 
   pop() {
-    if(this.length()=== 0){
-      return null
-    }
-    this.stack.pop()
+    return this.isEmpty() ? null : this.stack.pop()
   }
 
   peek() {
-    if(this.length()===0){
-      return null
-    }
-    return this.stack[0]
+    return this.isEmpty() ? null : this.stack[ this.length() - 1 ]
   }
 
-  isEmpty(){
-    if (this.length()===0){
-      return true
-    }
-    return false
+  isEmpty() {
+    return this.length() === 0 ? true : false
   }
 
   length() {
     return this.stack.length
   }
-
-
 
 }
