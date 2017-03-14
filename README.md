@@ -10,8 +10,8 @@ Base repository for the [Core Data Structures](http://jsdev.learnersguild.org/go
 
 ## Installation and Setup
 
-_Fill this out_
+Fork, run npm install.  
 
 ## Usage and Examples
 
-_...and this_
+Day 1: 
