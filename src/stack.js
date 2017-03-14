@@ -6,10 +6,6 @@ export default class Stack {
     this.stack = new Array();
   }
 
-  length() {
-    return this.stack.length
-  }
-
   push(data) {
     this.stack.push(data);
 
@@ -20,6 +16,24 @@ export default class Stack {
       return null
     }
     this.stack.pop()
+  }
+
+  peek() {
+    if(this.length()===0){
+      return null
+    }
+    return this.stack[0]
+  }
+
+  isEmpty(){
+    if (this.length()===0){
+      return true
+    }
+    return false
+  }
+
+  length() {
+    return this.stack.length
   }
 
 
