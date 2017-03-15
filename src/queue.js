@@ -1,33 +1,70 @@
 'use strict'
 
+class Node {
+  constructor(data, next = null, last = null) {
+    this.data = data
+    this.next = next
+  }
+
+  setNext(node) {
+    this.next = node
+  }
+
+  getNext() {
+    return this.next
+  }
+}
+
 export default class Queue {
-
   constructor() {
-    this.queue = new Array();
+    this.topNode = null
+    this.lastNode = null
+    this.currentLength = 0
   }
 
-  length() {
-    return this.queue.length
-  }
+  enqueue( data ) {
+    let newNode = new Node(data)
 
-  isEmpty() {
-    return this.queue.length === 0 ? true : false
-  }
+    if (this.currentLength === 0) {
+      this.topNode = newNode
+      this.lastNode = newNode
+    } else {
+      this.lastNode.setNext(newNode)
+      this.lastNode = newNode
+    }
 
-  enqueue(item) {
-    this.queue.push(item)
+   this.currentLength++
   }
 
   dequeue() {
-    return this.isEmpty() ? null : this.queue.shift()
+    if ( this.isEmpty() ) return null
+
+    let node = this.topNode
+    
+    this.topNode = this.topNode.next
+    this.currentLength--
+
+    return node.data
   }
 
   front() {
-    return this.isEmpty() ? null : this.queue[0]
+    if (this.currentLength === 0) return null
+
+    return this.topNode.data
   }
 
   back() {
-    return this.isEmpty() ? null : this.queue[ this.length() - 1 ]
+    if (this.currentLength === 0) return null
+
+    return this.lastNode.data
+  }
+
+  isEmpty() {
+    return this.currentLength === 0 ? true : false
+  }
+
+  length() {
+    return this.currentLength
   }
 
 }

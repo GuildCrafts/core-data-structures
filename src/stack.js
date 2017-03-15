@@ -1,29 +1,49 @@
 'use strict'
 
+class Node {
+  constructor(data, next = null) {
+    this.data = data
+    this.next = next
+  }
+
+  getData() { return this.data }
+
+  getNext() { this.next }
+}
+
 export default class Stack {
-  // your code here
-  constructor( data ) {
-    this.stack = new Array();
+  constructor() {
+    this.topNode = null
+    this.currentLength = 0
   }
 
   push( data ) {
-    this.stack.push(data);
+    this.currentLength++
+
+    this.topNode = new Node(data, this.topNode)
   }
 
   pop() {
-    return this.isEmpty() ? null : this.stack.pop()
+    if ( this.isEmpty() ) return null
+
+    let node = this.topNode
+
+    this.topNode = this.topNode.getNext()
+    this.currentLength--
+
+    return node.data
   }
 
   peek() {
-    return this.isEmpty() ? null : this.stack[ this.length() - 1 ]
+    return this.topNode.data
   }
 
   isEmpty() {
-    return this.length() === 0 ? true : false
+    return this.currentLength === 0 ? true : false
   }
 
   length() {
-    return this.stack.length
+    return this.currentLength
   }
 
 }

@@ -14,18 +14,34 @@ describe('Queue', () => {
   context('enqueue()', () => {
     it('adds an element to the back of the stack.', () => {
       const myQueue = new Queue()
+      myQueue.enqueue('first')
+      myQueue.enqueue('second')
 
-      expect(() => myQueue.enqueue('foo')).to.alter(() => myQueue.length(), { from: 0, to: 1 })
+      expect(() => myQueue.enqueue('foo')).to.alter(() => myQueue.length(), { from: 2, to: 3 })
     })
   })
 
   context('dequeue()', () => {
-    it('returns and removes the front element in the queue', () => {
+    it('removes and returns the front element in the queue', () => {
       const myQueue = new Queue()
 
-      myQueue.enqueue('front')
-    
-      expect(() => myQueue.dequeue()).to.alter(() => myQueue.length(), { from: 1, to: 0 })
+      myQueue.enqueue('first')
+      myQueue.enqueue('second')
+      myQueue.enqueue('third')
+
+      expect(() => myQueue.dequeue()).to.alter(() => myQueue.length(), { from: 3, to: 2 })
+      // expect()
+    })
+
+    it('reassigns top node', () => {
+      const myQueue = new Queue()
+
+      myQueue.enqueue('first')
+      myQueue.enqueue('second')
+      myQueue.enqueue('third')
+      myQueue.dequeue()
+
+      expect(myQueue.topNode.data).to.equal('second')
     })
 
     it('returns null if the stack is empty', () => {
@@ -68,7 +84,7 @@ describe('Queue', () => {
 
       myQueue.enqueue('front')
       myQueue.enqueue('back')
-
+      
       expect(myQueue.front()).to.equal('front')
     })
 

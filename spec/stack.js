@@ -45,13 +45,13 @@ describe('Stack', () => {
     })
   })
 
-  context('isEmpty()', ()=>{
-    it('returns true when stack is empty.', ()=>{
+  context('isEmpty()', () => {
+    it('returns true when stack is empty.', () => {
       const myStack = new Stack()
       expect( myStack.isEmpty()).to.true
     })
 
-    it('returns false when stack is loaded.', ()=>{
+    it('returns false when stack is loaded.', () => {
       const myStack = new Stack()
       myStack.push('Car')
       myStack.push('Fixie')
@@ -59,13 +59,16 @@ describe('Stack', () => {
     })
   })
 
-  context('length()', ()=>{
-    it('returns the number of elements in the stack.', ()=>{
+  context('length()', () => {
+    it('returns the number of elements in the stack.', () => {
+
       const myStack = new Stack()
+
       myStack.push('Car')
       myStack.push('Fixie')
       myStack.push('MacBook')
-      expect(myStack.length()).to.equal(3)
+
+      expect(myStack.length() ).to.equal(3)
     })
   })
 
