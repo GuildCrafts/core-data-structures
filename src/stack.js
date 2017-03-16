@@ -5,10 +5,6 @@ class Node {
     this.data = data
     this.next = next
   }
-
-  getData() { return this.data }
-
-  getNext() { this.next }
 }
 
 export default class Stack {
@@ -28,7 +24,7 @@ export default class Stack {
 
     let node = this.topNode
 
-    this.topNode = this.topNode.getNext()
+    this.topNode = this.topNode.next
     this.currentLength--
 
     return node.data

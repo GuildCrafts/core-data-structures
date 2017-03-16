@@ -33,7 +33,7 @@ describe('Queue', () => {
       // expect()
     })
 
-    it('reassigns top node', () => {
+    it('reassigns front node', () => {
       const myQueue = new Queue()
 
       myQueue.enqueue('first')
@@ -41,7 +41,7 @@ describe('Queue', () => {
       myQueue.enqueue('third')
       myQueue.dequeue()
 
-      expect(myQueue.topNode.data).to.equal('second')
+      expect(myQueue.frontNode.data).to.equal('second')
     })
 
     it('returns null if the stack is empty', () => {
@@ -84,7 +84,7 @@ describe('Queue', () => {
 
       myQueue.enqueue('front')
       myQueue.enqueue('back')
-      
+
       expect(myQueue.front()).to.equal('front')
     })
 
