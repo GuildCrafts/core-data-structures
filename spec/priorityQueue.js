@@ -1,99 +1,106 @@
-// import chai, { expect } from 'chai'
-// import chaiChange from 'chai-change'
-// import PriorityQueue from '../src/priorityQueue'
+import chai, { expect } from 'chai'
+import chaiChange from 'chai-change'
+import PriorityQueue from '../src/priorityQueue'
 
-// chai.use(chaiChange)
+chai.use(chaiChange)
 
-// describe('Queue', () => {
-//   'use strict'
+describe.only('PriorityQueue', () => {
+  'use strict'
 
-//   it('is a function', () => {
-//     expect(Queue).to.be.a('function')
-//   })
+  it('is a function', () => {
+    expect(PriorityQueue).to.be.a('function')
+  })
 
-//   context('enqueue()', () => {
-//     it('adds an element to the back of the stack.', () => {
-//       const myQueue = new Queue()
+  context('enqueue()', () => {
+    it('adds an element to the back of the stack.', () => {
+      const myQueue = new PriorityQueue()
 
-//       expect(() => myQueue.enqueue('foo')).to.alter(() => myQueue.length(), { from: 0, to: 1 })
-//     })
-//   })
+      myQueue.enqueue('first, with pri: 10', 10)
+      myQueue.enqueue('second, with pri: 5', 5)
+      myQueue.enqueue('third, with highest pri', 100)
 
-//   context('dequeue()', () => {
-//     it('returns and removes the front element in the queue', () => {
-//       const myQueue = new Queue()
+      // console.log('=-=-=-=-\nFRONT NODE:', myQueue.frontNode)
 
-//       myQueue.enqueue('front')
+      expect(() => myQueue.enqueue('foo')).to.alter(() => myQueue.length(), { from: 0, to: 1 })
+    })
+
+  })
+
+  context('dequeue()', () => {
+    xit('returns and removes the front element in the queue', () => {
+      const myQueue = new PriorityQueue()
+
+      myQueue.enqueue('front')
     
-//       expect(() => myQueue.dequeue()).to.alter(() => myQueue.length(), { from: 1, to: 0 })
-//     })
+      expect(() => myQueue.dequeue()).to.alter(() => myQueue.length(), { from: 1, to: 0 })
+    })
 
-//     it('returns null if the stack is empty', () => {
-//       const myQueue = new Queue()
+    xit('returns null if the stack is empty', () => {
+      const myQueue = new PriorityQueue()
 
-//       expect(myQueue.dequeue()).to.be.null
-//     })
-//   })
+      expect(myQueue.dequeue()).to.be.null
+    })
+  })
 
-//   context('isEmpty()', () => {
-//     it('returns true when stack is empty.', () => {
-//       const myQueue = new Queue()
+  context('isEmpty()', () => {
+    xit('returns true when stack is empty.', () => {
+      const myQueue = new PriorityQueue()
 
-//       expect(myQueue.isEmpty()).to.true
-//     })
+      expect(myQueue.isEmpty()).to.true
+    })
 
-//     it('returns false when stack is loaded.', () => {
-//       const myQueue = new Queue()
+    xit('returns false when stack is loaded.', () => {
+      const myQueue = new PriorityQueue()
 
-//       myQueue.enqueue('Car')
+      myQueue.enqueue('Car')
       
-//       expect(myQueue.isEmpty()).to.false
-//     })
-//   })
+      expect(myQueue.isEmpty()).to.false
+    })
+  })
 
-//   context('length()', () => {
-//     it('returns the number of elements in the stack.', () => {
-//       const myQueue = new Queue()
+  context('length()', () => {
+    xit('returns the number of elements in the stack.', () => {
+      const myQueue = new PriorityQueue()
 
-//       myQueue.enqueue('Car')
-//       myQueue.enqueue('MacBook')
+      myQueue.enqueue('Car')
+      myQueue.enqueue('MacBook')
 
-//       expect(myQueue.length()).to.equal(2)
-//     })
-//   })
+      expect(myQueue.length()).to.equal(2)
+    })
+  })
 
-//   context('front()', () => {
-//     it('returns the front element of the queue or null if empty', () => {
-//       const myQueue = new Queue()
+  context('front()', () => {
+    xit('returns the front element of the queue or null if empty', () => {
+      const myQueue = new PriorityQueue()
 
-//       myQueue.enqueue('front')
-//       myQueue.enqueue('back')
+      myQueue.enqueue('front')
+      myQueue.enqueue('back')
 
-//       expect(myQueue.front()).to.equal('front')
-//     })
+      expect(myQueue.front()).to.equal('front')
+    })
 
-//     it('returns null if the stack is empty', () => {
-//       const myQueue = new Queue()
+    xit('returns null if the stack is empty', () => {
+      const myQueue = new PriorityQueue()
 
-//       expect(myQueue.front()).to.be.null
-//     })
-//   })
+      expect(myQueue.front()).to.be.null
+    })
+  })
 
-//   context('back()', () => {
-//     it('returns the back element of the queue or null if empty', () => {
-//       const myQueue = new Queue()
+  context('back()', () => {
+    xit('returns the back element of the queue or null if empty', () => {
+      const myQueue = new PriorityQueue()
 
-//       myQueue.enqueue('front')
-//       myQueue.enqueue('back')
+      myQueue.enqueue('front')
+      myQueue.enqueue('back')
       
-//       expect(myQueue.back()).to.equal('back')
-//     })
+      expect(myQueue.back()).to.equal('back')
+    })
 
-//     it('returns null if the stack is empty', () => {
-//       const myQueue = new Queue()
+    xit('returns null if the stack is empty', () => {
+      const myQueue = new PriorityQueue()
 
-//       expect(myQueue.back()).to.be.null
-//     })
-//   })
+      expect(myQueue.back()).to.be.null
+    })
+  })
 
-// })
+})

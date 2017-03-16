@@ -1,9 +1,9 @@
 'use strict'
 
 class Node {
-  constructor(data, next = null, last = null) {
+  constructor( data, next ) {
     this.data = data
-    this.next = next
+    this.next = null
   }
 
   setNext(node) {
@@ -17,20 +17,20 @@ class Node {
 
 export default class Queue {
   constructor() {
-    this.topNode = null
-    this.lastNode = null
+    this.frontNode = null
+    this.backNode = null
     this.currentLength = 0
   }
 
   enqueue( data ) {
     let newNode = new Node(data)
 
-    if (this.currentLength === 0) {
-      this.topNode = newNode
-      this.lastNode = newNode
+    if ( this.isEmpty() ) {
+      this.frontNode = newNode
+      this.backNode = newNode
     } else {
-      this.lastNode.setNext(newNode)
-      this.lastNode = newNode
+      this.backNode.setNext(newNode)
+      this.backNode = newNode
     }
 
    this.currentLength++
@@ -39,24 +39,24 @@ export default class Queue {
   dequeue() {
     if ( this.isEmpty() ) return null
 
-    let node = this.topNode
+    let currentFrontNode = this.frontNode
     
-    this.topNode = this.topNode.next
+    this.frontNode = currentFrontNode.next
     this.currentLength--
 
-    return node.data
+    return currentFrontNode.data
   }
 
   front() {
-    if (this.currentLength === 0) return null
+    if ( this.isEmpty() ) return null
 
-    return this.topNode.data
+    return this.frontNode.data
   }
 
   back() {
-    if (this.currentLength === 0) return null
+    if ( this.isEmpty() ) return null
 
-    return this.lastNode.data
+    return this.backNode.data
   }
 
   isEmpty() {
