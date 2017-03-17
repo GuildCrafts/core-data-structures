@@ -4,7 +4,7 @@ import PriorityQueue from '../src/priorityQueue'
 
 chai.use(chaiChange)
 
-describe.only('PriorityQueue', () => {
+describe('PriorityQueue', () => {
   'use strict'
 
   it('is a function', () => {
@@ -31,7 +31,7 @@ describe.only('PriorityQueue', () => {
       const myQueue = new PriorityQueue()
 
       myQueue.enqueue('front')
-    
+
       expect(() => myQueue.dequeue()).to.alter(() => myQueue.length(), { from: 1, to: 0 })
     })
 
@@ -53,7 +53,7 @@ describe.only('PriorityQueue', () => {
       const myQueue = new PriorityQueue()
 
       myQueue.enqueue('Car')
-      
+
       expect(myQueue.isEmpty()).to.false
     })
   })
@@ -92,7 +92,7 @@ describe.only('PriorityQueue', () => {
 
       myQueue.enqueue('front')
       myQueue.enqueue('back')
-      
+
       expect(myQueue.back()).to.equal('back')
     })
 

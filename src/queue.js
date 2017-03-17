@@ -11,7 +11,7 @@ class Node {
   }
 
   getNext() {
-    return this.next
+    return this.next 
   }
 }
 
@@ -40,7 +40,7 @@ export default class Queue {
     if ( this.isEmpty() ) return null
 
     let currentFrontNode = this.frontNode
-    
+
     this.frontNode = currentFrontNode.next
     this.currentLength--
 
