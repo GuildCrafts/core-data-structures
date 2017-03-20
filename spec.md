@@ -1,4 +1,4 @@
-##Description
+## Description
 
 Write tests and implementations for common data structures.
 
@@ -6,7 +6,7 @@ Fork the the core-data-structures repository and use the fork as your project ar
 
 Use the list in the data-structures.md file as a reference for each data structure’s interface.
 
-##Context
+## Context
 
 If you spend most of your time programming in high-level languages, you may not realize how often you use data structures or how they are built. Sometimes it’s useful to peek under the hood and see how the engine works.
 
@@ -14,7 +14,7 @@ The nice thing is, most data structures are actually quite simple when you get d
 
 In a larger sense, being more familiar with data structures is helpful for you ability to think about data more abstractly, and to design better software.
 
-##Specifications
+## Specifications
 
 [ ] Artifact produced is a fork of the core-data-structures repo.
 [ ] Can run all tests with npm test.
@@ -35,7 +35,7 @@ Pick a different programming language from JavaScript (e.g. Ruby, Swift, Python,
  an implementation file with a correct implementation of the data structure in a language other than JavaScript.
 Quality Rubric
 
-##Well formatted code
+## Well formatted code
 
 - Code uses a linter, which can be invoked with a command (e.g. npm run lint). [50 points]
 - Running the linter on all source code files generates no linting errors. [50 points]
