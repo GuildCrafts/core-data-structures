@@ -13,9 +13,9 @@ describe('PQueue', () => {
   context('enqueue()', () => {
     it('adds a key value pair to an object.', () => {
       const myPQueue = new PQueue()
-      myPQueue.enqueue('foo', 2)
-      expect(() => myPQueue.enqueue( 'foo', 2).to.equal('{foo:2}'));
+      myPQueue.enqueue(2, 'foo')
       console.log(myPQueue)
+      expect(myPQueue.length).to.equal(1);
     })
   })
 
