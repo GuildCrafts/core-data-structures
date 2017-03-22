@@ -222,13 +222,13 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Directed_graph) [edited]:
 const diGraph = new DirectedGraph()
 diGraph.addVertex('v1')               // adds a vertex to the graph.
 diGraph.hasVertex('v1')               // returns true if the graph contains the vertex or false if not.
-diGraph.addDirection('v1', 'v2' , 3)  // adds a direction from 'v1' to 'v2' with a weight (number).
+diGraph.addDirection('v1', 'v2', 3)  // adds a direction from 'v1' to 'v2' with a weight (number).
 diGraph.hasDirection('v1', 'v2')      // returns true if there's a direction from 'v1' to 'v2'.
 diGraph.getDirectionWeight('v1', 'v2') // returns direction weight between v1 & v2 or null if no direction exists.
-diGraph.visit( 'v1', vertex => console.log(vertex)) // visit all the connected vertices in the graph starting with v1 and apply function on the reached vertex.
+diGraph.visit('v1', vertex => console.log(vertex)) // visit all the connected vertices in the graph starting with v1 and apply function on the reached vertex.
 diGraph.findShortestPath('v1', 'v2')  // returns an array of all the shortest paths between two vertices based on the sum of weights.
 diGraph.removeDirection('v1', 'v2')   // removes an existing direction between 'v1' and 'v2'.
-diGraph.getSeparatedVertices()        // returns an array of all the vertices that are separated from the graph.
+diGraph.getSeparatedVertices()        // returns an array of all the vertices that are unconnected to the graph (have no direction linking them to another vertex).
 diGraph.removeVertex('v1')            // removes an existing vertex and all its directions (the incoming and outgoing).
 diGraph.count()                       // returns the number of vertices in the graph.
 ```
