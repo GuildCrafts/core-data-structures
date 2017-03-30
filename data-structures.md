@@ -4,7 +4,7 @@
 
 ## Basic Data Structures
 
-### Stack
+### Stack ( using Nodes )
 
 The classic LIFO (Last-In-First-Out) one-dimensional list.
 
@@ -34,7 +34,7 @@ nodeA.setNext(nodeB)  // changes the reference to the next node and returns the 
 nodeA.getNext()       // returns the next node, or null if no next node
 ```
 
-### Queue
+### Queue ( using Nodes )
 
 The classic FIFO (First-In-First-Out) one-dimensional list.
 
@@ -54,7 +54,7 @@ queue.length()       // returns the number of elements in the queue
 
 To implement a _standard_ queue, use the [Node](#node) data structure in your implementation.
 
-### Priority Queue
+### Priority Queue ( using Priority Nodes )
 
 Like a queue, but with _priorities_.
 
@@ -111,7 +111,7 @@ set.isSubset(otherSet)   // returns true if the set is a subset of otherSet or f
 set.clone()              // returns a cloned set.
 ```
 
-### Linked List
+### Linked List ( using Nodes )
 
 A list of nodes that link to each other, like a daisy-chain.
 
@@ -140,7 +140,7 @@ linkedList.clear()                 // Clears the list of all nodes/data
 
 To implement a _standard_ queue, use the [Node](#node) data structure in your implementation.
 
-### Doubly-Linked List
+### Doubly-Linked List ( using Double Nodes )
 
 The interface for the Doubly-Linked List is the same as the Linked List above, _except_ that it uses a double-link node (see below).
 
@@ -156,7 +156,7 @@ This is the same as the [Node](#node) data structure, except that it also has th
 
 ## Advanced Data Structures
 
-### Hash Table
+### Hash Table ( using a LinkedList for collision chaining )
 
 Maps keys to values, like a dictionary or a phone book. Or an object in JavaScript...
 
@@ -164,9 +164,12 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Hash_table) [edited]:
 
 > A data structure used to implement an associative array, a structure that can map keys to values. A hash table uses a hash function to compute an index into an array of _buckets_ or _slots_, from which the desired value can be found.
 
+Collision Chaining: [Wikipedia](http://www.cs.rmit.edu.au/online/blackboard/chapter/05/documents/contribute/chapter/05/chaining.html)
+>  Instead of storing the data directly inside the structure, have a linked list structure at each hash element. That way, all the collision, retrieval and deletion functions can be handled by the list, and the hash function's role is limited mainly to that of a guide to the algorithms, as to which hash element's list to operate on.
+
 ```javascript
 const ht = new HashTable()
-ht.put("name", "Zanzibar")  // adds a key-value pair to the hash table.
+ht.put("name", "Zanzibar")  // adds a key-value pair to the hash table, deal with collisions using chaining
 ht.get("name")              // returns the data associated with key.
 ht.contains("name")         // returns true if the hash table contains the key.
 ht.iterate((k, v) => console.log(`${k}: ${v}`)) // takes a callback function and passes it each key and value in sequence.
