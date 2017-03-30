@@ -6,8 +6,8 @@ Base repository for the [Core Data Structures](http://jsdev.learnersguild.org/go
 
 ## Installation and Setup
 
-_Fill this out_
+Set artifact at #inexpensive_nilgai. Cloned github repository onto local drive. Getting started on project. To run the test, use $ npm test
 
 ## Usage and Examples
-
-_...and this_
+Implemented Stack using a node class with data and next. Tested for the completeness of a Stack implementation.
+Implemented a linked list using nodes. Finished all requirements except insertBefore(data) and insertAfter(data);
