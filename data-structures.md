@@ -4,6 +4,46 @@
 
 ## Basic Data Structures
 
+### Node
+
+A very basic data structure that can contain some value and a reference to another node. Used as a building block for many other data structures.
+
+```javascript
+const nodeA = new Node({data: "apple"})
+const nodeB = new Node({data: "banana"})
+
+nodeA.getData()       // returns the data ("apple") of the node
+nodeA.setNext(nodeB)  // changes the reference to the next node and returns the original node
+nodeA.getNext()       // returns the next node, or null if no next node
+```
+
+### Linked List ( using Nodes )
+
+A list of [nodes](#node) that link to each other, like a daisy-chain.
+
+From [Wikipedia](https://en.wikipedia.org/wiki/Linked_list) [edited]:
+
+> A linear collection of data elements, called nodes, each pointing to the next node by means of a pointer. It is a data structure consisting of a group of nodes which together represent a sequence.
+
+Specifically, the following is a _singly-linked_ list (as opposed to a [doubly-linked list](#doubly-linked-list-using-double-nodes)).
+
+```javascript
+const linkedList = new LinkedList()
+linkedList.getHeadNode()           // Returns the first node in the list
+linkedList.getTailNode()           // Returns the last node in the list
+linkedList.contains("bananas")     // Determines whether or not the list contains the provided data
+linkedList.find("bananas")         // Returns the first node containing the provided data, or -1 if not found
+linkedList.insert("bananas")       // Inserts a node (with the provided data) to the tail of the list
+linkedList.insertFirst("bananas")  // Inserts a node (with the provided data) to the head of the list
+linkedList.insertBefore("bananas", "apples") // Inserts a node (with data "apples") before the first node containing "bananas"
+linkedList.insertAfter("apples", "bananas")  // Inserts a node (with data "bananas") after the first node containing "apples"
+linkedList.remove()                // Removes the tail node from the list
+linkedList.removeFirst()           // Removes the head node from the list
+linkedList.isEmpty()               // Determines if the list is empty or not
+linkedList.size()                  // Returns the size of the list (number of nodes)
+linkedList.clear()                 // Clears the list of all nodes/data
+```
+
 ### Stack ( using Nodes )
 
 The classic LIFO (Last-In-First-Out) one-dimensional list.
@@ -21,18 +61,7 @@ stack.isEmpty()   // returns true if the stack is empty or false if not.
 stack.length()    // returns the number of elements in the stack.
 ```
 
-#### Node
-
-To implement a _standard_ stack, use a **node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface as a reference:
-
-```javascript
-const nodeA = new Node({data: "apple"})
-const nodeB = new Node({data: "banana"})
-
-nodeA.getData()       // returns the data ("apple") of the node
-nodeA.setNext(nodeB)  // changes the reference to the next node and returns the original node
-nodeA.getNext()       // returns the next node, or null if no next node
-```
+To implement a _standard_ stack, use the [Node](#node) data structure in your implementation.
 
 ### Queue ( using Nodes )
 
@@ -87,6 +116,20 @@ pizzaNode.setNext(saladNode)  // changes the reference to the next node and retu
 pizzaNode.getNext()           // returns the next node or null if none
 ```
 
+### Doubly-Linked List ( using Double Nodes )
+
+The interface for the Doubly-Linked List is the same as the Linked List above, _except_ that it uses a double-link node (see below).
+
+From [Wikipedia](https://en.wikipedia.org/wiki/Doubly_linked_list) [edited]:
+
+> A linked data structure that consists of a set of sequentially linked records called nodes. Each node contains two fields, called _links_, that are references to the previous and to the next node in the sequence of nodes.
+
+#### Double Node
+
+To implement a _standard_ doubly-linked list, use a **double node** data structure in your implementation.
+
+This is the same as the [Node](#node) data structure, except that it also has the methods `.getPrevious()` and `.setPrevious(<DoubleNode>)`. These methods get and set the previous `DoubleNode` in the list.
+
 ### Set
 
 Collection of things, without repetition.
@@ -110,49 +153,6 @@ set.difference(otherSet) // returns a set that contains the elements found in th
 set.isSubset(otherSet)   // returns true if the set is a subset of otherSet or false if not.
 set.clone()              // returns a cloned set.
 ```
-
-### Linked List ( using Nodes )
-
-A list of nodes that link to each other, like a daisy-chain.
-
-From [Wikipedia](https://en.wikipedia.org/wiki/Linked_list) [edited]:
-
-> A linear collection of data elements, called nodes, each pointing to the next node by means of a pointer. It is a data structure consisting of a group of nodes which together represent a sequence.
-
-Specifically, the following is a _singly-linked_ list (as opposed to the _doubly-linked_ list below).
-
-```javascript
-const linkedList = new LinkedList()
-linkedList.getHeadNode()           // Returns the first node in the list
-linkedList.getTailNode()           // Returns the last node in the list
-linkedList.contains("bananas")     // Determines whether or not the list contains the provided data
-linkedList.find("bananas")         // Returns the first node containing the provided data, or -1 if not found
-linkedList.insert("bananas")       // Inserts a node (with the provided data) to the tail of the list
-linkedList.insertFirst("bananas")  // Inserts a node (with the provided data) to the head of the list
-linkedList.insertBefore("bananas", "apples") // Inserts a node (with data "apples") before the first node containing "bananas"
-linkedList.insertAfter("apples", "bananas")  // Inserts a node (with data "bananas") after the first node containing "apples"
-linkedList.remove()                // Removes the tail node from the list
-linkedList.removeFirst()           // Removes the head node from the list
-linkedList.isEmpty()               // Determines if the list is empty or not
-linkedList.size()                  // Returns the size of the list (number of nodes)
-linkedList.clear()                 // Clears the list of all nodes/data
-```
-
-To implement a _standard_ queue, use the [Node](#node) data structure in your implementation.
-
-### Doubly-Linked List ( using Double Nodes )
-
-The interface for the Doubly-Linked List is the same as the Linked List above, _except_ that it uses a double-link node (see below).
-
-From [Wikipedia](https://en.wikipedia.org/wiki/Doubly_linked_list) [edited]:
-
-> A linked data structure that consists of a set of sequentially linked records called nodes. Each node contains two fields, called _links_, that are references to the previous and to the next node in the sequence of nodes.
-
-#### Double Node
-
-To implement a _standard_ doubly-linked list, use a **double node** data structure in your implementation.
-
-This is the same as the [Node](#node) data structure, except that it also has the methods `.getPrevious()` and `.setPrevious(<DoubleNode>)`. These methods get and set the previous `DoubleNode` in the list.
 
 ## Advanced Data Structures
 
