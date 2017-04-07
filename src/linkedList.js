@@ -111,6 +111,20 @@ insertAfter(string, data){
     this.size = 0
     return this
   }
+  remove(){
+    this.size --
+    let findTail = this.head
+    if(findTail == this.tail){
+      this.head = null
+      this.tail = null
+    }
+    if(findTail !== this.tail)
+    while (findTail.next.next !== null){
+      findTail = findTail.next
+    }
+    findTail.next = null
+    this.tail = findTail
+  }
   removeFirst(){
     this.size --
     if (!this.head){
