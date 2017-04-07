@@ -4,18 +4,16 @@ import LinkedList from '../src/linkedList'
 
 chai.use(chaiChange)
 
-before( () => {
-  let linkedList = new LinkedList()
-  linkedList.insert('apple')
-  linkedList.insert('banana')
-})
 describe('LinkedList', () => {
 
 
   it('exists', () => {
 
     expect(LinkedList).to.be.a('function')
+
   })
+
+  context('getHeadNode', () => {
 
     it('returns head node', () => {
       const linkedList = new LinkedList()
@@ -23,7 +21,11 @@ describe('LinkedList', () => {
       linkedList.insert('banana')
 
       expect(linkedList.getHeadNode().data).to.equal('apple')
+
     })
+  })
+
+  context('getTailNode', () => {
 
     it('returns tail node', () => {
       const linkedList = new LinkedList()
@@ -33,6 +35,7 @@ describe('LinkedList', () => {
       expect(linkedList.getTailNode().data).to.equal('banana')
 
     })
+  })
 
   context('contains', () => {
     const string = 'banana'
@@ -43,6 +46,7 @@ describe('LinkedList', () => {
     it('checks to see if node in list contains "bananas"', () => {
 
         expect(linkedList.contains("banana")).to.equal(true)
+
     })
   })
 
@@ -55,6 +59,7 @@ describe('LinkedList', () => {
     it('returns the first node with corresponding data or -1', () => {
 
       expect(linkedList.find("banana").data).to.equal('banana')
+
     })
   })
 
@@ -63,9 +68,10 @@ describe('LinkedList', () => {
     linkedList.insert('apple')
     linkedList.insert('banana')
 
-    it('inserts node with data to tail of list', () => {
+    it.only('inserts node with data to tail of list', () => {
 
       expect(linkedList.tail.data).to.equal("banana")
+
     })
   })
 
@@ -77,6 +83,7 @@ describe('LinkedList', () => {
     it('inserts node with data at head of list', () => {
 
       expect(linkedList.head.data).to.equal("banana")
+
     })
   })
 
@@ -86,6 +93,7 @@ describe('LinkedList', () => {
     linkedList.insertBefore('banana', 'apple')
 
     it('inserts node containing "apple" before node containing "banana"', () => {
+
       expect(linkedList.head.data).to.equal('apple')
 
     })
@@ -103,14 +111,20 @@ describe('LinkedList', () => {
     it('inserts node containing "bananas" after node containing "apples"', () => {
 
       expect(linkedList.head.next.data).to.equal('apple')
+
     })
   })
 
   context('remove', () => {
+    const linkedList = new LinkedList()
+    linkedList.insert('apple')
+    linkedList.insert('banana')
+    linkedList.remove()
 
     it('removes the tail node from the list', () => {
 
-      expect()
+      expect(linkedList.tail.data).to.equal('apple')
+
     })
   })
 
@@ -129,7 +143,6 @@ describe('LinkedList', () => {
   context('isEmpty', () => {
     const linkedList = new LinkedList()
     linkedList.isEmpty()
-    console.log('linkedList---->', linkedList);
 
 
 
@@ -143,7 +156,7 @@ describe('LinkedList', () => {
 
   context('size', () => {
 
-    it.only('Determines the number of nodes in list', () => {
+    it('Determines the number of nodes in list', () => {
       const linkedList = new LinkedList()
       linkedList.insert('apple')
       linkedList.insert('banana')
@@ -161,7 +174,6 @@ describe('LinkedList', () => {
     linkedList.insert('tree')
     linkedList.insert('grapes')
     linkedList.insert('fire')
-
     linkedList.clear()
 
     it('clears the list of all nodes/data', () => {
@@ -169,7 +181,7 @@ describe('LinkedList', () => {
       expect(linkedList.tail).to.equal(null) &&
       expect(linkedList.head).to.equal(null) &&
       expect(linkedList.size).to.equal(0)
-      console.log('linkedList.clear', linkedList);
+
     })
   })
 })
