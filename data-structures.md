@@ -154,6 +154,8 @@ set.isSubset(otherSet)   // returns true if the set is a subset of otherSet or f
 set.clone()              // returns a cloned set.
 ```
 
+_Note: if you haven't worked with sets before, you may want to read about [sets](https://www.mathsisfun.com/sets/sets-introduction.html) and [subsets](https://www.mathsisfun.com/activity/subsets.html)._
+
 ## Advanced Data Structures
 
 ### Hash Table ( using a LinkedList for collision chaining )
