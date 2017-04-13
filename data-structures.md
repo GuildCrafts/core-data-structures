@@ -83,6 +83,21 @@ queue.length()       // returns the number of elements in the queue
 
 To implement a _standard_ queue, use the [Node](#node) data structure in your implementation.
 
+#### Priority Node
+
+To implement a _standard_ priority queue, use a **priority node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface as a reference:
+
+```javascript
+const pizzaNode = new PriorityNode({data: "pizza", priority: 100})
+const saladNode = new PriorityNode({data: "salad", priority: 50})
+
+pizzaNode.getData()           // returns the node's data
+pizzaNode.getPriority()       // returns the node's priority
+pizzaNode.setPriority(200)    // changes the node's priority and returns the node
+pizzaNode.setNext(saladNode)  // changes the reference to the next node and returns the original node
+pizzaNode.getNext()           // returns the next node or null if none
+```
+
 ### Priority Queue ( using Priority Nodes )
 
 Like a queue, but with _priorities_.
@@ -99,21 +114,6 @@ pQueue.back()                // returns the back element (lowest priority) in th
 pQueue.dequeue()             // returns and removes the front element (highest priority) in the queue or null if the queue is empty.
 pQueue.isEmpty()             // returns true if the queue is empty or false if not.
 pQueue.length()              // returns the number of elements in the queue.
-```
-
-#### Priority Node
-
-To implement a _standard_ priority queue, use a **priority node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface as a reference:
-
-```javascript
-const pizzaNode = new PriorityNode({data: "pizza", priority: 100})
-const saladNode = new PriorityNode({data: "salad", priority: 50})
-
-pizzaNode.getData()           // returns the node's data
-pizzaNode.getPriority()       // returns the node's priority
-pizzaNode.setPriority(200)    // changes the node's priority and returns the node
-pizzaNode.setNext(saladNode)  // changes the reference to the next node and returns the original node
-pizzaNode.getNext()           // returns the next node or null if none
 ```
 
 ### Doubly-Linked List ( using Double Nodes )
