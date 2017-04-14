@@ -83,7 +83,7 @@ queue.length()       // returns the number of elements in the queue
 
 To implement a _standard_ queue, use the [Node](#node) data structure in your implementation.
 
-#### Priority Node
+### Priority Node
 
 To implement a _standard_ priority queue, use a **priority node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface as a reference:
 
@@ -116,6 +116,12 @@ pQueue.isEmpty()             // returns true if the queue is empty or false if n
 pQueue.length()              // returns the number of elements in the queue.
 ```
 
+### Double Node
+
+To implement a _standard_ doubly-linked list, use a **double node** data structure in your implementation.
+
+This is the same as the [Node](#node) data structure, except that it also has the methods `.getPrevious()` and `.setPrevious(<DoubleNode>)`. These methods get and set the previous `DoubleNode` in the list.
+
 ### Doubly-Linked List ( using Double Nodes )
 
 The interface for the Doubly-Linked List is the same as the Linked List above, _except_ that it uses a double-link node (see below).
@@ -123,12 +129,6 @@ The interface for the Doubly-Linked List is the same as the Linked List above, _
 From [Wikipedia](https://en.wikipedia.org/wiki/Doubly_linked_list) [edited]:
 
 > A linked data structure that consists of a set of sequentially linked records called nodes. Each node contains two fields, called _links_, that are references to the previous and to the next node in the sequence of nodes.
-
-#### Double Node
-
-To implement a _standard_ doubly-linked list, use a **double node** data structure in your implementation.
-
-This is the same as the [Node](#node) data structure, except that it also has the methods `.getPrevious()` and `.setPrevious(<DoubleNode>)`. These methods get and set the previous `DoubleNode` in the list.
 
 ### Set
 
