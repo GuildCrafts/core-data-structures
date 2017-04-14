@@ -3,7 +3,6 @@ class Node{
     this.data = data
   }
 }
-
 export default class Queue {
 
   constructor() {
@@ -20,17 +19,34 @@ export default class Queue {
   dequeue(data) {
     if(this.storage.length === 0) {
       return null
-       }
-    this.storage.shift()
+    }
+    let result = this.storage.shift()
     this.oldestIndex++
-    this.newestIndex --  
-    return this.oldestIndex 
+    return result 
   }
 
   front() {
     if(this.storage.length) {
-      return this.newestIndex
+      return this.storage[this.oldestIndex - 1]
+    }
+    return null
+  } 
+
+  back() {
+    if(this.oldestIndex === this.newestIndex) {
+      return null
+    }
+    return this.storage[this.newestIndex - 1]
+   }
+  isEmpty() {
+    if(this.storage.length === 0) {
+      return true
+    }
+    return false
   }
-  return null
-} 
+
+  length() {
+   return this.storage.length
+  }
+
 }
