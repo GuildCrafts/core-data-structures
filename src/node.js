@@ -9,7 +9,6 @@ export default class Node{
     return this.data
   }
 
-
   setNext(newNext){
     this.next = newNext
     return this

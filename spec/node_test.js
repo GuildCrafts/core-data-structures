@@ -5,7 +5,6 @@ import Node from '../src/node'
 chai.use(chaiChange)
 
 describe('Node', () => {
-  'use strict'
 
   let nodeA = new Node('apple')
   let nodeB = new Node('banana')
@@ -21,13 +20,12 @@ describe('Node', () => {
   })
 
   context('setNext()', () => {
-    it('changes the reference to the next node', () => {
+    it('changes the reference to the next node and returns the original Node', () => {
       nodeA.setNext(nodeB)
+      expect( nodeA.setNext(nodeB) ).to.equal(nodeA)
       expect( nodeA.next ).to.equal(nodeB)
     })
-    it('returns the original Node', () => {
-      expect( nodeA.setNext(nodeB) ).to.equal(nodeA)
-    })
+
   })
 
   context('getNext()', () => {

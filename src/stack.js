@@ -26,15 +26,15 @@ export default class Stack {
   }
 
   isEmpty() {
-    if (this._size === 0) {
-      return true
-    }
-    return false
+    return this._size === 0 ? true : false
   }
+    // if (this._size === 0) {
+    //   return true
+    // }
+    // return false
+
 
   length() {
     return this._size + 1
-
   }
-
 }

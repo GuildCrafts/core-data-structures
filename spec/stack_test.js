@@ -14,13 +14,18 @@ describe('Stack', () => {
   context('push()', () => {
     it('pushes an element to the top of the stack.', () => {
       myStack.push('foo')
-       expect(myStack.container[0]).to.equal('foo')
+      expect(myStack.container[0]).to.equal('foo')
+      myStack.push('boo')
+      myStack.push('baz')
+      expect(myStack.container[2]).to.equal('baz')
     })
   })
 
   context('pop()', () => {
     it('returns and removes the top element in the stack, returns null if the stack is empty', () => {
-      expect(() => myStack.pop()).to.alter(() => myStack._size, {from:1,to:0})
+      expect(() => myStack.pop()).to.alter(() => myStack._size, {from:3,to:2})
+      myStack.pop()
+      myStack.pop()
       expect( myStack.pop()).to.equal(null)
     })
   })
@@ -56,5 +61,4 @@ describe('Stack', () => {
       expect(myStack._size).to.equal(4)
     })
   })
-
 })
