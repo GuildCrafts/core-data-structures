@@ -83,6 +83,21 @@ queue.length()       // returns the number of elements in the queue
 
 To implement a _standard_ queue, use the [Node](#node) data structure in your implementation.
 
+### Priority Node
+
+To implement a _standard_ priority queue, use a **priority node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface as a reference:
+
+```javascript
+const pizzaNode = new PriorityNode({data: "pizza", priority: 100})
+const saladNode = new PriorityNode({data: "salad", priority: 50})
+
+pizzaNode.getData()           // returns the node's data
+pizzaNode.getPriority()       // returns the node's priority
+pizzaNode.setPriority(200)    // changes the node's priority and returns the node
+pizzaNode.setNext(saladNode)  // changes the reference to the next node and returns the original node
+pizzaNode.getNext()           // returns the next node or null if none
+```
+
 ### Priority Queue ( using Priority Nodes )
 
 Like a queue, but with _priorities_.
@@ -101,20 +116,11 @@ pQueue.isEmpty()             // returns true if the queue is empty or false if n
 pQueue.length()              // returns the number of elements in the queue.
 ```
 
-#### Priority Node
+### Double Node
 
-To implement a _standard_ priority queue, use a **priority node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface as a reference:
+To implement a _standard_ doubly-linked list, use a **double node** data structure in your implementation.
 
-```javascript
-const pizzaNode = new PriorityNode({data: "pizza", priority: 100})
-const saladNode = new PriorityNode({data: "salad", priority: 50})
-
-pizzaNode.getData()           // returns the node's data
-pizzaNode.getPriority()       // returns the node's priority
-pizzaNode.setPriority(200)    // changes the node's priority and returns the node
-pizzaNode.setNext(saladNode)  // changes the reference to the next node and returns the original node
-pizzaNode.getNext()           // returns the next node or null if none
-```
+This is the same as the [Node](#node) data structure, except that it also has the methods `.getPrevious()` and `.setPrevious(<DoubleNode>)`. These methods get and set the previous `DoubleNode` in the list.
 
 ### Doubly-Linked List ( using Double Nodes )
 
@@ -123,12 +129,6 @@ The interface for the Doubly-Linked List is the same as the Linked List above, _
 From [Wikipedia](https://en.wikipedia.org/wiki/Doubly_linked_list) [edited]:
 
 > A linked data structure that consists of a set of sequentially linked records called nodes. Each node contains two fields, called _links_, that are references to the previous and to the next node in the sequence of nodes.
-
-#### Double Node
-
-To implement a _standard_ doubly-linked list, use a **double node** data structure in your implementation.
-
-This is the same as the [Node](#node) data structure, except that it also has the methods `.getPrevious()` and `.setPrevious(<DoubleNode>)`. These methods get and set the previous `DoubleNode` in the list.
 
 ### Set
 
