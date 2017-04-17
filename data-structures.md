@@ -156,6 +156,8 @@ set.clone()              // returns a cloned set.
 
 _Note: if you haven't worked with sets before, you may want to read about [sets](https://www.mathsisfun.com/sets/sets-introduction.html) and [subsets](https://www.mathsisfun.com/activity/subsets.html)._
 
+<<<<<<< HEAD:CONTRACT.md
+=======
 ## Advanced Data Structures
 
 ### Hash Table ( using a LinkedList for collision chaining )
@@ -243,3 +245,44 @@ Most of the above was shamelessly borrowed from Wikipedia and these libraries:
 
 - [datastructures-js](https://github.com/eyas-ranjous/datastructures-js)
 - [singly-linked-list](https://www.npmjs.com/package/singly-linked-list)
+<<<<<<< HEAD:CONTRACT.md
+
+## Context
+
+If you spend most of your time programming in high-level languages, you may not realize how often you use data structures or how they are built. Sometimes it's useful to peek under the hood and see how the engine works.
+
+The nice thing is, most data structures are **actually quite simple** when you get down to it. They have straight-forward, relatively small interfaces.
+
+In a larger sense, being more familiar with data structures is helpful for you ability to think about data more abstractly, and to design better software.
+
+## Specifications
+
+- [x] Artifact produced is a fork of the [core-data-structures][core-data-structures] repo.
+- [x] Can run all tests with `npm test`.
+- [x] All tests are passing.
+- [x] For each data structure identified above, there exists:
+  - [x] a test file with unit tests for each method and property.
+  - [x] an implementation file with a correct implementation of the data structure.
+
+### Required
+
+- [x] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
+
+## Quality Rubric
+
+**Clear and useful README**
+- Repository includes a README file with installation and setup instructions. [25 points]
+
+**The Code Works**
+- Each function of each set passes all tests. Tests exist for every function of every set. [25 points]
+
+**Proper dependency management**
+- There is a command to install dependencies (e.g. `npm install`) and it is specified in the installation and setup instructions of the README. [25 points]
+
+**Good project management**
+- Commit messages are concise and descriptive. [10 points]
+- All features are added via pull requests. [10 points]
+- Every pull request has a description summarizing the changes made. [5 points]
+
+[mit-license]: https://opensource.org/licenses/MIT
+[core-data-structures]: https://github.com/GuildCrafts/core-data-structures
