@@ -25,9 +25,9 @@ class Node {
 
 // const node = new Node()
 // node.data = 15
-// console.log(node)
+// // console.log(node)
 // node.setNext(14)
-// console.log(node)
+// // console.log(node)
 // console.log(node.getNext().data)
 
 export default Node

@@ -17,5 +17,17 @@ describe.only('Node', () => {
     expect(node.getNext().data).to.eql(14)
   })
 
+  it('returns the next node', () => {
+    const node = new Node()
+    node.setNext('Sabrin')
+    node.getNext()
+    expect(node.getNext().data).to.eql('Sabrin')
+  })
+
+  it('returns null  if no next node', () => {
+    const node = new Node()
+    expect(node.getNext()).to.eql(null)
+  })
+
 })
 
