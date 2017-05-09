@@ -4,7 +4,7 @@ import Node from '../src/node'
 
 chai.use(chaiChange)
 
-describe.only('Node', () => {
+describe('Node', () => {
 
   it('is a function', () => {
     const node = new Node(15)
