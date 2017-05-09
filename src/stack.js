@@ -1,5 +1,5 @@
-'use strict'
+// const stack = () => {
 
-export default class Stack {
-  // your code here
-}
+// }
+
+// export default Stack
