@@ -4,38 +4,67 @@ import LinkedList from '../src/linked_list'
 
 chai.use(chaiChange)
 
-describe.only('LinkedList', () => {
+let ll
+
+describe('LinkedList', () => {
+  beforeEach('instantiates a new LinkedList before each test', () => {
+    ll = new LinkedList()
+  })
+
   context('insert()', () => {
     it('inserts the value to the list', () => {
-      const ll = new LinkedList()
-      ll.insert(10)
+      expect( () => { ll.insert(15) })
+        .to.alter(() => ll.size(), { from:0, to: 1});
+    })
 
-    expect(ll).to.eql(10)
+    it('inserts a node to the tail of the list', () => {
+      ll.insert(10)
+      ll.insert(11)
+      ll.insert(12)
+      ll.insert(13)
+      expect(ll.getTailNode()).to.eql(13)
+     })
+  })
+
+  context('insertBefore()', () => {
+    it('inserts a node (with data "Sabrin") before the first node containing "Aileen"',
+        () => {
+        expect( () => {
+          ll.insert('Aileen')
+          ll.insert('Jas')
+          ll.insertBefore('Jas', 'Sabrin')
+        })
+          .to.alter( () => ll.size(), { by: 1 })
     })
   })
 
-  // context('getHeadNode()', () => {
-  //   it('returns the head node in the list', () => {
-  //     const ll = new LinkedList()
-  //     ll.insert(10)
-  //     ll.insert(11)
-  //     ll.insert(12)
-  //     ll.insert(13)
+  context('getHeadNode()', () => {
+    it('returns the first node in the list', () => {
+      ll.insert('Sabrin')
+      expect(ll.getHeadNode().data).to.eql('Sabrin');
+    })
+  })
 
-  //     expect(ll.getHeadNode()).to.eql({data: 10, next: {data: 11, next: {data: 12, next: {data: 13, next: null}}}})
-  //   })
-  // })
+  context('size()', () => {
+    it('returns the size of the list', () => {
+      ll.insert('Sabrin')
+      expect( ll.size() ).to.eql( 1 )
+    })
+  })
 
-  // context('getTailNode()', () => {
-  //   it('returns the last node in the list', () => {
-  //     const ll = new LinkedList()
-  //     ll.insert(10)
-  //     ll.insert(11)
-  //     ll.insert(12)
-  //     ll.insert(13)
+  context('isEmpty()', () => {
+    it('returns true if the list is empty', () => {
+      expect(ll.size()).to.eql(0)
+    })
 
-  //     expect(ll.getTailNode()).to.eql({data: 13, next: null})
-  //   })
-  // })
+    it('returns false if the list contains a node', () => {
+        expect( () => {
+          ll.insert(15)
+          ll.clear()
+         })
+          .to.alter(() => ll.size(), { by: 0});
+    })
+  })
 
 })
+
