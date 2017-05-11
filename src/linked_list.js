@@ -12,7 +12,7 @@ class LinkedList {
   }
 
   getHeadNode() {
-    return this.head
+    return this.head.data
   }
 
   getTailNode() {
@@ -39,23 +39,64 @@ class LinkedList {
     return node
   }
 
-  // insertBefore(data, newData) {
-  //   let currentNode = this.head
-  //   let insertedNode
-  //   while ( (currentNode !== null) && (insertedNode == undefined) ) {
-  //    if(JSON.stringify(currentNode.next.data) === JSON.stringify(data)) {
-  //      insertedNode = new Node( newData )
-  //      insertedNode.next = currentNode.next
-  //      currentNode.next = insertedNode
-  //    }
-  //    if( (currentNode === this.head) && (currentNode.data === data) ) {
-  //      insertedNode = new Node( newData )
-  //      insertedNode.next = currentNode
-  //      this.head = insertedNode
-  //    }
-  //   }
-//     return insertedNode
-  // }
+  insertBefore(data, newData) {
+    let currentNode = this.head
+    let insertedNode
+    while ( (currentNode !== null) && (insertedNode == undefined) ) {
+     if(JSON.stringify(currentNode.next.data) === JSON.stringify(data)) {
+       insertedNode = new Node( newData )
+       insertedNode.next = currentNode.next
+       currentNode.next = insertedNode
+     }
+     if( (currentNode === this.head) && (currentNode.data === data) ) {
+       insertedNode = new Node( newData )
+       insertedNode.next = currentNode
+       this.head = insertedNode
+     }
+    }
+    this._length += 1
+    return insertedNode
+  }
+
+  insertAfter(data, newData) {
+    let node = new Node( newData )
+    let currentNode = this.head
+
+    while( currentNode.next ) {
+      if( currentNode.data === data ) {
+        node.next = currentNode.next
+        currentNode.next = node
+        return node
+      }
+      currentNode.next = node
+    }
+  }
+
+  removeFirst() {
+    let currentNode = this.head
+    this.head = currentNode.next
+    currentNode = null
+    this._length --
+  }
+
+  remove(position) {
+    let beforeNodeToDelete = null
+    let nodetoDelete = null
+    let count
+    let deletedNode = null
+    let currentNode = this.head
+    let message  = {Failure: 'terrible, just terrible no node in here'}
+    if( position < 0 || position > this._length ) {
+      throw new Error(message.failure)
+
+    }
+    while( count < position ) {
+      console.log("position", position)
+      beforeNodeToDelete = currentNode
+      nodetoDelete = currentNode.next
+      count++
+   }
+  }
 
   size() {
     return this._length
@@ -76,13 +117,14 @@ class LinkedList {
 
 }
 
-// const ll = new LinkedList()
-// ll.insert(11)
-// ll.insert(12)
-// ll.insert(13)
-// ll.insert(14)
-// ll.clear()
-// console.log(ll.getHeadNode())
+const ll = new LinkedList()
+ll.insert(11)
+ll.insert(12)
+ll.insert(13)
+ll.insert(14)
+ll.remove(2)
+console.log( ll.head.next )
 
 
-export default LinkedList
+
+//export default LinkedList

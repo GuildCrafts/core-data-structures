@@ -27,21 +27,65 @@ describe('LinkedList', () => {
   })
 
   context('insertBefore()', () => {
-    it('inserts a node (with data "Sabrin") before the first node containing "Aileen"',
+
+    it('inserts a node with data Sabrin before the first node containing Aileen',
         () => {
-        expect( () => {
+            ll.insert('Aileen')
+            ll.insert('Sabrin')
+          expect( () => {
+            ll.insertBefore('Sabrin', 'Jas')
+          })
+          .to.alter( () => ll.size(), { from: 2, to: 3})
+     })
+
+    it('inserts a node with data Sabrin before the head node containing Aileen', () => {
           ll.insert('Aileen')
           ll.insert('Jas')
           ll.insertBefore('Jas', 'Sabrin')
+        expect(ll.getHeadNode()).to.eql('Aileen')
         })
-          .to.alter( () => ll.size(), { by: 1 })
+    })
+
+
+
+  context('insertAfter()', () => {
+    it('inserts a node with data Jacky after the first node containing Aileen',
+        () => {
+        expect( () => {
+          ll.insert('Aileen')
+          ll.insertAfter('Aileen', 'Jacky')
+        })
+        .to.alter( () => ll.size(), { from: 0, to: 1})
+    })
+  })
+
+  context('remove()', () => {
+    it('Removes the tail node from the list', () => {
+      ll.insert('Sabrin')
+      ll.insert('James')
+      ll.insert('Aileen')
+      ll.remove()
+
+      expect( ll.getTailNode() ).to.eql('James')
+    })
+  })
+
+  context('removeFirst()', () => {
+    it('removes the head node from the list', () => {
+      ll.insert('JavaScript')
+      ll.insert('Java')
+      ll.insert('Angular')
+      ll.insert('React')
+      ll.removeFirst()
+
+      expect( ll.getHeadNode() ).to.eql('Java')
     })
   })
 
   context('getHeadNode()', () => {
     it('returns the first node in the list', () => {
       ll.insert('Sabrin')
-      expect(ll.getHeadNode().data).to.eql('Sabrin');
+      expect(ll.getHeadNode() ).to.eql('Sabrin');
     })
   })
 
