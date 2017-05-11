@@ -59,14 +59,14 @@ describe('LinkedList', () => {
     })
   })
 
-  context('remove()', () => {
-    it('Removes the tail node from the list', () => {
+  context('remove(position)', () => {
+    it('Removes the node from a position in the list', () => {
       ll.insert('Sabrin')
       ll.insert('James')
       ll.insert('Aileen')
-      ll.remove()
+      ll.remove(2)
 
-      expect( ll.getTailNode() ).to.eql('James')
+      expect( ll.head.next.data ).to.eql('Aileen')
     })
   })
 
@@ -107,6 +107,17 @@ describe('LinkedList', () => {
           ll.clear()
          })
           .to.alter(() => ll.size(), { by: 0});
+    })
+  })
+
+  context('find(position)', () => {
+    it('returns the first node containing the provided data', () => {
+      ll.insert('Sabrin')
+      ll.insert('Aileen')
+      ll.insert('Jas')
+      ll.insert('Mishi')
+
+      expect(ll.find(3).data).to.eql('Jas')
     })
   })
 

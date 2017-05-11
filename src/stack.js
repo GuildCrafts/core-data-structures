@@ -19,12 +19,25 @@ class Stack {
   size() {
     return this._length
   }
+
+  // peek() {
+  //   return this.storage.charAt(3)
+  // }
+
+  isEmpty() {
+    if (this._length == 0) {
+      return true
+    }
+    return false
+  }
+
+  length() {
+    return this._length
+  }
 }
 
 // const stack = new Stack()
 // stack.push("RedBeans")
-// stack.pop()
-// console.log(stack)
-// console.log(stack.size())
+// console.log(stack.length())
 
 export default Stack

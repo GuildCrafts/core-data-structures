@@ -23,6 +23,21 @@ class LinkedList {
     return currentNode.data
   }
 
+  find(position) {
+    let currentNode = this.head
+    let message = {failure: "This node does not exist"}
+    let count = 1
+
+    if (this._length === 0 || position < 1 || position > this._length) {
+      throw new Error(message.failure);
+    }
+    while (count < position) {
+      currentNode = currentNode.next;
+      count++;
+    }
+    return currentNode;
+  }
+
   insert(data) {
     let node = new Node(data)
     if(!this.head) {
@@ -76,26 +91,32 @@ class LinkedList {
     let currentNode = this.head
     this.head = currentNode.next
     currentNode = null
-    this._length --
+    this._length--
   }
 
   remove(position) {
-    let beforeNodeToDelete = null
-    let nodetoDelete = null
-    let count
-    let deletedNode = null
     let currentNode = this.head
-    let message  = {Failure: 'terrible, just terrible no node in here'}
+    let count = 0
+    let message = {failure: 'Failure: non-existent node in this list.'}
+    let beforeNodeToDelete = null
+    let nodeToDelete = null
+    let deletedNode = null
+
     if( position < 0 || position > this._length ) {
       throw new Error(message.failure)
 
     }
-    while( count < position ) {
-      console.log("position", position)
+    while (count < position) {
       beforeNodeToDelete = currentNode
-      nodetoDelete = currentNode.next
+      nodeToDelete = currentNode.next
       count++
-   }
+    }
+    beforeNodeToDelete.next = nodeToDelete.next
+    deletedNode = nodeToDelete
+    nodeToDelete = null
+    this._length--
+
+    return deletedNode
   }
 
   size() {
@@ -117,14 +138,4 @@ class LinkedList {
 
 }
 
-const ll = new LinkedList()
-ll.insert(11)
-ll.insert(12)
-ll.insert(13)
-ll.insert(14)
-ll.remove(2)
-console.log( ll.head.next )
-
-
-
-//export default LinkedList
+export default LinkedList
