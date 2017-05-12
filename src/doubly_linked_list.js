@@ -53,38 +53,37 @@ class DoublyLinkedList {
 
   remove(position) {
     let currentNode = this.head
+    let length = this._length
     let count = 1
-    let message = {failure: 'non-existent node in this list.'}
+    let message = {failure: 'Failure: non-existent node in this list.'}
     let beforeNodeToDelete = null
     let nodeToDelete = null
     let deletedNode = null
 
-    if (length === 0 || position < 1 || position > this._length) {
-      throw new Error(message.failure)
+    // 1st use-case: an invalid position
+    if (length === 0 || position < 1 || position > length) {
+        throw new Error(message.failure)
     }
-    if (!this.head) {
-        this.head.previous = null
-    } else {
-      this.tail = null
-    } else if (position === this._length) {
-      this.tail = this.tail.previous;
-      this.tail.next = null;
+
+    if (position === this._length) {
+        this.tail = this.tail.previous
+        this.tail.next = null
     } else {
       while (count < position) {
-        currentNode = currentNode.next;
-        count++;
+          currentNode = currentNode.next
+          count++
       }
-      beforeNodeToDelete = currentNode.previous;
-      nodeToDelete = currentNode;
-      afterNodeToDelete = currentNode.next;
+      beforeNodeToDelete = currentNode.previous
+      nodeToDelete = currentNode
+      afterNodeToDelete = currentNode.next
 
-      beforeNodeToDelete.next = afterNodeToDelete;
-      afterNodeToDelete.previous = beforeNodeToDelete;
-      deletedNode = nodeToDelete;
-      nodeToDelete = null;
+      beforeNodeToDelete.next = afterNodeToDelete
+      afterNodeToDelete.previous = beforeNodeToDelete
+      deletedNode = nodeToDelete
+      nodeToDelete = null
     }
-    this._length--;
-    return message.success;
+    this._length--
+    return message.success
   }
 
   // removeFirst(position) {

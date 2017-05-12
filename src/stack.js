@@ -1,43 +1,31 @@
 class Stack {
   constructor() {
-    this.storage = ""
-    this._length = 0
+    this.storage = {}
+    this._count = 0;
   }
 
   push(value) {
-    this.storage = this.storage.concat("***", value)
-    this._length++
+    this.storage[this._count] = value
+    this._count++
   }
 
   pop() {
-    let str = this.storage.slice(this.storage.lastIndexOf('***') + 3)
-    this.storage = this.storage.substring(0, this.storage.lastIndexOf('***'))
-    this._length--
-    return str
+    let value = this.storage[--this._count]
+    delete this.storage[this._count]
+    if (this._count < 0) {
+      this._count = 0
+    }
+    return value
+  }
+
+  peek() {
+    return this.storage[this._count-1]
   }
 
   size() {
-    return this._length
+    return this._count
   }
 
-  // peek() {
-  //   return this.storage.charAt(3)
-  // }
-
-  isEmpty() {
-    if (this._length == 0) {
-      return true
-    }
-    return false
-  }
-
-  length() {
-    return this._length
-  }
 }
-
-// const stack = new Stack()
-// stack.push("RedBeans")
-// console.log(stack.length())
 
 export default Stack
