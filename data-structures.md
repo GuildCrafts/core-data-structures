@@ -85,7 +85,7 @@ To implement a _standard_ queue, use the [Node](#node) data structure in your im
 
 ### Priority Node
 
-To implement a _standard_ priority queue, use a **priority node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface as a reference:
+To implement a _standard_ priority queue, use a **priority node** data structure in your implementation. Use this interface as a reference:
 
 ```javascript
 const pizzaNode = new PriorityNode({data: "pizza", priority: 100})
