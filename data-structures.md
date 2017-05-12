@@ -201,7 +201,7 @@ bst.count()    // return the number of nodes in the tree.
 
 #### Tree Node
 
-To implement a _standard_ binary search tree, use a **tree node** data structure in your implementation. You don't need to write tests for this object or expose its interface in the public API. Use this interface as a reference:
+To implement a _standard_ binary search tree, use a **tree node** data structure in your implementation. Use this interface as a reference:
 
 ```javascript
 const leastNode = new TreeNode({data: 3})
