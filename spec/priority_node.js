@@ -94,4 +94,31 @@ describe('PriorityNode', () => {
     })
   })
 
+  context('getNext()', () => {
+    it('returns the correct type, if specified', () => {
+      expect(next00.getNext() instanceof PriorityNode).to.be.true
+    })
+    it('returns the correct value, if specified', () => {
+      expect(next00.getNext()).to.be.equal(level0)
+    })
+    it(
+      'returns a PriorityNode with a retrievable property, if specified',
+      () => {
+        expect(next00.getNext().getData()).to.be.equal(0)
+      }
+    )
+    it('returns null, if unspecified', () => {
+      expect(level0.getNext()).to.be.null
+    })
+    it('returns null, if specified but not a PriorityNode', () => {
+      expect(next0Num.getNext()).to.be.null
+    })
+    it('returns null, if data is unspecified', () => {
+      expect(levelUnd.getNext()).to.be.null
+    })
+    it('returns null, if priority is not a number', () => {
+      expect(levZPriZ.getNext()).to.be.null
+    })
+  })
+
 })
