@@ -13,7 +13,7 @@ const nodeA = new Node({data: "apple"})
 const nodeB = new Node({data: "banana"})
 
 nodeA.getData()       // returns the data ("apple") of the node
-nodeA.setNext(nodeB)  // changes the reference to the next node and returns the original node
+nodeA.setNext(nodeB)  // changes the reference to the next node and returns the node (nodeA)
 nodeA.getNext()       // returns the next node, or null if no next node
 ```
 
@@ -94,7 +94,7 @@ const saladNode = new PriorityNode({data: "salad", priority: 50})
 pizzaNode.getData()           // returns the node's data
 pizzaNode.getPriority()       // returns the node's priority
 pizzaNode.setPriority(200)    // changes the node's priority and returns the node
-pizzaNode.setNext(saladNode)  // changes the reference to the next node and returns the original node
+pizzaNode.setNext(saladNode)  // changes the reference to the next node and returns the node (pizzaNode)
 pizzaNode.getNext()           // returns the next node or null if none
 ```
 
@@ -210,9 +210,9 @@ const midNode = new TreeNode({data: 7, left: leastNode, right: moreNode})
 
 midNode.getData()           // returns the node's data
 midNode.getLeft()           // returns the left node or null if none
-midNode.setLeft(leastNode)  // changes the reference to the left node and returns the original node
+midNode.setLeft(leastNode)  // changes the reference to the left node and returns the node (midNode)
 midNode.getRight()          // returns the right node or null if none
-midNode.setRight(moreNode)  // changes the reference to the right node and returns the original node
+midNode.setRight(moreNode)  // changes the reference to the right node and returns the node (midNode)
 ```
 
 ### Directed Graph
