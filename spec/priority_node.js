@@ -120,5 +120,31 @@ describe('PriorityNode', () => {
       expect(levZPriZ.getNext()).to.be.null
     })
   })
+  context('setNext()', () => {
+    it('returns a PriorityNode', () => {
+      expect(level0.setNext(levelZero) instanceof PriorityNode).to.be.true
+    })
+    it('returns the correct PriorityNode', () => {
+      expect(level0.setNext(levelZero)).to.be.deep.equal(level0)
+    })
+    it(
+      'returns the PriorityNode with a retrievable priority property',
+      () => {
+        expect(level0.setNext(levelZero).getPriority()).to.be.equal(0)
+      }
+    )
+    it(
+      'returns the PriorityNode with a retrievable new next property',
+      () => {
+        expect(level0.setNext(levelZero).getNext()).to.be.deep.equal(levelZero)
+      }
+    )
+    it(
+      'fails to change next (from last valid value), if newNext is invalid',
+      () => {
+        expect(level0.setNext("next00").getNext()).to.be.deep.equal(levelZero)
+      }
+    )
+  })
 
 })
