@@ -11,7 +11,7 @@ export default class PriorityNode {
       nodeProps.data !== undefined
       && (
         nodeProps.priority === undefined
-        || typeof(nodeProps.priority) === 'number'
+        || typeof nodeProps.priority === 'number'
       )
       && (
         nodeProps.next === undefined
@@ -35,15 +35,18 @@ export default class PriorityNode {
   getNext() {
     return this.next || null;
   }
-  // Changes the node’s priority and returns the post-change node.
+  // Changes the node’s priority and returns the node.
   setPriority(newPriority) {
-    this.priority = newPriority;
+    if (typeof newPriority === 'number') {
+      this.priority = newPriority;
+    }
     return this;
   }
-  // Changes the next node and returns the pre-change node.
+  // Changes the next node, if specified, and returns this node.
   setNext(newNext) {
-    const origThis = this;
-    this.next = newNext;
-    return origThis;
+    if (newNext instanceof PriorityNode) {
+      this.next = newNext;
+    }
+    return this;
   }
 }
