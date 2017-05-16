@@ -1,15 +1,24 @@
 {
   "name": "core-data-structures",
-  "description": "Tests and implementations for common data structures.",
+  "description": "Tests and implementations for basic core data structures.",
   "private": false,
   "version": "0.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diop/core-data-structures"
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.24.1"
+  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-env": "^1.1.4",
     "babel-register": "^6.18.0",
-    "chai": "~1.8.0",
+    "chai": "^1.8.1",
     "chai-change": "^2.1.2",
-    "mocha": "2.0.1"
+    "mocha": "^2.0.1"
   },
   "scripts": {
     "build": "babel src -d lib",
