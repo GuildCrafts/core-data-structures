@@ -6,9 +6,18 @@
 */
 export default class PriorityNode {
   constructor(nodeProps) {
-    this.data = nodeProps.data;
-    this.priority = nodeProps.priorty;
-    this.next = nodeProps.next;
+    // If the argument is valid:
+    if (
+      nodeProps.data !== undefined
+      && (
+        nodeProps.priority === undefined
+        || typeof(nodeProps.priority) === 'number'
+      )
+    ) {
+      this.data = nodeProps.data;
+      this.priority = nodeProps.priority || 0;
+      this.next = nodeProps.next;
+    }
   }
   // Returns the node’s data.
   getData() {
