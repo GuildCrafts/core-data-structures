@@ -7,12 +7,13 @@ chai.use(chaiChange)
 
 describe('Node', () => {
   'use strict'
-  const nodeA = new Node( {data: 'apple'} )
-  const nodeB = new Node( {data: 'banana'} )
 
   it('is a function', () => {
       expect(Node).to.be.a('function')
   })
+
+  const nodeA = new Node( {data: 'apple'} )
+  const nodeB = new Node( {data: 'banana'} )
 
   context('getData()', () => {
       it('gets the data from the node.', () => {
@@ -21,10 +22,9 @@ describe('Node', () => {
   })
 
   context('setNext()', () => {
-      it('points the reference to the next node.', () => {
-          expect( () => nodeA.setNext(nodeB) ).to.alter( () => nodeA.data.next, { from: undefined, to: nodeB } )
+    it('points the reference to the next node.', () => {
+         expect( () => nodeA.setNext(nodeB) ).to.alter( () => nodeA.next, { from: null, to: nodeB } )
     })
-
     it('returns the original.', () => {
         expect( nodeA.setNext(nodeB) ).to.equal(nodeA)
     })
