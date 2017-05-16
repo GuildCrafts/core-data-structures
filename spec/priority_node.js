@@ -19,6 +19,8 @@ describe('PriorityNode', () => {
   const priUnd = new PriorityNode({data: 'level0'})
   const levelUnd = new PriorityNode({priority: 0})
   const levZPriZ = new PriorityNode({data: 'level0', priority: 'zero'})
+  const next00 = new PriorityNode({data: -1, priority: 0, next: level0})
+  const next0Num = new PriorityNode({data: -1, priority: 0, next: 0})
 
   context('getData()', () => {
     it('returns the correct type, if a string', () => {
@@ -51,11 +53,45 @@ describe('PriorityNode', () => {
     it('returns the correct value, if priority is unspecified', () => {
       expect(priUnd.getData()).to.be.equal('level0')
     })
-    it('returns undefined, if undefined', () => {
+    it('returns the correct value, if priority is unspecified', () => {
+      expect(priUnd.getData()).to.be.equal('level0')
+    })
+    it('returns the correct value, if next node is specified', () => {
+      expect(next00.getData()).to.be.equal(-1)
+    })
+    it('returns undefined, if unspecified', () => {
       expect(levelUnd.getData()).to.be.undefined
     })
     it('returns undefined, if priority is not a number', () => {
       expect(levZPriZ.getData()).to.be.undefined
     })
+    it('returns undefined, if next is not a PriorityNode', () => {
+      expect(next0Num.getData()).to.be.undefined
+    })
   })
+
+  context('getPriority()', () => {
+    it('returns the correct type', () => {
+      expect(level0.getPriority()).to.be.a('number')
+    })
+    it('returns the correct value', () => {
+      expect(level0.getPriority()).to.be.equal(0)
+    })
+    it('returns the correct value, if next node is specified', () => {
+      expect(next00.getPriority()).to.be.equal(0)
+    })
+    it('returns the default value, if unspecified', () => {
+      expect(priUnd.getPriority()).to.be.equal(0)
+    })
+    it('returns undefined, if data unspecified', () => {
+      expect(levelUnd.getPriority()).to.be.undefined
+    })
+    it('returns undefined, if not a number', () => {
+      expect(levZPriZ.getPriority()).to.be.undefined
+    })
+    it('returns undefined, if next is not a PriorityNode', () => {
+      expect(next0Num.getPriority()).to.be.undefined
+    })
+  })
+
 })

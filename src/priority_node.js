@@ -13,6 +13,10 @@ export default class PriorityNode {
         nodeProps.priority === undefined
         || typeof(nodeProps.priority) === 'number'
       )
+      && (
+        nodeProps.next === undefined
+        || nodeProps.next instanceof PriorityNode
+      )
     ) {
       this.data = nodeProps.data;
       this.priority = nodeProps.priority || 0;
