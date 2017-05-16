@@ -11,18 +11,17 @@ describe('PriorityNode', () => {
     expect(PriorityNode).to.be.a('function')
   })
 
-  const levelZero = new PriorityNode({data: 'level0', priority: 0})
-  const level0 = new PriorityNode({data: 0, priority: 0})
-  const levelArrayNum = new PriorityNode({data: [1, 2], priority: 0})
-  const levelArrayString = new PriorityNode({data: ['a', 'b'], priority: 0})
-  const levelObj = new PriorityNode({data: {'a': 1, 'b': 2}, priority: 0})
-  const priUnd = new PriorityNode({data: 'level0'})
-  const levelUnd = new PriorityNode({priority: 0})
-  const levZPriZ = new PriorityNode({data: 'level0', priority: 'zero'})
-  const next00 = new PriorityNode({data: -1, priority: 0, next: level0})
-  const next0Num = new PriorityNode({data: -1, priority: 0, next: 0})
-
   context('getData()', () => {
+    const levelZero = new PriorityNode({data: 'level0', priority: 0})
+    const level0 = new PriorityNode({data: 0, priority: 0})
+    const levelArrayNum = new PriorityNode({data: [1, 2], priority: 0})
+    const levelArrayString = new PriorityNode({data: ['a', 'b'], priority: 0})
+    const levelObj = new PriorityNode({data: {'a': 1, 'b': 2}, priority: 0})
+    const priUnd = new PriorityNode({data: 'level0'})
+    const levelUnd = new PriorityNode({priority: 0})
+    const levZPriZ = new PriorityNode({data: 'level0', priority: 'zero'})
+    const next00 = new PriorityNode({data: -1, priority: 0, next: level0})
+    const next0Num = new PriorityNode({data: -1, priority: 0, next: 0})
     it('returns the correct type, if a string', () => {
       expect(levelZero.getData()).to.be.a('string')
     })
@@ -71,6 +70,12 @@ describe('PriorityNode', () => {
   })
 
   context('getPriority()', () => {
+    const level0 = new PriorityNode({data: 0, priority: 0})
+    const next00 = new PriorityNode({data: -1, priority: 0, next: level0})
+    const priUnd = new PriorityNode({data: 'level0'})
+    const levelUnd = new PriorityNode({priority: 0})
+    const levZPriZ = new PriorityNode({data: 'level0', priority: 'zero'})
+    const next0Num = new PriorityNode({data: -1, priority: 0, next: 0})
     it('returns the correct type', () => {
       expect(level0.getPriority()).to.be.a('number')
     })
@@ -95,6 +100,11 @@ describe('PriorityNode', () => {
   })
 
   context('getNext()', () => {
+    const level0 = new PriorityNode({data: 0, priority: 0})
+    const next00 = new PriorityNode({data: -1, priority: 0, next: level0})
+    const next0Num = new PriorityNode({data: -1, priority: 0, next: 0})
+    const levelUnd = new PriorityNode({priority: 0})
+    const levZPriZ = new PriorityNode({data: 'level0', priority: 'zero'})
     it('returns the correct type, if specified', () => {
       expect(next00.getNext() instanceof PriorityNode).to.be.true
     })
@@ -120,7 +130,36 @@ describe('PriorityNode', () => {
       expect(levZPriZ.getNext()).to.be.null
     })
   })
+  context('setPriority()', () => {
+    const level0 = new PriorityNode({data: 0, priority: 0})
+    it('returns a PriorityNode', () => {
+      expect(level0.setPriority(2) instanceof PriorityNode).to.be.true
+    })
+    it('returns the correct PriorityNode', () => {
+      expect(level0.setPriority(3)).to.be.deep.equal(level0)
+    })
+    it(
+      'returns the PriorityNode with a retrievable data property',
+      () => {
+        expect(level0.setPriority(4).getData()).to.be.equal(0)
+      }
+    )
+    it(
+      'returns the PriorityNode with a retrievable new priority property',
+      () => {
+        expect(level0.setPriority(5).getPriority()).to.be.equal(5)
+      }
+    )
+    it(
+      'fails to change priority (from last value), if newPriority is invalid',
+      () => {
+        expect(level0.setPriority("6").getPriority()).to.be.equal(5)
+      }
+    )
+  })
   context('setNext()', () => {
+    const level0 = new PriorityNode({data: 0, priority: 0})
+    const levelZero = new PriorityNode({data: 'level0', priority: 0})
     it('returns a PriorityNode', () => {
       expect(level0.setNext(levelZero) instanceof PriorityNode).to.be.true
     })
@@ -140,7 +179,7 @@ describe('PriorityNode', () => {
       }
     )
     it(
-      'fails to change next (from last valid value), if newNext is invalid',
+      'fails to change next (from last value), if newNext is invalid',
       () => {
         expect(level0.setNext("next00").getNext()).to.be.deep.equal(levelZero)
       }
