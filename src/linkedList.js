@@ -18,6 +18,36 @@ export default class LinkedList {
       return this.tail
   }
 
+  contains( fruit ){
+    let currentNode = this.head
+
+    while( currentNode ) {
+        if ( currentNode.data === fruit) {
+              return true
+        }
+        if ( currentNode = this.tail ) {
+            return false
+        } else {
+            currentNode = currentNode.next
+        }
+      }
+  }
+
+  find( fruit ){
+    let currentNode = this.head
+
+    while ( currentNode ) {
+        if ( currentNode.dada == fruit ){
+            return currentNode.data
+          }
+        if ( currentNode === this.tail.data ) {
+            return -1
+        } else {
+            currentNode = currentNode.next
+        }
+      }
+  }
+
   insert( nodeData ){
     let newNode = new Node( nodeData )
     let currentNode = this.head
@@ -32,18 +62,5 @@ export default class LinkedList {
     this.length++
   }
 
-  contains( fruit ){
-      let currentNode = this.head
 
-      while( currentNode ) {
-          if ( currentNode.data === fruit) {
-              return true
-          }
-          if ( currentNode = this.tail ) {
-              return false
-          } else {
-              currentNode = currentNode.next
-          }
-      }
-    }
 }

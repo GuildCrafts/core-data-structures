@@ -35,12 +35,19 @@ describe('LinkedList', () => {
     })
 
     context( 'contains()', () => {
-        it( 'determines wether ir not the list contains the provided data', () => {
+        it( 'determines whether or not the list contains the provided data', () => {
             expect( list.contains( 'cherry' ) ).to.equal( false )
         })
     })
 
-
+    context( 'find()', () => {
+        it( 'returns the first node containind the prodived data', () => {
+            expect( list.find( 'banana' ) ).to.equal( 'banana' )
+        })
+        it( 'returns - 1 if not found', () => {
+            expect( list.find( 'cherry' ) ).to.equal(-1)
+        })
+    })
 
 
 
