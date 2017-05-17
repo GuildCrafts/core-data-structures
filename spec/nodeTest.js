@@ -13,9 +13,7 @@ describe('Node', () => {
   })
 
   context('getData()', () => {
-      const nodeA = new Node( {data: 'apple'} )
-      const nodeB = new Node( {data: 'banana'} )
-      const nodeC = new Node( {data: 'orange'} )
+      const nodeA = new Node( {data: 'apple'})
       it('gets the data from the node.', () => {
           expect( nodeA.getData() ).to.equal('apple')
     })

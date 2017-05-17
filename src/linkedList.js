@@ -4,7 +4,7 @@ import Node from '../src/node'
 
 // A list of nodes that link to each other, like a daisy-chain.
 export default class LinkedList {
-  constructor( listData ) {
+  constructor( data ) {
     this.head = null
     this.tail = null
     this.length = 0
@@ -36,23 +36,25 @@ export default class LinkedList {
   find( fruit ){
     let currentNode = this.head
 
-    while ( currentNode ) {
-        if ( currentNode.dada == fruit ){
+    while ( currentNode.next !== null ) {
+        if ( currentNode.data === fruit ){
             return currentNode.data
           }
-        if ( currentNode === this.tail.data ) {
-            return -1
-        } else {
-            currentNode = currentNode.next
-        }
-      }
+          currentNode = currentNode.next
+    }
+
+    if ( fruit === this.tail.data ) {
+        return currentNode.data
+    }
+    return -1
   }
 
-  insert( nodeData ){
-    let newNode = new Node( nodeData )
+
+  insert( fruit ){
+    let newNode = new Node( fruit )
     let currentNode = this.head
 
-    if ( !currentNode ) {
+    if ( !currentNode && this.length === 0 ) {
         this.head = newNode
         this.tail = newNode
     } else {

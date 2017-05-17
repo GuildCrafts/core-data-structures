@@ -2,8 +2,8 @@
 
 // A very basic data structure that can contain some value and a reference to another node.
 export default class Node {
-  constructor( data ) {
-    this.data = data
+  constructor( nodeData ) {
+    this.data = nodeData.data
     this.next = null
   }
 
@@ -13,14 +13,14 @@ export default class Node {
   }
 
   // changes the reference to the next node and returns the original node
-  setNext(element) {
+  setNext( element ) {
     this.next = element
     return this
   }
 
   // returns the next node, or null if no next node
   getNext() {
-    if (this.next) {
+    if ( this.next ) {
       return this.next
     }
     return null

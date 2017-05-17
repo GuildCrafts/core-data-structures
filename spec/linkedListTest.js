@@ -8,8 +8,9 @@ chai.use(chaiChange)
 describe('LinkedList', () => {
     'use strict'
     const list = new LinkedList()
-    list.insert( 'apple')
-    list.insert ( 'banana' )
+    list.insert( {data: 'apple'} )
+    list.insert( {data: 'banana'} )
+    list.insert( {data: 'orange'} )
 
     it('is a function', () => {
         expect( LinkedList ).to.be.a( 'function' )
@@ -17,19 +18,20 @@ describe('LinkedList', () => {
 
     context( 'getHeadNode', () => {
         it( 'returns the first node in the list', () => {
+            console.log(list)
             expect ( list.getHeadNode().data ).to.equal( 'apple' )
         })
     })
 
     context( 'getTailNode', () => {
         it( 'returns the lastnode in the list', () => {
-            expect( list.getTailNode().data ).to.equal( 'banana')
+            expect( list.getTailNode().data ).to.equal( 'orange')
         })
     })
 
     context( 'insert()', () => {
         it( 'inserts node to the tail', () => {
-            list.insert( 'papaya' )
+            list.insert( { data: 'papaya' } )
             expect( list.tail.data ).to.equal( 'papaya')
         })
     })
@@ -41,10 +43,10 @@ describe('LinkedList', () => {
     })
 
     context( 'find()', () => {
-        it( 'returns the first node containind the prodived data', () => {
+        it( 'returns the first node contains the prodived data', () => {
             expect( list.find( 'banana' ) ).to.equal( 'banana' )
         })
-        it( 'returns - 1 if not found', () => {
+        it( 'returns -1 if not found', () => {
             expect( list.find( 'cherry' ) ).to.equal(-1)
         })
     })
