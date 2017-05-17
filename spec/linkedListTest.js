@@ -21,6 +21,12 @@ describe('LinkedList', () => {
         })
     })
 
+    context( 'getTailNode', () => {
+        it( 'returns the lastnode in the list', () => {
+            expect( list.getTailNode().data ).to.equal( 'banana')
+        })
+    })
+
     context('insert()', () => {
         it('inserts node to the tail', () => {
             list.insert( 'papaya' )

@@ -14,6 +14,10 @@ export default class LinkedList {
     return this.head
   }
 
+  getTailNode() {
+      return this.tail
+  }
+
   insert( nodeData ){
     let newNode = new Node( nodeData )
     let currentNode = this.head
