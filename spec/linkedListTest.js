@@ -7,7 +7,7 @@ chai.use(chaiChange)
 
 describe('LinkedList', () => {
     'use strict'
-    const linkedList = new LinkedList()
+    const list = new LinkedList()
 
 
     it('is a function', () => {
@@ -15,98 +15,109 @@ describe('LinkedList', () => {
     })
 
     context('insert()', () => {
-        const node = new Node( {data: 'firstNode'})
+        const nodeA = new Node( {data: 'firstNode'} )
+        const nodeB = new Node( {data: 'secondNode'} )
+        const nodeC = new Node( {data: 'lastNode'} )
         it('inserts a node (with the provided data) to the tail of the list', () => {
-            expect( linkedList.insert(node) ).data.to.equal('firstNode')
+            expect( list.insert() ).to.equal('firstNode')
         })
     })
 
-    context('getHeadNode()', () => {
+    context('getHead()', () => {
+        const nodeA = new Node( {data: 'firstNode'} )
         it('returns the first node in the list', () => {
-            expect( linkedList.getHeadNode() ).to.equal('firstNode')
+            expect( list.getHead() ).to.equal(nodeA)
         })
     })
 
-    context('getTailNode()', () => {
+    context('getTail()', () => {
+        const nodeA = new Node( {data: 'firstNode'} )
+        const nodeB = new Node( {data: 'secondNode'} )
+        const nodeC = new Node( {data: 'lastNode'} )
         it('returns the last node in the list', () => {
-            expect( linkedList.getTailNode() ).to.equal(nodeB)
+            expect( list.getTail() ).to.equal(nodeC)
         })
     })
 
     context('contains()', () => {
-        const node = new Node( {data: 'firstNode'})
+        const nodeA = new Node( {data: 'firstNode'} )
+        const nodeB = new Node( {data: 'secondNode'} )
+        const nodeC = new Node( {data: 'lastNode'} )
         it('determines whether or not the list contains the provided data', () => {
-            expect( linkedList.contains() ).to.contain('value')
-        })
-    })
-
-    context('insert()', () => {
-        const node = new Node( {data: 'firstNode'})
-        it('inserts a node (with the provided data) to the tail of the list', () => {
-            expect( linkedList.getTailNode() ).to.equal('')
+            expect( list.contains('') ).to.contain('firstNode')
         })
     })
 
     context('find()', () => {
-        const node = new Node( {data: 'firstNode'})
+        const node = new Node( {data: 'firstNode'} )
         it('returns the first node containing the provided data, or -1 if not found', () => {
-            expect( linkedList.insert() ).to.equal('')
+            expect( list.find() ).to.equal('')
         })
     })
 
     context('insertFirst()', () => {
-        const node = new Node( {data: 'firstNode'})
+        const nodeA = new Node( {data: 'firstNode'} )
+        const nodeB = new Node( {data: 'secondNode'} )
+        const nodeC = new Node( {data: 'lastNode'} )
         it('inserts a node (with the provided data) to the head of the list', () => {
-            expect( linkedList.getHeadNode() ).to.equal('')
+            expect( list.insertFirst() ).to.equal('')
         })
     })
 
     context('insertBefore()', () => {
-        const node = new Node( {data: 'firstNode'})
+        const nodeA = new Node( {data: 'bananas'} )
+        const nodeB = new Node( {data: 'apples'} )
         it('inserts a node (with data "apples") before the first node containing "bananas"', () => {
-            expect(linkedList.insertBefore() ).to.equal('')
+            expect( list.insertBefore() ).to.equal('')
         })
     })
 
     context('insertAfter()', () => {
-        const node = new Node( {data: 'firstNode'})
+        const nodeA = new Node( {data: 'apple'} )
+        const nodeB = new Node( {data: 'bananas'} )
         it('inserts a node (with data "bananas") after the first node containing "apples"', () => {
-            expect( linkedList.insertAfter() ).to.equal('')
+            expect( list.insertAfter() ).to.equal('')
         })
     })
 
     context('remove()', () => {
-        const node = new Node( {data: 'firstNode'})
+        const nodeA = new Node( {data: 'firstNode'} )
+        const nodeB = new Node( {data: 'secondNode'} )
+        const nodeC = new Node( {data: 'thirdNode'} )
         it('removes the tail node from the list', () => {
-            expect( linkedList.remove() ).to.equal('')
+            expect( list.remove() ).to.equal(nodeC)
         })
     })
 
     context('removeFirst()', () => {
-        const node = new Node( {data: 'firstNode'})
+        const nodeA = new Node( {data: 'firstNode'} )
+        const nodeB = new Node( {data: 'secondNode'} )
+        const nodeC = new Node( {data: 'thirdNode'} )
         it('removes the head node from the list', () => {
-            expect( linkedList.removeFirst() ).to.equal('')
+            expect( list.removeFirst() ).to.equal(nodeA)
         })
     })
 
     context('isEmpty()', () => {
-        const node = new Node( {data: 'firstNode'})
+        const node = new Node( {} )
         it('returns the first node in the list', () => {
-            expect( nodeA.isEmpty() ).to.equal('')
+            expect( nodeA.isEmpty() ).to.equal(undefined)
         })
     })
 
     context('size()', () => {
-        const node = new Node( {data: 'firstNode'})
+        const nodeA = new Node( {data: 'firstNode'} )
+        const nodeB = new Node( {data: 'firstNode'} )
+        const nodeC = new Node( {data: 'firstNode'} )
         it('returns the size of the list (number of nodes)', () => {
-            expect( nodeA.size() ).to.equal('')
+            expect( nodeA.size() ).to.equal(this.size)
         })
     })
 
     context('clear()', () => {
         const node = new Node( {data: 'firstNode'})
         it('clears the list of all nodes/data', () => {
-            expect( nodeA.clear() ).to.equal('')
+            expect( list.size ).to.equal(0)
         })
     })
 

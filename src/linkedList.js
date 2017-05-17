@@ -12,12 +12,12 @@ export default class LinkedList {
 
 
   // Returns the first node in the list
-  getHeadNode(){
+  getHead(){
       return this.head
   }
 
   // Returns the last node in the list
-  getTailNode(){
+  getTail(){
       return this.tail
   }
 
