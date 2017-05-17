@@ -27,14 +27,18 @@ describe('LinkedList', () => {
         })
     })
 
-    context('insert()', () => {
-        it('inserts node to the tail', () => {
+    context( 'insert()', () => {
+        it( 'inserts node to the tail', () => {
             list.insert( 'papaya' )
             expect( list.tail.data ).to.equal( 'papaya')
         })
     })
 
-
+    context( 'contains()', () => {
+        it( 'determines wether ir not the list contains the provided data', () => {
+            expect( list.contains( 'cherry' ) ).to.equal( false )
+        })
+    })
 
 
 

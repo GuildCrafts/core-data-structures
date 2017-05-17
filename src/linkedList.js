@@ -32,4 +32,18 @@ export default class LinkedList {
     this.length++
   }
 
+  contains( fruit ){
+      let currentNode = this.head
+
+      while( currentNode ) {
+          if ( currentNode.data === fruit) {
+              return true
+          }
+          if ( currentNode = this.tail ) {
+              return false
+          } else {
+              currentNode = currentNode.next
+          }
+      }
+    }
 }
