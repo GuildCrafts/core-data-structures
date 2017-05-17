@@ -2,8 +2,8 @@
 
 // A very basic data structure that can contain some value and a reference to another node.
 export default class Node {
-  constructor(nodeProps) {
-    this.data = nodeProps.data
+  constructor( data ) {
+    this.data = data
     this.next = null
   }
 

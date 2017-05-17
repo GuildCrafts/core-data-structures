@@ -4,26 +4,28 @@ import Node from '../src/node'
 
 // A list of nodes that link to each other, like a daisy-chain.
 export default class LinkedList {
-  constructor() {
+  constructor( listData ) {
     this.head = null
     this.tail = null
     this.length = 0
   }
 
-  insert(nodeData){
-      let node = new Node({data: 'nodeData'})
-      if (this.head === null){
-          this.head = node
-      } else {
-          let currentNode = this.head
-          while (currentNode.next){
-              currentNode = currentNode.next
-          }
-          currentNode.next = node
-      }
+  getHeadNode(){
+    return this.head
+  }
 
-      this.length++
-      return node
+  insert( nodeData ){
+    let newNode = new Node( nodeData )
+    let currentNode = this.head
+
+    if ( !currentNode ) {
+        this.head = newNode
+        this.tail = newNode
+    } else {
+        this.tail.next = newNode
+        this.tail = newNode
+    }
+    this.length++
   }
 
 }

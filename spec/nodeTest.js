@@ -12,17 +12,20 @@ describe('Node', () => {
       expect(Node).to.be.a('function')
   })
 
-  const nodeA = new Node( {data: 'apple'} )
-  const nodeB = new Node( {data: 'banana'} )
-
   context('getData()', () => {
+      const nodeA = new Node( {data: 'apple'} )
+      const nodeB = new Node( {data: 'banana'} )
+      const nodeC = new Node( {data: 'orange'} )
       it('gets the data from the node.', () => {
           expect( nodeA.getData() ).to.equal('apple')
     })
   })
 
   context('setNext()', () => {
-    it('points the reference to the next node.', () => {
+     const nodeA = new Node( {data: 'apple'} )
+     const nodeB = new Node( {data: 'banana'} )
+     const nodeC = new Node( {data: 'orange'} )
+     it('points the reference to the next node.', () => {
          expect( () => nodeA.setNext(nodeB) ).to.alter( () => nodeA.next, { from: null, to: nodeB } )
     })
     it('returns the original.', () => {
@@ -31,11 +34,13 @@ describe('Node', () => {
   })
 
   context('getNext()', () => {
+      const nodeA = new Node( {data: 'apple'} )
+      const nodeB = new Node( {data: 'banana'} )
+      const nodeC = new Node( {data: 'orange'} )
     it('returns the next node', () => {
         nodeA.setNext(nodeB)
         expect( nodeA.getNext() ).to.equal(nodeB)
     })
-
     it('returns null if no next node.', () => {
         expect( nodeB.getNext() ).to.equal(null)
     })
