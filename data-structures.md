@@ -108,7 +108,7 @@ From [Wikipedia](https://en.wikipedia.org/wiki/Priority_queue) [edited]:
 
 ```javascript
 const pQueue = new PriorityQueue()
-pQueue.enqueue("pizza", 100) // adds an element with priority (number) to the back of the queue.
+pQueue.enqueue("pizza", 100) // adds an element with priority (number) to the queue.
 pQueue.front()               // returns the front element (highest priority) in the queue or null if the queue is empty.
 pQueue.back()                // returns the back element (lowest priority) in the queue or null if the queue is empty.
 pQueue.dequeue()             // returns and removes the front element (highest priority) in the queue or null if the queue is empty.
