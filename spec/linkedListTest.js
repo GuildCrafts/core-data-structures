@@ -18,7 +18,6 @@ describe('LinkedList', () => {
 
     context( 'getHeadNode', () => {
         it( 'returns the first node in the list', () => {
-            console.log(list)
             expect ( list.getHeadNode().data ).to.equal( 'apple' )
         })
     })
@@ -44,13 +43,19 @@ describe('LinkedList', () => {
 
     context( 'find()', () => {
         it( 'returns the first node contains the prodived data', () => {
-            expect( list.find( 'banana' ) ).to.equal( 'banana' )
+            expect( list.find( 'banana' ).getData() ).to.equal( 'banana' )
         })
         it( 'returns -1 if not found', () => {
             expect( list.find( 'cherry' ) ).to.equal(-1)
         })
     })
 
+    context( 'insertFirst()', () => {
+        it ( 'inserts a node at the head of the list', () => {
+            list.insertFirst( { data: 'guava' } )
+            expect( list.head.data ).to.equal( 'guava')
+        })
+    })
 
 
 

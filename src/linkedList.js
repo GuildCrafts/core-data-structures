@@ -38,17 +38,12 @@ export default class LinkedList {
 
     while ( currentNode.next !== null ) {
         if ( currentNode.data === fruit ){
-            return currentNode.data
+            return currentNode
           }
           currentNode = currentNode.next
     }
-
-    if ( fruit === this.tail.data ) {
-        return currentNode.data
-    }
     return -1
   }
-
 
   insert( fruit ){
     let newNode = new Node( fruit )
@@ -64,5 +59,18 @@ export default class LinkedList {
     this.length++
   }
 
+  insertFirst(fruit){
+    let newNode = new Node( fruit )
+    let currentNode = this.head
 
+    if ( !currentNode ) {
+        this.head = newNode
+        this.tail = newNode
+    } else {
+        newNode.next = this.head
+        this.head = newNode
+    }
+    currentNode = currentNode.next
+    this.length++
+  }
 }
