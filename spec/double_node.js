@@ -71,7 +71,6 @@ describe('DoubleNode', function() {
     const nbNode = new DoubleNode({data: 1, next: 0})
     const dxnbNode = new DoubleNode({next: ngNode})
     const ngbNode = new DoubleNode({data: 0, next: dxnbNode})
-    const emptyNode = new DoubleNode()
     const pgNode = new DoubleNode({data: 2, next: nnNode, previous: nnNode})
     const pgbNode = new DoubleNode({data: 3, next: ngNode, previous: nbNode})
     const pbNode = new DoubleNode({data: 4, next: ngNode, previous: "node"})
@@ -131,6 +130,80 @@ describe('DoubleNode', function() {
       'fails to change next (from last value), if newNext is invalid',
       function() {
         expect(nnNode.setNext("badNode").getNext()).to.be.deep.equal(nbNode)
+      }
+    )
+  })
+
+  context('getPrevious()', function() {
+    const nnNode = new DoubleNode({data: 'astring'})
+    const ngNode = new DoubleNode({data: 0, next: nnNode})
+    const nbNode = new DoubleNode({data: 1, next: 0})
+    const dxpbNode = new DoubleNode({previous: ngNode})
+    const pgNode = new DoubleNode({data: 2, next: nnNode, previous: nnNode})
+    const pgbNode = new DoubleNode({data: 3, next: ngNode, previous: nbNode})
+    const pbNode = new DoubleNode({data: 4, next: ngNode, previous: "node"})
+    it('returns the correct type, if specified', function() {
+      expect(pgNode.getPrevious() instanceof DoubleNode).to.be.true
+    })
+    it('returns a DoubleNode, if an invalid one is specified', function() {
+      expect(pgbNode.getPrevious() instanceof DoubleNode).to.be.true
+    })
+    it('returns the correct value, if specified', function() {
+      expect(pgNode.getPrevious()).to.be.deep.equal(nnNode)
+    })
+    it(
+      'returns a DoubleNode with a retrievable property, if specified',
+      function() {
+        expect(pgNode.getPrevious().getData()).to.be.equal('astring')
+      }
+    )
+    it('returns null, if unspecified', function() {
+      expect(nnNode.getPrevious()).to.be.null
+    })
+    it('returns null, if specified but not a DoubleNode', function() {
+      expect(pbNode.getPrevious()).to.be.null
+    })
+    it('returns null, if specified but data is unspecified', function() {
+      expect(dxpbNode.getPrevious()).to.be.null
+    })
+  })
+
+  context('setPrevious()', function() {
+    const nnNode = new DoubleNode({data: 0})
+    const ngNode = new DoubleNode({data: 'astring', next: nnNode})
+    const nbNode = new DoubleNode({data: 1, next: "nonode"})
+    const pbNode = new DoubleNode({data: 2, next: ngNode, previous: "bad"})
+    it('returns a DoubleNode', function() {
+      expect(nnNode.setPrevious(ngNode) instanceof DoubleNode).to.be.true
+    })
+    it('returns the correct DoubleNode', function() {
+      expect(nnNode.setPrevious(ngNode)).to.be.deep.equal(nnNode)
+    })
+    it(
+      'returns a DoubleNode with a retrievable data property',
+      function() {
+        expect(ngNode.setPrevious(nnNode).getData()).to.be.equal('astring')
+      }
+    )
+    it(
+      'returns a DoubleNode with a retrievable good new previous property',
+      function() {
+        expect(nnNode.setPrevious(nnNode).getPrevious())
+        .to.be.deep.equal(nnNode)
+      }
+    )
+    it(
+      'returns a DoubleNode with a retrievable bad new next property',
+      function() {
+        expect(nnNode.setPrevious(nbNode).getPrevious())
+        .to.be.deep.equal(nbNode)
+      }
+    )
+    it(
+      'fails to change previous (from last value), if newPrevious is invalid',
+      function() {
+        expect(nnNode.setPrevious("badNode").getPrevious())
+        .to.be.deep.equal(nbNode)
       }
     )
   })

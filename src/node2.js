@@ -8,14 +8,15 @@ export default class Node {
   constructor(nodeProps) {
     // If the argument is valid:
     if (
-      nodeProps.data !== undefined
+      nodeProps !== undefined
+      && nodeProps.data !== undefined
       && (
         nodeProps.next === undefined
         || nodeProps.next instanceof Node
       )
     ) {
       this.data = nodeProps.data;
-      this.next = nodeProps.next;
+      this.next = nodeProps.next || null;
     }
   }
   // Returns the node’s data.
@@ -28,7 +29,7 @@ export default class Node {
   }
   // Changes the next node, if specified, and returns this node.
   setNext(newNext) {
-    if (newNext instanceof PriorityNode) {
+    if (newNext instanceof Node) {
       this.next = newNext;
     }
     return this;
