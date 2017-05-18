@@ -89,7 +89,6 @@ export default class LinkedList {
             this.head = newNode
             return
         }
-
         if ( currentNode.next.data == target ) {
             newNode.next = currentNode.next
             currentNode.next = newNode
@@ -104,5 +103,66 @@ export default class LinkedList {
 
     }
     this.length++
+  }
+
+  insertAfter( target, data){
+    let newNode = new Node( data )
+    let currentNode = this.head
+
+    if ( this.length == 1 ) {
+        currenrNode.next = newNode
+    }
+
+    while ( currentNode ) {
+        if ( currentNode.data == target) {
+            newNode.next = currentNode.next
+            currentNode.next = newNode
+            return
+        }
+        if ( currentNode == this.tail ){
+            return 'No fruit'
+        }
+        else {
+            currentNode = currentNode.next
+        }
+    }
+    this.length++
+  }
+
+  remove() {
+      let currentNode = this.head
+      while( currentNode.next ) {
+          if( currentNode.next === this.tail){
+              currentNode = this.tail
+              currentNode.next = null
+          }
+          this.length
+          return
+      }
+      currentNode = currentNode
+  }
+
+  removeFirst() {
+      let currentNode = this.head
+      this.head = currentNode.next
+      this.length
+      return
+  }
+
+  isEmpty() {
+      if ( this.head == null) {
+          return true
+      }
+      return false
+  }
+
+  size() {
+      return this.length
+  }
+
+  clear() {
+      this.tail = null
+      this.head = this.tail
+      this.length = 0
   }
 }

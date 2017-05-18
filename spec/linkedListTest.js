@@ -60,11 +60,49 @@ describe.only('LinkedList', () => {
     context( 'insertBefore', () => {
         it( 'inserts a node before a specified node', () => {
             list.insertBefore( 'bananas', 'apples' )
-            console.log(list)
             expect( list.head.next.data ).to.equal( 'bananas' )
         })
     })
 
+    context( 'insertfAter', () => {
+        it( 'inserts a node after a specified node', () => {
+            list.insertAfter( 'apples', 'guava' )
+            expect( list.head.next.next.next.data ).to.equal( 'guava')
+        })
+    })
 
+    context( 'remove()', () => {
+        it( 'removes the tail node from the list', () => {
+            list.remove()
+            expect( list.length ).to.equal(5)
+        })
+    })
+
+    context( 'removeFirst()', () => {
+        it( 'removes the head node from the list' , () => {
+            list.removeFirst()
+            console.log(list)
+            expect( list.head.data ).to.equal( 'bananas' )
+        })
+    })
+
+    context( 'isEmpty()', () => {
+        it( ' determines whether the list is empty', () => {
+            expect( list.isEmpty() ).to.equal(false)
+        })
+    })
+
+    context( 'size()', () => {
+        it( 'returns the size of the list', () => {
+            expect( list.size() ).to.equal(5)
+        })
+    })
+
+    context( 'clear()', () => {
+        it( ' clears the list of all nodes and data', () => {
+            list.clear()
+            expect( list.length ).to.equal(0)
+        })
+    })
 
 })
