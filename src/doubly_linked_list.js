@@ -115,16 +115,12 @@ export default class DoublyLinkedList {
     }
   }
 
-  /*
-    Deletes the last (tail) element.
-  */
+  // Deletes the last (tail) element.
   remove() {
     this.list.pop();
   }
 
-  /*
-    Deletes the first (head) element.
-  */
+  // Deletes the first (head) element.
   removeFirst() {
     this.list.shift();
   }
