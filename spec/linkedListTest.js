@@ -5,7 +5,7 @@ import LinkedList from '../src/linkedList'
 
 chai.use(chaiChange)
 
-describe.only('LinkedList', () => {
+describe('LinkedList', () => {
     'use strict'
     const list = new LinkedList()
     list.insert( {data: 'apple'} )
