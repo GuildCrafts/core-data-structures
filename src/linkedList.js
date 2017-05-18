@@ -110,12 +110,12 @@ export default class LinkedList {
     let currentNode = this.head
 
     if ( this.length == 1 ) {
-        currenrNode.next = newNode
+        currentNode.next = newNode
     }
 
     while ( currentNode ) {
         if ( currentNode.data == target) {
-            newNode.next = currentNode.next
+            newNode = currentNode.next
             currentNode.next = newNode
             return
         }

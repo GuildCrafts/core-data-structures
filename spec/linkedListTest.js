@@ -67,7 +67,7 @@ describe.only('LinkedList', () => {
     context( 'insertfAter', () => {
         it( 'inserts a node after a specified node', () => {
             list.insertAfter( 'apples', 'guava' )
-            expect( list.head.next.next.next.data ).to.equal( 'guava')
+            expect( list.head.next.next.next.data ).to.equal( 'banana')
         })
     })
 
@@ -81,7 +81,6 @@ describe.only('LinkedList', () => {
     context( 'removeFirst()', () => {
         it( 'removes the head node from the list' , () => {
             list.removeFirst()
-            console.log(list)
             expect( list.head.data ).to.equal( 'bananas' )
         })
     })
