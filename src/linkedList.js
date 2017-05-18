@@ -73,4 +73,36 @@ export default class LinkedList {
     currentNode = currentNode.next
     this.length++
   }
+
+  insertBefore( target, data){
+    let newNode = new Node( data )
+    let currentNode = this.head
+
+    if ( this.length == 1 ) {
+        newNode.next = this.head
+        this.head = newNode
+    }
+
+    while ( currentNode ) {
+        if ( currentNode.data == target) {
+            newNode.next = currentNode
+            this.head = newNode
+            return
+        }
+
+        if ( currentNode.next.data == target ) {
+            newNode.next = currentNode.next
+            currentNode.next = newNode
+            return
+        }
+        if ( currentNode == this.tail ){
+            return 'non-existent node in this list.'
+        }
+        else {
+            currentNode = currentNode.next
+        }
+
+    }
+    this.length++
+  }
 }

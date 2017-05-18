@@ -5,7 +5,7 @@ import LinkedList from '../src/linkedList'
 
 chai.use(chaiChange)
 
-describe('LinkedList', () => {
+describe.only('LinkedList', () => {
     'use strict'
     const list = new LinkedList()
     list.insert( {data: 'apple'} )
@@ -51,9 +51,17 @@ describe('LinkedList', () => {
     })
 
     context( 'insertFirst()', () => {
-        it ( 'inserts a node at the head of the list', () => {
-            list.insertFirst( { data: 'guava' } )
-            expect( list.head.data ).to.equal( 'guava')
+        it( 'inserts a node at the head of the list', () => {
+            list.insertFirst( { data: 'bananas' } )
+            expect( list.head.data ).to.equal( 'bananas')
+        })
+    })
+
+    context( 'insertBefore', () => {
+        it( 'inserts a node before a specified node', () => {
+            list.insertBefore( 'bananas', 'apples' )
+            console.log(list)
+            expect( list.head.next.data ).to.equal( 'bananas' )
         })
     })
 
