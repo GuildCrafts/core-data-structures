@@ -1,10 +1,10 @@
 import chai, { expect } from 'chai'
 import chaiChange from 'chai-change'
-import Stack from '../src/stack2'
+import Stack from '../src/stack'
 
 chai.use(chaiChange)
 
-describe('Stack2', function() {
+describe('Stack', function() {
   'use strict'
 
   it('is a function', function() {

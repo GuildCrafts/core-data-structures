@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*
   Class declaration for PriorityNode and export statement making that

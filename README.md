@@ -37,7 +37,3 @@ Project Members:
     eslint --init
 
 5. Edit .eslintrc.json in your home directory to customize.
-
-## Usage and Examples
-
-_...and this_

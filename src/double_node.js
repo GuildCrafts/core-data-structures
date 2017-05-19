@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*
   Class declaration for DoubleNode and export statement making that
