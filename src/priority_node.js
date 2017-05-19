@@ -20,7 +20,7 @@ export default class PriorityNode {
     ) {
       this.data = nodeProps.data;
       this.priority = nodeProps.priority || 0;
-      this.next = nodeProps.next;
+      this.next = nodeProps.next || null;
     }
   }
   // Returns the node’s data.

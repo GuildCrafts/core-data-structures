@@ -39,11 +39,11 @@ export default class PriorityQueue {
   isEmpty() {
     return this.queue.length === 0;
   }
-  // Changes the next node, if specified, and returns this node.
+  // Returns the count of elements.
   length() {
     return this.queue.length;
   }
-  // Adds a specified element to the queue.
+  // Removes and returns a specified element from the queue.
   dequeue() {
     return this.queue.pop() || null;
   }
