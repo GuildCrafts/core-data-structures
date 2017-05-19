@@ -2,9 +2,19 @@
   "name": "core-data-structures",
   "description": "Tests and implementations for common data structures.",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/helenyau0/core-data-structures"
+  },
+  "author": "Helen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/helenyau0/core-data-structures"
+  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.22.0",
     "babel-preset-env": "^1.1.4",
     "babel-register": "^6.18.0",
     "chai": "~1.8.0",
@@ -13,6 +23,10 @@
   },
   "scripts": {
     "build": "babel src -d lib",
-    "test": "mocha --compilers js:babel-register ./spec/*.js"
+    "test": "mocha --compilers js:babel-register ./spec/*.js",
+    "lint": "eslint **/*.js"
+  },
+  "dependencies": {
+    "eslint": "^3.19.0"
   }
 }
