@@ -151,25 +151,31 @@ In a larger sense, being more familiar with data structures is helpful for you a
 
 ## Specifications
 
-- [X] Artifact produced is a fork of the [core-data-structures][core-data-structures] repo.
-- [X] Can run all tests with `npm test`.
-- [Stretch] All tests are passing.
-- [X] For each data structure identified above, there exists:
-  - [X] a test file with unit tests for each method and property.
-  - [X] an implementation file with a correct implementation of the data structure.
+ - [X] Artifact produced is a fork of the [core-data-structures][core-data-structures] repo.
+ - [X] Can run all tests with npm test.
+ - [ ] All tests are passing.
+ - [X] Unit tests exist for all methods of Hash Table.
+ - [ ] A working implementation of the Binary (Search) Tree data structure is complete.
+ - [X] Unit tests exist for all methods of Binary (Search) Tree.
+ - [X] A working implementation of the Tree Node data structure is complete.
+ - [X] Unit tests exist for all methods of Tree Node.
+ - [ ] A working implementation of the Directed Graph data structure is complete.
+ - [X] Unit tests exist for all methods of Directed Graph.
+ - [X] Repository includes a README file with basic installation and setup instructions.
+ - [X] All package dependencies are properly declared in package.json.
+ - [X] All major features are added via pull requests with a clear description and concise commit messages.
+ - [X] Code uses a linter and there are no linting errors.
+ - [X] Variables, functions, files, etc. have appropriate and meaningful names.
+ - [X] Functions are small and serve a single purpose.
+ - [X] ] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
 
-### Required
+## Stretch
 
-- [X] The artifact produced is properly licensed, preferably with the [MIT license][mit-license].
+- [ ] Pick a different programming language from JavaScript (e.g. Ruby, Swift, Python, C, Java…) and write tests & implementations for each.
 
-### Stretch
-
-Pick a _different_ programming language from JavaScript (e.g. Ruby, Swift, Python, C, Java...) and write tests & implementations for each.
-
-- [Stretch] Can run all non-JavaScript tests with a single command.
-- [Stretch] For each data structure identified above, there exists:
-  - [Stretch] a test file with unit tests for each method and property _in a language other than JavaScript_.
-  - [Stretch] an implementation file with a correct implementation of the data structure _in a language other than JavaScript_.
+ - [ ] Can run all non-JavaScript tests with a single command.
+ - [ ] For each data structure identified above, there is a test file with unit tests for each method and property in a language other than JavaScript.
+ - [ ] For each data structure identified above, there is an implementation file with a correct implementation of the data structure in a language other than JavaScript.
 
 ## Quality Rubric
 

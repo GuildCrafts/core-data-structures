@@ -1,6 +1,6 @@
 import chai, { expect } from 'chai'
 import chaiChange from 'chai-change'
-import Queue from '../src/queue_src'
+import Queue from '../src/queue'
 
 chai.use(chaiChange)
 

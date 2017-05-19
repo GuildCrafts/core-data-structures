@@ -1,6 +1,6 @@
 import chai, { expect } from 'chai'
 import chaiChange from 'chai-change'
-import PriorityQueue from '../src/priorityQueue_src'
+import PriorityQueue from '../src/priorityQueue'
 
 chai.use(chaiChange)
 
@@ -43,7 +43,7 @@ describe('PriorityQueue', () => {
     })
   })
 
-  describe.only('dequeue', () => {
+  describe('dequeue', () => {
     it('returns and removes the front element (highest priority) in the queue or null if the queue is empty', () => {
       const pQueue = new PriorityQueue()
 
@@ -71,10 +71,4 @@ describe('PriorityQueue', () => {
       expect(pQueue.dequeue()).to.deep.be.null
     })
   })
-
-
-
-
-
-
 })
