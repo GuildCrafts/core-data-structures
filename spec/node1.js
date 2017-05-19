@@ -1,11 +1,11 @@
 
 import chai, { expect } from 'chai'
 import chaiChange from 'chai-change'
-import Node from '../src/node'
+import Node from '../src/node1'
 
 chai.use(chaiChange)
 
-describe('Node', () => {
+describe('Node1', () => {
   'use strict'
 
   it('is a function', () => {

@@ -1,11 +1,11 @@
 import chai, { expect } from 'chai'
 import chaiChange from 'chai-change'
-import Node from '../src/node'
-import LinkedList from '../src/linkedList'
+import Node from '../src/node1'
+import LinkedList from '../src/linked_list1'
 
 chai.use(chaiChange)
 
-describe('LinkedList', () => {
+describe('LinkedList1', () => {
     'use strict'
     const list = new LinkedList()
     list.insert( {data: 'apple'} )
