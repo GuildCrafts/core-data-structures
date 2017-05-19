@@ -37,3 +37,13 @@ Project Members:
     eslint --init
 
 5. Edit .eslintrc.json in your home directory to customize.
+
+## Comments
+
+Each structure implementation in this repository relies on one of two features: (1) the next property of Node objects or the next and previous properties of DoubleNode objects, or (2) the properties and methods of JavaScript Array or Set objects.
+
+Some data structures are implemented twice in this repository. Where this is the case, they are named with “1” and “2” suffixes. A structure implementation with “1” relies on Node or DoubleNode properties; one with “2” relies on Array or Set properties and methods.
+
+The Node object has two implementations differing in internal validation, each with its own tests.
+
+The Set implementation is named “PowerSet” so as to avoid any confusion with JavaScript Set objects.
