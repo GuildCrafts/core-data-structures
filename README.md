@@ -4,7 +4,7 @@ Tests and implementations for common data structures. See the full list in the [
 
 Project Goal: [Core Data Structures - Basic](http://jsdev.learnersguild.org/goals/156-Core_Data_Structures-Basic.html)
 
-Base repository for the [Core Data Structures](Core Data Structures--Basic) goal.
+Base repository: [Core Data Structures--Basic](https://github.com/diop/core-data-structures)
 
 Team Name: ten-seal
 

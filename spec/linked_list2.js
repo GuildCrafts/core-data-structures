@@ -4,7 +4,7 @@ import LinkedList from '../src/linked_list2'
 
 chai.use(chaiChange)
 
-describe('LinkedList', function() {
+describe('LinkedList2', function() {
   'use strict'
 
   it('is a function', function() {
