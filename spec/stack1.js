@@ -1,12 +1,11 @@
 import chai, { expect } from 'chai'
 import chaiChange from 'chai-change'
-import Stack from '../src/stack'
-import Node from '../src/node'
-import LinkedList from '../src/linkedlist'
+import Stack from '../src/stack1'
+import Node from '../src/node1'
 
 chai.use(chaiChange)
 
-describe('Stack', () => {
+describe('Stack1', () => {
   'use strict'
   const stack = new Stack()
 

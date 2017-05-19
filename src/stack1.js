@@ -1,5 +1,5 @@
-import Node from '../src/node'
-import LinkedList from '../src/linkedlist'
+import Node from '../src/node1'
+import LinkedList from '../src/linked_list1'
 
 'use strict'
 
