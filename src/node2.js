@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*
   Class declaration for Node and export statement making that

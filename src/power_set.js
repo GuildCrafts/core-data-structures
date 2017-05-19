@@ -31,7 +31,7 @@ export default class PowerSet {
   // Returns the union of this and another powerSet.
   union(otherPowerSet) {
     const newPowerSet = new PowerSet(this.pSet);
-    const addToThis = function(element, key, sourceSet) {
+    const addToThis = function(element) {
       this.add(element);
     };
     otherPowerSet.pSet.forEach(addToThis, newPowerSet.pSet);
@@ -41,7 +41,7 @@ export default class PowerSet {
   // Returns the intersection of this and another powerSet.
   intersect(otherPowerSet) {
     const newPowerSet = new PowerSet();
-    const addToThis = function(element, key, thisSet) {
+    const addToThis = function(element) {
       if (otherPowerSet.contains(element)) {
         this.add(element);
       }
@@ -53,7 +53,7 @@ export default class PowerSet {
   // Returns the difference of this from another powerSet.
   difference(otherPowerSet) {
     const newPowerSet = new PowerSet();
-    const addToThis = function(element, key, thisSet) {
+    const addToThis = function(element) {
       if (! otherPowerSet.contains(element)) {
         this.add(element);
       }
@@ -64,7 +64,7 @@ export default class PowerSet {
 
   // Returns whether this is a subset of another powerSet.
   isSubset(otherPowerSet) {
-    for (element of this.pSet) {
+    for (let element of this.pSet) {
       if (! otherPowerSet.contains(element)) {
         return false;
       }
