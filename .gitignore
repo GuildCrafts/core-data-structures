@@ -2,3 +2,4 @@ node_modules/
 *npm-debug*
 *yarn-error*
 __pycache__
+.nyc_output/
