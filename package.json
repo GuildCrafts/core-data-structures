@@ -24,7 +24,8 @@
   },
   "ava": {
     "files": [
-      "spec/ava_tests/*.js"
+      "spec/ava_tests/*.js",
+      "!spec/ava_tests/hash_table.js"
     ],
     "source": [
       "**/*.{js,jsx}",
