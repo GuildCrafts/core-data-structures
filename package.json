@@ -2,17 +2,43 @@
   "name": "core-data-structures",
   "description": "Tests and implementations for common data structures.",
   "private": false,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "devDependencies": {
+    "ava": "^0.19.1",
     "babel-cli": "^6.18.0",
     "babel-preset-env": "^1.1.4",
     "babel-register": "^6.18.0",
     "chai": "~1.8.0",
     "chai-change": "^2.1.2",
-    "mocha": "2.0.1"
+    "mocha": "2.0.1",
+    "nyc": "10.3.2"
   },
   "scripts": {
     "build": "babel src -d lib",
-    "test": "mocha --compilers js:babel-register ./spec/*.js"
+    "test": "nyc mocha --compilers js:babel-register --inline-diffs ./spec/*.js && ava",
+    "test-hash": "cd python/spec ; ./testHash.sh && cd ../.."
+  },
+  "dependencies": {
+    "babel-preset-latest": "^6.22.0",
+    "tap-nyan": "^1.1.0"
+  },
+  "ava": {
+    "files": [
+      "spec/ava_tests/*.js",
+      "!spec/ava_tests/hash_table.js"
+    ],
+    "source": [
+      "**/*.{js,jsx}",
+      "!node_modules/**/*"
+    ],
+    "concurrency": 5,
+    "failFast": false,
+    "failWithoutAssertions": false,
+    "tap": true,
+    "powerAssert": false,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   }
 }
