@@ -1,12 +1,12 @@
 export default class Node {
 
   constructor(data) {
-    this.data = {data: data}
-    this.next = undefined
+    this.data = data
+    this.next = null
   }
 
   getData() {
-  return this.data.data
+  return this.data
   }
 
   setNext(Node) {
@@ -15,9 +15,6 @@ export default class Node {
   }
 
   getNext(){
-    if(this.next === undefined) {
-      return null
-    }
     return this.next
   }
 }

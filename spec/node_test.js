@@ -1,5 +1,4 @@
 import chai, { expect } from 'chai'
-import chaiChange from 'chai-change'
 import Node from '../src/node'
 
 describe('Node', () => {
