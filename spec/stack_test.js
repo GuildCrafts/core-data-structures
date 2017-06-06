@@ -25,7 +25,6 @@ describe('Stack', () => {
       const popStack = new Stack()
       popStack.push('boo')
       popStack.push('hoo')
-      console.log(popStack.pop());
       expect(popStack.pop()).to.equal('hoo')
       expect(() => popStack.pop().to.alter( () => popStack.length(), { from: 2, to: 1 }) )
     })
