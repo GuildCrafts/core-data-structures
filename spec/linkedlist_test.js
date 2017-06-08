@@ -2,7 +2,7 @@ import chai, { expect } from 'chai'
 import Node from '../src/node'
 import LinkedList from '../src/linkedlist'
 
-describe('LinkedList', () => {
+describe.only('LinkedList', () => {
 
   it('exists', () => {
     expect(LinkedList).to.be.a('function')
@@ -12,8 +12,9 @@ describe('LinkedList', () => {
     it('returns the first node in the list', () => {
       const listOfLinks = new LinkedList()
       listOfLinks.insert('tacos')
+      listOfLinks.insert('fish')
 
-      expect(listOfLinks.getTailNode().getData()).to.equal('tacos')
+      expect(listOfLinks.getHeadNode().getData()).to.equal('tacos')
     })
   })
 
@@ -22,16 +23,7 @@ describe('LinkedList', () => {
       const linky = new LinkedList()
       linky.insert('oneNode')
       linky.insert('twoNode')
-      expect(linky.getTailNode().getData()).to.equal('oneNode')
-    })
-  })
-
-  context('contains()', () => {
-    it(' Determines whether or not the list contains the provided data', () => {
-      const Grapevine = new LinkedList()
-      Grapevine.insert('greenGrape')
-      Grapevine.insert('redGrape')
-      expect(Grapevine.contains('greenGrape')).to.equal(true)
+      expect(linky.getTailNode().data).to.equal('twoNode')
     })
   })
 
@@ -39,6 +31,10 @@ describe('LinkedList', () => {
     it('Returns the first node containing the provided data, or -1 if not found', () => {
       const magicList = new LinkedList()
       magicList.insert('creatures')
+      magicList.insert('spells')
+      magicList.insert('wands')
+      console.log(magicList);
+      expect(magicList.find('creatures')).to.equal('creatures')
       expect(magicList.find('dogs')).to.equal(-1)
     })
   })
@@ -49,15 +45,7 @@ describe('LinkedList', () => {
       carbs.insert('noodle')
       carbs.insert('pasta')
       carbs.insert('bread')
-      expect(carbs.getTailNode().data).to.equal('noodle')
-    })
-  })
-
-  context('insertFirst()', () => {
-    it('Inserts a node (with the provided data) to the head of the list', () => {
-      const bestFoods = new LinkedList()
-      bestFoods.insertFirst('iceCream')
-      expect(bestFoods.getHeadNode().data).to.equal('iceCream')
+      expect(carbs.getTailNode().data).to.equal('bread')
     })
   })
 
@@ -66,16 +54,16 @@ describe('LinkedList', () => {
       const linkylisty = new LinkedList()
       linkylisty.insert('banananode')
       linkylisty.insertBefore('applenode')
-      expect(linkylisty.getTailNode().data).to.equal('banananode')
+      expect(linkylisty.getHeadNode().data).to.equal('banananode')
     })
   })
 
   context('insertAfter()', () => {
-    it('Inserts a node (with data "bananas") after the first node containing "apples"', () => {
+    it('Inserts a node after the first node containing data', () => {
       const lunchlist = new LinkedList()
       lunchlist.insert('chinese')
       lunchlist.insertBefore('poke')
-      expect(lunchlist.getTailNode().data).to.equal('chinese')
+      expect(lunchlist.getHeadNode().data).to.equal('chinese')
     })
   })
 
@@ -85,19 +73,7 @@ describe('LinkedList', () => {
       Animals.insert('cats')
       Animals.insert('mice')
       Animals.remove('mice')
-      expect(Animals.getTailNode().data).to.equal('cats')
-    })
-  })
-
-  context('removeFirst()', () => {
-    it('Removes the head node', () => {
-      const Vegetables = new LinkedList()
-      Vegetables.insert('peas')
-      Vegetables.insert('brocolli')
-      Vegetables.insert('kale')
-      Vegetables.removeFirst('peas')
-
-      expect(Vegetables.getHeadNode().data).to.equal('kale')
+      expect(Animals.getHeadNode().data).to.equal('cats')
     })
   })
 

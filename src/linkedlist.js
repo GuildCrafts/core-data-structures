@@ -3,7 +3,6 @@ export default class LinkedList {
 
   constructor() {
     this.head = null
-    this.tail = null
     this.count = 0
   }
 
@@ -12,29 +11,51 @@ export default class LinkedList {
   }
 
   getTailNode() {
-    return this.tail
+    let currentNode = this.head
+    if(this.head === null) return
+    while(currentNode.next !== null) {
+      currentNode = currentNode.next
+    }
+    return currentNode
+    this.count--
   }
 
   insert(data) {
-    const nodeToInsert = new Node(data)
-    if(this.count === 0) {
-      this.tail = nodeToInsert
+    let nodeToInsert = new Node(data)
+    let nodeToCheck = this.head
+
+    if(nodeToCheck === null) {
+      //if it is the first node then set it to the head
+      this.head = nodeToInsert
       this.count++
-      return
+      return nodeToInsert
     }
-    this.head = nodeToInsert
+
+    while(nodeToCheck.next) {
+      //loop through to find the end of the list
+      nodeToCheck = nodeToCheck.next
+    }
+    //add the new node to the end of the list
+    nodeToCheck.next = nodeToInsert
     this.count++
   }
 
   insertFirst(data) {
-    const insertNode = new Node(data)
-    this.head = insertNode
-    this.count++
+    const currentNode = new Node()
+    if(!this.head) {
+      this.head = currentNode
+      return currentNode
+    }
+    let headNode = this.head
+    currentNode.next = headNode
+    this.head = currentNode
+
+    return currentNode
   }
 
   insertBefore(data) {
     const insertBeforeNode = new Node(data)
-    if(this.head === data || this.tail === data) {
+    if(this.head === data || this.head.next === data) {
       this.head = insertBeforeNode
       this.count++
     }
@@ -43,36 +64,45 @@ export default class LinkedList {
   insertAfter(data) {
     const insertAfterNode = new Node(data)
     if(this.head === data || this.tail === data) {
-      this.tail = insertAfterNode
+      this.head.next = insertAfterNode
       this.count++
     }
   }
 
   contains(data) {
-    if(this.head.data === data || this.tail.data === data)
-    return true
+    return this.find(data) !== -1
   }
 
   find(data) {
-    if(this.head === data) {
-      return this.head
+    let currentNode = this.head
+    if(!data) {
+      return -1
     }
-    else if(this.tail === data) {
-      return this.tail
+    while(currentNode.next !== null) {
+      currentNode = currentNode.next
+      this.count++
     }
-    return -1
+    return currentNode
   }
 
-  remove(data) {
-    if(this.tail === data) {
-      this.tail = null
+  remove() {
+    let nodeToCheck = this.head
+    if(this.count === 0) {
+      this.head = nodeToCheck.next;
+      this.count--
+
+      return this.head
     }
-  }
-  removeFirst(data) {
-    if(this.head === data) {
-      this.head = null
+
+    while(nodeToCheck.next) {
+      nodeToCheck = nodeToCheck.next
+      this.count++
     }
+
+    nodeToCheck = null
+    this.count--
   }
+
   isEmpty() {
     if(this.count === 0) {
       return true
