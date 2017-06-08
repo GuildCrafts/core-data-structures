@@ -33,8 +33,7 @@ describe.only('LinkedList', () => {
       magicList.insert('creatures')
       magicList.insert('spells')
       magicList.insert('wands')
-      console.log(magicList);
-      expect(magicList.find('creatures')).to.equal('creatures')
+      expect(magicList.find('spells')).to.equal('spells')
       expect(magicList.find('dogs')).to.equal(-1)
     })
   })

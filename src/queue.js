@@ -9,14 +9,44 @@ export default class Queue {
 
   enqueue() {
    const node = new Node()
-   this.back = node
+   if(this.front === null){
+     this.front = node
+     this.count++
+   }
+
+   while(this.front.next){
+     this.front.next = node
+     this.count++
+   }
+  }
+
+  dequeue() {
+    while(this.front) {
+      this.front = this.front.next
+      this.count--
+    }
+    return null
   }
 
   front() {
+    if(this.front === null) {
+      return null
+    }
     return this.front
   }
 
   back() {
+    if(this.back === null) {
+      return null
+    }
     return this.back
+  }
+
+  isEmpty() {
+    if(this.count === 0) return true
+  }
+
+  length() {
+    return this.count
   }
 }

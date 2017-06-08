@@ -74,15 +74,15 @@ export default class LinkedList {
   }
 
   find(data) {
+    if(this.head === null) { return -1 }
     let currentNode = this.head
-    if(!data) {
-      return -1
+    while(currentNode) {
+      if(data === currentNode.data){
+        return currentNode.data
+      }
+        currentNode = currentNode.next
     }
-    while(currentNode.next !== null) {
-      currentNode = currentNode.next
-      this.count++
-    }
-    return currentNode
+    return -1
   }
 
   remove() {

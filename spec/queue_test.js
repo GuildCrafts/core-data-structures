@@ -11,6 +11,7 @@ describe('Queue', () => {
     it('adds an element to the back of the queue', () => {
       const QueueAdd = new Queue()
       QueueAdd.enqueue('max')
+      console.log(QueueAdd);
       expect(QueueAdd.back().data).to.equal('max')
     })
   })
@@ -29,6 +30,7 @@ describe('Queue', () => {
     it('returns the front element in queue or null if the queue is empty.', () => {
       const QueueFront = new Queue()
       QueueFront.enqueue('farts')
+      console.log(QueueFront);
       expect(QueueFront.front()).to.equal('farts')
       QueueFront.dequeue('farts')
       expect(QueueFront.front()).to.equal(null)
